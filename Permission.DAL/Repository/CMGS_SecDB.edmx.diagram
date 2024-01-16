@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="752d1c26c92a4a979939edd1c715597e" Name="Diagram1">
+        <EntityTypeShape EntityType="CMGS_DBModel.LoggerException" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMGS_DBModel.LoggerMatrix" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMGS_DBModel.LoggerUser" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_AdminType" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_MainSystem" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_ModuleThemes" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_Permission" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_SystemPages" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_Department" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="CMGS_DBModel.View_UserSystems" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_admin" Width="1.5" PointX="10.625" PointY="1.125" />
+        <AssociationConnector Association="CMGS_DBModel.FK_HD_admin_HD_AdminType" />
+        <AssociationConnector Association="CMGS_DBModel.FK_Security_pr_admin_Security_pr_Department" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

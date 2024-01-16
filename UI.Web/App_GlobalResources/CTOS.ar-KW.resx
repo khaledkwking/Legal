@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Dashboard" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد</value>
+  </data>
+  <data name="Ignored" xml:space="preserve">
+    <value>تجاهل</value>
+  </data>
+  <data name="IgnoredStr" xml:space="preserve">
+    <value>الاغلاق لعدم صحة الاخطار</value>
+  </data>
+  <data name="InProcess" xml:space="preserve">
+    <value>تحت العمل</value>
+  </data>
+  <data name="mobile" xml:space="preserve">
+    <value>نقال</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="NewStr" xml:space="preserve">
+    <value>الحالات الجديدة المرسلة</value>
+  </data>
+  <data name="OwnerName" xml:space="preserve">
+    <value>الراسل</value>
+  </data>
+  <data name="Proceeded" xml:space="preserve">
+    <value>تم الحل</value>
+  </data>
+  <data name="ProceededStr" xml:space="preserve">
+    <value>حالات تم حلها</value>
+  </data>
+  <data name="Quick" xml:space="preserve">
+    <value>سريع</value>
+  </data>
+  <data name="StrInProcess" xml:space="preserve">
+    <value>جاري العمل عليها</value>
+  </data>
+  <data name="TerminalPerformanceDashboard" xml:space="preserve">
+    <value>لوحة مؤشرات الإتفاقيات</value>
+  </data>
+  <data name="Ticket" xml:space="preserve">
+    <value>رقم المرجع</value>
+  </data>
+  <data name="ticketRate" xml:space="preserve">
+    <value>مؤشر إجراءات الإتفاقيات</value>
+  </data>
+  <data name="Tickets" xml:space="preserve">
+    <value>إدارة الحالات</value>
+  </data>
+  <data name="TicketsList" xml:space="preserve">
+    <value>قائمة الحالات</value>
+  </data>
+  <data name="TicketsTrend" xml:space="preserve">
+    <value>معدل الحالات المرسلة</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>الاجمإلى</value>
+  </data>
+  <data name="TotalStr" xml:space="preserve">
+    <value>إجمإلى الحالات المستلمة</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>تحويل</value>
+  </data>
+  <data name="TransferStr" xml:space="preserve">
+    <value>التحويل لجهة الاختصاص</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>مرفق</value>
+  </data>
+  <data name="casetype" xml:space="preserve">
+    <value>نوع القضية</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>مغلق</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>تفاصيل الحالة</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>تصفية</value>
+  </data>
+  <data name="InformationSource" xml:space="preserve">
+    <value>مصادر المعلومات</value>
+  </data>
+  <data name="NamesRef" xml:space="preserve">
+    <value>الاسماء ومالمراجع</value>
+  </data>
+  <data name="PartOfCase" xml:space="preserve">
+    <value>حزء من النص</value>
+  </data>
+  <data name="postDate" xml:space="preserve">
+    <value>تاريخ الاسال</value>
+  </data>
+  <data name="Ref" xml:space="preserve">
+    <value>رقم المرجع</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="TicketListManager" xml:space="preserve">
+    <value>إدارة الحالات المرسلة</value>
+  </data>
+  <data name="TransactionDate" xml:space="preserve">
+    <value>تاريخ الارسال</value>
+  </data>
+  <data name="TransactionDateTo" xml:space="preserve">
+    <value>تاريخ الارسال إلى</value>
+  </data>
+  <data name="ViewFiles" xml:space="preserve">
+    <value>عرض الملف</value>
+  </data>
+  <data name="AgreementsTypes" xml:space="preserve">
+    <value>انواع الإتفاقيات</value>
+  </data>
+  <data name="_Totalmarsoom" xml:space="preserve">
+    <value>الاصدار بمرسوم</value>
+  </data>
+  <data name="_TotalmarsoomSre" xml:space="preserve">
+    <value> الإتفاقيات المصدرة بمرسوم</value>
+  </data>
+  <data name="_TotalPublished" xml:space="preserve">
+    <value>تم النشر</value>
+  </data>
+  <data name="_TotalPublishedSfd" xml:space="preserve">
+    <value>الإتفاقيات التي تم نشرها</value>
+  </data>
+  <data name="_TotalToLaw" xml:space="preserve">
+    <value>جهات الاختصاص</value>
+  </data>
+  <data name="_TotalToLawStr" xml:space="preserve">
+    <value>الإحالة إلى جهات الاختصاص</value>
+  </data>
+  <data name="_TotalToMinistery" xml:space="preserve">
+    <value>اللجان  الوزارية</value>
+  </data>
+  <data name="_TotalToMinisterystr" xml:space="preserve">
+    <value>مذكرة للعرض</value>
+  </data>
+  <data name="_TotalToOmma" xml:space="preserve">
+    <value>مجلس الامه</value>
+  </data>
+  <data name="_TotalToOmmaStr" xml:space="preserve">
+    <value>المحالة لمجلس الامه</value>
+  </data>
+  <data name="_TotalUnderStudy" xml:space="preserve">
+    <value>قيد الدراسة</value>
+  </data>
+  <data name="_TotalUnderStudyStr" xml:space="preserve">
+    <value>الإتفاقيات قيد الدراسة</value>
+  </data>
+  <data name="MedalDashboard" xml:space="preserve">
+    <value>لوحة مؤشرات الأنواط والأوسمة</value>
+  </data>
+  <data name="_TotalMedalCompleteData" xml:space="preserve">
+    <value>إستكمال البيانات</value>
+  </data>
+  <data name="_TotalMedalCompleteDataStr" xml:space="preserve">
+    <value>إعادة للجهة لإستكمال البيانات</value>
+  </data>
+  <data name="_TotalMedalToDewan" xml:space="preserve">
+    <value>وزير الديوان الاميري</value>
+  </data>
+  <data name="_TotalMedalToDewanStr" xml:space="preserve">
+    <value>التحويل إلى وزير الديوان الأميري لإصدار الأمر الأميري</value>
+  </data>
+  <data name="_TotalMedalToMinister" xml:space="preserve">
+    <value>وزير الدولة</value>
+  </data>
+  <data name="_TotalMedalToMinisterStr" xml:space="preserve">
+    <value>مذكرة للعرض على وزير الدولة لشئون مجلس الوزراء</value>
+  </data>
+  <data name="MedalOrgTypes" xml:space="preserve">
+    <value>الأنواط والأوسمة  الممنوحه للجهات</value>
+  </data>
+  <data name="MedalEkhtar" xml:space="preserve">
+    <value>إخطار الجهة</value>
+  </data>
+  <data name="MedalEkhtarStr" xml:space="preserve">
+    <value>إخطار الجهة بصدور الأمر الأميري</value>
+  </data>
+  <data name="Medalsader" xml:space="preserve">
+    <value>صدور الأمر الأميري</value>
+  </data>
+  <data name="MedalsaderStr" xml:space="preserve">
+    <value>الأنواط والأوسمة التي صدر بشأنها أمر أميري</value>
+  </data>
+  <data name="MedalStatus" xml:space="preserve">
+    <value>إحصائية حالات الانواط الممنوحه للجهات</value>
+  </data>
+  <data name="CasesDashbord" xml:space="preserve">
+    <value>لوحة مؤشرات القضايا</value>
+  </data>
+  <data name="_TotalCasesDegree1" xml:space="preserve">
+    <value>اول درجه</value>
+  </data>
+  <data name="_TotalCasesDegree2" xml:space="preserve">
+    <value>اول درجه مستعجل</value>
+  </data>
+  <data name="_TotalCasesDegree3" xml:space="preserve">
+    <value>استئناف (ثاني درجة)</value>
+  </data>
+  <data name="_TotalCasesDegree4" xml:space="preserve">
+    <value>استئناف مستعجل</value>
+  </data>
+  <data name="_TotalCasesDegree5" xml:space="preserve">
+    <value>تمييز</value>
+  </data>
+  <data name="_TotalCasesDegree6" xml:space="preserve">
+    <value>تمييز مستعجل</value>
+  </data>
+  <data name="QuestionsDashborad" xml:space="preserve">
+    <value>لوحة مؤشرات الأسئلة البرلمانية والاستجوابات</value>
+  </data>
+  <data name="QuestionStstusCOunt" xml:space="preserve">
+    <value>عدد الأسئلة طبقا لحالة الإجابة</value>
+  </data>
+  <data name="_TotalQuestion_AllDesc" xml:space="preserve">
+    <value>اجمإلى عدد الاسئلة</value>
+  </data>
+  <data name="_TotalQuestion_AllStr" xml:space="preserve">
+    <value>الاجمإلى</value>
+  </data>
+  <data name="_TotalQuestion_DelaiedDesc" xml:space="preserve">
+    <value>عدد الأسئلة والاستجوابات التي لم يتم الرد عليها</value>
+  </data>
+  <data name="_TotalQuestion_DelaiedStr" xml:space="preserve">
+    <value>لم تتم الاجابة</value>
+  </data>
+  <data name="_TotalQuestion_NoAnswerDesc" xml:space="preserve">
+    <value>عدد الأسئلة والاستجوابات التي تم الرد عليها بعدم الاختصاص </value>
+  </data>
+  <data name="_TotalQuestion_NoAnswerStr" xml:space="preserve">
+    <value>لعدم الاختصاص</value>
+  </data>
+  <data name="_TotalQuestion_ReliedDesc" xml:space="preserve">
+    <value>عدد الأسئلة والاستجوابات التي تمت الاجابة عليها</value>
+  </data>
+  <data name="_TotalQuestion_Reliedstr" xml:space="preserve">
+    <value>تمت الاجابة</value>
+  </data>
+  <data name="QuestionsDashborad2" xml:space="preserve">
+    <value> الأسئلة البرلمانية للفصل التشريعي  </value>
+  </data>
+  <data name="QuestionTargetCOunt" xml:space="preserve">
+    <value>  الأسئلة الموجهة في الفصل -</value>
+  </data>
+  <data name="_TotalQuestion_Estifaa" xml:space="preserve">
+    <value>استيفاء</value>
+  </data>
+  <data name="_TotalQuestion_Estifaadesc" xml:space="preserve">
+    <value>عدد الأسئلة البرلمانية التي تحتاج استيفاء بيانات</value>
+  </data>
+  <data name="_TotalQuestion_partial" xml:space="preserve">
+    <value>تمت الإجابة ( رد جزئي )</value>
+  </data>
+  <data name="_TotalQuestion_partialdesc" xml:space="preserve">
+    <value>عدد الأسئلة البرلمانية التي تمت الاجابة عليها بشكل جزئي</value>
+  </data>
+  <data name="_TotalCMGS" xml:space="preserve">
+    <value>قرار مجلس الوزراء</value>
+  </data>
+  <data name="_TotalCMGSDESC" xml:space="preserve">
+    <value>الإتفاقيات التي صدر لها قرار مجلس الوزراء</value>
+  </data>
+  <data name="Judgmentresult" xml:space="preserve">
+    <value>إحصائية القضايا طبقا لنتيجة الحكم</value>
+  </data>
+  <data name="_TotalOther" xml:space="preserve">
+    <value>إجراءات اخرى</value>
+  </data>
+  <data name="_TotalOtherStr" xml:space="preserve">
+    <value>الإتفاقيات  المسجلة بإجراءات اخرى</value>
+  </data>
+  <data name="_TotalCasesDegree7" xml:space="preserve">
+    <value>إستشكال</value>
+  </data>
+  <data name="_TotalCasesDegree8" xml:space="preserve">
+    <value>استئناف</value>
+  </data>
+</root>

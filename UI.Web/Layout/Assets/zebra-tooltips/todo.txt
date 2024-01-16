@@ -1,0 +1,4 @@
+vezi pe alte browsere
+z-index-ul tooltip-ului curent trebuie sa fie mai mare ca al celorlalte
+sa pot sa pre-randez toate tooltip-urile
+sa pot seta max-width din settings

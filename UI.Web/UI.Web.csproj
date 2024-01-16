@@ -1,0 +1,1054 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C1E379C6-F045-4BD5-BA59-5293E8E2CD16}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UI.Web</RootNamespace>
+    <AssemblyName>UI.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ASPnetPagerV2netfx2_0">
+      <HintPath>bin\ASPnetPagerV2netfx2_0.dll</HintPath>
+    </Reference>
+    <Reference Include="CkEditor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\CkEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="CKEditor.NET, Version=3.6.4.0, Culture=neutral, PublicKeyToken=e379cdf2f8354999, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\CKEditor.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="FredCK.FCKeditorV2">
+      <HintPath>bin\FredCK.FCKeditorV2.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.3.11, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.3.3\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NWebsec, Version=4.2.0.0, Culture=neutral, PublicKeyToken=3613da5f958908a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NWebsec.4.2.0\lib\40\NWebsec.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NWebsec.Core, Version=1.5.0.0, Culture=neutral, PublicKeyToken=3613da5f958908a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NWebsec.Core.1.5.0\lib\40\NWebsec.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Controller\ItemDescComplete.vb" />
+    <Content Include="Admin\Masters\Admin.Master" />
+    <Content Include="Admin\Pages\pdfCompress.aspx" />
+    <Content Include="Admin\Pages\AdminManager.aspx" />
+    <Content Include="Admin\Pages\Home.aspx" />
+    <Content Include="Admin\Pages\Login.aspx" />
+    <Content Include="Admin\Pages\PermissionsNew.aspx" />
+    <Content Include="Admin\Pages\AccessDenied.aspx" />
+    <Content Include="Admin\reports\userSystemsDeliveryForm.aspx" />
+    <Content Include="Admin\Styles\coin-slider-styles.css" />
+    <Content Include="Admin\Styles\supernote.css" />
+    <Content Include="default.aspx" />
+    <Content Include="Error\BadRequest.html" />
+    <Content Include="Error\Forbidden.html" />
+    <Content Include="Error\InternalServerError.html" />
+    <Content Include="Error\MethodNotAllowed.html" />
+    <Content Include="Error\NotFound.html" />
+    <Content Include="Error\Unauthorized.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Modules\Agreements\Forms\AgreementProcedures.aspx" />
+    <Content Include="Modules\Agreements\Forms\AgreementMainAttachments.aspx" />
+    <Content Include="Modules\Agreements\Forms\AgreementsDataLink.aspx" />
+    <Content Include="Modules\Agreements\Forms\AgreementsData.aspx" />
+    <Content Include="Modules\Agreements\Forms\AgreementAttachments.aspx" />
+    <Content Include="Modules\Agreements\Forms\LawDocView.aspx" />
+    <Content Include="Modules\Cases\Forms\CaseTypes.aspx" />
+    <Content Include="Modules\Agreements\reports\AgreementsStatistics.aspx" />
+    <Content Include="Modules\Agreements\reports\AgreementsReport.aspx" />
+    <Content Include="Modules\APICall\datatables.init.js" />
+    <Content Include="Modules\Audit\Forms\Frm_UserOperaionAudit.aspx" />
+    <Content Include="Modules\Audit\Forms\operationKeysDetails.aspx" />
+    <Content Include="Modules\Audit\Forms\operationDetails.aspx" />
+    <Content Include="Modules\Audit\Forms\Frm_UserOperaions.aspx" />
+    <Content Include="Modules\AutoComplete\Services\TextAutoComplete.asmx" />
+    <Content Include="Modules\Cases\Forms\CaseSearchResult.aspx" />
+    <Content Include="Modules\Cases\Reports\CaseResports.aspx" />
+    <Content Include="Modules\Committees\Forms\CommitteeData.aspx" />
+    <Content Include="Modules\Committees\Reports\CommitteeReport.aspx" />
+    <Content Include="Modules\Laws\Forms\LawDessionData.aspx" />
+    <Content Include="Modules\Laws\Forms\LawProjectData.aspx" />
+    <Content Include="Modules\Laws\Forms\LawDocDatalnk.aspx" />
+    <Content Include="Modules\Laws\reports\LawProjectReport.aspx" />
+    <Content Include="Modules\Laws\reports\LawDessionReport.aspx" />
+    <Content Include="Modules\Laws\reports\LawDocDataReport.aspx" />
+    <Content Include="Modules\LegalMemos\Forms\LegalMemoData.aspx" />
+    <Content Include="Modules\LegalMemos\Forms\LegalMemoOrg.aspx" />
+    <Content Include="Modules\LegalMemos\Reports\LegalMemoReport.aspx" />
+    <Content Include="Modules\LibraryDocs\Forms\LibraryDocsView3.aspx" />
+    <Content Include="Modules\LibraryDocs\Forms\LibraryDocsView2.aspx" />
+    <Content Include="Modules\LibraryDocs\Forms\LibraryDocs.aspx" />
+    <Content Include="Modules\Laws\Forms\LawsAttachments.aspx" />
+    <Content Include="Modules\Laws\Forms\LawDocData.aspx" />
+    <Content Include="Modules\LibraryDocs\Forms\LibraryDocsType.aspx" />
+    <Content Include="Modules\MasterData\lookupsfixedCat.aspx" />
+    <Content Include="Modules\MasterData\lookupswithImage.aspx" />
+    <Content Include="Modules\MasterData\lookupsOrder.aspx" />
+    <Content Include="Modules\PM\Forms\Frm_Pm_Letters.aspx" />
+    <Content Include="Modules\PM\Reports\Frm_Pm_LettersReports.aspx" />
+    <Content Include="Modules\Questions\Forms\OmaMadbataLink.aspx" />
+    <Content Include="Modules\Questions\Forms\OmaMadbata.aspx" />
+    <Content Include="Modules\Questions\Forms\InterrogationData.aspx" />
+    <Content Include="Modules\Questions\Forms\ComplaintsData.aspx" />
+    <Content Include="Modules\Questions\Forms\suggestionData.aspx" />
+    <Content Include="Modules\Questions\Forms\QuestionSession.aspx" />
+    <Content Include="Modules\Questions\Forms\QuestionOmaPerson.aspx" />
+    <Content Include="Modules\Questions\Forms\QuestionAttachments.aspx" />
+    <Content Include="Modules\Questions\Forms\QuestionsData.aspx" />
+    <Content Include="Modules\Cases\Forms\CaseArcData.aspx" />
+    <Content Include="Modules\Cases\Forms\CasesData.aspx" />
+    <Content Include="Modules\Cases\Forms\CaseAttachments.aspx" />
+    <Content Include="Modules\MasterData\lookups.aspx" />
+    <Content Include="Modules\Medals\Forms\MedalsMainAttachments.aspx" />
+    <Content Include="Modules\Medals\Forms\MedalsAttachments.aspx" />
+    <Content Include="Modules\Medals\Forms\MedalsData.aspx" />
+    <Content Include="Modules\Questions\reports\ComplaintsReport.aspx" />
+    <Content Include="Modules\Questions\reports\InterrogationReports.aspx" />
+    <Content Include="Modules\Questions\reports\OmaMadbataReports.aspx" />
+    <Content Include="Modules\Questions\reports\QuestionsStatistics.aspx" />
+    <Content Include="Modules\Questions\reports\QuestionsReports.aspx" />
+    <Content Include="Modules\Questions\reports\suggestionReport.aspx" />
+    <Content Include="Modules\ScanningRouter.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="CMGS_DBDataSet.xsc">
+      <DependentUpon>CMGS_DBDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="CMGS_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CMGS_DBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="CMGS_DBDataSet.xss">
+      <DependentUpon>CMGS_DBDataSet.xsd</DependentUpon>
+    </Content>
+    <EmbeddedResource Include="Modules\Committees\RDLC\rpt_CommitteeList.rdlc" />
+    <EmbeddedResource Include="Modules\Committees\RDLC\rpt_CommitteeListgrouping.rdlc" />
+    <EmbeddedResource Include="Modules\LegalMemos\RDLC\rpt_LegalMemogrouping.rdlc" />
+    <None Include="Properties\PublishProfiles\CMGS_PortalDeploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\Controller\Access.cs" />
+    <Compile Include="Admin\Controller\BaseControlAdmin.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controller\BaseFormAdmin.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controller\ConstantUI.cs" />
+    <Compile Include="Admin\Controller\DateTimeCompare.cs" />
+    <Compile Include="Admin\Masters\Tempmaster.Master.cs">
+      <DependentUpon>Tempmaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Masters\Tempmaster.Master.designer.cs">
+      <DependentUpon>Tempmaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Masters\Empty.Master.cs">
+      <DependentUpon>Empty.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Masters\Empty.Master.designer.cs">
+      <DependentUpon>Empty.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Masters\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Masters\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\pdfCompress.aspx.cs">
+      <DependentUpon>pdfCompress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\pdfCompress.aspx.designer.cs">
+      <DependentUpon>pdfCompress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\AdminManager.aspx.cs">
+      <DependentUpon>AdminManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\AdminManager.aspx.designer.cs">
+      <DependentUpon>AdminManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\PermissionsNew.aspx.cs">
+      <DependentUpon>PermissionsNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\PermissionsNew.aspx.designer.cs">
+      <DependentUpon>PermissionsNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\AccessDenied.aspx.designer.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\reports\userSystemsDeliveryForm.aspx.cs">
+      <DependentUpon>userSystemsDeliveryForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\reports\userSystemsDeliveryForm.aspx.designer.cs">
+      <DependentUpon>userSystemsDeliveryForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Alerts.ar-KW.designer.cs">
+      <DependentUpon>Alerts.ar-KW.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\CTOS.ar-KW.designer.cs">
+      <DependentUpon>CTOS.ar-KW.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\CTOS.designer.cs">
+      <DependentUpon>CTOS.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\GDB.ar-KW.designer.cs">
+      <DependentUpon>GDB.ar-KW.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\menu.ar-KW.designer.cs">
+      <DependentUpon>menu.ar-KW.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\GDB.designer.cs">
+      <DependentUpon>GDB.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Panels.ar-KW.designer.cs">
+      <DependentUpon>Panels.ar-KW.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Panels.designer.cs">
+      <DependentUpon>Panels.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Alerts.designer.cs">
+      <DependentUpon>Alerts.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\menu.designer.cs">
+      <DependentUpon>menu.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\lockups.designer.cs">
+      <DependentUpon>lockups.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\lockups.ar-KW.designer.cs">
+      <DependentUpon>lockups.ar-KW.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Utilities.ar-KW.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Utilities.ar-KW.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Utilities1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Utilities.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\ValidationResources.ar.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationResources.ar.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\ValidationResources.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CMGS_DBDataSet.cs">
+      <DependentUpon>CMGS_DBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CMGS_DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMGS_DBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Controler\MemberShipConstantUI.cs" />
+    <Compile Include="Controler\MemberShip_Permission.cs" />
+    <Compile Include="Controler\SuperBusiness.cs" />
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Factory\PermissionFactory.cs" />
+    <Compile Include="Gloabl\BaseForm.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gloabl\Constant.cs" />
+    <Compile Include="Gloabl\Settings.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\AgreementProcedures.aspx.cs">
+      <DependentUpon>AgreementProcedures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\AgreementProcedures.aspx.designer.cs">
+      <DependentUpon>AgreementProcedures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\AgreementMainAttachments.aspx.cs">
+      <DependentUpon>AgreementMainAttachments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\AgreementMainAttachments.aspx.designer.cs">
+      <DependentUpon>AgreementMainAttachments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\AgreementsDataLink.aspx.cs">
+      <DependentUpon>AgreementsDataLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\AgreementsDataLink.aspx.designer.cs">
+      <DependentUpon>AgreementsDataLink.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\AgreementsData.aspx.cs">
+      <DependentUpon>AgreementsData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\AgreementsData.aspx.designer.cs">
+      <DependentUpon>AgreementsData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\AgreementAttachments.aspx.cs">
+      <DependentUpon>AgreementAttachments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\AgreementAttachments.aspx.designer.cs">
+      <DependentUpon>AgreementAttachments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\LawDocView.aspx.cs">
+      <DependentUpon>LawDocView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\LawDocView.aspx.designer.cs">
+      <DependentUpon>LawDocView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Cases\Forms\CaseTypes.aspx.cs">
+      <DependentUpon>CaseTypes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Cases\Forms\CaseTypes.aspx.designer.cs">
+      <DependentUpon>CaseTypes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Agreements\reports\AgreementsStatistics.aspx.cs">
+      <DependentUpon>AgreementsStatistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Agreements\reports\AgreementsStatistics.aspx.designer.cs">
+      <DependentUpon>AgreementsStatistics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Agreements\reports\AgreementsReport.aspx.cs">
+      <DependentUpon>AgreementsReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Agreements\reports\AgreementsReport.aspx.designer.cs">
+      <DependentUpon>AgreementsReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Audit\Forms\Frm_UserOperaionAudit.aspx.cs">
+      <DependentUpon>Frm_UserOperaionAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Audit\Forms\Frm_UserOperaionAudit.aspx.designer.cs">
+      <DependentUpon>Frm_UserOperaionAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Audit\Forms\operationKeysDetails.aspx.cs">
+      <DependentUpon>operationKeysDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Audit\Forms\operationKeysDetails.aspx.designer.cs">
+      <DependentUpon>operationKeysDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Audit\Forms\operationDetails.aspx.cs">
+      <DependentUpon>operationDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Audit\Forms\operationDetails.aspx.designer.cs">
+      <DependentUpon>operationDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Audit\Forms\Frm_UserOperaions.aspx.cs">
+      <DependentUpon>Frm_UserOperaions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Audit\Forms\Frm_UserOperaions.aspx.designer.cs">
+      <DependentUpon>Frm_UserOperaions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\AutoComplete\Services\TextAutoComplete.asmx.cs">
+      <DependentUpon>TextAutoComplete.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modules\Cases\Forms\CaseSearchResult.aspx.cs">
+      <DependentUpon>CaseSearchResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Cases\Forms\CaseSearchResult.aspx.designer.cs">
+      <DependentUpon>CaseSearchResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Cases\Reports\CaseResports.aspx.cs">
+      <DependentUpon>CaseResports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Cases\Reports\CaseResports.aspx.designer.cs">
+      <DependentUpon>CaseResports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Committees\Forms\CommitteeData.aspx.cs">
+      <DependentUpon>CommitteeData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Committees\Forms\CommitteeData.aspx.designer.cs">
+      <DependentUpon>CommitteeData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Committees\Reports\CommitteeReport.aspx.cs">
+      <DependentUpon>CommitteeReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Committees\Reports\CommitteeReport.aspx.designer.cs">
+      <DependentUpon>CommitteeReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawDessionData.aspx.cs">
+      <DependentUpon>LawDessionData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawDessionData.aspx.designer.cs">
+      <DependentUpon>LawDessionData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawProjectData.aspx.cs">
+      <DependentUpon>LawProjectData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawProjectData.aspx.designer.cs">
+      <DependentUpon>LawProjectData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawDocDatalnk.aspx.cs">
+      <DependentUpon>LawDocDatalnk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawDocDatalnk.aspx.designer.cs">
+      <DependentUpon>LawDocDatalnk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\reports\LawProjectReport.aspx.cs">
+      <DependentUpon>LawProjectReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\reports\LawProjectReport.aspx.designer.cs">
+      <DependentUpon>LawProjectReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\reports\LawDessionReport.aspx.cs">
+      <DependentUpon>LawDessionReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\reports\LawDessionReport.aspx.designer.cs">
+      <DependentUpon>LawDessionReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\reports\LawDocDataReport.aspx.cs">
+      <DependentUpon>LawDocDataReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\reports\LawDocDataReport.aspx.designer.cs">
+      <DependentUpon>LawDocDataReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\LegalMemos\Forms\LegalMemoData.aspx.cs">
+      <DependentUpon>LegalMemoData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\LegalMemos\Forms\LegalMemoData.aspx.designer.cs">
+      <DependentUpon>LegalMemoData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\LegalMemos\Forms\LegalMemoOrg.aspx.cs">
+      <DependentUpon>LegalMemoOrg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\LegalMemos\Forms\LegalMemoOrg.aspx.designer.cs">
+      <DependentUpon>LegalMemoOrg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\LegalMemos\Reports\LegalMemoReport.aspx.cs">
+      <DependentUpon>LegalMemoReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\LegalMemos\Reports\LegalMemoReport.aspx.designer.cs">
+      <DependentUpon>LegalMemoReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\LibraryDocs\Forms\LibraryDocsView3.aspx.cs">
+      <DependentUpon>LibraryDocsView3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\LibraryDocs\Forms\LibraryDocsView3.aspx.designer.cs">
+      <DependentUpon>LibraryDocsView3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\LibraryDocs\Forms\LibraryDocsView2.aspx.cs">
+      <DependentUpon>LibraryDocsView2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\LibraryDocs\Forms\LibraryDocsView2.aspx.designer.cs">
+      <DependentUpon>LibraryDocsView2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\LibraryDocs\Forms\LibraryDocs.aspx.cs">
+      <DependentUpon>LibraryDocs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\LibraryDocs\Forms\LibraryDocs.aspx.designer.cs">
+      <DependentUpon>LibraryDocs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawsAttachments.aspx.cs">
+      <DependentUpon>LawsAttachments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawsAttachments.aspx.designer.cs">
+      <DependentUpon>LawsAttachments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawDocData.aspx.cs">
+      <DependentUpon>LawDocData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawDocData.aspx.designer.cs">
+      <DependentUpon>LawDocData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\LibraryDocs\Forms\LibraryDocsType.aspx.cs">
+      <DependentUpon>LibraryDocsType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\LibraryDocs\Forms\LibraryDocsType.aspx.designer.cs">
+      <DependentUpon>LibraryDocsType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MasterData\lookupsfixedCat.aspx.cs">
+      <DependentUpon>lookupsfixedCat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\MasterData\lookupsfixedCat.aspx.designer.cs">
+      <DependentUpon>lookupsfixedCat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MasterData\lookupswithImage.aspx.cs">
+      <DependentUpon>lookupswithImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\MasterData\lookupswithImage.aspx.designer.cs">
+      <DependentUpon>lookupswithImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MasterData\lookupsOrder.aspx.cs">
+      <DependentUpon>lookupsOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\MasterData\lookupsOrder.aspx.designer.cs">
+      <DependentUpon>lookupsOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\PM\Forms\Frm_Pm_Letters.aspx.cs">
+      <DependentUpon>Frm_Pm_Letters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\PM\Forms\Frm_Pm_Letters.aspx.designer.cs">
+      <DependentUpon>Frm_Pm_Letters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\PM\Reports\Frm_Pm_LettersReports.aspx.cs">
+      <DependentUpon>Frm_Pm_LettersReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\PM\Reports\Frm_Pm_LettersReports.aspx.designer.cs">
+      <DependentUpon>Frm_Pm_LettersReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\OmaMadbataLink.aspx.cs">
+      <DependentUpon>OmaMadbataLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\OmaMadbataLink.aspx.designer.cs">
+      <DependentUpon>OmaMadbataLink.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\OmaMadbata.aspx.cs">
+      <DependentUpon>OmaMadbata.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\OmaMadbata.aspx.designer.cs">
+      <DependentUpon>OmaMadbata.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\InterrogationData.aspx.cs">
+      <DependentUpon>InterrogationData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\InterrogationData.aspx.designer.cs">
+      <DependentUpon>InterrogationData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\ComplaintsData.aspx.cs">
+      <DependentUpon>ComplaintsData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\ComplaintsData.aspx.designer.cs">
+      <DependentUpon>ComplaintsData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\suggestionData.aspx.cs">
+      <DependentUpon>suggestionData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\suggestionData.aspx.designer.cs">
+      <DependentUpon>suggestionData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\QuestionSession.aspx.cs">
+      <DependentUpon>QuestionSession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\QuestionSession.aspx.designer.cs">
+      <DependentUpon>QuestionSession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\QuestionOmaPerson.aspx.cs">
+      <DependentUpon>QuestionOmaPerson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\QuestionOmaPerson.aspx.designer.cs">
+      <DependentUpon>QuestionOmaPerson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\QuestionAttachments.aspx.cs">
+      <DependentUpon>QuestionAttachments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\QuestionAttachments.aspx.designer.cs">
+      <DependentUpon>QuestionAttachments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\QuestionsData.aspx.cs">
+      <DependentUpon>QuestionsData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\Forms\QuestionsData.aspx.designer.cs">
+      <DependentUpon>QuestionsData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Cases\Forms\CaseArcData.aspx.cs">
+      <DependentUpon>CaseArcData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Cases\Forms\CaseArcData.aspx.designer.cs">
+      <DependentUpon>CaseArcData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Cases\Forms\CasesData.aspx.cs">
+      <DependentUpon>CasesData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Cases\Forms\CasesData.aspx.designer.cs">
+      <DependentUpon>CasesData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Cases\Forms\CaseAttachments.aspx.cs">
+      <DependentUpon>CaseAttachments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Cases\Forms\CaseAttachments.aspx.designer.cs">
+      <DependentUpon>CaseAttachments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MasterData\lookups.aspx.cs">
+      <DependentUpon>lookups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\MasterData\lookups.aspx.designer.cs">
+      <DependentUpon>lookups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Medals\Forms\MedalsMainAttachments.aspx.cs">
+      <DependentUpon>MedalsMainAttachments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Medals\Forms\MedalsMainAttachments.aspx.designer.cs">
+      <DependentUpon>MedalsMainAttachments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Medals\Forms\MedalsAttachments.aspx.cs">
+      <DependentUpon>MedalsAttachments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Medals\Forms\MedalsAttachments.aspx.designer.cs">
+      <DependentUpon>MedalsAttachments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Medals\Forms\MedalsData.aspx.cs">
+      <DependentUpon>MedalsData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Medals\Forms\MedalsData.aspx.designer.cs">
+      <DependentUpon>MedalsData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\reports\ComplaintsReport.aspx.cs">
+      <DependentUpon>ComplaintsReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\reports\ComplaintsReport.aspx.designer.cs">
+      <DependentUpon>ComplaintsReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\reports\InterrogationReports.aspx.cs">
+      <DependentUpon>InterrogationReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\reports\InterrogationReports.aspx.designer.cs">
+      <DependentUpon>InterrogationReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\reports\OmaMadbataReports.aspx.cs">
+      <DependentUpon>OmaMadbataReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\reports\OmaMadbataReports.aspx.designer.cs">
+      <DependentUpon>OmaMadbataReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\reports\QuestionsStatistics.aspx.cs">
+      <DependentUpon>QuestionsStatistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\reports\QuestionsStatistics.aspx.designer.cs">
+      <DependentUpon>QuestionsStatistics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\reports\QuestionsReports.aspx.cs">
+      <DependentUpon>QuestionsReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\reports\QuestionsReports.aspx.designer.cs">
+      <DependentUpon>QuestionsReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Questions\reports\suggestionReport.aspx.cs">
+      <DependentUpon>suggestionReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Questions\reports\suggestionReport.aspx.designer.cs">
+      <DependentUpon>suggestionReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Unity.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainInterface\DomainInterface.csproj">
+      <Project>{f07a1f32-8f62-4e73-b25b-b5a2413a945b}</Project>
+      <Name>DomainInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.DAL\Infrastructure.DAL.csproj">
+      <Project>{96FFFB5F-0713-47A1-B2D7-9128DBD56107}</Project>
+      <Name>Infrastructure.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.EnterpriseLibrary\Infrastructure.EnterpriseLibrary.csproj">
+      <Project>{A385AFD8-7D81-47D6-99FE-5FD666164B60}</Project>
+      <Name>Infrastructure.EnterpriseLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Permission.DAL\Permission.DAL.csproj">
+      <Project>{899BF54E-9B16-4A5F-8EBF-19FE0F355B6E}</Project>
+      <Name>Permission.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI.Culture\UI.Culture.csproj">
+      <Project>{2a464b36-8f40-437d-a8f5-e1982ab97aba}</Project>
+      <Name>UI.Culture</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{b29bbade-7ee4-4c9a-8840-eefb4a798aa2}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Skins\Skins.skin" />
+    <Content Include="Admin\Masters\Empty.Master" />
+    <Content Include="Admin\Masters\Tempmaster.Master" />
+    <Content Include="packages.config" />
+    <None Include="NWebsecConfig\HttpHeaderSecurityModuleConfig.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\ValidationResources.ar.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ValidationResources.ar.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\ValidationResources.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ValidationResources.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Utilities.ar-KW.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Utilities.ar-KW.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Utilities.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Utilities1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\Panels.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Panels.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Panels.ar-KW.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Panels.ar-KW.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Alerts.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Alerts.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Alerts.ar-KW.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Alerts.ar-KW.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\menu.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>menu.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\GDB.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GDB.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\menu.ar-KW.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>menu.ar-KW.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\GDB.ar-KW.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GDB.ar-KW.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\CTOS.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>CTOS.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\CTOS.ar-KW.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>CTOS.ar-KW.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\lockups.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>lockups.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\lockups.ar-KW.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>lockups.ar-KW.designer.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="Admin\RDLC\UserSystemsDeliveryForm.rdlc" />
+    <EmbeddedResource Include="Admin\RDLC\UserSystemsDeliveryForm2.rdlc" />
+    <EmbeddedResource Include="Modules\Agreements\RDLC\rpt_AgreementsListwithoutGroup.rdlc" />
+    <EmbeddedResource Include="Modules\Agreements\RDLC\rpt_AgreementsList.rdlc" />
+    <EmbeddedResource Include="Modules\Agreements\RDLC\rpt_AgreementsStatistics.rdlc" />
+    <EmbeddedResource Include="Modules\Audit\RDLC\rpt_AuditLogFunctions.rdlc" />
+    <EmbeddedResource Include="Modules\Audit\RDLC\rpt_UserAuditOperation.rdlc" />
+    <EmbeddedResource Include="Modules\Audit\RDLC\rpt_UserAuditOperations.rdlc" />
+    <EmbeddedResource Include="Modules\Cases\RDLC\rpt_CasesListgrouping.rdlc" />
+    <EmbeddedResource Include="Modules\Laws\RDLC\rpt_Dessionlawdocs.rdlc" />
+    <EmbeddedResource Include="Modules\Laws\RDLC\rpt_lawProjectdocs.rdlc" />
+    <EmbeddedResource Include="Modules\Laws\RDLC\rpt_lawdocs.rdlc" />
+    <EmbeddedResource Include="Modules\Laws\RDLC\rpt_Dessionlawdocsgrouping.rdlc" />
+    <EmbeddedResource Include="Modules\Laws\RDLC\rpt_lawdocsgrouping.rdlc" />
+    <EmbeddedResource Include="Modules\PM\RDLC\rpt_PmList.rdlc" />
+    <EmbeddedResource Include="Modules\PM\RDLC\rpt_PmListgrouping.rdlc" />
+    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_ComplaintsList.rdlc" />
+    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_Suggestiongrouping.rdlc" />
+    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_InterrrogationList.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_ComplaintsListgrouping.rdlc" />
+    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_InterrrogationListgrouping.rdlc" />
+    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_MadbataList.rdlc" />
+    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_MadbataListgrouping.rdlc" />
+    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_QuestionsStatistics.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_QuestionsLIstSectionGroup.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_QuestionsLIst.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_SuggestionList.rdlc" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admin\Factory\" />
+    <Folder Include="Admin\SiteMapXML\" />
+    <Folder Include="Admin\WUC\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="aspnet_client\" />
+    <Folder Include="bin\" />
+    <Folder Include="Modules\Agreements\Master\" />
+    <Folder Include="Modules\Agreements\UC\" />
+    <Folder Include="Modules\Medals\UC\" />
+    <Folder Include="SharedMasters\" />
+    <Folder Include="UC\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

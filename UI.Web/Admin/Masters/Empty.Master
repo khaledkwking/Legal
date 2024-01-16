@@ -1,0 +1,533 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Empty.Master.cs" Inherits="UI.Web.Admin.Masters.Empty" %>
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head runat="server">
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CMGS | الأمانة العامة لمجلس الوزراء – دولة الكويت </title>
+
+
+     
+     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	<!-- Global stylesheets -->
+
+
+
+
+  
+
+    <%-------------------------------------------------%>
+	 
+<link href="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/External/google/css.css" rel="stylesheet" />
+
+	<link href="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/css/core.css" rel="stylesheet" type="text/css">
+	<link href="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/css/colors.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+    
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/loaders/blockui.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/ui/nicescroll.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/ui/drilldown.js"></script>
+	<!-- /core JS files -->
+      <script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/zebra-dialog/examples/public/javascript/jquery-1.7.2.js"></script>
+ 
+<!-- Theme JS files -->
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/notifications/jgrowl.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/ui/moment/moment.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/pickers/daterangepicker.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/pickers/anytime.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/pickers/pickadate/picker.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/pickers/pickadate/picker.date.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/pickers/pickadate/picker.time.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/pickers/pickadate/legacy.js"></script>
+
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/core/app.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/pages/picker_date.js"></script>
+	<!-- /theme JS files -->
+
+
+       <!-- Theme JS files -->
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/core/libraries/jquery_ui/interactions.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/forms/styling/uniform.min.js"></script>
+
+     
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/pages/form_select2.js"></script>
+    <script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/pages/dashboard.js"></script>
+
+
+    	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/pages/form_layouts.js"></script>
+   
+	<!-- /theme JS files -->
+
+
+
+     <!--LOADING STYLESHEET FOR Dialog-->
+
+
+    <link rel="stylesheet" href="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/zebra-dialog/public/css/zebra_dialog.css" type="text/css">
+    <link rel="stylesheet" href="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/zebra-dialog/examples/public/css/style.css" type="text/css">
+    <link rel="stylesheet" href="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/zebra-dialog/examples/libraries/highlight/public/css/ir_black.css" type="text/css">
+
+  
+    
+  
+    
+
+    <script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/zebra-dialog/examples/libraries/highlight/public/javascript/highlight.js"></script>
+    <script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/zebra-dialog/public/javascript/zebra_dialog.js"></script>
+
+    
+        <script type="text/javascript">
+        hljs.initHighlightingOnLoad();
+        </script>
+    
+      <link rel="stylesheet" href="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/colorbox/example3/colorbox.css" />
+		<script src="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/colorbox/colorbox/jquery.colorbox.js"></script>
+
+		<script>
+		    $(document).ready(function () {
+		        //Examples of how to assign the ColorBox event to elements
+		        $(".group1").colorbox({ rel: 'group1' });
+		        $(".group2").colorbox({ rel: 'group2', transition: "fade" });
+		        $(".group3").colorbox({ rel: 'group3', transition: "none", width: "75%", height: "75%" });
+		        $(".group4").colorbox({ rel: 'group4', slideshow: true });
+		        $(".ajax").colorbox();
+		        $(".youtube").colorbox({ iframe: true, innerWidth: 425, innerHeight: 344 });
+		        $(".iframe").colorbox({ iframe: true, width: "95%", height: "95%" });
+		        $(".inline").colorbox({ inline: true, width: "50%" });
+		        $(".callbacks").colorbox({
+		            onOpen: function () { alert('onOpen: colorbox is about to open'); },
+		            onLoad: function () { alert('onLoad: colorbox has started to load the targeted content'); },
+		            onComplete: function () { alert('onComplete: colorbox has displayed the loaded content'); },
+		            onCleanup: function () { alert('onCleanup: colorbox has begun the close process'); },
+		            onClosed: function () { alert('onClosed: colorbox has completely closed'); }
+		        });
+
+		        //Example of preserving a JavaScript event for inline calls.
+		        $("#click").click(function () {
+		            $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+		            return false;
+		        });
+
+
+		      
+		    });
+		</script>
+
+	 
+        <link href="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/fonts/css/font-awesome.min.css" rel="stylesheet" />
+
+       <%--End of Call Dialog--%>
+      <script src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>js/Basic.js"></script>
+   
+
+    <script language="javascript" type="text/javascript">
+        function CheckAllDataGridCheckBoxes(aspCheckBoxID, checkVal) {
+           
+            for (i = 0; i < document.forms[0].elements.length; i++) {
+                elm = document.forms[0].elements[i]
+                if (elm.type == 'checkbox') {
+                    if (elm.name.indexOf(aspCheckBoxID) != -1) {
+                        elm.checked = checkVal
+                    }
+                }
+            }
+        }
+        function isItemChecked() {
+            for (i = 0; i < document.forms[0].elements.length; i++) {
+                elm = document.forms[0].elements[i]
+                if (elm.type == 'checkbox') {
+                    if (elm.name.indexOf("chkItem") != -1) {
+                        if (elm.checked) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        function checkDelete() {
+            if (!isItemChecked()) {
+                alert("Sorry, Please Select One record for action");
+                return false;
+            }
+            return confirm("are you sure you want to delete selected items?");
+        }
+        function listen(evnt, elem, func) {
+            if (elem.addEventListener) // W3C DOM
+                elem.addEventListener(evnt, func, false);
+
+            else if (elem.attachEvent) { // IE DOM
+                var r = elem.attachEvent("on" + evnt, func);
+                return r;
+            }
+            //                else 
+            //                    window.alert('I\'m sorry Dave, I\'m afraid I can\'t do that.');
+        }
+        var plus = new Image();
+        var minus = new Image();
+        function preloadImages() {
+            //alert("PRE");
+            plus.src = "<%= GetGlobalResourceObject("Utilities", "Assetspath")%>images/plus.gif";
+            minus.src = "<%= GetGlobalResourceObject("Utilities", "Assetspath")%>images/minus.gif";
+
+        }
+        listen("load", window, preloadImages);
+
+        function ToggleWindow(img, pnl) {
+           // alert("ToggleWindow")
+            var p = document.getElementById(pnl);
+          //  alert(p);
+            var i = document.getElementById(img);
+           // alert(i);
+            if (p.style.display == "none") {
+                i.src = minus.src;
+                p.style.display = "";
+            }
+            else {
+                i.src = plus.src;
+                p.style.display = "none";
+            }
+          //  alert("before out")
+          //  alert(p.style.display);
+
+        }
+
+
+
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+        //function NumberKey(evt) {
+        //    var charCode = (evt.which) ? evt.which : event.keyCode
+        //    if (charCode == 13) {
+        //        var btn = getObjById("btnAddItem")
+        //        //alert("Enter Key "+btn.value);
+        //        btn.click();
+        //    }
+
+        //}
+
+
+
+        function getObjById(id) {
+            for (var i = 0; i < document.forms[0].elements.length; i++) {
+                elm = document.forms[0].elements[i]
+                if (elm.id.indexOf(id) != -1) {
+                    return elm;
+                }
+            }
+            return null;
+        }
+
+        function FocusInput() {
+            // alert("FOCUS STARTED");
+            var ff = document.getElementById("txtDefault").value;
+            var bar = getObjById(barid);
+
+            if (bar) {
+                try {
+                    bar.focus();
+                    bar.focus();
+                }
+                catch (error) {
+                    setTimeout("FocusInput()", 1000);
+                }
+            }
+            //alert("FOCUS END");
+        }
+        function FocusInput2() {
+            // alert("FOCUS STARTED");
+            var ff = document.getElementById("txtDefault").value;
+            var bar = getObjById(barid2);
+
+            if (bar) {
+                try {
+                    bar.focus();
+
+                }
+                catch (error) {
+                    setTimeout("FocusInput2()", 1000);
+                }
+            }
+
+        }
+
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+
+
+        
+	<!-- Main navbar -->
+	<div class="navbar navbar-inverse " style="display:none">
+		<div class="navbar-header">
+			<%--<a class="navbar-brand" href="index.html"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/logo_light.png" alt=""></a>--%>
+
+             <img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/logo-banner.png" alt=""> 
+
+			<ul class="nav navbar-nav pull-right visible-xs-block">
+				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+			</ul>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			 
+
+		 
+
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown language-switch">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="<%= GetGlobalResourceObject("Utilities", "SelectLangflag")%>" class="position-left" alt="">
+						<%= GetGlobalResourceObject("Utilities", "selectLang")%>
+						<span class="caret"></span>
+					</a>
+
+        <ul class="dropdown-menu">
+
+            <li>
+                <asp:LinkButton ID="lnkEnglish" runat="server" OnClientClick="alert('قريبا');return false" class="english" OnClick="lnkEnglish_Click"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/flags/gb.png" alt=""> English</asp:LinkButton>
+            </li>
+            <li>
+
+                <asp:LinkButton ID="lnkArabic" runat="server" class="english" OnClick="lnkArabic_Click"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/flags/KW.png" alt=""><%=Resources.menu.Arabic %> </asp:LinkButton>
+            </li>
+
+        </ul>
+				</li>
+
+				<li class="dropdown" style="display:none">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-bubbles4"></i>
+						<span class="visible-xs-inline-block position-right">Messages</span>
+						<span class="badge bg-warning-400">2</span>
+					</a>
+					
+					<div class="dropdown-menu dropdown-content width-350">
+						<div class="dropdown-content-heading">
+							Messages
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-compose"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body">
+							<li class="media">
+								<div class="media-left">
+									<img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+									<span class="badge bg-danger-400 media-badge">5</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">James Alexander</span>
+										<span class="media-annotation pull-right">04:58</span>
+									</a>
+
+									<span class="text-muted">who knows, maybe that would be the best thing for me...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+									<span class="badge bg-danger-400 media-badge">4</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Margo Baker</span>
+										<span class="media-annotation pull-right">12:16</span>
+									</a>
+
+									<span class="text-muted">That was something he was unable to do because...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Jeremy Victorino</span>
+										<span class="media-annotation pull-right">22:48</span>
+									</a>
+
+									<span class="text-muted">But that would be extremely strained and suspicious...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Beatrix Diaz</span>
+										<span class="media-annotation pull-right">Tue</span>
+									</a>
+
+									<span class="text-muted">What a strenuous career it is that I've chosen...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Richard Vango</span>
+										<span class="media-annotation pull-right">Mon</span>
+									</a>
+									
+									<span class="text-muted">Other travelling salesmen live a life of luxury...</span>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All messages"><i class="icon-menu display-block"></i></a>
+						</div>
+					</div>
+				</li>
+
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="<%=PrfilePhoto %>" alt="">
+						<span><%=AdminName %></span>
+						<i class="caret"></i>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-right">
+						<%--<li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
+						<li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+						<li><a href="#"><span class="badge badge-warning pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>--%>
+						<li><a href="/Admin/pages/login.aspx?out=1"><i class="icon-switch2"></i> تسجيل الخروج</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Second navbar -->
+	<div class="navbar navbar-default" id="navbar-second" style="display:none">
+		<ul class="nav navbar-nav no-border visible-xs-block">
+			<li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
+		</ul>
+
+		<div class="navbar-collapse collapse" id="navbar-second-toggle">
+			<ul class="nav navbar-nav">
+				<li class="active"><a  href='#' runat="server" id="lnk_home" ><i class="icon-pie-chart position-left"></i><%=Resources.CTOS.Dashboard %> </a></li>
+				   <%=strmenu %>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right" style="display:none">
+				 
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-cog3"></i>
+						<span class="visible-xs-inline-block position-right">Share</span>
+						<span class="caret"></span>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>
+						<li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>
+						<li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><i class="icon-gear"></i> All settings</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /second navbar -->
+
+
+<%--        <!-- Page header -->
+	<div class="page-header">
+		<div class="page-header-content">
+			<div class="page-title">
+				<h4>
+					<i class="icon-arrow-left52 position-left"></i>
+					<span class="text-semibold">Home</span> - Dashboard
+					<small class="display-block">Good morning, Victoria Baker!</small>
+				</h4>
+			</div>
+
+			<div class="heading-elements">
+				<div class="heading-btn-group">
+					<a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
+					<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
+					<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /page header -->--%>
+
+
+        
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+                 <asp:ContentPlaceHolder ID="Main" runat="server">
+                            </asp:ContentPlaceHolder>
+				
+<%--                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>--%>
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+
+		<!-- Footer -->
+		<%--<div class="footer text-muted">
+               <div class="pull-right"> <b> &nbsp;&nbsp; الاصدار &nbsp;&nbsp; : </b>1.0.0</div>
+				.<a href="http://cmgs.gov.kw/" target="_blank">الامانة العامة لمجلس الوزراء&copy; <%=DateTime.Now.Year.ToString() %></a>- <a href="#">مركز المعلومات</a>   
+
+
+         
+		</div>--%>
+		<!-- /footer -->
+
+	</div>
+	<!-- /page container -->
+
+    </form>
+
+
+<asp:Literal ID="lScannerForm" runat="server"></asp:Literal>
+
+</body>
+</html>

@@ -1,0 +1,767 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CMGS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LoggerException">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PagePath" Type="nvarchar(max)" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="InnerException" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="StackTrace" Type="nvarchar(max)" />
+          <Property Name="TransactionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LoggerMatrix">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogMessage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExchangeID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoggerUser">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PagePath" Type="nvarchar" MaxLength="500" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Action" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Security_pr_admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="250" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdminType" Type="int" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="BranchID" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="mobile" Type="nvarchar" MaxLength="250" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="RegisterDate" Type="datetime" />
+          <Property Name="AdminPhoto" Type="nvarchar" MaxLength="50" />
+          <Property Name="isOperation" Type="bit" />
+          <Property Name="AccessCompnayGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeptID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="LastModifiedBy" Type="int" />
+          <Property Name="LastModifiedAt" Type="datetime" />
+          <Property Name="ProtectedOut" Type="bit" />
+        </EntityType>
+        <EntityType Name="Security_pr_AdminType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="nvarchar" MaxLength="200" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Security_pr_Department">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="nvarchar" MaxLength="250" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Security_pr_MainSystem">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="namear" Type="nvarchar" MaxLength="50" />
+          <Property Name="nameen" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="ThemeStyle" Type="nvarchar" MaxLength="50" />
+          <Property Name="DefultPanelpath" Type="nvarchar" MaxLength="50" />
+          <Property Name="DefultBackgroud" Type="nvarchar" MaxLength="50" />
+          <Property Name="Defult_calture" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Security_pr_ModuleThemes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="nvarchar" MaxLength="200" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="50" />
+          <Property Name="className" Type="nvarchar" MaxLength="50" />
+          <Property Name="HexColor" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Security_pr_Permission">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="sysid" Type="int" />
+          <Property Name="pageid" Type="int" />
+          <Property Name="jobid" Type="int" />
+          <Property Name="show" Type="bit" />
+          <Property Name="modify" Type="bit" />
+          <Property Name="AddRecord" Type="bit" />
+          <Property Name="DeleteRecord" Type="bit" />
+          <Property Name="DateControl" Type="bit" />
+        </EntityType>
+        <EntityType Name="Security_pr_SystemPages">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namear" Type="nvarchar" MaxLength="50" />
+          <Property Name="nameen" Type="nvarchar" MaxLength="50" />
+          <Property Name="url" Type="nvarchar" MaxLength="250" />
+          <Property Name="systemid" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CMGS_DB.dbo.View_UserSystems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_UserSystems">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="250" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="SystemNameAr" Type="nvarchar" MaxLength="50" />
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="SystemNameEn" Type="nvarchar" MaxLength="50" />
+          <Property Name="mobile" Type="nvarchar" MaxLength="250" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="isOperation" Type="bit" />
+          <Property Name="deptName" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_HD_admin_HD_AdminType">
+          <End Role="Security_pr_AdminType" Type="Self.Security_pr_AdminType" Multiplicity="0..1" />
+          <End Role="Security_pr_admin" Type="Self.Security_pr_admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Security_pr_AdminType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Security_pr_admin">
+              <PropertyRef Name="AdminType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Security_pr_admin_Security_pr_Department">
+          <End Role="Security_pr_Department" Type="Self.Security_pr_Department" Multiplicity="0..1" />
+          <End Role="Security_pr_admin" Type="Self.Security_pr_admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Security_pr_Department">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Security_pr_admin">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Security_SP_getPermissionsCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="jobid" Type="int" Mode="In" />
+          <Parameter Name="userID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Security_SP_PRM_getJobPage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="jobid" Type="int" Mode="In" />
+          <Parameter Name="url" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Security_SP_PRM_getJobPermissions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="jobid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Security_SP_PRM_getSystemPermission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="jobid" Type="int" Mode="In" />
+          <Parameter Name="userid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Security_SP_PRM_getUserPage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="jobid" Type="int" Mode="In" />
+          <Parameter Name="empid" Type="int" Mode="In" />
+          <Parameter Name="url" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Security_SP_PRM_getuserPermissions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="jobid" Type="int" Mode="In" />
+          <Parameter Name="userID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="CMGS_DBModelStoreContainer">
+          <EntitySet Name="LoggerException" EntityType="Self.LoggerException" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoggerMatrix" EntityType="Self.LoggerMatrix" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoggerUser" EntityType="Self.LoggerUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Security_pr_admin" EntityType="Self.Security_pr_admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Security_pr_AdminType" EntityType="Self.Security_pr_AdminType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Security_pr_Department" EntityType="Self.Security_pr_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Security_pr_MainSystem" EntityType="Self.Security_pr_MainSystem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Security_pr_ModuleThemes" EntityType="Self.Security_pr_ModuleThemes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Security_pr_Permission" EntityType="Self.Security_pr_Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Security_pr_SystemPages" EntityType="Self.Security_pr_SystemPages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_UserSystems" EntityType="Self.View_UserSystems" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_UserSystems].[id] AS [id], 
+    [View_UserSystems].[name] AS [name], 
+    [View_UserSystems].[username] AS [username], 
+    [View_UserSystems].[SystemNameAr] AS [SystemNameAr], 
+    [View_UserSystems].[code] AS [code], 
+    [View_UserSystems].[SystemNameEn] AS [SystemNameEn], 
+    [View_UserSystems].[mobile] AS [mobile], 
+    [View_UserSystems].[Email] AS [Email], 
+    [View_UserSystems].[isOperation] AS [isOperation], 
+    [View_UserSystems].[deptName] AS [deptName]
+    FROM [dbo].[View_UserSystems] AS [View_UserSystems]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_HD_admin_HD_AdminType" Association="Self.FK_HD_admin_HD_AdminType">
+            <End Role="Security_pr_AdminType" EntitySet="Security_pr_AdminType" />
+            <End Role="Security_pr_admin" EntitySet="Security_pr_admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Security_pr_admin_Security_pr_Department" Association="Self.FK_Security_pr_admin_Security_pr_Department">
+            <End Role="Security_pr_Department" EntitySet="Security_pr_Department" />
+            <End Role="Security_pr_admin" EntitySet="Security_pr_admin" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CMGS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LoggerException">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InnerException" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="LoggerMatrix">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExchangeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LoggerUser">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Security_pr_AdminType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NameAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Security_pr_admin" Relationship="CMGS_DBModel.FK_HD_admin_HD_AdminType" FromRole="Security_pr_AdminType" ToRole="Security_pr_admin" />
+        </EntityType>
+        <EntityType Name="Security_pr_MainSystem">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="namear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nameen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="ThemeStyle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DefultPanelpath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DefultBackgroud" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Defult_calture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Security_pr_ModuleThemes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NameAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="className" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HexColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Security_pr_Permission">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="pageid" Type="Int32" />
+          <Property Name="jobid" Type="Int32" />
+          <Property Name="show" Type="Boolean" />
+          <Property Name="modify" Type="Boolean" />
+          <Property Name="AddRecord" Type="Boolean" />
+          <Property Name="DeleteRecord" Type="Boolean" />
+          <Property Name="DateControl" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Security_pr_SystemPages">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nameen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="systemid" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="CMGS_SECDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LoggerException" EntityType="Self.LoggerException" />
+          <EntitySet Name="LoggerMatrix" EntityType="Self.LoggerMatrix" />
+          <EntitySet Name="LoggerUser" EntityType="Self.LoggerUser" />
+          <EntitySet Name="Security_pr_AdminType" EntityType="Self.Security_pr_AdminType" />
+          <EntitySet Name="Security_pr_MainSystem" EntityType="Self.Security_pr_MainSystem" />
+          <EntitySet Name="Security_pr_ModuleThemes" EntityType="Self.Security_pr_ModuleThemes" />
+          <EntitySet Name="Security_pr_Permission" EntityType="Self.Security_pr_Permission" />
+          <EntitySet Name="Security_pr_SystemPages" EntityType="Self.Security_pr_SystemPages" />
+          <FunctionImport Name="Security_SP_getPermissionsCount" ReturnType="Collection(Int32)">
+            <Parameter Name="jobid" Mode="In" Type="Int32" />
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Security_SP_PRM_getJobPage" ReturnType="Collection(CMGS_DBModel.Security_SP_PRM_getJobPage_Result)">
+            <Parameter Name="jobid" Mode="In" Type="Int32" />
+            <Parameter Name="url" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Security_SP_PRM_getJobPermissions" ReturnType="Collection(CMGS_DBModel.Security_SP_PRM_getJobPermissions_Result)">
+          <Parameter Name="jobid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Security_SP_PRM_getSystemPermission" ReturnType="Collection(CMGS_DBModel.Security_SP_PRM_getSystemPermission_Result)">
+            <Parameter Name="jobid" Mode="In" Type="Int32" />
+            <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Security_SP_PRM_getUserPage" ReturnType="Collection(CMGS_DBModel.Security_SP_PRM_getUserPage_Result)">
+            <Parameter Name="jobid" Mode="In" Type="Int32" />
+            <Parameter Name="empid" Mode="In" Type="Int32" />
+            <Parameter Name="url" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Security_SP_PRM_getuserPermissions" ReturnType="Collection(CMGS_DBModel.Security_SP_PRM_getuserPermissions_Result)">
+            <Parameter Name="jobid" Mode="In" Type="Int32" />
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Security_pr_Department" EntityType="CMGS_DBModel.Security_pr_Department" />
+          <EntitySet Name="View_UserSystems" EntityType="CMGS_DBModel.View_UserSystems" />
+          <EntitySet Name="Security_pr_admin" EntityType="CMGS_DBModel.Security_pr_admin" />
+          <AssociationSet Name="FK_HD_admin_HD_AdminType" Association="CMGS_DBModel.FK_HD_admin_HD_AdminType">
+            <End Role="Security_pr_AdminType" EntitySet="Security_pr_AdminType" />
+            <End Role="Security_pr_admin" EntitySet="Security_pr_admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Security_pr_admin_Security_pr_Department" Association="CMGS_DBModel.FK_Security_pr_admin_Security_pr_Department">
+            <End Role="Security_pr_Department" EntitySet="Security_pr_Department" />
+            <End Role="Security_pr_admin" EntitySet="Security_pr_admin" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="Security_SP_PRM_getJobPage_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="Int32" Name="PageID" Nullable="true" />
+          <Property Type="Int32" Name="PermissionID" Nullable="true" />
+          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="show" Nullable="true" />
+          <Property Type="Int32" Name="modify" Nullable="true" />
+          <Property Type="Int32" Name="AddRecord" Nullable="true" />
+          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
+          <Property Type="Int32" Name="DateControl" Nullable="true" />
+          <Property Type="String" Name="url" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Security_SP_PRM_getJobPermissions_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="Int32" Name="PageID" Nullable="true" />
+          <Property Type="Int32" Name="PermissionID" Nullable="true" />
+          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="show" Nullable="true" />
+          <Property Type="Int32" Name="modify" Nullable="true" />
+          <Property Type="Int32" Name="AddRecord" Nullable="true" />
+          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
+          <Property Type="Int32" Name="DateControl" Nullable="true" />
+          <Property Type="String" Name="url" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Security_SP_PRM_getSystemPermission_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="Int32" Name="PageID" Nullable="true" />
+          <Property Type="Int32" Name="PermissionID" Nullable="true" />
+          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="show" Nullable="true" />
+          <Property Type="Int32" Name="modify" Nullable="true" />
+          <Property Type="Int32" Name="AddRecord" Nullable="true" />
+          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
+          <Property Type="Int32" Name="DateControl" Nullable="true" />
+          <Property Type="String" Name="url" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Security_SP_PRM_getUserPage_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="Int32" Name="PageID" Nullable="true" />
+          <Property Type="Int32" Name="PermissionID" Nullable="true" />
+          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="show" Nullable="true" />
+          <Property Type="Int32" Name="modify" Nullable="true" />
+          <Property Type="Int32" Name="AddRecord" Nullable="true" />
+          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
+          <Property Type="Int32" Name="DateControl" Nullable="true" />
+          <Property Type="String" Name="url" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Security_SP_PRM_getuserPermissions_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="Int32" Name="PageID" Nullable="true" />
+          <Property Type="Int32" Name="PermissionID" Nullable="true" />
+          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="show" Nullable="true" />
+          <Property Type="Int32" Name="modify" Nullable="true" />
+          <Property Type="Int32" Name="AddRecord" Nullable="true" />
+          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
+          <Property Type="Int32" Name="DateControl" Nullable="true" />
+          <Property Type="String" Name="url" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Security_pr_Department">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NameAr" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Security_pr_admin" Relationship="CMGS_DBModel.FK_Security_pr_admin_Security_pr_Department" FromRole="Security_pr_Department" ToRole="Security_pr_admin" />
+        </EntityType>
+        <EntityType Name="View_UserSystems">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SystemNameAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="SystemNameEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mobile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="isOperation" Type="Boolean" />
+          <Property Name="deptName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Security_pr_admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdminType" Type="Int32" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="BranchID" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="mobile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="DateTime" Precision="3" />
+          <Property Name="AdminPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isOperation" Type="Boolean" />
+          <Property Name="AccessCompnayGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeptID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedBy" Type="Int32" />
+          <Property Name="LastModifiedAt" Type="DateTime" Precision="3" />
+          <Property Name="ProtectedOut" Type="Boolean" />
+          <NavigationProperty Name="Security_pr_AdminType" Relationship="CMGS_DBModel.FK_HD_admin_HD_AdminType" FromRole="Security_pr_admin" ToRole="Security_pr_AdminType" />
+          <NavigationProperty Name="Security_pr_Department" Relationship="CMGS_DBModel.FK_Security_pr_admin_Security_pr_Department" FromRole="Security_pr_admin" ToRole="Security_pr_Department" />
+        </EntityType>
+        <Association Name="FK_HD_admin_HD_AdminType">
+          <End Type="CMGS_DBModel.Security_pr_AdminType" Role="Security_pr_AdminType" Multiplicity="0..1" />
+          <End Type="CMGS_DBModel.Security_pr_admin" Role="Security_pr_admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Security_pr_AdminType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Security_pr_admin">
+              <PropertyRef Name="AdminType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Security_pr_admin_Security_pr_Department">
+          <End Type="CMGS_DBModel.Security_pr_Department" Role="Security_pr_Department" Multiplicity="0..1" />
+          <End Type="CMGS_DBModel.Security_pr_admin" Role="Security_pr_admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Security_pr_Department">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Security_pr_admin">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CMGS_DBModelStoreContainer" CdmEntityContainer="CMGS_SECDBEntities">
+          <EntitySetMapping Name="LoggerException">
+            <EntityTypeMapping TypeName="CMGS_DBModel.LoggerException">
+              <MappingFragment StoreEntitySet="LoggerException">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="PagePath" ColumnName="PagePath" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="InnerException" ColumnName="InnerException" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoggerMatrix">
+            <EntityTypeMapping TypeName="CMGS_DBModel.LoggerMatrix">
+              <MappingFragment StoreEntitySet="LoggerMatrix">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="LogMessage" ColumnName="LogMessage" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ExchangeID" ColumnName="ExchangeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoggerUser">
+            <EntityTypeMapping TypeName="CMGS_DBModel.LoggerUser">
+              <MappingFragment StoreEntitySet="LoggerUser">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="PagePath" ColumnName="PagePath" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Security_pr_AdminType">
+            <EntityTypeMapping TypeName="CMGS_DBModel.Security_pr_AdminType">
+              <MappingFragment StoreEntitySet="Security_pr_AdminType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Security_pr_MainSystem">
+            <EntityTypeMapping TypeName="CMGS_DBModel.Security_pr_MainSystem">
+              <MappingFragment StoreEntitySet="Security_pr_MainSystem">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="namear" ColumnName="namear" />
+                <ScalarProperty Name="nameen" ColumnName="nameen" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ThemeStyle" ColumnName="ThemeStyle" />
+                <ScalarProperty Name="DefultPanelpath" ColumnName="DefultPanelpath" />
+                <ScalarProperty Name="DefultBackgroud" ColumnName="DefultBackgroud" />
+                <ScalarProperty Name="Defult_calture" ColumnName="Defult_calture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Security_pr_ModuleThemes">
+            <EntityTypeMapping TypeName="CMGS_DBModel.Security_pr_ModuleThemes">
+              <MappingFragment StoreEntitySet="Security_pr_ModuleThemes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="className" ColumnName="className" />
+                <ScalarProperty Name="HexColor" ColumnName="HexColor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Security_pr_Permission">
+            <EntityTypeMapping TypeName="CMGS_DBModel.Security_pr_Permission">
+              <MappingFragment StoreEntitySet="Security_pr_Permission">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="pageid" ColumnName="pageid" />
+                <ScalarProperty Name="jobid" ColumnName="jobid" />
+                <ScalarProperty Name="show" ColumnName="show" />
+                <ScalarProperty Name="modify" ColumnName="modify" />
+                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
+                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
+                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Security_pr_SystemPages">
+            <EntityTypeMapping TypeName="CMGS_DBModel.Security_pr_SystemPages">
+              <MappingFragment StoreEntitySet="Security_pr_SystemPages">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="namear" ColumnName="namear" />
+                <ScalarProperty Name="nameen" ColumnName="nameen" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="systemid" ColumnName="systemid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Security_SP_getPermissionsCount" FunctionName="CMGS_DBModel.Store.Security_SP_getPermissionsCount" />
+          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getJobPage" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getJobPage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getJobPage_Result">
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+                <ScalarProperty Name="show" ColumnName="show" />
+                <ScalarProperty Name="modify" ColumnName="modify" />
+                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
+                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
+                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getJobPermissions" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getJobPermissions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getJobPermissions_Result">
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+                <ScalarProperty Name="show" ColumnName="show" />
+                <ScalarProperty Name="modify" ColumnName="modify" />
+                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
+                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
+                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getSystemPermission" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getSystemPermission">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getSystemPermission_Result">
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+                <ScalarProperty Name="show" ColumnName="show" />
+                <ScalarProperty Name="modify" ColumnName="modify" />
+                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
+                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
+                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getUserPage" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getUserPage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getUserPage_Result">
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+                <ScalarProperty Name="show" ColumnName="show" />
+                <ScalarProperty Name="modify" ColumnName="modify" />
+                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
+                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
+                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getuserPermissions" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getuserPermissions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getuserPermissions_Result">
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+                <ScalarProperty Name="show" ColumnName="show" />
+                <ScalarProperty Name="modify" ColumnName="modify" />
+                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
+                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
+                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Security_pr_Department">
+            <EntityTypeMapping TypeName="CMGS_DBModel.Security_pr_Department">
+              <MappingFragment StoreEntitySet="Security_pr_Department">
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_UserSystems">
+            <EntityTypeMapping TypeName="CMGS_DBModel.View_UserSystems">
+              <MappingFragment StoreEntitySet="View_UserSystems">
+                <ScalarProperty Name="deptName" ColumnName="deptName" />
+                <ScalarProperty Name="isOperation" ColumnName="isOperation" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="SystemNameEn" ColumnName="SystemNameEn" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="SystemNameAr" ColumnName="SystemNameAr" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Security_pr_admin">
+            <EntityTypeMapping TypeName="CMGS_DBModel.Security_pr_admin">
+              <MappingFragment StoreEntitySet="Security_pr_admin">
+                <ScalarProperty Name="ProtectedOut" ColumnName="ProtectedOut" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="AccessCompnayGroup" ColumnName="AccessCompnayGroup" />
+                <ScalarProperty Name="isOperation" ColumnName="isOperation" />
+                <ScalarProperty Name="AdminPhoto" ColumnName="AdminPhoto" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="AdminType" ColumnName="AdminType" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

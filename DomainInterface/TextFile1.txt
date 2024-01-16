@@ -1,0 +1,152 @@
+﻿        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td width="148" style="padding-left: 28px;">
+                            <asp:TextBox ID="TextBox1" runat="server" />
+                        </td>
+                        <td width="61">
+                            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="images/btn_Go.gif" />
+                        </td>
+                        <td width="150">
+                            |
+                            <asp:LinkButton ID="LinkButton1" runat="server" Text="Advanced Search " Style="font-family: Arial;
+                                font-size: 12px; color: #d11820;" Font-Underline="False" Font-Bold="true" />
+                        </td>
+                        <td width="665">
+                            |
+                            <asp:LinkButton ID="LinkButton2" runat="server" Text="Search Stations " Style="font-family: Arial;
+                                font-size: 12px; color: #d11820;" Font-Underline="False" Font-Bold="true" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="192" class="MetroImg">
+            </td>
+            <td>
+                <table style="margin-top: 0px; padding-left: 150px; height: 199px;">
+                    <tr>
+                        <td height="29" class="RightUpperUCImg">
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="100" class="UCContent">
+                            Cairo metro has announced the opening of the new third line that will connect from
+                            Abbasya to the airport, the opening is scheduled to March 2012. The New line contains
+                            many new features.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="29" class="RightUpperUCFooter">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 789px">
+                    <tr>
+                        <td>
+                            <table style="height: 188px">
+                                <tr>
+                                    <td width="210" height="110" class="LeftUCContentImg">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="LeftUCContent">
+                                        <p>
+                                            Pease click here to see our metro and navigate into metro cars.
+                                        </p>
+                                        <p>
+                                            <a href="#">Click here for view</a></p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td width="84" height="134" class="CenterDownUC">
+                                    </td>
+                                    <td>
+                                        <table width="130" height="168">
+                                            <tr>
+                                                <td width="145" height="20" class="Test">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp; Suggestion&nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="UCContent" valign="top">
+                                                    <p>
+                                                        Tell us how we can improve our station, cars, and seats, or anything that you may
+                                                        need as an addon.
+                                                    </p>
+                                                    <p>
+                                                        <a href="#" style="color: Black;">Please click here to fill the suggestion form</a></p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table width="240px" style="height: 200px">
+                                <tr>
+                                    <td>
+                                        <table width="135">
+                                            <tr>
+                                                <td class="ComplainUCHedearImg" style="height: 25px">
+                                                    &nbsp; Send Your Complain
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="UCContent">
+                                                    If you have any coxxxxmplain. <a href="#">Please Submit it online</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="95" height="68" class="ComplainUC" valign="top">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td class="FAQTextUCImgHeader" style="height: 25px; width: 290px;">
+                                                    &nbsp;&nbsp; Frequently Asked Question
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="UCContent">
+                                                    Question and answers concerning Cairo Metero.<a href="#">FAQ</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="95" height="68" class="FAQUCIMG">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table style="height: 187px; width: 93%;">
+                    <tr>
+                        <td width="180" height="20" class="CairoMap">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="170" height="125" class="MetroMap">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>

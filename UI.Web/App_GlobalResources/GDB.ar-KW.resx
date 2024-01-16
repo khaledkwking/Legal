@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountsReceivableMeter" xml:space="preserve">
+    <value>Accounts Receivable Meter</value>
+  </data>
+  <data name="Actual" xml:space="preserve">
+    <value>Actual</value>
+  </data>
+  <data name="Air" xml:space="preserve">
+    <value>Air</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Bottom5ServicesSegment" xml:space="preserve">
+    <value>Bottom 5 Services Segment</value>
+  </data>
+  <data name="CCPTotalOfDeclaration" xml:space="preserve">
+    <value>CCP / Total Of Declaration</value>
+  </data>
+  <data name="CCPTotalWeight" xml:space="preserve">
+    <value>CCP / Total Weight</value>
+  </data>
+  <data name="DailyForecastView" xml:space="preserve">
+    <value>Daily Forecast View</value>
+  </data>
+  <data name="DailyRevenueMeter" xml:space="preserve">
+    <value>Daily Revenue Meter</value>
+  </data>
+  <data name="DailyVolume" xml:space="preserve">
+    <value>Daily Volume</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="DemmurageServicesRevenue" xml:space="preserve">
+    <value>Demmurage Services Revenue</value>
+  </data>
+  <data name="ExportCargoRevenue" xml:space="preserve">
+    <value>Export Cargo Revenue</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="Forecast" xml:space="preserve">
+    <value>Forecast</value>
+  </data>
+  <data name="FreeZone" xml:space="preserve">
+    <value>Free Zone</value>
+  </data>
+  <data name="GDB_BudgetPanel" xml:space="preserve">
+    <value>Budget Panel</value>
+  </data>
+  <data name="GDB_CustomizedRevenuePanel" xml:space="preserve">
+    <value>Customized Revenue Panel</value>
+  </data>
+  <data name="GDB_DailyRevenuePanel" xml:space="preserve">
+    <value>Daily Revenue Panel</value>
+  </data>
+  <data name="GDB_MonthlyRevenuePanel" xml:space="preserve">
+    <value>Monthly Revenue Panel</value>
+  </data>
+  <data name="GDB_MonthlyVolumePanel" xml:space="preserve">
+    <value>Monthly Volume Panel</value>
+  </data>
+  <data name="GrandTotal" xml:space="preserve">
+    <value>Grand Total</value>
+  </data>
+  <data name="HandlingServicesRevenue" xml:space="preserve">
+    <value>Handling Services Revenue</value>
+  </data>
+  <data name="ImportCargoRevenue" xml:space="preserve">
+    <value>Import Cargo Revenue</value>
+  </data>
+  <data name="ITServicesRevenue" xml:space="preserve">
+    <value>IT Services Revenue</value>
+  </data>
+  <data name="Land" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="MonthlyPortForecastViewMay2016" xml:space="preserve">
+    <value>Monthly Port Forecast View May 2016</value>
+  </data>
+  <data name="MonthlyServiceTypeForecastView" xml:space="preserve">
+    <value>Monthly Service Type Forecast View</value>
+  </data>
+  <data name="moreinfo" xml:space="preserve">
+    <value>More Info</value>
+  </data>
+  <data name="MRNTypeCompare" xml:space="preserve">
+    <value>MRN Type Compare</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="PortMeanOfTransport" xml:space="preserve">
+    <value>Port / Mean Of Transport</value>
+  </data>
+  <data name="PortNoOfConsignee" xml:space="preserve">
+    <value>Port / No Of Consignee</value>
+  </data>
+  <data name="PortsVolume" xml:space="preserve">
+    <value>Ports Volume</value>
+  </data>
+  <data name="PortTotalWeight" xml:space="preserve">
+    <value>Port / Total Weight</value>
+  </data>
+  <data name="PortTypeTotalWeight" xml:space="preserve">
+    <value>Port Type / Total Weight</value>
+  </data>
+  <data name="Revenuebyimportexportcargo" xml:space="preserve">
+    <value>Revenue by import/export cargo</value>
+  </data>
+  <data name="RevenueByPort" xml:space="preserve">
+    <value>Revenue By Port</value>
+  </data>
+  <data name="RevenueByPortandServiceSegment" xml:space="preserve">
+    <value>Revenue By Port &amp; Service Segment</value>
+  </data>
+  <data name="RevenueByPortServiceType" xml:space="preserve">
+    <value>Revenue By Port &amp; Service Type</value>
+  </data>
+  <data name="Revenuebyservicesforimportexport" xml:space="preserve">
+    <value>Revenue by services for import/export</value>
+  </data>
+  <data name="Rows" xml:space="preserve">
+    <value>Rows</value>
+  </data>
+  <data name="Sea" xml:space="preserve">
+    <value>Sea</value>
+  </data>
+  <data name="Segment" xml:space="preserve">
+    <value>Segment</value>
+  </data>
+  <data name="ServiceSegmentHandling" xml:space="preserve">
+    <value>Service Segment - Handling</value>
+  </data>
+  <data name="ServiceSegmentIT" xml:space="preserve">
+    <value>Service Segment - IT</value>
+  </data>
+  <data name="ServiceType" xml:space="preserve">
+    <value>Service Type</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>show</value>
+  </data>
+  <data name="SummaryDisplayMode" xml:space="preserve">
+    <value>Summary Display Mode</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="Top5ServiceSegment" xml:space="preserve">
+    <value>Top 5 Service Segment</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TotalAmount" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="TotalRevenue" xml:space="preserve">
+    <value>Total Revenue</value>
+  </data>
+</root>

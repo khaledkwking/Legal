@@ -1,0 +1,60 @@
+.position {
+    margin:0 auto;
+    position:absolute;
+}
+    .circle-bar {
+  position: relative;
+  height: 50px;
+  width: 50px;
+}
+
+.circle-bar div {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.circle-bar div span {
+  position: absolute;
+  font-family: Arial;
+  font-size: 10px;
+  line-height: 40px;
+  height: 40px;
+  width: 40px;
+  left: 5px;
+  top: 5px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.circle-bar .background {
+  background-color: #b3cef6;
+}
+
+.circle-bar .rotate {
+  clip: rect(0 25px 50px 0);
+  background-color: #4b86db;
+}
+
+.circle-bar .left {
+  clip: rect(0 25px 50px 0);
+  opacity: 1;
+  background-color: #b3cef6;
+}
+
+.circle-bar .right {
+  clip: rect(0 25px 50px 0);
+  transform: rotate(180deg);
+  opacity: 0;
+  background-color: #4b86db;
+}
+@keyframes toggle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

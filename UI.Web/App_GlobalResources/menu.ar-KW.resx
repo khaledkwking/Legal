@@ -1,0 +1,585 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessUsersList" xml:space="preserve">
+    <value>إدارة مستخدمي النظام</value>
+  </data>
+  <data name="AgentAnalysis" xml:space="preserve">
+    <value>Agent Analysis</value>
+  </data>
+  <data name="BudgetPanel" xml:space="preserve">
+    <value>Budget Panel</value>
+  </data>
+  <data name="ContainerAnalysis" xml:space="preserve">
+    <value>Container Analysis</value>
+  </data>
+  <data name="ContainerTerminal" xml:space="preserve">
+    <value>Container Terminal</value>
+  </data>
+  <data name="CTAnalytics" xml:space="preserve">
+    <value>إحصائيات</value>
+  </data>
+  <data name="CustomizedRevenuePanel" xml:space="preserve">
+    <value>Customized Revenue Panel</value>
+  </data>
+  <data name="DailyRevenuePanel" xml:space="preserve">
+    <value>Daily Revenue Panel</value>
+  </data>
+  <data name="ExportAnalytics" xml:space="preserve">
+    <value>Export Analytics</value>
+  </data>
+  <data name="GDB" xml:space="preserve">
+    <value>GDB</value>
+  </data>
+  <data name="GDBAnalytics" xml:space="preserve">
+    <value>GDB Analytics</value>
+  </data>
+  <data name="ImportAnalytics" xml:space="preserve">
+    <value>Import Analytics</value>
+  </data>
+  <data name="KPI" xml:space="preserve">
+    <value>KPI</value>
+  </data>
+  <data name="KPIAnalytics" xml:space="preserve">
+    <value>KPI Analytics</value>
+  </data>
+  <data name="ModulesList" xml:space="preserve">
+    <value>النظم الفرعيه</value>
+  </data>
+  <data name="MonthlyRevenuePanel" xml:space="preserve">
+    <value>Monthly Revenue Panel</value>
+  </data>
+  <data name="MonthlyVolumePanel" xml:space="preserve">
+    <value>Monthly Volume Panel</value>
+  </data>
+  <data name="PortalAccess" xml:space="preserve">
+    <value>Portal Access</value>
+  </data>
+  <data name="RT" xml:space="preserve">
+    <value>Release Time - KPI</value>
+  </data>
+  <data name="TerminalSummery" xml:space="preserve">
+    <value>Terminal Summery</value>
+  </data>
+  <data name="UserManagement" xml:space="preserve">
+    <value>مستخدمي النظام</value>
+  </data>
+  <data name="userPermission" xml:space="preserve">
+    <value>صلاحيات النظام</value>
+  </data>
+  <data name="VesselsAnalysis" xml:space="preserve">
+    <value>Vessels Analysis</value>
+  </data>
+  <data name="YardCapacity" xml:space="preserve">
+    <value>Yard Capacity</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>&amp;nbsp;&amp;nbsp;تحميل&amp;nbsp;&amp;nbsp;</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>عربي</value>
+  </data>
+  <data name="AgreementCategory" xml:space="preserve">
+    <value>تصنيف الاتفاقيات</value>
+  </data>
+  <data name="Agreementtypes" xml:space="preserve">
+    <value>أنواع الاتفاقيات</value>
+  </data>
+  <data name="AgreementMaster" xml:space="preserve">
+    <value>البيانات الاساسية</value>
+  </data>
+  <data name="AgreementsMasters" xml:space="preserve">
+    <value>الملفات التعريفية للنظام</value>
+  </data>
+  <data name="AgreementAttachmentTypes" xml:space="preserve">
+    <value>انواع المرفقات</value>
+  </data>
+  <data name="Agreement_ProcedureTypes" xml:space="preserve">
+    <value>انواع الاجراءات</value>
+  </data>
+  <data name="Org" xml:space="preserve">
+    <value>الجهات \ الدول</value>
+  </data>
+  <data name="Agreements" xml:space="preserve">
+    <value>الاتفاقيات</value>
+  </data>
+  <data name="Medal" xml:space="preserve">
+    <value>الاوسمة</value>
+  </data>
+  <data name="AgreementsData" xml:space="preserve">
+    <value>الاتفاقيات</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>انواع حالات الاتفاقية</value>
+  </data>
+  <data name="StatusCodes" xml:space="preserve">
+    <value>حالات الاتفاقية</value>
+  </data>
+  <data name="MedalMasterData" xml:space="preserve">
+    <value>البيانات الاساسية</value>
+  </data>
+  <data name="MedalMasters" xml:space="preserve">
+    <value>الملفات التعريفيه للنظام</value>
+  </data>
+  <data name="MedalsData" xml:space="preserve">
+    <value>الأنواط والأوسمة</value>
+  </data>
+  <data name="Medal_M_AttachmentTypes" xml:space="preserve">
+    <value>انواع المرفقات</value>
+  </data>
+  <data name="Medal_M_Category" xml:space="preserve">
+    <value>تصنيف الانوطه</value>
+  </data>
+  <data name="medal_M_Grantreasons" xml:space="preserve">
+    <value>اسباب المنح</value>
+  </data>
+  <data name="Medal_M_jobGrade" xml:space="preserve">
+    <value>الرتب</value>
+  </data>
+  <data name="Medal_M_Organizations" xml:space="preserve">
+    <value>الجهات</value>
+  </data>
+  <data name="Medal_M_ProcedureType" xml:space="preserve">
+    <value>انواع الاجراءات</value>
+  </data>
+  <data name="Medal_M_Types" xml:space="preserve">
+    <value>انواع الانواط</value>
+  </data>
+  <data name="Cases" xml:space="preserve">
+    <value>القضايا</value>
+  </data>
+  <data name="CasesData" xml:space="preserve">
+    <value>بيانات القضايا</value>
+  </data>
+  <data name="CasesMaster" xml:space="preserve">
+    <value>البيانات الاساسية</value>
+  </data>
+  <data name="CasesMasterData" xml:space="preserve">
+    <value>الملفات التعريفيه للنظام</value>
+  </data>
+  <data name="Cases_M_CaseTypes" xml:space="preserve">
+    <value>الدوائر</value>
+  </data>
+  <data name="Cases_M_Court" xml:space="preserve">
+    <value>قائمة المحاكم</value>
+  </data>
+  <data name="Cases_M_Status" xml:space="preserve">
+    <value>حالات القضايا</value>
+  </data>
+  <data name="Cases_M_CourtBranches" xml:space="preserve">
+    <value>فرع المحكمه</value>
+  </data>
+  <data name="Inquery" xml:space="preserve">
+    <value>إستعلام</value>
+  </data>
+  <data name="Cases_decision" xml:space="preserve">
+    <value>الاحكام</value>
+  </data>
+  <data name="Case_LitigationDegree" xml:space="preserve">
+    <value>درجات التقاضي</value>
+  </data>
+  <data name="Autocomp" xml:space="preserve">
+    <value>Auto Complete</value>
+  </data>
+  <data name="Case_AutoArcSubjects" xml:space="preserve">
+    <value>السجل(جهات التراسل)</value>
+  </data>
+  <data name="Case_AutoPersons" xml:space="preserve">
+    <value>الاشخاص</value>
+  </data>
+  <data name="Case_AutoSubject" xml:space="preserve">
+    <value>مواضيع القضايا</value>
+  </data>
+  <data name="AssignedPersons" xml:space="preserve">
+    <value>الموظف المختص</value>
+  </data>
+  <data name="Parliament_AssignedPerson" xml:space="preserve">
+    <value>الموظف المختص</value>
+  </data>
+  <data name="Parliament_legislativeChapter" xml:space="preserve">
+    <value>الفصل التشريعي</value>
+  </data>
+  <data name="Parliament_legislativeSession" xml:space="preserve">
+    <value>دور الانعقاد</value>
+  </data>
+  <data name="Parliament_Orgs" xml:space="preserve">
+    <value>جهات التراسل</value>
+  </data>
+  <data name="Parliament_Persons" xml:space="preserve">
+    <value>اعضاء البرلمان</value>
+  </data>
+  <data name="Parliament_QuestionStatus" xml:space="preserve">
+    <value>حالات الاسئلة</value>
+  </data>
+  <data name="Parliament_RequestedToPerson" xml:space="preserve">
+    <value>موجة إلى</value>
+  </data>
+  <data name="Questions" xml:space="preserve">
+    <value>شـــــئون مجلس الامة</value>
+  </data>
+  <data name="QuestionsData" xml:space="preserve">
+    <value>الاسئلة البرلمانية</value>
+  </data>
+  <data name="QuestionsMaster" xml:space="preserve">
+    <value>البيانات الاساسية</value>
+  </data>
+  <data name="QuestionsQuery" xml:space="preserve">
+    <value>التقارير والاحصائيات</value>
+  </data>
+  <data name="QuestionsReports" xml:space="preserve">
+    <value>قائمة الاسئلة البرلمانية</value>
+  </data>
+  <data name="Library" xml:space="preserve">
+    <value>المكتبة القانونية</value>
+  </data>
+  <data name="LibraryDocs" xml:space="preserve">
+    <value>المكتبة القانونية</value>
+  </data>
+  <data name="LibraryMaster" xml:space="preserve">
+    <value>البيانات الاساسيه</value>
+  </data>
+  <data name="Library_DocsType" xml:space="preserve">
+    <value>انواع الوثائق</value>
+  </data>
+  <data name="summeryBoard" xml:space="preserve">
+    <value>مؤشرات عامة</value>
+  </data>
+  <data name="summeryBoardTitle" xml:space="preserve">
+    <value>لوحة مؤشرات الإتفاقيات</value>
+  </data>
+  <data name="AgreementsReports" xml:space="preserve">
+    <value>التقارير والاحصائيات</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>قائمة الاتفاقيات</value>
+  </data>
+  <data name="Agreementslistreport" xml:space="preserve">
+    <value>قائمة الاتفاقيات</value>
+  </data>
+  <data name="CaseMenu" xml:space="preserve">
+    <value>القضايا</value>
+  </data>
+  <data name="LawDocData" xml:space="preserve">
+    <value>التشريعات </value>
+  </data>
+  <data name="LawsReports" xml:space="preserve">
+    <value>التقارير واإحصائيات</value>
+  </data>
+  <data name="LawDocDataMaster" xml:space="preserve">
+    <value> البيانات الاساسية</value>
+  </data>
+  <data name="law_AttachmentTypes" xml:space="preserve">
+    <value>أنواع المرفقات</value>
+  </data>
+  <data name="Law_DocCategory" xml:space="preserve">
+    <value>تصنيف الوثائق</value>
+  </data>
+  <data name="law_DocProceduresTypes" xml:space="preserve">
+    <value>أنواع الاعمال التحضيرية</value>
+  </data>
+  <data name="Law_DocType" xml:space="preserve">
+    <value>إنواع الوثائق</value>
+  </data>
+  <data name="LawDocDatareports" xml:space="preserve">
+    <value>التقارير والإحصائيات</value>
+  </data>
+  <data name="LibraryDocsType" xml:space="preserve">
+    <value>نوع الوثائق</value>
+  </data>
+  <data name="Library_DocsCategory" xml:space="preserve">
+    <value>تصنيف الوثائق</value>
+  </data>
+  <data name="Agreement_ProcedureRelatedOrgs" xml:space="preserve">
+    <value>جهات الاختصاص</value>
+  </data>
+  <data name="QuestionsMadbata" xml:space="preserve">
+    <value>مضابط مجلس الأمة</value>
+  </data>
+  <data name="QuestionsStatistics" xml:space="preserve">
+    <value>إحصائية الاسئلة البرلمانية</value>
+  </data>
+  <data name="AgreementsStatistics" xml:space="preserve">
+    <value>إحصائية الاتفاقيات</value>
+  </data>
+  <data name="InterrogationData" xml:space="preserve">
+    <value>الاستجوابات</value>
+  </data>
+  <data name="Parliament_QuestionResult" xml:space="preserve">
+    <value>نتيجة الاستجواب</value>
+  </data>
+  <data name="Security_pr_Department" xml:space="preserve">
+    <value>الادارات</value>
+  </data>
+  <data name="pm" xml:space="preserve">
+    <value>كتب ديوان الرئيس</value>
+  </data>
+  <data name="pmLetters" xml:space="preserve">
+    <value>كتب ديوان الرئيس</value>
+  </data>
+  <data name="pmMaster" xml:space="preserve">
+    <value>البيانات الاساسية</value>
+  </data>
+  <data name="Pm_DocsCategory" xml:space="preserve">
+    <value>تصنيف الكتب</value>
+  </data>
+  <data name="LibraryDocs2" xml:space="preserve">
+    <value>المكتبة القانونية - البوم</value>
+  </data>
+  <data name="LawDession" xml:space="preserve">
+    <value>القرارات</value>
+  </data>
+  <data name="LawDessionMaster" xml:space="preserve">
+    <value>القرارات| البيانات الاساسية</value>
+  </data>
+  <data name="law_RelatedOrgs" xml:space="preserve">
+    <value>جهات التراسل</value>
+  </data>
+  <data name="Law_DocCategoryMarsoom" xml:space="preserve">
+    <value>تصنيف المرسوم</value>
+  </data>
+  <data name="complaintsData" xml:space="preserve">
+    <value>الشكاوي والعرائض</value>
+  </data>
+  <data name="suggestionData" xml:space="preserve">
+    <value>الاقتراحات برغبة</value>
+  </data>
+  <data name="Complaints_Committees" xml:space="preserve">
+    <value>اللجان المختصة</value>
+  </data>
+  <data name="Complaints_RelatedOrg" xml:space="preserve">
+    <value>جهات الإختصاص</value>
+  </data>
+  <data name="CaseResportsList" xml:space="preserve">
+    <value>قائمة القضايا</value>
+  </data>
+  <data name="CasesReport" xml:space="preserve">
+    <value>التقارير والإحصائيات</value>
+  </data>
+  <data name="InterrogationReports" xml:space="preserve">
+    <value>تقرير الاستجوابات</value>
+  </data>
+  <data name="OmaMadbataReports" xml:space="preserve">
+    <value>تقرير مضابط مجلس الامة</value>
+  </data>
+  <data name="LawDocDataReport" xml:space="preserve">
+    <value>تقرير التشريعات</value>
+  </data>
+  <data name="LawDessionReport" xml:space="preserve">
+    <value>تقرير القرارات</value>
+  </data>
+  <data name="Frm_Pm_LettersReports" xml:space="preserve">
+    <value>كتب ديوان الرئيس</value>
+  </data>
+  <data name="pmreports" xml:space="preserve">
+    <value>التقارير والاحصائيات</value>
+  </data>
+  <data name="Useroperations" xml:space="preserve">
+    <value>تقرير عميات البحث فى النظام</value>
+  </data>
+  <data name="Parliament_CMGSRelatedOrgs" xml:space="preserve">
+    <value>الجهات  التابعه لمجلس الوزراء</value>
+  </data>
+  <data name="UseroperationsAudit" xml:space="preserve">
+    <value>تقرير تتبع العمليات</value>
+  </data>
+  <data name="Law_DocCategoryPrinceOrder" xml:space="preserve">
+    <value>تصنيف الاوامر الاميرية</value>
+  </data>
+  <data name="LawProjectData" xml:space="preserve">
+    <value>مشروعات قوانين محالة</value>
+  </data>
+  <data name="LawProjectReport" xml:space="preserve">
+    <value>تقرير مشاريع قوانين محالة</value>
+  </data>
+  <data name="ComplaintsReport" xml:space="preserve">
+    <value>تقرير الشكاوى والعرائض</value>
+  </data>
+  <data name="suggestionReport" xml:space="preserve">
+    <value>تقرير الإقتراحات برغبة</value>
+  </data>
+  <data name="Cases_M_DecisionResut" xml:space="preserve">
+    <value>نتيجة الحكم</value>
+  </data>
+  <data name="Agreement_AssignedPersons" xml:space="preserve">
+    <value>الموظف المختص</value>
+  </data>
+  <data name="LegalMemo" xml:space="preserve">
+    <value>مذكرات الرأي القانوني</value>
+  </data>
+  <data name="LegalMemoMaster" xml:space="preserve">
+    <value>البيانات الأساسية</value>
+  </data>
+  <data name="LegalMemo_AssignedPersons" xml:space="preserve">
+    <value>الموظف المختص</value>
+  </data>
+  <data name="LegalMemo_Category" xml:space="preserve">
+    <value>تصنيف الموضوع</value>
+  </data>
+  <data name="LegalMemo_Org" xml:space="preserve">
+    <value>الجهات</value>
+  </data>
+  <data name="LegalMemo_Procedure" xml:space="preserve">
+    <value>الإجراء</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value>أفراد</value>
+  </data>
+  <data name="LegalMemo_OrgCat" xml:space="preserve">
+    <value>تصنيف الجهات</value>
+  </data>
+  <data name="LegalMemo_Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="LegalMemoReport" xml:space="preserve">
+    <value>التقارير والإحصائيات</value>
+  </data>
+  <data name="LegalMemoReportList" xml:space="preserve">
+    <value>قائمة المذكرات</value>
+  </data>
+  <data name="LegalMemoTitle" xml:space="preserve">
+    <value>لوحة مؤشرات مذكرات الرأي القانوني</value>
+  </data>
+  <data name="LegalMemo_Consultant" xml:space="preserve">
+    <value>المستشار القانوني</value>
+  </data>
+  <data name="Committee" xml:space="preserve">
+    <value>نظام المجالس واللجان العليا</value>
+  </data>
+  <data name="CommitteeData" xml:space="preserve">
+    <value>نظام المجالس واللجان العليا</value>
+  </data>
+  <data name="CommitteeMaster" xml:space="preserve">
+    <value> البيانات الاساسية</value>
+  </data>
+  <data name="Committees_Ministers" xml:space="preserve">
+    <value>قائمة الوزراء</value>
+  </data>
+  <data name="Committees_ProceduresTypes" xml:space="preserve">
+    <value>أنواع الأداة القانونية</value>
+  </data>
+  <data name="CommitteeReport" xml:space="preserve">
+    <value>قائمة المجالس واللجان</value>
+  </data>
+  <data name="Committeesreports" xml:space="preserve">
+    <value>التقارير والاحصائيات</value>
+  </data>
+  <data name="Committees_RefList" xml:space="preserve">
+    <value>قائمة المجالس أو اللجان</value>
+  </data>
+</root>

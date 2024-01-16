@@ -1,0 +1,470 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Tempmaster.Master.cs" Inherits="UI.Web.Admin.Masters.Tempmaster" %>
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head runat="server">
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CMGS | الأمانة العامة لمجلس الوزراء – دولة الكويت </title>
+
+
+     
+     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	<!-- Global stylesheets -->
+
+
+
+
+     <%-------------------------------------------------%>
+	 
+<link href="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/External/google/css.css" rel="stylesheet" />
+
+	<link href="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/css/core.css" rel="stylesheet" type="text/css">
+	<link href="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/css/colors.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+    
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/loaders/blockui.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/ui/nicescroll.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/ui/drilldown.js"></script>
+	<!-- /core JS files -->
+  
+<!-- Theme JS files -->
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/notifications/jgrowl.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/ui/moment/moment.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/pickers/daterangepicker.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/pickers/anytime.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/pickers/pickadate/picker.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/pickers/pickadate/picker.date.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/pickers/pickadate/picker.time.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/pickers/pickadate/legacy.js"></script>
+
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/core/app.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/pages/picker_date.js"></script>
+	<!-- /theme JS files -->
+
+
+       <!-- Theme JS files -->
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/core/libraries/jquery_ui/interactions.min.js"></script>
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/forms/selects/select2.min.js"></script>
+
+     
+	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/pages/form_select2.js"></script>
+    <script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/pages/dashboard.js"></script>
+   
+	<!-- /theme JS files -->
+     <!--LOADING STYLESHEET FOR Dialog-->
+
+     <link rel="stylesheet" href="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/zebra-dialog/public/css/zebra_dialog.css" type="text/css">
+    <link rel="stylesheet" href="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/zebra-dialog/examples/public/css/style.css" type="text/css">
+    <link rel="stylesheet" href="<%= GetGlobalResourceObject("Utilities", "Assetspath")%>Assets/zebra-dialog/examples/libraries/highlight/public/css/ir_black.css" type="text/css">
+     
+      
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+
+        
+
+   
+        
+	<!-- Main navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<%--<a class="navbar-brand" href="index.html"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/logo_light.png" alt=""></a>--%>
+
+             <img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/logo-banner.png" alt=""> 
+
+			<ul class="nav navbar-nav pull-right visible-xs-block">
+				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+			</ul>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			 
+
+		 
+
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown language-switch">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="<%= GetGlobalResourceObject("Utilities", "SelectLangflag")%>" class="position-left" alt="">
+						<%= GetGlobalResourceObject("Utilities", "selectLang")%>
+						<span class="caret"></span>
+					</a>
+
+        <ul class="dropdown-menu">
+
+            <li>
+                <asp:LinkButton ID="lnkEnglish" runat="server" OnClientClick="alert('قريبا');return false" class="english" OnClick="lnkEnglish_Click"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/flags/gb.png" alt=""> English</asp:LinkButton>
+            </li>
+            <li>
+
+                <asp:LinkButton ID="lnkArabic" runat="server" class="english" OnClick="lnkArabic_Click"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/flags/KW.png" alt=""><%=Resources.menu.Arabic %> </asp:LinkButton>
+            </li>
+
+        </ul>
+				</li>   
+
+				<li class="dropdown" style="display:none">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-bubbles7"></i>
+						<span class="visible-xs-inline-block position-right">Messages</span>
+						<span class="badge bg-warning-400">2</span>
+					</a>
+					
+					<div class="dropdown-menu dropdown-content width-350">
+						<div class="dropdown-content-heading">
+							Messages
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-compose"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body">
+							<li class="media">
+								<div class="media-left">
+									<img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+									<span class="badge bg-danger-400 media-badge">5</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">James Alexander</span>
+										<span class="media-annotation pull-right">04:58</span>
+									</a>
+
+									<span class="text-muted">who knows, maybe that would be the best thing for me...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+									<span class="badge bg-danger-400 media-badge">4</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Margo Baker</span>
+										<span class="media-annotation pull-right">12:16</span>
+									</a>
+
+									<span class="text-muted">That was something he was unable to do because...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Jeremy Victorino</span>
+										<span class="media-annotation pull-right">22:48</span>
+									</a>
+
+									<span class="text-muted">But that would be extremely strained and suspicious...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Beatrix Diaz</span>
+										<span class="media-annotation pull-right">Tue</span>
+									</a>
+
+									<span class="text-muted">What a strenuous career it is that I've chosen...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Richard Vango</span>
+										<span class="media-annotation pull-right">Mon</span>
+									</a>
+									
+									<span class="text-muted">Other travelling salesmen live a life of luxury...</span>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All messages"><i class="icon-menu display-block"></i></a>
+						</div>
+					</div>
+				</li>
+
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="<%=PrfilePhoto %>" alt="">
+						<span><%=AdminName %></span>
+						<i class="caret"></i>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-right">
+						<%--<li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
+						<li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+						<li><a href="#"><span class="badge badge-warning pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>--%>
+						<li><a href="/Admin/pages/login.aspx?out=1"><i class="icon-switch2"></i> تسجيل الخروج</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Second navbar -->
+	<div class="navbar navbar-default" id="navbar-second">
+		<ul class="nav navbar-nav no-border visible-xs-block">
+			<li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
+		</ul>
+
+		<div class="navbar-collapse collapse" id="navbar-second-toggle">
+			<ul class="nav navbar-nav">
+				<li class="active"><a  href='#' runat="server" id="lnk_home" ><i class="icon-pie-chart position-left"></i><%=Resources.CTOS.Dashboard %> </a></li>
+
+                <li class="dropdown mega-menu mega-menu-wide open" style="display:none">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon-puzzle4 position-left"></i> Components <span class="caret"></span></a>
+
+					<div class="dropdown-menu dropdown-content">
+						<div class="dropdown-content-body">
+							<div class="row">
+								<div class="col-md-3">
+									<span class="menu-heading underlined">Forms</span>
+									<div class="dd-wrapper" id="dd-wrapper-0"><div id="dd-header-0" class="dd-header"><h6>Back to parent</h6></div><ul class="menu-list has-children dd-menu" style="overflow: hidden;" tabindex="0">
+										<li class="dd-parent">
+											<a href="#" class="dd-parent-a"><i class="icon-pencil3"></i> Form components<span class="dd-icon"></span></a>
+											<ul rel="10" style="margin-right: 0px; margin-top: 0px;">
+												<li><a href="form_inputs_basic.html">Basic inputs</a></li>
+												<li><a href="form_checkboxes_radios.html">Checkboxes &amp; radios</a></li>
+												<li><a href="form_input_groups.html">Input groups</a></li>
+												<li><a href="form_controls_extended.html">Extended controls</a></li>
+												<li class="dd-parent">
+													<a href="#" class="dd-parent-a">Selects<span class="dd-icon"></span></a>
+													<ul rel="4" style="margin-right: 0px; margin-top: 0px;">
+														<li><a href="form_select2.html">Select2 selects</a></li>
+														<li><a href="form_multiselect.html">Bootstrap multiselect</a></li>
+														<li><a href="form_select_box_it.html">SelectBoxIt selects</a></li>
+														<li class="last"><a href="form_bootstrap_select.html">Bootstrap selects</a></li>
+													</ul>
+												</li>
+												<li><a href="form_tag_inputs.html">Tag inputs</a></li>
+												<li><a href="form_dual_listboxes.html">Dual Listboxes</a></li>
+												<li><a href="form_editable.html">Editable forms</a></li>
+												<li><a href="form_validation.html">Validation</a></li>
+												<li class="last"><a href="form_inputs_grid.html">Inputs grid</a></li>
+											</ul>
+										</li>
+										<li class="dd-parent">
+											<a href="#" class="dd-parent-a"><i class="icon-footprint"></i> Wizards<span class="dd-icon"></span></a>
+											<ul rel="3" style="margin-right: 0px; margin-top: 0px;">
+												<li><a href="wizard_steps.html">Steps wizard</a></li>
+												<li><a href="wizard_form.html">Form wizard</a></li>
+												<li class="last"><a href="wizard_stepy.html">Stepy wizard</a></li>
+											</ul>
+										</li>
+										<li class="dd-parent">
+											<a href="#" class="dd-parent-a"><i class="icon-spell-check"></i> Editors<span class="dd-icon"></span></a>
+											<ul rel="4" style="margin-right: 0px; margin-top: 0px;">
+												<li><a href="editor_summernote.html">Summernote editor</a></li>
+												<li><a href="editor_ckeditor.html">CKEditor</a></li>
+												<li><a href="editor_wysihtml5.html">WYSIHTML5 editor</a></li>
+												<li class="last"><a href="editor_code.html">Code editor</a></li>
+											</ul>
+										</li>
+										<li class="dd-parent">
+											<a href="#" class="dd-parent-a"><i class="icon-select2"></i> Pickers<span class="dd-icon"></span></a>
+											<ul rel="3" style="margin-right: 0px; margin-top: 0px;">
+												<li><a href="picker_date.html">Date &amp; time pickers</a></li>
+												<li><a href="picker_color.html">Color pickers</a></li>
+												<li class="last"><a href="picker_location.html">Location pickers</a></li>
+											</ul>
+										</li>
+										<li class="dd-parent last">
+											<a href="#" class="dd-parent-a"><i class="icon-insert-template"></i> Form layouts<span class="dd-icon"></span></a>
+											<ul rel="2" style="margin-right: 0px; margin-top: 0px;">
+												<li><a href="form_layout_vertical.html">Vertical form</a></li>
+												<li class="last"><a href="form_layout_horizontal.html">Horizontal form</a></li>
+											</ul>
+										</li>
+									</ul></div>
+								</div>
+								<div class="col-md-3">
+									<span class="menu-heading underlined">Appearance</span>
+									<div class="dd-wrapper" id="dd-wrapper-1"><div id="dd-header-1" class="dd-header"><h6>Back to parent</h6></div><ul class="menu-list has-children dd-menu" style="overflow: hidden;" tabindex="1">
+										<li class="dd-parent">
+											<a href="#" class="dd-parent-a"><i class="icon-grid"></i> Components<span class="dd-icon"></span></a>
+											<ul rel="18" style="margin-right: 0px; margin-top: 0px;">
+												<li><a href="components_modals.html">Modals</a></li>
+												<li><a href="components_dropdowns.html">Dropdown menus</a></li>
+												<li><a href="components_tabs.html">Tabs component</a></li>
+												<li><a href="components_pills.html">Pills component</a></li>
+												<li><a href="components_navs.html">Accordion and navs</a></li>
+												<li><a href="components_buttons.html">Buttons</a></li>
+												<li><a href="components_notifications_pnotify.html">PNotify notifications</a></li>
+												<li><a href="components_notifications_others.html">Other notifications</a></li>
+												<li><a href="components_popups.html">Tooltips and popovers</a></li>
+												<li><a href="components_alerts.html">Alerts</a></li>
+												<li><a href="components_pagination.html">Pagination</a></li>
+												<li><a href="components_labels.html">Labels and badges</a></li>
+												<li><a href="components_loaders.html">Loaders and bars</a></li>
+												<li><a href="components_thumbnails.html">Thumbnails</a></li>
+												<li><a href="components_page_header.html">Page header</a></li>
+												<li><a href="components_breadcrumbs.html">Breadcrumbs</a></li>
+												<li><a href="components_media.html">Media objects</a></li>
+												<li class="last"><a href="components_affix.html">Affix and Scrollspy</a></li>
+											</ul>
+										</li>
+										<li class="dd-parent">
+											<a href="#" class="dd-parent-a"><i class="icon-browser"></i> Content panels<span class="dd-icon"></span></a>
+											<ul rel="3" style="margin-right: 0px; margin-top: 0px;">
+												<li><a href="panels.html">Panels</a></li>
+												<li><a href="panels_heading.html">Heading elements</a></li>
+												<li class="last"><a href="panels_draggable.html">Draggable panels</a></li>
+											</ul>
+										</li>
+										<li class="dd-parent">
+											<a href="#" class="dd-parent-a"><i class="icon-droplets"></i> Content styling<span class="dd-icon"></span></a>
+											<ul rel="4" style="margin-right: 0px; margin-top: 0px;">
+												<li><a href="appearance_text_styling.html">Text styling</a></li>
+												<li><a href="appearance_typography.html">Typography</a></li>
+												<li><a href="appearance_helpers.html">Helper classes</a></li>
+												<li class="last"><a href="appearance_syntax_highlighter.html">Syntax highlighter</a></li>
+											</ul>
+										</li>
+										<li class="dd-parent">
+											<a href="#" class="dd-parent-a"><i class="icon-gift"></i> Extra components<span class="dd-icon"></span></a>
+											<ul rel="4" style="margin-right: 0px; margin-top: 0px;">
+												<li><a href="extra_sliders_noui.html">NoUI sliders</a></li>
+												<li><a href="extra_sliders_ion.html">Ion range sliders</a></li>
+												<li><a href="extra_trees.html">Dynamic tree views</a></li>
+												<li class="last"><a href="extra_context_menu.html">Context menu</a></li>
+											</ul>
+										</li>
+										<li class="dd-parent last">
+											<a href="#" class="dd-parent-a"><i class="icon-wrench3"></i> Tools<span class="dd-icon"></span></a>
+											<ul rel="2" style="margin-right: 0px; margin-top: 0px;">
+												<li><a href="tools_session_timeout.html">Session timeout</a></li>
+												<li class="last"><a href="tools_idle_timeout.html">Idle timeout</a></li>
+											</ul>
+										</li>
+									</ul></div>
+								</div>
+								  
+								 
+							</div>
+						</div>
+					<div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="padding-top: 1.5px; padding-bottom: 1.5px; width: 3px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 0.5px; height: 0px; display: none; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 3px; z-index: 1000; top: -6px; left: 0px; position: absolute; cursor: default; display: none; opacity: 0;"><div style="position: absolute; top: 0px; height: 3px; width: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2001" class="nicescroll-rails nicescroll-rails-vr" style="padding-top: 1.5px; padding-bottom: 1.5px; width: 3px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 0.5px; height: 0px; display: none; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2001-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 3px; z-index: 1000; top: -6px; left: 0px; position: absolute; cursor: default; display: none; opacity: 0;"><div style="position: absolute; top: 0px; height: 3px; width: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2002" class="nicescroll-rails nicescroll-rails-vr" style="padding-top: 1.5px; padding-bottom: 1.5px; width: 3px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 0.5px; height: 0px; display: none; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2002-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 3px; z-index: 1000; top: -6px; left: 0px; position: absolute; cursor: default; display: none; opacity: 0;"><div style="position: absolute; top: 0px; height: 3px; width: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2003" class="nicescroll-rails nicescroll-rails-vr" style="padding-top: 1.5px; padding-bottom: 1.5px; width: 3px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 0.5px; height: 0px; display: none;"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2003-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 3px; z-index: 1000; top: -6px; left: 0px; position: absolute; cursor: default; display: none;"><div style="position: absolute; top: 0px; height: 3px; width: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div></div>
+				</li>
+
+
+				   <%=strmenu %>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="<%= GetGlobalResourceObject("Utilities", "cutureRoute")%>/Modules/LibraryDocs/Forms/LibraryDocsview3.aspx" style="padding:5px;" >
+						<%--<i class="icon-archive"></i>--%>
+						   <i style="font-size: 19px;font-weight: bold;"><img src="/layout/rtl/assets/images/libAnimated.gif" style="height:43px" /> المكتبة القانونية  </i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /second navbar -->
+
+
+<%--        <!-- Page header -->
+	<div class="page-header">
+		<div class="page-header-content">
+			<div class="page-title">
+				<h4>
+					<i class="icon-arrow-left52 position-left"></i>
+					<span class="text-semibold">Home</span> - Dashboard
+					<small class="display-block">Good morning, Victoria Baker!</small>
+				</h4>
+			</div>
+
+			<div class="heading-elements">
+				<div class="heading-btn-group">
+					<a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
+					<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
+					<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /page header -->--%>
+
+
+        
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+                 <asp:ContentPlaceHolder ID="Main" runat="server">
+                            </asp:ContentPlaceHolder>
+				
+<%--                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>--%>
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+
+		<!-- Footer -->
+		<div class="footer text-muted" style="display:none">
+               <div class="pull-right"> <b> &nbsp;&nbsp; الاصدار &nbsp;&nbsp; : </b>1.0.0</div>
+				.<a href="http://cmgs.gov.kw/" target="_blank">الامانة العامة لمجلس الوزراء&copy; <%=DateTime.Now.Year.ToString() %></a>- <a href="#">مركز المعلومات</a>   
+
+
+         
+		</div>
+		<!-- /footer -->
+
+	</div>
+	<!-- /page container -->
+
+
+
+         
+			 
+
+	 
+	
+
+	
+
+      
+
+         
+    </form>
+    
+</body>
+</html>

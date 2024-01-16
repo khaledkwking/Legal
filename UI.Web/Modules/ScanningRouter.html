@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Scanner Router</title>
+   
+
+    <script>
+
+        $(document).ready(function () {
+
+            var form = $('<form>').attr({ name: 'pdfpost', action: url, method: 'POST' });
+            $(createFormInputsFromObject(postData)).appendTo(form);
+            form.submit();
+        });
+
+        function createFormInputsFromObject(data, prefix) {
+            prefix = prefix || '';
+            var inputs = '';
+
+            jQuery.each(data, function (name, value) {
+                if (prefix !== '') name = prefix + '[' + name + ']';
+                if (Array.isArray(value) || value instanceof Object) {
+                    inputs += createFormInputsFromObject(value, name);
+                }
+                else {
+                    inputs += jQuery('<input>').attr({ type: 'hidden', name: name, value: value }).prop('outerHTML');
+                }
+            });
+
+            return inputs;
+        }
+
+    </script>
+</head>
+<body>
+    Scanner Router
+</body>
+</html>

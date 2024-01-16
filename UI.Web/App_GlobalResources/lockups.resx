@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AgreementAttachmentTypes" xml:space="preserve">
+    <value>AgreementAttachmentTypes</value>
+  </data>
+  <data name="Agreement_Category" xml:space="preserve">
+    <value>Agreement_Category</value>
+  </data>
+  <data name="Agreement_Orgs" xml:space="preserve">
+    <value>Agreement_Orgs</value>
+  </data>
+  <data name="Agreement_ProcedureTypes" xml:space="preserve">
+    <value>Agreement_ProcedureTypes</value>
+  </data>
+  <data name="Agreement_StatusCodes" xml:space="preserve">
+    <value>Agreement_StatusCodes</value>
+  </data>
+  <data name="Agreement_TypeCodes" xml:space="preserve">
+    <value>Agreement_TypeCodes</value>
+  </data>
+  <data name="arc_AttachmentsTypes" xml:space="preserve">
+    <value>arc_AttachmentsTypes</value>
+  </data>
+  <data name="Cases_decision" xml:space="preserve">
+    <value>Cases_decision</value>
+  </data>
+  <data name="Cases_M_CaseTypes" xml:space="preserve">
+    <value>Cases_M_CaseTypes</value>
+  </data>
+  <data name="Cases_M_Court" xml:space="preserve">
+    <value>Cases_M_Court</value>
+  </data>
+  <data name="Cases_M_Status" xml:space="preserve">
+    <value>Cases_M_Status</value>
+  </data>
+  <data name="Case_AssignedPersons" xml:space="preserve">
+    <value>Case_AssignedPersons</value>
+  </data>
+  <data name="Case_AutoArcSubjects" xml:space="preserve">
+    <value>Case_AutoArcSubjects</value>
+  </data>
+  <data name="Case_AutoPersons" xml:space="preserve">
+    <value>Case_AutoPersons</value>
+  </data>
+  <data name="Case_AutoSubject" xml:space="preserve">
+    <value>Case_AutoSubject</value>
+  </data>
+  <data name="Case_LitigationDegree" xml:space="preserve">
+    <value>Case_LitigationDegree</value>
+  </data>
+  <data name="Medal_M_AttachmentTypes" xml:space="preserve">
+    <value>Medal_M_AttachmentTypes</value>
+  </data>
+  <data name="Medal_M_Category" xml:space="preserve">
+    <value>Medal_M_Category</value>
+  </data>
+  <data name="Medal_M_jobGrade" xml:space="preserve">
+    <value>Medal_M_jobGrade</value>
+  </data>
+  <data name="Medal_M_Organizations" xml:space="preserve">
+    <value>Medal_M_Organizations</value>
+  </data>
+  <data name="Medal_M_ProcedureType" xml:space="preserve">
+    <value>Medal_M_ProcedureType</value>
+  </data>
+  <data name="Medal_M_Types" xml:space="preserve">
+    <value>Medal_M_Types</value>
+  </data>
+  <data name="Parliament_AssignedPerson" xml:space="preserve">
+    <value>Parliament_AssignedPerson</value>
+  </data>
+  <data name="Parliament_legislativeChapter" xml:space="preserve">
+    <value>Parliament_legislativeChapter</value>
+  </data>
+  <data name="Parliament_Orgs" xml:space="preserve">
+    <value>Parliament_Orgs</value>
+  </data>
+  <data name="Parliament_QuestionStatus" xml:space="preserve">
+    <value>Parliament_QuestionStatus</value>
+  </data>
+  <data name="Parliament_RequestedToPerson" xml:space="preserve">
+    <value>Parliament_RequestedToPerson</value>
+  </data>
+  <data name="law_AttachmentTypes" xml:space="preserve">
+    <value>أنواع المرفقات</value>
+  </data>
+  <data name="Law_DocCategory" xml:space="preserve">
+    <value>تصنيف الوثائق</value>
+  </data>
+  <data name="law_DocProceduresTypes" xml:space="preserve">
+    <value>أنواع الاعمال التحضيرية</value>
+  </data>
+  <data name="Law_DocType" xml:space="preserve">
+    <value>إنواع الوثائق</value>
+  </data>
+  <data name="Complaints_RelatedOrg" xml:space="preserve">
+    <value>Complaints_RelatedOrg</value>
+  </data>
+  <data name="LegalMemo" xml:space="preserve">
+    <value>مذكرات الرأي القانوني</value>
+  </data>
+  <data name="LegalMemoMaster" xml:space="preserve">
+    <value>البيانات الأساسية</value>
+  </data>
+  <data name="LegalMemo_AssignedPersons" xml:space="preserve">
+    <value>الموظف المختص</value>
+  </data>
+  <data name="LegalMemo_Category" xml:space="preserve">
+    <value>تصنيف الموضوع</value>
+  </data>
+  <data name="LegalMemo_Org" xml:space="preserve">
+    <value>الجهات</value>
+  </data>
+  <data name="LegalMemo_Procedure" xml:space="preserve">
+    <value>الإجراء</value>
+  </data>
+  <data name="Committees_Ministers" xml:space="preserve">
+    <value>Committees_Ministers</value>
+  </data>
+  <data name="Committees_ProceduresTypes" xml:space="preserve">
+    <value>Committees_ProceduresTypes</value>
+  </data>
+</root>

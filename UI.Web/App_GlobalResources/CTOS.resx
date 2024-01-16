@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AgentBackloadContainer" xml:space="preserve">
+    <value>Agent Backload Container</value>
+  </data>
+  <data name="AgentContainersinyardby" xml:space="preserve">
+    <value>Agent Containers in yard by</value>
+  </data>
+  <data name="AgentDischargedContainers" xml:space="preserve">
+    <value>Agent Discharged Containers</value>
+  </data>
+  <data name="AgentsVesselsVisitsOperations" xml:space="preserve">
+    <value>Agents Vessels Visits Operations</value>
+  </data>
+  <data name="AgentTerminalTEUs" xml:space="preserve">
+    <value>Agent Terminal TEUs</value>
+  </data>
+  <data name="AgentYardInventory" xml:space="preserve">
+    <value>Agent Yard Inventory</value>
+  </data>
+  <data name="BackLoad" xml:space="preserve">
+    <value>BackLoad</value>
+  </data>
+  <data name="backloadedContainers" xml:space="preserve">
+    <value>backloaded Containers</value>
+  </data>
+  <data name="byagents_Containerstatus" xml:space="preserve">
+    <value>by agents/Container status</value>
+  </data>
+  <data name="Containerhandlingoperatoinsondailybasis" xml:space="preserve">
+    <value>Container handling operatoins on daily basis</value>
+  </data>
+  <data name="Containersinyardby" xml:space="preserve">
+    <value>Containers in yard by</value>
+  </data>
+  <data name="Delivered" xml:space="preserve">
+    <value>Delivered</value>
+  </data>
+  <data name="Discharged" xml:space="preserve">
+    <value>Discharged</value>
+  </data>
+  <data name="DischargedContainers" xml:space="preserve">
+    <value>Discharged Containers</value>
+  </data>
+  <data name="Gatemoves" xml:space="preserve">
+    <value>Gate moves</value>
+  </data>
+  <data name="GatePerformance" xml:space="preserve">
+    <value>Gate Performance</value>
+  </data>
+  <data name="Numberofgatemoves" xml:space="preserve">
+    <value>Number of gate moves</value>
+  </data>
+  <data name="Numberofgatemovesbyagents" xml:space="preserve">
+    <value>Number of gate moves by agents</value>
+  </data>
+  <data name="Numberofvesselsperday" xml:space="preserve">
+    <value>Number of vessels per day</value>
+  </data>
+  <data name="Recived" xml:space="preserve">
+    <value>Recived</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="ShipSidePerformance" xml:space="preserve">
+    <value>Ship Side Performance</value>
+  </data>
+  <data name="StatisticsofagentBackloadContainerby" xml:space="preserve">
+    <value>Statistics of agent Backload Container by</value>
+  </data>
+  <data name="StatisticsofagentdischargedContainerby" xml:space="preserve">
+    <value>Statistics of agent discharged Container by</value>
+  </data>
+  <data name="StatisticsofAgentsVesselsVisits" xml:space="preserve">
+    <value>Statistics of Agents Vessels Visits</value>
+  </data>
+  <data name="StatisticsofDeliveredandReceivedContainerper" xml:space="preserve">
+    <value>Statistics of Delivered/Received  Container per</value>
+  </data>
+  <data name="TerminalDailyTEUs" xml:space="preserve">
+    <value>Terminal Daily TEUs</value>
+  </data>
+  <data name="TerminalTEUsDifference" xml:space="preserve">
+    <value>Terminal TEUs Difference</value>
+  </data>
+  <data name="TerminalYardUtilization" xml:space="preserve">
+    <value>Terminal Yard Utilization</value>
+  </data>
+  <data name="TEUs" xml:space="preserve">
+    <value>TEUs</value>
+  </data>
+  <data name="TotalofDeliveredContainers" xml:space="preserve">
+    <value>Total of Delivered Containers</value>
+  </data>
+  <data name="TotalofRecivedContainers" xml:space="preserve">
+    <value>Total of Recived Containers</value>
+  </data>
+  <data name="Totalofservedvessels" xml:space="preserve">
+    <value>Total of served vessels</value>
+  </data>
+  <data name="TotalTerminalTEUs" xml:space="preserve">
+    <value>Total Terminal TEUs</value>
+  </data>
+  <data name="TotalVolumeDischarge_LoadingBox" xml:space="preserve">
+    <value>Total Volume Discharge-Loading /Box</value>
+  </data>
+  <data name="Vessels" xml:space="preserve">
+    <value>Vessels</value>
+  </data>
+  <data name="YardBlocksReservedAvailablespace" xml:space="preserve">
+    <value>Yard Blocks Reserved / Available space</value>
+  </data>
+  <data name="YardTradeCapacityutilization" xml:space="preserve">
+    <value>Yard Trade Capacity utilization</value>
+  </data>
+  <data name="YardTradeCapaticyTEUs" xml:space="preserve">
+    <value>Yard Trade Capaticy TEUs</value>
+  </data>
+  <data name="YardUtilization" xml:space="preserve">
+    <value>Yard Utilization</value>
+  </data>
+  <data name="YearlyBoxesComparison" xml:space="preserve">
+    <value>Yearly Boxes Comparison</value>
+  </data>
+  <data name="YearlyTEUsComparison" xml:space="preserve">
+    <value>Yearly TEUs Comparison</value>
+  </data>
+  <data name="YearlyVesselsComparison" xml:space="preserve">
+    <value>Yearly Vessels Comparison</value>
+  </data>
+  <data name="TerminalPerformanceDashboard" xml:space="preserve">
+    <value>Masder Dashboard</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Ignored" xml:space="preserve">
+    <value>Ignored</value>
+  </data>
+  <data name="IgnoredStr" xml:space="preserve">
+    <value>Ignored as not Vaild</value>
+  </data>
+  <data name="InProcess" xml:space="preserve">
+    <value>In Process</value>
+  </data>
+  <data name="mobile" xml:space="preserve">
+    <value>mobile</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="NewStr" xml:space="preserve">
+    <value>New Received Cases</value>
+  </data>
+  <data name="OwnerName" xml:space="preserve">
+    <value>Owner Name</value>
+  </data>
+  <data name="Proceeded" xml:space="preserve">
+    <value>Proceeded</value>
+  </data>
+  <data name="ProceededStr" xml:space="preserve">
+    <value>Cases Proceeded</value>
+  </data>
+  <data name="Quick" xml:space="preserve">
+    <value>Quick</value>
+  </data>
+  <data name="StrInProcess" xml:space="preserve">
+    <value>Request more information</value>
+  </data>
+  <data name="Ticket" xml:space="preserve">
+    <value>Ticket</value>
+  </data>
+  <data name="ticketRate" xml:space="preserve">
+    <value>Tickets Status Rates</value>
+  </data>
+  <data name="Tickets" xml:space="preserve">
+    <value>Tickets</value>
+  </data>
+  <data name="TicketsList" xml:space="preserve">
+    <value>Tickets List</value>
+  </data>
+  <data name="TicketsTrend" xml:space="preserve">
+    <value>Tickets Trend</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TotalStr" xml:space="preserve">
+    <value>Total of Received Cases</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="TransferStr" xml:space="preserve">
+    <value>Transfer and check</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>Attachment</value>
+  </data>
+  <data name="casetype" xml:space="preserve">
+    <value>Case Type</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="InformationSource" xml:space="preserve">
+    <value>Information Source</value>
+  </data>
+  <data name="NamesRef" xml:space="preserve">
+    <value>Names &amp; Ref</value>
+  </data>
+  <data name="PartOfCase" xml:space="preserve">
+    <value>Part Of Case</value>
+  </data>
+  <data name="postDate" xml:space="preserve">
+    <value>post Date</value>
+  </data>
+  <data name="Ref" xml:space="preserve">
+    <value>Ref#</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>Remarks</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Case Status</value>
+  </data>
+  <data name="TicketListManager" xml:space="preserve">
+    <value>Ticket List Manager</value>
+  </data>
+  <data name="TransactionDate" xml:space="preserve">
+    <value>Transaction Date</value>
+  </data>
+  <data name="TransactionDateTo" xml:space="preserve">
+    <value>Transaction Date To</value>
+  </data>
+  <data name="ViewFiles" xml:space="preserve">
+    <value>View Files</value>
+  </data>
+  <data name="AgreementsTypes" xml:space="preserve">
+    <value>انواع الاتفاقيات</value>
+  </data>
+  <data name="_Totalmarsoom" xml:space="preserve">
+    <value>_Totalmarsoom</value>
+  </data>
+  <data name="_TotalmarsoomSre" xml:space="preserve">
+    <value>_TotalmarsoomSre</value>
+  </data>
+  <data name="_TotalPublished" xml:space="preserve">
+    <value>_TotalPublished</value>
+  </data>
+  <data name="_TotalPublishedSfd" xml:space="preserve">
+    <value>_TotalPublishedSfd</value>
+  </data>
+  <data name="_TotalToLaw" xml:space="preserve">
+    <value>_TotalToLaw</value>
+  </data>
+  <data name="_TotalToLawStr" xml:space="preserve">
+    <value>_TotalToLawStr</value>
+  </data>
+  <data name="_TotalToMinistery" xml:space="preserve">
+    <value>_TotalToMinistery</value>
+  </data>
+  <data name="_TotalToMinisterystr" xml:space="preserve">
+    <value>_TotalToMinisterystr</value>
+  </data>
+  <data name="_TotalToOmma" xml:space="preserve">
+    <value>_TotalToOmma</value>
+  </data>
+  <data name="_TotalToOmmaStr" xml:space="preserve">
+    <value>_TotalToOmmaStr</value>
+  </data>
+  <data name="_TotalUnderStudy" xml:space="preserve">
+    <value>_TotalUnderStudy</value>
+  </data>
+  <data name="_TotalUnderStudyStr" xml:space="preserve">
+    <value>_TotalUnderStudyStr</value>
+  </data>
+  <data name="MedalDashboard" xml:space="preserve">
+    <value>Medals Dashboard</value>
+  </data>
+  <data name="_TotalMedalCompleteData" xml:space="preserve">
+    <value>استكمال البيانات</value>
+  </data>
+  <data name="_TotalMedalCompleteDataStr" xml:space="preserve">
+    <value>إعادة للجهة لاستكمال البيانات</value>
+  </data>
+  <data name="_TotalMedalToDewan" xml:space="preserve">
+    <value>وزير الديوان</value>
+  </data>
+  <data name="_TotalMedalToDewanStr" xml:space="preserve">
+    <value>التحويل إلى وزير الديوان</value>
+  </data>
+  <data name="_TotalMedalToMinister" xml:space="preserve">
+    <value> وزير الدوله</value>
+  </data>
+  <data name="_TotalMedalToMinisterStr" xml:space="preserve">
+    <value>التحويل إلى وزير الدوله</value>
+  </data>
+  <data name="MedalOrgTypes" xml:space="preserve">
+    <value>Medals Org Types</value>
+  </data>
+  <data name="MedalEkhtar" xml:space="preserve">
+    <value>إخطار الجهة</value>
+  </data>
+  <data name="MedalEkhtarStr" xml:space="preserve">
+    <value>إخطار الجهة بصدور الأمر الأميري</value>
+  </data>
+  <data name="Medalsader" xml:space="preserve">
+    <value>صدرو الأمر الأميري</value>
+  </data>
+  <data name="MedalsaderStr" xml:space="preserve">
+    <value>الأنواط والأوسمة التي صدر بشأنها أمر أميري</value>
+  </data>
+  <data name="MedalStatus" xml:space="preserve">
+    <value>MedalStatus</value>
+  </data>
+  <data name="CasesDashbord" xml:space="preserve">
+    <value>لوحة مؤشرات القضايا</value>
+  </data>
+  <data name="_TotalCasesDegree1" xml:space="preserve">
+    <value>اول درجه</value>
+  </data>
+  <data name="_TotalCasesDegree2" xml:space="preserve">
+    <value>اول درجه مستعجل</value>
+  </data>
+  <data name="_TotalCasesDegree3" xml:space="preserve">
+    <value>استئناف (ثاني درجة)</value>
+  </data>
+  <data name="_TotalCasesDegree4" xml:space="preserve">
+    <value>استئناف مستعجل</value>
+  </data>
+  <data name="_TotalCasesDegree5" xml:space="preserve">
+    <value>تمييز</value>
+  </data>
+  <data name="_TotalCasesDegree6" xml:space="preserve">
+    <value>تمييز مستعجل</value>
+  </data>
+  <data name="QuestionsDashborad" xml:space="preserve">
+    <value>Questions Dashboard</value>
+  </data>
+  <data name="QuestionStstusCOunt" xml:space="preserve">
+    <value>QuestionStstusCOunt</value>
+  </data>
+  <data name="_TotalQuestion_AllDesc" xml:space="preserve">
+    <value>_TotalQuestion_AllDesc</value>
+  </data>
+  <data name="_TotalQuestion_AllStr" xml:space="preserve">
+    <value>_TotalQuestion_AllStr</value>
+  </data>
+  <data name="_TotalQuestion_DelaiedDesc" xml:space="preserve">
+    <value>_TotalQuestion_DelaiedDesc</value>
+  </data>
+  <data name="_TotalQuestion_DelaiedStr" xml:space="preserve">
+    <value>_TotalQuestion_DelaiedStr</value>
+  </data>
+  <data name="_TotalQuestion_NoAnswerDesc" xml:space="preserve">
+    <value>_TotalQuestion_NoAnswerDesc</value>
+  </data>
+  <data name="_TotalQuestion_NoAnswerStr" xml:space="preserve">
+    <value>_TotalQuestion_NoAnswerStr</value>
+  </data>
+  <data name="_TotalQuestion_ReliedDesc" xml:space="preserve">
+    <value>_TotalQuestion_ReliedDesc</value>
+  </data>
+  <data name="_TotalQuestion_Reliedstr" xml:space="preserve">
+    <value>_TotalQuestion_Reliedstr</value>
+  </data>
+  <data name="QuestionsDashborad2" xml:space="preserve">
+    <value>Questions Dashboard</value>
+  </data>
+  <data name="QuestionTargetCOunt" xml:space="preserve">
+    <value>إحصائية الاسئلة الموجة إلى</value>
+  </data>
+  <data name="_TotalQuestion_Estifaa" xml:space="preserve">
+    <value>استيفاء</value>
+  </data>
+  <data name="_TotalQuestion_Estifaadesc" xml:space="preserve">
+    <value>عدد الاسئلة البرلمانية التي تحتاج استيفاء بيانات</value>
+  </data>
+  <data name="_TotalQuestion_partial" xml:space="preserve">
+    <value>تمت الإجابة ( رد جزئي )</value>
+  </data>
+  <data name="_TotalQuestion_partialdesc" xml:space="preserve">
+    <value>عدد الاسئلة البرلمانية التي تمت الاجابة عليها بشكل جزئي</value>
+  </data>
+  <data name="_TotalCMGS" xml:space="preserve">
+    <value>_TotalCMGS</value>
+  </data>
+  <data name="_TotalCMGSDESC" xml:space="preserve">
+    <value>_TotalCMGSDESC</value>
+  </data>
+  <data name="Judgmentresult" xml:space="preserve">
+    <value>Judgmentresult</value>
+  </data>
+  <data name="_TotalOther" xml:space="preserve">
+    <value>إجراءات اخرى</value>
+  </data>
+  <data name="_TotalOtherStr" xml:space="preserve">
+    <value>الاتفاقيات  المسجلة بإجراءات اخرى</value>
+  </data>
+  <data name="_TotalCasesDegree7" xml:space="preserve">
+    <value>إستشكال</value>
+  </data>
+  <data name="_TotalCasesDegree8" xml:space="preserve">
+    <value>استئناف</value>
+  </data>
+</root>
