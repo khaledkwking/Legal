@@ -147,8 +147,8 @@
   <data name="GDB" xml:space="preserve">
     <value>GDB</value>
   </data>
-  <data name="GDBAnalytics" xml:space="preserve">
-    <value>GDB Analytics</value>
+  <data name="AgreementsMasters" xml:space="preserve">
+    <value>الملفات التعريفية للنظام</value>
   </data>
   <data name="ImportAnalytics" xml:space="preserve">
     <value>Import Analytics</value>
@@ -204,9 +204,6 @@
   <data name="AgreementMaster" xml:space="preserve">
     <value>البيانات الاساسية</value>
   </data>
-  <data name="AgreementsMasters" xml:space="preserve">
-    <value>الملفات التعريفية للنظام</value>
-  </data>
   <data name="AgreementAttachmentTypes" xml:space="preserve">
     <value>انواع المرفقات</value>
   </data>
@@ -224,9 +221,6 @@
   </data>
   <data name="AgreementsData" xml:space="preserve">
     <value>الاتفاقيات</value>
-  </data>
-  <data name="String" xml:space="preserve">
-    <value>انواع حالات الاتفاقية</value>
   </data>
   <data name="StatusCodes" xml:space="preserve">
     <value>حالات الاتفاقية</value>
@@ -279,11 +273,11 @@
   <data name="Cases_M_Court" xml:space="preserve">
     <value>قائمة المحاكم</value>
   </data>
-  <data name="Cases_M_Status" xml:space="preserve">
-    <value>حالات القضايا</value>
-  </data>
   <data name="Cases_M_CourtBranches" xml:space="preserve">
     <value>فرع المحكمه</value>
+  </data>
+  <data name="Cases_M_Status" xml:space="preserve">
+    <value>حالات القضايا</value>
   </data>
   <data name="Inquery" xml:space="preserve">
     <value>إستعلام</value>
@@ -346,10 +340,10 @@
     <value>قائمة الاسئلة البرلمانية</value>
   </data>
   <data name="Library" xml:space="preserve">
-    <value>المكتبة القانونية</value>
+    <value>المكتبة الإلكترونية</value>
   </data>
   <data name="LibraryDocs" xml:space="preserve">
-    <value>المكتبة القانونية</value>
+    <value>المكتبة الإلكترونية</value>
   </data>
   <data name="LibraryMaster" xml:space="preserve">
     <value>البيانات الاساسيه</value>
@@ -363,14 +357,11 @@
   <data name="summeryBoardTitle" xml:space="preserve">
     <value>لوحة مؤشرات الإتفاقيات</value>
   </data>
-  <data name="AgreementsReports" xml:space="preserve">
-    <value>التقارير والاحصائيات</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value>قائمة الاتفاقيات</value>
-  </data>
   <data name="Agreementslistreport" xml:space="preserve">
     <value>قائمة الاتفاقيات</value>
+  </data>
+  <data name="AgreementsReports" xml:space="preserve">
+    <value>التقارير والاحصائيات</value>
   </data>
   <data name="CaseMenu" xml:space="preserve">
     <value>القضايا</value>
@@ -420,11 +411,11 @@
   <data name="InterrogationData" xml:space="preserve">
     <value>الاستجوابات</value>
   </data>
-  <data name="Parliament_QuestionResult" xml:space="preserve">
-    <value>نتيجة الاستجواب</value>
-  </data>
   <data name="Security_pr_Department" xml:space="preserve">
     <value>الادارات</value>
+  </data>
+  <data name="Parliament_QuestionResult" xml:space="preserve">
+    <value>نتيجة الاستجواب</value>
   </data>
   <data name="pm" xml:space="preserve">
     <value>كتب ديوان الرئيس</value>
@@ -439,7 +430,7 @@
     <value>تصنيف الكتب</value>
   </data>
   <data name="LibraryDocs2" xml:space="preserve">
-    <value>المكتبة القانونية - البوم</value>
+    <value>المكتبة الإلكترونية - البوم</value>
   </data>
   <data name="LawDession" xml:space="preserve">
     <value>القرارات</value>
@@ -520,7 +511,7 @@
     <value>الموظف المختص</value>
   </data>
   <data name="LegalMemo" xml:space="preserve">
-    <value>مذكرات الرأي القانوني</value>
+    <value>كتب ومذكرات الرأي القانوني</value>
   </data>
   <data name="LegalMemoMaster" xml:space="preserve">
     <value>البيانات الأساسية</value>
@@ -537,9 +528,6 @@
   <data name="LegalMemo_Procedure" xml:space="preserve">
     <value>الإجراء</value>
   </data>
-  <data name="String2" xml:space="preserve">
-    <value>أفراد</value>
-  </data>
   <data name="LegalMemo_OrgCat" xml:space="preserve">
     <value>تصنيف الجهات</value>
   </data>
@@ -553,7 +541,7 @@
     <value>قائمة المذكرات</value>
   </data>
   <data name="LegalMemoTitle" xml:space="preserve">
-    <value>لوحة مؤشرات مذكرات الرأي القانوني</value>
+    <value>لوحة مؤشرات كتب ومذكرات الرأي القانوني</value>
   </data>
   <data name="LegalMemo_Consultant" xml:space="preserve">
     <value>المستشار القانوني</value>
@@ -581,5 +569,26 @@
   </data>
   <data name="Committees_RefList" xml:space="preserve">
     <value>قائمة المجالس أو اللجان</value>
+  </data>
+  <data name="GDBAnalytics" xml:space="preserve">
+    <value>GDB Analytics</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>انواع حالات الاتفاقية</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>قائمة الاتفاقيات</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value>أفراد</value>
+  </data>
+  <data name="Lawstree" xml:space="preserve">
+    <value>التشريعات و ارتباطاتها</value>
+  </data>
+  <data name="UserPerformance" xml:space="preserve">
+    <value>تقرير متابعة أداء الموظفين</value>
+  </data>
+  <data name="Committees_Types" xml:space="preserve">
+    <value>أنواع اللجان و المجالس</value>
   </data>
 </root>

@@ -114,6 +114,7 @@
           <Property Name="AddRecord" Type="bit" />
           <Property Name="DeleteRecord" Type="bit" />
           <Property Name="DateControl" Type="bit" />
+          <Property Name="Audit" Type="bit" />
         </EntityType>
         <EntityType Name="Security_pr_SystemPages">
           <Key>
@@ -305,6 +306,7 @@ warning 6002: The table/view 'CMGS_DB.dbo.View_UserSystems' does not have a prim
           <Property Name="AddRecord" Type="Boolean" />
           <Property Name="DeleteRecord" Type="Boolean" />
           <Property Name="DateControl" Type="Boolean" />
+          <Property Name="Audit" Type="Boolean" />
         </EntityType>
         <EntityType Name="Security_pr_SystemPages">
           <Key>
@@ -333,6 +335,21 @@ warning 6002: The table/view 'CMGS_DB.dbo.View_UserSystems' does not have a prim
             <Parameter Name="jobid" Mode="In" Type="Int32" />
             <Parameter Name="url" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Security_pr_Department" EntityType="CMGS_DBModel.Security_pr_Department" />
+          <EntitySet Name="View_UserSystems" EntityType="CMGS_DBModel.View_UserSystems" />
+          <EntitySet Name="Security_pr_admin" EntityType="CMGS_DBModel.Security_pr_admin" />
+          <AssociationSet Name="FK_HD_admin_HD_AdminType" Association="CMGS_DBModel.FK_HD_admin_HD_AdminType">
+            <End Role="Security_pr_AdminType" EntitySet="Security_pr_AdminType" />
+            <End Role="Security_pr_admin" EntitySet="Security_pr_admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Security_pr_admin_Security_pr_Department" Association="CMGS_DBModel.FK_Security_pr_admin_Security_pr_Department">
+            <End Role="Security_pr_Department" EntitySet="Security_pr_Department" />
+            <End Role="Security_pr_admin" EntitySet="Security_pr_admin" />
+          </AssociationSet>
+          <FunctionImport Name="Security_SP_PRM_getuserPermissions" ReturnType="Collection(CMGS_DBModel.Security_SP_PRM_getuserPermissions_Result)">
+            <Parameter Name="jobid" Mode="In" Type="Int32" />
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="Security_SP_PRM_getJobPermissions" ReturnType="Collection(CMGS_DBModel.Security_SP_PRM_getJobPermissions_Result)">
           <Parameter Name="jobid" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -345,75 +362,8 @@ warning 6002: The table/view 'CMGS_DB.dbo.View_UserSystems' does not have a prim
             <Parameter Name="empid" Mode="In" Type="Int32" />
             <Parameter Name="url" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Security_SP_PRM_getuserPermissions" ReturnType="Collection(CMGS_DBModel.Security_SP_PRM_getuserPermissions_Result)">
-            <Parameter Name="jobid" Mode="In" Type="Int32" />
-            <Parameter Name="userID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <EntitySet Name="Security_pr_Department" EntityType="CMGS_DBModel.Security_pr_Department" />
-          <EntitySet Name="View_UserSystems" EntityType="CMGS_DBModel.View_UserSystems" />
-          <EntitySet Name="Security_pr_admin" EntityType="CMGS_DBModel.Security_pr_admin" />
-          <AssociationSet Name="FK_HD_admin_HD_AdminType" Association="CMGS_DBModel.FK_HD_admin_HD_AdminType">
-            <End Role="Security_pr_AdminType" EntitySet="Security_pr_AdminType" />
-            <End Role="Security_pr_admin" EntitySet="Security_pr_admin" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Security_pr_admin_Security_pr_Department" Association="CMGS_DBModel.FK_Security_pr_admin_Security_pr_Department">
-            <End Role="Security_pr_Department" EntitySet="Security_pr_Department" />
-            <End Role="Security_pr_admin" EntitySet="Security_pr_admin" />
-          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="Security_SP_PRM_getJobPage_Result">
-          <Property Type="Int32" Name="SystemID" Nullable="false" />
-          <Property Type="Int32" Name="PageID" Nullable="true" />
-          <Property Type="Int32" Name="PermissionID" Nullable="true" />
-          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="show" Nullable="true" />
-          <Property Type="Int32" Name="modify" Nullable="true" />
-          <Property Type="Int32" Name="AddRecord" Nullable="true" />
-          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
-          <Property Type="Int32" Name="DateControl" Nullable="true" />
-          <Property Type="String" Name="url" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="Security_SP_PRM_getJobPermissions_Result">
-          <Property Type="Int32" Name="SystemID" Nullable="false" />
-          <Property Type="Int32" Name="PageID" Nullable="true" />
-          <Property Type="Int32" Name="PermissionID" Nullable="true" />
-          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="show" Nullable="true" />
-          <Property Type="Int32" Name="modify" Nullable="true" />
-          <Property Type="Int32" Name="AddRecord" Nullable="true" />
-          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
-          <Property Type="Int32" Name="DateControl" Nullable="true" />
-          <Property Type="String" Name="url" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="Security_SP_PRM_getSystemPermission_Result">
-          <Property Type="Int32" Name="SystemID" Nullable="false" />
-          <Property Type="Int32" Name="PageID" Nullable="true" />
-          <Property Type="Int32" Name="PermissionID" Nullable="true" />
-          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="show" Nullable="true" />
-          <Property Type="Int32" Name="modify" Nullable="true" />
-          <Property Type="Int32" Name="AddRecord" Nullable="true" />
-          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
-          <Property Type="Int32" Name="DateControl" Nullable="true" />
-          <Property Type="String" Name="url" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="Security_SP_PRM_getUserPage_Result">
-          <Property Type="Int32" Name="SystemID" Nullable="false" />
-          <Property Type="Int32" Name="PageID" Nullable="true" />
-          <Property Type="Int32" Name="PermissionID" Nullable="true" />
-          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="show" Nullable="true" />
-          <Property Type="Int32" Name="modify" Nullable="true" />
-          <Property Type="Int32" Name="AddRecord" Nullable="true" />
-          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
-          <Property Type="Int32" Name="DateControl" Nullable="true" />
-          <Property Type="String" Name="url" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="Security_SP_PRM_getuserPermissions_Result">
           <Property Type="Int32" Name="SystemID" Nullable="false" />
           <Property Type="Int32" Name="PageID" Nullable="true" />
           <Property Type="Int32" Name="PermissionID" Nullable="true" />
@@ -503,6 +453,62 @@ warning 6002: The table/view 'CMGS_DB.dbo.View_UserSystems' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="Security_SP_PRM_getuserPermissions_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="Int32" Name="PageID" Nullable="false" />
+          <Property Type="Int32" Name="PermissionID" Nullable="true" />
+          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="show" Nullable="true" />
+          <Property Type="Int32" Name="modify" Nullable="true" />
+          <Property Type="Int32" Name="AddRecord" Nullable="true" />
+          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
+          <Property Type="Int32" Name="DateControl" Nullable="true" />
+          <Property Type="Int32" Name="AuditControl" Nullable="true" />
+          <Property Type="String" Name="url" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="Security_SP_PRM_getJobPermissions_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="Int32" Name="PageID" Nullable="true" />
+          <Property Type="Int32" Name="PermissionID" Nullable="true" />
+          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="show" Nullable="true" />
+          <Property Type="Int32" Name="modify" Nullable="true" />
+          <Property Type="Int32" Name="AddRecord" Nullable="true" />
+          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
+          <Property Type="Int32" Name="DateControl" Nullable="true" />
+          <Property Type="Int32" Name="AuditControl" Nullable="true" />
+          <Property Type="String" Name="url" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="Security_SP_PRM_getSystemPermission_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="Int32" Name="PageID" Nullable="true" />
+          <Property Type="Int32" Name="PermissionID" Nullable="true" />
+          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="show" Nullable="true" />
+          <Property Type="Int32" Name="modify" Nullable="true" />
+          <Property Type="Int32" Name="AddRecord" Nullable="true" />
+          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
+          <Property Type="Int32" Name="DateControl" Nullable="true" />
+          <Property Type="Int32" Name="AuditControl" Nullable="true" />
+          <Property Type="String" Name="url" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="Security_SP_PRM_getUserPage_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="Int32" Name="PageID" Nullable="true" />
+          <Property Type="Int32" Name="PermissionID" Nullable="true" />
+          <Property Type="String" Name="SystemTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="show" Nullable="true" />
+          <Property Type="Int32" Name="modify" Nullable="true" />
+          <Property Type="Int32" Name="AddRecord" Nullable="true" />
+          <Property Type="Int32" Name="DeleteRecord" Nullable="true" />
+          <Property Type="Int32" Name="DateControl" Nullable="true" />
+          <Property Type="Int32" Name="AuditControl" Nullable="true" />
+          <Property Type="String" Name="url" Nullable="true" MaxLength="250" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -579,6 +585,7 @@ warning 6002: The table/view 'CMGS_DB.dbo.View_UserSystems' does not have a prim
           <EntitySetMapping Name="Security_pr_Permission">
             <EntityTypeMapping TypeName="CMGS_DBModel.Security_pr_Permission">
               <MappingFragment StoreEntitySet="Security_pr_Permission">
+                <ScalarProperty Name="Audit" ColumnName="Audit" />
                 <ScalarProperty Name="code" ColumnName="code" />
                 <ScalarProperty Name="userid" ColumnName="userid" />
                 <ScalarProperty Name="sysid" ColumnName="sysid" />
@@ -607,74 +614,6 @@ warning 6002: The table/view 'CMGS_DB.dbo.View_UserSystems' does not have a prim
           <FunctionImportMapping FunctionImportName="Security_SP_PRM_getJobPage" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getJobPage">
             <ResultMapping>
               <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getJobPage_Result">
-                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
-                <ScalarProperty Name="PageID" ColumnName="PageID" />
-                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
-                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
-                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
-                <ScalarProperty Name="show" ColumnName="show" />
-                <ScalarProperty Name="modify" ColumnName="modify" />
-                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
-                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
-                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
-                <ScalarProperty Name="url" ColumnName="url" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getJobPermissions" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getJobPermissions">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getJobPermissions_Result">
-                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
-                <ScalarProperty Name="PageID" ColumnName="PageID" />
-                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
-                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
-                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
-                <ScalarProperty Name="show" ColumnName="show" />
-                <ScalarProperty Name="modify" ColumnName="modify" />
-                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
-                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
-                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
-                <ScalarProperty Name="url" ColumnName="url" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getSystemPermission" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getSystemPermission">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getSystemPermission_Result">
-                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
-                <ScalarProperty Name="PageID" ColumnName="PageID" />
-                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
-                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
-                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
-                <ScalarProperty Name="show" ColumnName="show" />
-                <ScalarProperty Name="modify" ColumnName="modify" />
-                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
-                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
-                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
-                <ScalarProperty Name="url" ColumnName="url" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getUserPage" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getUserPage">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getUserPage_Result">
-                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
-                <ScalarProperty Name="PageID" ColumnName="PageID" />
-                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
-                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
-                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
-                <ScalarProperty Name="show" ColumnName="show" />
-                <ScalarProperty Name="modify" ColumnName="modify" />
-                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
-                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
-                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
-                <ScalarProperty Name="url" ColumnName="url" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getuserPermissions" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getuserPermissions">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getuserPermissions_Result">
                 <ScalarProperty Name="SystemID" ColumnName="SystemID" />
                 <ScalarProperty Name="PageID" ColumnName="PageID" />
                 <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
@@ -741,6 +680,78 @@ warning 6002: The table/view 'CMGS_DB.dbo.View_UserSystems' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getuserPermissions" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getuserPermissions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getuserPermissions_Result">
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+                <ScalarProperty Name="show" ColumnName="show" />
+                <ScalarProperty Name="modify" ColumnName="modify" />
+                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
+                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
+                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
+                <ScalarProperty Name="AuditControl" ColumnName="AuditControl" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getJobPermissions" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getJobPermissions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getJobPermissions_Result">
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+                <ScalarProperty Name="show" ColumnName="show" />
+                <ScalarProperty Name="modify" ColumnName="modify" />
+                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
+                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
+                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
+                <ScalarProperty Name="AuditControl" ColumnName="AuditControl" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getSystemPermission" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getSystemPermission">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getSystemPermission_Result">
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+                <ScalarProperty Name="show" ColumnName="show" />
+                <ScalarProperty Name="modify" ColumnName="modify" />
+                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
+                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
+                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
+                <ScalarProperty Name="AuditControl" ColumnName="AuditControl" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Security_SP_PRM_getUserPage" FunctionName="CMGS_DBModel.Store.Security_SP_PRM_getUserPage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMGS_DBModel.Security_SP_PRM_getUserPage_Result">
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="SystemTitle" ColumnName="SystemTitle" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+                <ScalarProperty Name="show" ColumnName="show" />
+                <ScalarProperty Name="modify" ColumnName="modify" />
+                <ScalarProperty Name="AddRecord" ColumnName="AddRecord" />
+                <ScalarProperty Name="DeleteRecord" ColumnName="DeleteRecord" />
+                <ScalarProperty Name="DateControl" ColumnName="DateControl" />
+                <ScalarProperty Name="AuditControl" ColumnName="AuditControl" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

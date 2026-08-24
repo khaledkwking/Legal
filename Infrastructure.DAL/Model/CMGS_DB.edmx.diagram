@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="86802594f70544dda04dc04ee36565c5" Name="Diagram1" ZoomLevel="97">
+      <Diagram DiagramId="86802594f70544dda04dc04ee36565c5" Name="Diagram1" ZoomLevel="78">
         <EntityTypeShape EntityType="CMGS_DBModel.Agreement_AssignedPersons" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.Agreement_Attachments" Width="1.5" PointX="7.5" PointY="21.125" />
         <EntityTypeShape EntityType="CMGS_DBModel.Agreement_Category" Width="1.5" PointX="0.75" PointY="25.625" />
@@ -20,8 +20,7 @@
         <EntityTypeShape EntityType="CMGS_DBModel.arc_Attachments" Width="1.5" PointX="17" PointY="28" />
         <EntityTypeShape EntityType="CMGS_DBModel.arc_AttachmentsTypes" Width="1.5" PointX="14.75" PointY="29.5" />
         <EntityTypeShape EntityType="CMGS_DBModel.arc_Data" Width="1.5" PointX="0.75" PointY="28.75" />
-        <EntityTypeShape EntityType="CMGS_DBModel.AuditLog" Width="1.5" PointX="2.75" PointY="3.75" />
-        <EntityTypeShape EntityType="CMGS_DBModel.AuditLog_UserOperations" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CMGS_DBModel.AuditLog_UserOperations" Width="2.125" PointX="8.125" PointY="0.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.Case_AssignedPersons" Width="1.5" PointX="12.75" PointY="4.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.Case_AutoArcSubjects" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.Case_AutoPersons" Width="1.5" PointX="10.75" PointY="0.75" />
@@ -32,29 +31,24 @@
         <EntityTypeShape EntityType="CMGS_DBModel.Cases_Data" Width="1.5" PointX="17.25" PointY="1.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.Cases_decision" Width="1.5" PointX="15" PointY="9.125" />
         <EntityTypeShape EntityType="CMGS_DBModel.Cases_H_Hearing" Width="1.5" PointX="19.5" PointY="1.25" />
-        <EntityTypeShape EntityType="CMGS_DBModel.Cases_M_CaseMainTypes" Width="1.5" PointX="12.75" PointY="19.5" />
-        <EntityTypeShape EntityType="CMGS_DBModel.Cases_M_CaseTypes" Width="1.5" PointX="15" PointY="19.375" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Cases_M_CaseMainTypes" Width="1.5" PointX="11.75" PointY="19.5" />
         <EntityTypeShape EntityType="CMGS_DBModel.Cases_M_Court" Width="1.5" PointX="8.75" PointY="17.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.Cases_M_DecisionResut" Width="1.5" PointX="15" PointY="11.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.Cases_M_Status" Width="1.5" PointX="15" PointY="16.75" />
-        <EntityTypeShape EntityType="CMGS_DBModel.Complaints_Committees" Width="1.5" PointX="19.75" PointY="19.75" />
-        <EntityTypeShape EntityType="CMGS_DBModel.Complaints_Data" Width="1.5" PointX="2.75" PointY="28.75" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Complaints_Committees" Width="1.5" PointX="22.25" PointY="17.125" />
         <EntityTypeShape EntityType="CMGS_DBModel.Complaints_Data_proposer" Width="1.5" PointX="14.75" PointY="22.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.Complaints_RelatedOrg" Width="1.5" PointX="16.75" PointY="22.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.FD_RPTGrouping" Width="1.5" PointX="27.75" PointY="13.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.law_Attachments" Width="1.5" PointX="8" PointY="28" />
         <EntityTypeShape EntityType="CMGS_DBModel.law_AttachmentTypes" Width="1.5" PointX="5.75" PointY="29.375" />
-        <EntityTypeShape EntityType="CMGS_DBModel.Law_DocCategory" Width="1.5" PointX="10.75" PointY="29.75" />
-        <EntityTypeShape EntityType="CMGS_DBModel.Law_DocData" Width="1.5" PointX="21.75" PointY="2" />
-        <EntityTypeShape EntityType="CMGS_DBModel.Law_DocData_Linked" Width="1.5" PointX="24" PointY="9.625" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Law_DocData" Width="1.5" PointX="21.125" PointY="2" />
         <EntityTypeShape EntityType="CMGS_DBModel.Law_DocProcedures" Width="1.5" PointX="24" PointY="3.25" />
         <EntityTypeShape EntityType="CMGS_DBModel.law_DocProceduresTypes" Width="1.5" PointX="21.75" PointY="32.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.Law_DocType" Width="1.5" PointX="23.75" PointY="0.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo" Width="1.5" PointX="20" PointY="12.125" />
         <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo_AssignedPersons" Width="1.5" PointX="17.75" PointY="11.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo_Category" Width="1.5" PointX="17.75" PointY="14.25" />
-        <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo_Org" Width="1.5" PointX="17.75" PointY="17.25" />
-        <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo_Procedure" Width="1.5" PointX="17.75" PointY="19.75" />
+        <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo_Procedure" Width="1.75" PointX="16.5" PointY="19.875" />
         <EntityTypeShape EntityType="CMGS_DBModel.Library_DocsCategory" Width="1.5" PointX="26.75" PointY="2.625" />
         <EntityTypeShape EntityType="CMGS_DBModel.Library_DocsType" Width="1.5" PointX="29" PointY="2.375" />
         <EntityTypeShape EntityType="CMGS_DBModel.Library_Documents" Width="1.5" PointX="31.25" PointY="1.125" />
@@ -86,7 +80,7 @@
         <EntityTypeShape EntityType="CMGS_DBModel.Parliament_QuestionsAnswers" Width="1.5" PointX="10.5" PointY="13.5" />
         <EntityTypeShape EntityType="CMGS_DBModel.Parliament_QuestionStatus" Width="1.5" PointX="6" PointY="13.5" />
         <EntityTypeShape EntityType="CMGS_DBModel.Parliament_RelatedOrgs" Width="1.5" PointX="10.5" PointY="10.375" />
-        <EntityTypeShape EntityType="CMGS_DBModel.Parliament_Requestedby" Width="1.5" PointX="10.5" PointY="6.375" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Parliament_Requestedby" Width="2.125" PointX="10.5" PointY="6.375" />
         <EntityTypeShape EntityType="CMGS_DBModel.Parliament_RequestedToPerson" Width="1.5" PointX="6" PointY="5" />
         <EntityTypeShape EntityType="CMGS_DBModel.Pm_Letters" Width="1.5" PointX="29" PointY="8" />
         <EntityTypeShape EntityType="CMGS_DBModel.Pm_Letters_Categories" Width="1.5" PointX="26.75" PointY="9.5" />
@@ -95,7 +89,7 @@
         <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_admin" Width="1.5" PointX="12" PointY="23.125" />
         <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_AdminType" Width="1.5" PointX="9.75" PointY="24.875" />
         <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_Department" Width="1.5" PointX="9.75" PointY="21.875" />
-        <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_MainSystem" Width="1.5" PointX="4.75" PointY="32.75" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_MainSystem" Width="1.5" PointX="5" PointY="32.625" />
         <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_ModuleThemes" Width="1.5" PointX="31.75" PointY="25.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_Permission" Width="1.5" PointX="10.75" PointY="32.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.Security_pr_SystemPages" Width="1.5" PointX="12.75" PointY="32.75" />
@@ -132,19 +126,14 @@
         <AssociationConnector Association="CMGS_DBModel.FK_Cases_Data_Case_LitigationDegree" />
         <AssociationConnector Association="CMGS_DBModel.FK_Case_parties_Cases_Data" />
         <AssociationConnector Association="CMGS_DBModel.FK_Cases_Data_Cases_decision" />
-        <AssociationConnector Association="CMGS_DBModel.FK_Cases_Data_Cases_M_CaseTypes" />
         <AssociationConnector Association="CMGS_DBModel.FK_Cases_Data_Cases_M_DecisionResut" />
         <AssociationConnector Association="CMGS_DBModel.FK_Cases_Data_Cases_M_Status" />
         <AssociationConnector Association="CMGS_DBModel.FK_Cases_H_Hearing_Cases_Data" />
-        <AssociationConnector Association="CMGS_DBModel.FK_Cases_M_CaseTypes_Cases_M_CaseMainTypes" />
         <AssociationConnector Association="CMGS_DBModel.FK_law_Attachments_law_AttachmentTypes" />
-        <AssociationConnector Association="CMGS_DBModel.FK_Law_DocData_Linked_Law_DocData" />
-        <AssociationConnector Association="CMGS_DBModel.FK_Law_DocData_Linked_Law_DocData1" />
         <AssociationConnector Association="CMGS_DBModel.FK_Law_DocProcedures_Law_DocData" />
         <AssociationConnector Association="CMGS_DBModel.FK_Law_DocProcedures_law_DocProceduresTypes" />
         <AssociationConnector Association="CMGS_DBModel.FK_LegalMemo_LegalMemo_AssignedPersons" />
         <AssociationConnector Association="CMGS_DBModel.FK_LegalMemo_LegalMemo_Category" />
-        <AssociationConnector Association="CMGS_DBModel.FK_LegalMemo_LegalMemo_Org" />
         <AssociationConnector Association="CMGS_DBModel.FK_LegalMemo_LegalMemo_Procedure" />
         <AssociationConnector Association="CMGS_DBModel.FK_Library_DocsType_Library_DocsCategory" />
         <AssociationConnector Association="CMGS_DBModel.FK_Library_Documents_Library_DocsType" />
@@ -176,11 +165,10 @@
         <AssociationConnector Association="CMGS_DBModel.FK_HD_admin_HD_AdminType" />
         <AssociationConnector Association="CMGS_DBModel.FK_Security_pr_admin_Security_pr_Department" />
         <EntityTypeShape EntityType="CMGS_DBModel.View_LegalMemosDocs" Width="1.5" PointX="3.375" PointY="36.75" />
-        <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo_OrgCat" Width="1.5" PointX="15.5" PointY="44.5" />
-        <AssociationConnector Association="CMGS_DBModel.FK_LegalMemo_Org_LegalMemo_OrgCat" />
-        <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo_Status" Width="1.5" PointX="5.375" PointY="36.875" />
+        <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo_OrgCat" Width="2.125" PointX="17.25" PointY="16.5" />
+        <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo_Status" Width="1.75" PointX="9.25" PointY="38.125" />
         <AssociationConnector Association="CMGS_DBModel.FK_LegalMemo_LegalMemo_Status" />
-        <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo_Consultant" Width="1.5" PointX="7.375" PointY="36.75" />
+        <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo_Consultant" Width="1.75" PointX="7.375" PointY="36.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.Committees_Data" Width="1.5" PointX="39.625" PointY="23" />
         <EntityTypeShape EntityType="CMGS_DBModel.Committees_DocProcedures" Width="1.5" PointX="41.875" PointY="23" />
         <EntityTypeShape EntityType="CMGS_DBModel.Committees_Ministers" Width="1.5" PointX="37.375" PointY="24.5" />
@@ -188,8 +176,27 @@
         <AssociationConnector Association="CMGS_DBModel.FK_Committees_Data_Committees_Ministers" />
         <AssociationConnector Association="CMGS_DBModel.FK_Committees_DocProcedures_Committees_Data" />
         <AssociationConnector Association="CMGS_DBModel.FK_Committees_DocProcedures_Committees_ProceduresTypes" />
-        <EntityTypeShape EntityType="CMGS_DBModel.Committees_RefList" Width="1.5" PointX="11.375" PointY="36.75" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Committees_RefList" Width="1.75" PointX="11.375" PointY="36.75" />
         <EntityTypeShape EntityType="CMGS_DBModel.viewCommitteeData" Width="3.125" PointX="37.375" PointY="29.75" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Law_DocData_Linked_Status" Width="1.5" PointX="21.75" PointY="41.125" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Law_DocCategory" Width="1.5" PointX="26" PointY="38" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Law_DocSectors" Width="1.5" PointX="26" PointY="5.375" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Sectors" Width="1.5" PointX="23.75" PointY="45.25" />
+        <AssociationConnector Association="CMGS_DBModel.FK_Law_DocCategory_Law_DocType" />
+        <AssociationConnector Association="CMGS_DBModel.FK_Law_DocSectors_Law_Doc" />
+        <AssociationConnector Association="CMGS_DBModel.FK_Law_DocSectors_Sectors" />
+        <EntityTypeShape EntityType="CMGS_DBModel.AuditLog" Width="1.5" PointX="38.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CMGS_DBModel.ViewUser_AuditLog" Width="1.5" PointX="37.375" PointY="36.75" />
+        <EntityTypeShape EntityType="CMGS_DBModel.LegalMemo_Org" Width="1.5" PointX="17.375" PointY="25" />
+        <AssociationConnector Association="CMGS_DBModel.FK_LegalMemo_LegalMemo_Org" />
+        <AssociationConnector Association="CMGS_DBModel.FK_LegalMemo_Org_LegalMemo_OrgCat" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Cases_M_CaseTypes" Width="1.5" PointX="40.75" PointY="1.25" />
+        <AssociationConnector Association="CMGS_DBModel.FK_Cases_Data_Cases_M_CaseTypes" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Complaints_Data" Width="1.5" PointX="38.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CMGS_DBModel.Law_DocData_Linked" Width="1.5" PointX="24" PointY="9.625" />
+        <AssociationConnector Association="CMGS_DBModel.FK_Law_DocData_Linked_Law_DocData" />
+        <AssociationConnector Association="CMGS_DBModel.FK_Law_DocData_Linked_Law_DocData1" />
+        <AssociationConnector Association="CMGS_DBModel.FK_Law_DocData_Linked_Law_DocData_Linked_Status" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

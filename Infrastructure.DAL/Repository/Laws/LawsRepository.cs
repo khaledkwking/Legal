@@ -1,13 +1,14 @@
-﻿using Infrastructure.DAL.Model;
-using Infrastructure.DAL.Enum;
+﻿using Infrastructure.DAL.Enum;
+using Infrastructure.DAL.Model;
+using Infrastructure.DAL.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 
 namespace Infrastructure.DAL
 {
-    public partial class LawsRepository : BaseRepository
+    public  class LawsRepository : BaseRepository
     {
 
         public LawsRepository(CMGS_DBEntities _context) : base(_context)
@@ -49,8 +50,8 @@ namespace Infrastructure.DAL
              //&& (StatusID != 0 ? obj.StatusID == StatusID : 1 == 1)
              //&& (RequestTo != 0 ? obj.Q_RequestTo == RequestTo : 1 == 1)
              //&& (selectedRequestedFrom.Count > 0 ? selectedRequestedFrom.Contains(obj.Q_RequestFrom.Value) : 1 == 1)
-             && (LawSubject != "" ? obj.DocSubject.Contains(LawSubject) : 1 == 1)
-             && (LawDetails != "" ? obj.DocDetails.Contains(LawDetails) : 1 == 1)
+             && (LawSubject != "" ? (obj.DocSubject != null && obj.DocSubject.Contains(LawSubject)) : 1 == 1)
+             && (LawDetails != "" ? (obj.DocDetails != null && obj.DocDetails.Contains(LawDetails)) : 1 == 1)
              && (lastProcedureId != 0 ? obj.ProcedureTypeCode == lastProcedureId : 1 == 1)
              && (isPrivate != true ? obj.isPrivate == false : (PrivateType == 0) ? 1 == 1 : PrivateType == 1 ? obj.isPrivate == true : obj.isPrivate == false)
                  ////&& (RelatedOrgs.Count > 0 ? RelatedOrgs.Contains(obj.Q_RequestTo.Value) : 1 == 1)
@@ -69,10 +70,41 @@ namespace Infrastructure.DAL
 
         }
 
+        public List<View_LawsDocs> GetListBySerialNum(string docNumbers)
+        {
+            var numbers = docNumbers
+                 .Split(',')
+                 .Where(x => !string.IsNullOrWhiteSpace(x))
+                 .Select(x => int.Parse(x.Trim()))
+                 .ToList();
+
+            var result =
+                from obj in DC.View_LawsDocs
+                orderby obj.DocYear descending, obj.DocNum descending
+                where !numbers.Any() || numbers.Contains(obj.Code)
+                select obj;
+
+            //var result =
+            //      (from obj in DC.View_LawsDocs
+            //           //orderby obj.Q_Serial descending    chnaged by Nada Request ib 12052018
+            //           //orderby obj.DocDate descending // obj.DocNum, obj.DocYear 
+            //       orderby obj.DocYear descending, obj.DocNum descending
+            //       where 1 == 1
+            //       && (SerialNum != 0 ? obj.DocNum == SerialNum : 1 == 1)
+            //       && (SerialYear != 0 ? obj.DocYear == SerialYear : 1 == 1)
+
+              
+            //       select obj);
+
+            var _out = result.ToList<View_LawsDocs>();
+           PostResultToAudit((int)SysModulesRef.Legislation, nameof(SysModulesRef.Legislation), "Search Result /GetList", numbers.ToString(), JsonConvert.SerializeObject(_out), _out.Count);
+            return _out;
+
+        }
         public List<View_LawsDocs> GetList(int SerialNum, int SerialYear,
             DateTime TransactionDatFrom, DateTime TransactionDatTo,
             int DocType, int DocCategory,
-            int IsUnderStudy, string LawSubject, string LawDetails, int isPublished, int lastProcedureId, DateTime ExpireDatefrom, DateTime ExpireDateTo, string SearchKyes)
+            int IsUnderStudy, string LawSubject, string LawNotes, string LawDetails, int isPublished, int lastProcedureId, DateTime ExpireDatefrom, DateTime ExpireDateTo, string SearchKyes)
         {
 
 
@@ -105,6 +137,7 @@ namespace Infrastructure.DAL
                  //&& (RequestTo != 0 ? obj.Q_RequestTo == RequestTo : 1 == 1)
                  //&& (selectedRequestedFrom.Count > 0 ? selectedRequestedFrom.Contains(obj.Q_RequestFrom.Value) : 1 == 1)
                  && (LawSubject != "" ? obj.DocSubject.Contains(LawSubject) : 1 == 1)
+                 && (LawNotes != "" ? obj.DocSubject.Contains(LawNotes) : 1 == 1)
                  && (LawDetails != "" ? obj.DocDetails.Contains(LawDetails) : 1 == 1)
                  ////&& (RelatedOrgs.Count > 0 ? RelatedOrgs.Contains(obj.Q_RequestTo.Value) : 1 == 1)
                  //&& (RelatedOrgs != 0 ? DC.Parliament_Requestedby
@@ -145,8 +178,8 @@ namespace Infrastructure.DAL
              && (DocCategory != 0 ? obj.DocCategoryID == DocCategory : 1 == 1)
              && (lastProcedureId != 0 ? obj.ProcedureTypeCode == lastProcedureId : 1 == 1)
 
-             && (LawSubject != "" ? obj.DocSubject.Contains(LawSubject) : 1 == 1)
-             && (LawDetails != "" ? obj.DocDetails.Contains(LawDetails) : 1 == 1)
+             && (LawSubject != "" ? (obj.DocSubject != null && obj.DocSubject.Contains(LawSubject)) : 1 == 1)
+             && (LawDetails != "" ? (obj.DocDetails != null && obj.DocDetails.Contains(LawDetails)) : 1 == 1)
 
                  select obj);
 
@@ -170,6 +203,14 @@ namespace Infrastructure.DAL
                  where obj.Code == _Code
                  select obj);
             return result.FirstOrDefault<Medal_Data>();
+        }
+        public Law_DocData GetDetailsByType(int DocTypeID,int DocCategoryID)
+        {
+            var result =
+                (from obj in DC.Law_DocData
+                 where obj.DocTypeID == DocTypeID && obj.DocCategoryID == DocCategoryID
+                 select obj);
+            return result.FirstOrDefault<Law_DocData>();
         }
         public Law_DocData GetDetailswithProcedures(int _Code)
         {
@@ -414,6 +455,18 @@ namespace Infrastructure.DAL
             return result.FirstOrDefault<Law_DocProcedures>();
 
         }
+        public List<Law_DocProcedures> GetAllProceduresDetails(int? _Code)
+        {
+
+
+            var result =
+                (from obj in DC.Law_DocProcedures
+                 where obj.Code == _Code
+                 select obj);
+
+            return result.ToList ();
+
+        }
         public List<Law_DocProcedures> FillLawProcedures(int RefDocID)
         {
 
@@ -609,6 +662,15 @@ namespace Infrastructure.DAL
 
 
             DC.Entry(item as Law_DocData_Linked).State = System.Data.Entity.EntityState.Deleted;
+            return DC.SaveChanges();
+
+        }
+
+        public int UpdateDocLink<T>(T item)
+        {
+
+
+            DC.Entry(item as Law_DocData_Linked).State = System.Data.Entity.EntityState.Modified;
             return DC.SaveChanges();
 
         }

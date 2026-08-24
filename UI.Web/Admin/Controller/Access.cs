@@ -20,8 +20,9 @@ public class Access
 	private bool _add;
 	private bool _edit;
 	private bool _delete;
-		#endregion
-	private bool _date;
+    private bool _Audit;
+        #endregion
+    private bool _date;
 
 	#region "Public Properties"
 	public bool Show {
@@ -39,9 +40,13 @@ public class Access
 	public bool DateControl {
 		get { return _date; }
 	}
-	#endregion
+    public bool AuditControl
+    {
+        get { return _Audit; }
+    }
+        #endregion
 
-	public Access(string per)
+        public Access(string per)
 	{
             if (per.IndexOf(",") == -1)
             {
@@ -55,6 +60,7 @@ public class Access
                 _edit = getBool(data[2]);
                 _delete = getBool(data[3]);
                 _date = getBool(data[4]);
+                _Audit = getBool(data[5]);
             }
 	}
 

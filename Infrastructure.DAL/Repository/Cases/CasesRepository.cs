@@ -182,7 +182,7 @@ namespace Infrastructure.DAL
                 (from obj in DC.Cases_M_CaseTypes
                    .Include("Cases_M_CaseMainTypes")
                  where 1 == 1
-             && (CatId != 0 ? obj.CatId == CatId : 1 == 1)
+             && (CatId != 0 ? obj.CatID == CatId : 1 == 1)
                  select obj);
 
             return result.ToList<Cases_M_CaseTypes>();
@@ -209,7 +209,7 @@ namespace Infrastructure.DAL
 
             var result =
                 (from obj in DC.Cases_M_CaseTypes
-                 where obj.CatId == ChapterId && obj.NameAr == itemName && obj.Code != RefId
+                 where obj.CatID == ChapterId && obj.NameAr == itemName && obj.Code != RefId
                  select obj).FirstOrDefault();
 
             if (result != null)

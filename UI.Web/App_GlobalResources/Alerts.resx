@@ -253,12 +253,15 @@
     <value>Sorry,Member In Leave</value>
   </data>
   <data name="youhave" xml:space="preserve">
-    <value>You have </value>
+    <value>youhave</value>
   </data>
   <data name="error" xml:space="preserve">
     <value>Error</value>
   </data>
   <data name="SorryDeleteMaterDataFailed" xml:space="preserve">
     <value>Fail to delete record, please delete related data first</value>
+  </data>
+  <data name="DeleteAlert" xml:space="preserve">
+    <value>are you sure you want to delete selected items</value>
   </data>
 </root>

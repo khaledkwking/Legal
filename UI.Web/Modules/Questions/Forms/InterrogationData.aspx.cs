@@ -633,7 +633,22 @@ namespace UI.Web.Modules.Questions.Forms
             btnNew.Visible = userAccess.Add;
 
 
-            btnSave.Visible = userAccess.Edit ||  userAccess.Add;
+           
+
+            if (Request.QueryString["editflag"] != null)
+            {
+                string editflag = Request.QueryString["editflag"].ToString();
+
+                btnSave.Visible = userAccess.Edit;
+
+               
+            }
+            else
+            {
+
+                btnSave.Visible = userAccess.Edit || userAccess.Add;
+               
+            }
 
 
             //btnDelete.Visible = userAccess.Delete;

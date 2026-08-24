@@ -4,6 +4,8 @@
 
 <%@ Register Assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
     Namespace="System.Web.UI" TagPrefix="asp" %>
+<%@ Register Src="~/UserControls/DeleteConfirm.ascx"  TagPrefix="uc"  TagName="DeleteConfirm" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
@@ -448,7 +450,7 @@
                                                                 <ItemStyle HorizontalAlign="right" Width="5%" />
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemTemplate>
-                                                                        <a href="Frm_Pm_Letters.aspx?LetterID=<%#Eval("Code")%>" class="label border-left-success label-striped" style="font-size: 12px;">
+                                                                        <a href="Frm_Pm_Letters.aspx?LetterID=<%#Eval("Code")%>&editflag=1" class="label border-left-success label-striped" style="font-size: 12px;">
                                                                             <i class="fa fa-file"></i>&nbsp;
                                                                                            التفاصيل
                                                                         </a>
@@ -456,14 +458,28 @@
                                                                 </ItemTemplate>
                                                             </asp:TemplateColumn>
 
+                                                                     <asp:TemplateColumn>
+                                                                    <ItemStyle Width="5%" HorizontalAlign="Center" />
+                                                                    <HeaderStyle Wrap="False" HorizontalAlign="Center" />
+                                                                    <ItemTemplate>
+                                                                                    <%--<asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>--%>
+                                                                  <asp:LinkButton
+                                                                                   ID="lnkDelete"
+                                                                                   OnClientClick="return DeleteConfirm.show(this);"
+                                                                                   CommandName="delete"
+                                                                                   runat="server">
+                                                                                   <i class="fa fa-trash" style="color:#333"></i>&nbsp;
+                                                                   </asp:LinkButton>
+                                                                  </ItemTemplate>
+                                                            </asp:TemplateColumn>
 
-                                                            <asp:TemplateColumn>
+                                                          <%--  <asp:TemplateColumn>
                                                                 <ItemStyle Width="5%" HorizontalAlign="Center" />
                                                                 <HeaderStyle Wrap="False" HorizontalAlign="Center" />
                                                                 <ItemTemplate>
                                                                     <asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>
                                                                 </ItemTemplate>
-                                                            </asp:TemplateColumn>
+                                                            </asp:TemplateColumn>--%>
 
                                                         </Columns>
                                                     </asp:DataGrid>
@@ -723,4 +739,5 @@
     <div id="scanLoading" class="scanLoading" style="display: none">
         <img src="/Layout/images/scan-document.gif" />
     </div>
+         <uc:DeleteConfirm runat="server" />
 </asp:Content>

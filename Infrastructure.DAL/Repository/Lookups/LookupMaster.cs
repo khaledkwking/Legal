@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -14,6 +15,10 @@ namespace Infrastructure.DAL
         public string NameAr { get; set; }
         public int d_order { get; set; }
         public string img { get; set; }
+        public int? TypeID { get; set; }
+        public int? DocCategoryMainId { get; set; }
+        public string TypeNameAr { get; set; }
+        public string DocCategoryMainNameAr { get; set; }
 
     }
 
@@ -29,7 +34,7 @@ namespace Infrastructure.DAL
 
         //  public static LookupMaster ins = new LookupMaster();
 
-        public List<LookupModel> GetItems(string TableName, string FilterStr, string d_order = "", string refname = "", string refvalue = "")
+        public List<LookupModel> GetItems(string TableName, string FilterStr, string d_order = "", string refname = "", string refvalue = "", string filterColumn = "")
         {
             string query = "SELECT * ";
             query += " FROM " + TableName;
@@ -37,7 +42,15 @@ namespace Infrastructure.DAL
 
             if (FilterStr != "" && FilterStr != "0")
             {
-                query += " and ( NameEn like N'%" + FilterStr + "%' or NameAr like N'%" + FilterStr + "%')";
+                if (filterColumn != "")
+                {
+                    var safeColumn = filterColumn.Replace("]", "]]" );
+                    query += " and ( CONVERT(NVARCHAR(4000), [" + safeColumn + "]) like N'%" + FilterStr + "%')";
+                }
+                else
+                {
+                    query += " and ( NameEn like N'%" + FilterStr + "%' or NameAr like N'%" + FilterStr + "%')";
+                }
             }
 
             if (refvalue != "" && refvalue != "0")
@@ -50,6 +63,33 @@ namespace Infrastructure.DAL
             }
             var result = DC.Database.SqlQuery<LookupModel>(query);
             return result.ToList<LookupModel>();
+        }
+
+        public List<string> GetFilterColumns(string TableName)
+        {
+            var tableName = TableName;
+            var schemaName = "dbo";
+
+            if (!string.IsNullOrWhiteSpace(TableName) && TableName.Contains("."))
+            {
+                var parts = TableName.Split('.');
+                if (parts.Length >= 2)
+                {
+                    schemaName = parts[0].Trim('[', ']');
+                    tableName = parts[1].Trim('[', ']');
+                }
+            }
+            else if (!string.IsNullOrWhiteSpace(TableName))
+            {
+                tableName = TableName.Trim('[', ']');
+            }
+
+            string query = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = @schemaName AND TABLE_NAME = @tableName ORDER BY ORDINAL_POSITION";
+            var result = DC.Database.SqlQuery<string>(query,
+                new SqlParameter("@schemaName", schemaName),
+                new SqlParameter("@tableName", tableName)).ToList();
+
+            return result.Where(column => !string.Equals(column, "code", StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
         public List<LookupModel> FillLookup(string TableName)
@@ -103,15 +143,44 @@ namespace Infrastructure.DAL
         }
         public void Delete(string TableName, string id)
         {
-            string q = ("delete from " + TableName + " where code=" + id);
+            try
+            {
+                // Handle foreign key constraints by deleting related records first
+                if (TableName.ToLower() == "law_docdata")
+                {
+                    // Delete related Law_DocSectors records
+                    string deleteSectorsQuery = "DELETE FROM Law_DocSectors WHERE Law_DocId = " + id;
+                    DC.Database.ExecuteSqlCommand(deleteSectorsQuery);
+                }
 
-            DC.Database.ExecuteSqlCommand(q);
-
+                string q = ("delete from " + TableName + " where code=" + id);
+                DC.Database.ExecuteSqlCommand(q);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting record from " + TableName + ": " + ex.Message, ex);
+            }
         }
+
         public void DeleteList(string TableName, string list)
         {
-            string q = "delete from " + TableName + " where code in (" + list + ")";
-            DC.Database.ExecuteSqlCommand(q);
+            try
+            {
+                // Handle foreign key constraints by deleting related records first
+                if (TableName.ToLower() == "law_docdata")
+                {
+                    // Delete related Law_DocSectors records for all items in the list
+                    string deleteSectorsQuery = "DELETE FROM Law_DocSectors WHERE Law_DocId IN (" + list + ")";
+                    DC.Database.ExecuteSqlCommand(deleteSectorsQuery);
+                }
+
+                string q = "delete from " + TableName + " where code in (" + list + ")";
+                DC.Database.ExecuteSqlCommand(q);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting records from " + TableName + ": " + ex.Message, ex);
+            }
         }
         private string FixString(string per)
         {

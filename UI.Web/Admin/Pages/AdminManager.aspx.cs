@@ -18,6 +18,12 @@ namespace UI.Web.Admin.Pages
 {
     public partial class AdminManager : BaseFormAdmin
     {
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            //AduptPersonGrd();
+            applyUserPermission();
+
+        }
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
@@ -45,7 +51,14 @@ namespace UI.Web.Admin.Pages
             }
 
         }
+        private void applyUserPermission()
+        {
 
+            btnNew.Visible = userAccess.Add;
+            btnSave.Visible = userAccess.Edit;
+            btnDelete.Visible = userAccess.Delete;
+
+        }
         private void FillGrid()
         {
             var userList = Security_Users.ins.GetItems(ZeroIntergerIFNull( LstFilterAdminType.SelectedValue), txtPArtOfName.Text,ZeroIntergerIFNull( lstFilterDept.SelectedValue));

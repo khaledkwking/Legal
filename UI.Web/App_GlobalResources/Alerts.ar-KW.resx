@@ -253,12 +253,15 @@
     <value>عفوا الموظف فى اجازة</value>
   </data>
   <data name="youhave" xml:space="preserve">
-    <value>You have </value>
+    <value>youhave</value>
   </data>
   <data name="error" xml:space="preserve">
     <value>خطأ</value>
   </data>
   <data name="SorryDeleteMaterDataFailed" xml:space="preserve">
     <value>عفوا ، لا يمكن حذف البيانات يرجي حذف البيانات المرتبطة اولا</value>
+  </data>
+  <data name="DeleteAlert" xml:space="preserve">
+    <value>هل انت متأكد من الحذف البيانات</value>
   </data>
 </root>

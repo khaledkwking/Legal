@@ -1510,11 +1510,28 @@ namespace UI.Web.Agreements.Forms
             lnkDeleteProcedure2.Visible = userAccess.Delete;
 
 
-            btnSave.Visible = userAccess.Edit ||  userAccess.Add;
-            lnklaeUnlink.Visible = userAccess.Edit ||  userAccess.Add;
+            //btnSave.Visible = userAccess.Edit ||  userAccess.Add;
+            //lnklaeUnlink.Visible = userAccess.Edit ||  userAccess.Add;
                 
-            lnkSaveProcesure.Visible = userAccess.Edit ||  userAccess.Add;
-            lnkSaveProcesure2.Visible = userAccess.Edit ||  userAccess.Add;
+            //lnkSaveProcesure.Visible = userAccess.Edit ||  userAccess.Add;
+            //lnkSaveProcesure2.Visible = userAccess.Edit ||  userAccess.Add;
+            if (Request.QueryString["editflag"] != null)
+            {
+                string editflag = Request.QueryString["editflag"].ToString();
+
+                btnSave.Visible = userAccess.Edit;
+
+                lnkSaveProcesure.Visible = userAccess.Edit;
+                lnkSaveProcesure2.Visible = userAccess.Edit;
+            }
+            else
+            {
+
+                btnSave.Visible = userAccess.Edit || userAccess.Add;
+                lnkSaveProcesure.Visible = userAccess.Edit || userAccess.Add;
+                lnkSaveProcesure2.Visible = userAccess.Edit || userAccess.Add;
+            }
+
 
         }
 

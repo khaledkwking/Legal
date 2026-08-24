@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Infrastructure.EnterpriseLibrary</RootNamespace>
     <AssemblyName>Infrastructure.EnterpriseLibrary</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -129,7 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure.DAL\Infrastructure.DAL.csproj">
-      <Project>{96FFFB5F-0713-47A1-B2D7-9128DBD56107}</Project>
+      <Project>{96fffb5f-0713-47a1-b2d7-9128dbd56107}</Project>
       <Name>Infrastructure.DAL</Name>
     </ProjectReference>
   </ItemGroup>

@@ -55,10 +55,10 @@ namespace Infrastructure.DAL.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Case_parties> Case_parties { get; set; }
         public virtual Cases_decision Cases_decision { get; set; }
-        public virtual Cases_M_CaseTypes Cases_M_CaseTypes { get; set; }
         public virtual Cases_M_DecisionResut Cases_M_DecisionResut { get; set; }
         public virtual Cases_M_Status Cases_M_Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cases_H_Hearing> Cases_H_Hearing { get; set; }
+        public virtual Cases_M_CaseTypes Cases_M_CaseTypes { get; set; }
     }
 }

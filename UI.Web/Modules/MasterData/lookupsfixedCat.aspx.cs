@@ -33,12 +33,14 @@ namespace UI.Web.Modules.MasterData
                 {
                     TargetTableName = Request.QueryString["tableName"].ToString();
 
-                    ResourceManager rm = new ResourceManager(typeof(Resources.lockups));
-                    string someString =
-                    _PageTitle = (String)GetGlobalResourceObject(
-                     "lockups", TargetTableName); // Resources.Utilities.TargetTableName;
+                    //ResourceManager rm = new ResourceManager(typeof(Resources.lockups));
+                    //string someString =
+                    //_PageTitle = (String)GetGlobalResourceObject(
+                    // "lockups", TargetTableName); // Resources.Utilities.TargetTableName;
 
-                  //  _PageTitle = "البيانات الاساسيه";
+                    _PageTitle = (string)GetGlobalResourceObject("lockups", TargetTableName);
+
+                    //  _PageTitle = "البيانات الاساسيه";
                 }
                 else
                 {

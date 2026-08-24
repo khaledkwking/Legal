@@ -877,6 +877,13 @@ namespace UI.Web.Admin.Controller
             }
         }
 
+        protected int ZeroIntergerIFNullNew (string obj)
+        {
+            if (string.IsNullOrWhiteSpace(obj))
+                return 0;
+
+            return int.TryParse(obj, out int val) ? val : 0;
+        }
 
         protected string GetDateTimeForDB(string dat)
         {
@@ -1249,7 +1256,7 @@ string imagepath)
             ArrayList PermssionDetaile = new ArrayList();
             var ObjUserPermission = objRepository.GetMemberShipPagePermssion(currentuser.AdminType, currentuser.id, url);
 
-            string info = "0,0,0,0,0";
+            string info = "0,0,0,0,0,0";
             if (ObjUserPermission != null && ObjUserPermission.Count != 0)
             {
                 foreach (var item in ObjUserPermission)
@@ -1289,6 +1296,14 @@ string imagepath)
                         info += ",0";
                     }
                     if (Convert.ToBoolean(item.DateControl))
+                    {
+                        info += ",1";
+                    }
+                    else
+                    {
+                        info += ",0";
+                    }
+                    if (Convert.ToBoolean(item.AuditControl))
                     {
                         info += ",1";
                     }

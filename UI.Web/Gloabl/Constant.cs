@@ -14,7 +14,9 @@ namespace UI.Web
         private static string strAssemblyLanguage = "UI.Web.Language.Lang";
 
         private static System.Resources.ResourceManager LangResources = new System.Resources.ResourceManager(strAssemblyLanguage, Assembly.GetExecutingAssembly());
-
+        public static int Law_DocTypeQanuan =1;
+        public static int Law_DocTypeQanuanMarsum = 2;
+        public static string Law_DocTypeQanuanDesc = "مرسوم بقانون و قانون";
         public static string GetText(string Key)
         {
             try

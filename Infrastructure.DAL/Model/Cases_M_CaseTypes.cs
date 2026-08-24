@@ -23,10 +23,9 @@ namespace Infrastructure.DAL.Model
         public int Code { get; set; }
         public string NameEn { get; set; }
         public string NameAr { get; set; }
-        public Nullable<int> CatId { get; set; }
+        public Nullable<int> CatID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cases_Data> Cases_Data { get; set; }
-        public virtual Cases_M_CaseMainTypes Cases_M_CaseMainTypes { get; set; }
     }
 }

@@ -78,7 +78,8 @@
         }
     </script>
 </head>
-<body style="background:url('/Layout/images/back.png')">
+<%--<body style="background:url('/Layout/images/back.png')">--%>
+<body>
     <form id="form1" runat="server" autocomplete="off">
 
  

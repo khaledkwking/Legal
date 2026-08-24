@@ -42,7 +42,6 @@ namespace Infrastructure.DAL.Model
         public virtual DbSet<arc_Attachments> arc_Attachments { get; set; }
         public virtual DbSet<arc_AttachmentsTypes> arc_AttachmentsTypes { get; set; }
         public virtual DbSet<arc_Data> arc_Data { get; set; }
-        public virtual DbSet<AuditLog> AuditLog { get; set; }
         public virtual DbSet<AuditLog_UserOperations> AuditLog_UserOperations { get; set; }
         public virtual DbSet<Case_AssignedPersons> Case_AssignedPersons { get; set; }
         public virtual DbSet<Case_AutoArcSubjects> Case_AutoArcSubjects { get; set; }
@@ -55,27 +54,22 @@ namespace Infrastructure.DAL.Model
         public virtual DbSet<Cases_decision> Cases_decision { get; set; }
         public virtual DbSet<Cases_H_Hearing> Cases_H_Hearing { get; set; }
         public virtual DbSet<Cases_M_CaseMainTypes> Cases_M_CaseMainTypes { get; set; }
-        public virtual DbSet<Cases_M_CaseTypes> Cases_M_CaseTypes { get; set; }
         public virtual DbSet<Cases_M_Court> Cases_M_Court { get; set; }
         public virtual DbSet<Cases_M_DecisionResut> Cases_M_DecisionResut { get; set; }
         public virtual DbSet<Cases_M_Status> Cases_M_Status { get; set; }
         public virtual DbSet<Complaints_Committees> Complaints_Committees { get; set; }
-        public virtual DbSet<Complaints_Data> Complaints_Data { get; set; }
         public virtual DbSet<Complaints_Data_proposer> Complaints_Data_proposer { get; set; }
         public virtual DbSet<Complaints_RelatedOrg> Complaints_RelatedOrg { get; set; }
         public virtual DbSet<FD_RPTGrouping> FD_RPTGrouping { get; set; }
         public virtual DbSet<law_Attachments> law_Attachments { get; set; }
         public virtual DbSet<law_AttachmentTypes> law_AttachmentTypes { get; set; }
-        public virtual DbSet<Law_DocCategory> Law_DocCategory { get; set; }
         public virtual DbSet<Law_DocData> Law_DocData { get; set; }
-        public virtual DbSet<Law_DocData_Linked> Law_DocData_Linked { get; set; }
         public virtual DbSet<Law_DocProcedures> Law_DocProcedures { get; set; }
         public virtual DbSet<law_DocProceduresTypes> law_DocProceduresTypes { get; set; }
         public virtual DbSet<Law_DocType> Law_DocType { get; set; }
         public virtual DbSet<LegalMemo> LegalMemo { get; set; }
         public virtual DbSet<LegalMemo_AssignedPersons> LegalMemo_AssignedPersons { get; set; }
         public virtual DbSet<LegalMemo_Category> LegalMemo_Category { get; set; }
-        public virtual DbSet<LegalMemo_Org> LegalMemo_Org { get; set; }
         public virtual DbSet<LegalMemo_Procedure> LegalMemo_Procedure { get; set; }
         public virtual DbSet<Library_DocsCategory> Library_DocsCategory { get; set; }
         public virtual DbSet<Library_DocsType> Library_DocsType { get; set; }
@@ -151,6 +145,16 @@ namespace Infrastructure.DAL.Model
         public virtual DbSet<Committees_ProceduresTypes> Committees_ProceduresTypes { get; set; }
         public virtual DbSet<Committees_RefList> Committees_RefList { get; set; }
         public virtual DbSet<viewCommitteeData> viewCommitteeData { get; set; }
+        public virtual DbSet<Law_DocData_Linked_Status> Law_DocData_Linked_Status { get; set; }
+        public virtual DbSet<Law_DocCategory> Law_DocCategory { get; set; }
+        public virtual DbSet<Law_DocSectors> Law_DocSectors { get; set; }
+        public virtual DbSet<Sectors> Sectors { get; set; }
+        public virtual DbSet<AuditLog> AuditLog { get; set; }
+        public virtual DbSet<ViewUser_AuditLog> ViewUser_AuditLog { get; set; }
+        public virtual DbSet<LegalMemo_Org> LegalMemo_Org { get; set; }
+        public virtual DbSet<Cases_M_CaseTypes> Cases_M_CaseTypes { get; set; }
+        public virtual DbSet<Complaints_Data> Complaints_Data { get; set; }
+        public virtual DbSet<Law_DocData_Linked> Law_DocData_Linked { get; set; }
     
         public virtual ObjectResult<Nullable<int>> Security_SP_getPermissionsCount(Nullable<int> jobid, Nullable<int> userID)
         {
@@ -185,19 +189,6 @@ namespace Infrastructure.DAL.Model
                 new ObjectParameter("jobid", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Security_SP_PRM_getJobPermissions_Result>("Security_SP_PRM_getJobPermissions", jobidParameter);
-        }
-    
-        public virtual ObjectResult<Security_SP_PRM_getSystemPermission_Result> Security_SP_PRM_getSystemPermission(Nullable<int> jobid, Nullable<int> userid)
-        {
-            var jobidParameter = jobid.HasValue ?
-                new ObjectParameter("jobid", jobid) :
-                new ObjectParameter("jobid", typeof(int));
-    
-            var useridParameter = userid.HasValue ?
-                new ObjectParameter("userid", userid) :
-                new ObjectParameter("userid", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Security_SP_PRM_getSystemPermission_Result>("Security_SP_PRM_getSystemPermission", jobidParameter, useridParameter);
         }
     
         public virtual ObjectResult<Security_SP_PRM_getUserPage_Result> Security_SP_PRM_getUserPage(Nullable<int> jobid, Nullable<int> empid, string url)
@@ -437,6 +428,23 @@ namespace Infrastructure.DAL.Model
         public virtual int sp_LegalMemoResetSerial()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_LegalMemoResetSerial");
+        }
+    
+        public virtual ObjectResult<SP_UserMonthlyStatistics_Result> SP_UserMonthlyStatistics(Nullable<int> userID, Nullable<System.DateTime> dateFrom, Nullable<System.DateTime> dateTo)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var dateFromParameter = dateFrom.HasValue ?
+                new ObjectParameter("DateFrom", dateFrom) :
+                new ObjectParameter("DateFrom", typeof(System.DateTime));
+    
+            var dateToParameter = dateTo.HasValue ?
+                new ObjectParameter("DateTo", dateTo) :
+                new ObjectParameter("DateTo", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_UserMonthlyStatistics_Result>("SP_UserMonthlyStatistics", userIDParameter, dateFromParameter, dateToParameter);
         }
     }
 }

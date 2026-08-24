@@ -29,5 +29,7 @@ namespace Infrastructure.DAL.Model
         public string TabaleNameAr { get; set; }
         public string DeptnameEn { get; set; }
         public string DeptNameAr { get; set; }
+        public string No { get; set; }
+        public string ModuleName { get; set; }
     }
 }

@@ -45,9 +45,7 @@
 
         </div>
     </div>
-
-
-    <asp:UpdatePanel runat="server" ID="Updatepanel1" ChildrenAsTriggers="true" UpdateMode="conditional">
+<asp:UpdatePanel runat="server" ID="Updatepanel1" ChildrenAsTriggers="true" UpdateMode="conditional">
         <ContentTemplate>
         </ContentTemplate>
     </asp:UpdatePanel>
@@ -95,6 +93,20 @@
                                                     </div>
 
                                                 </div>
+                                                <div class="form-group" id="divTypeId" runat="server" visible="false">
+                                                    <label class="col-md-3 control-label">النوع</label>
+                                                    <div class="col-md-9">
+                                                        <asp:DropDownList runat="server" ID="ddlTypeId" class="form-control"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" id="divSectorImage" runat="server" visible="false">
+                                                    <label class="col-md-3 control-label">صورة القطاع</label>
+                                                    <div class="col-md-9">
+                                                        <asp:FileUpload runat="server" ID="txtSectorImage" class="file-styled" />
+                                                        <asp:HiddenField runat="server" ID="hdnSectorImagePath" />
+                                                        <asp:Image runat="server" ID="imgSectorPreview" CssClass="img-thumbnail" Style="max-height: 120px; margin-top: 8px; display: block;" />
+                                                    </div>
+                                                </div>
 
                                             </div>
 
@@ -104,7 +116,8 @@
                                                         <asp:LinkButton ID="btnSave" runat="server" class="btn btn-primary" OnClick="btnSave_Click"><i class='fa fa-save'></i>&nbsp; حفظ البيانات </asp:LinkButton>
 
                                                         &nbsp;
-				                               <asp:Button runat="server" ID="btnCancel" class="btn btn-default" Text=" الغاء  " OnClick="btnCancel_Click" />
+				                               <asp:Button runat="server" ID="btnCancel" class="btn btn-default" Text=" الغاء  " OnClick="btnCancel_Click" /> 
+
 
                                                     </div>
                                                 </div>
@@ -125,26 +138,20 @@
 
                                     <div class="actions pull-right" style="margin-bottom:30px;">
 
-                                        <asp:LinkButton runat="server" ID="btnNew" class="btn btn-info btn-xs" OnClick="btnNew_Click"><i class="fa fa-plus"></i>&nbsp; إضافة جديد&nbsp;</asp:LinkButton>
+                                        <asp:LinkButton runat="server" ID="btnNew" class="btn btn-info btn-xs"><i class="fa fa-plus"></i>&nbsp; إضافة جديد&nbsp;</asp:LinkButton>
 
                                         <asp:LinkButton OnClientClick="return checkDelete();" runat="server" ID="btnDelete" class="btn btn-danger btn-xs" OnClick="btnDelete_Click"><i class="fa fa-times"></i>&nbsp;حذف الببانات المختاره</asp:LinkButton>
 
                                     </div>
                                 </div>
-                                <div class="portlet-body" style="display:none">
+                                <div class="portlet-body">
                                     <div class="row mbm" style="margin-bottom: 20px">
 
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-
-                                                <span>جزء من النص:</span>
-                                                <asp:TextBox ID="txtPArtOfName" runat="server" class="table-group-action-select form-control input-inline"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
+                                        <asp:PlaceHolder ID="phFilters" runat="server" />
+                                        <div class="col-md-1">
                                             <div class="form-group" style="margin-top: 20px;">
                                                 <asp:LinkButton runat="server" ID="btnFilter" class="btn btn-success dropdown-toggle" OnClick="btnFilter_Click"><i class="fa fa-search"></i>&nbsp;
-                                                تصفيه</asp:LinkButton>
+                                                بحث</asp:LinkButton>
                                             </div>
                                         </div>
                                     </div>
@@ -162,8 +169,9 @@
                                     <HeaderStyle BackColor="#efefef" Font-Bold="True" />
                                     <Columns>
                                         <asp:BoundColumn DataField="code" Visible="False"></asp:BoundColumn>
-                                        <asp:BoundColumn DataField="NameEn" Visible="false" HeaderText="الاسم بالانجليزيه"></asp:BoundColumn>
+                                        <%--<asp:BoundColumn DataField="NameEn" Visible="false" HeaderText="الاسم بالانجليزيه"></asp:BoundColumn>--%>
                                         <asp:BoundColumn DataField="NameAr" HeaderText="الاسم بالعربيه "></asp:BoundColumn>
+                                        <asp:BoundColumn DataField="TypeNameAr" Visible="false" HeaderText="النوع"></asp:BoundColumn>
 
 
                                         <asp:TemplateColumn HeaderText="تعديل">

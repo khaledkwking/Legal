@@ -4,6 +4,9 @@
 
 <%@ Register Assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
     Namespace="System.Web.UI" TagPrefix="asp" %>
+
+<%@ Register Src="~//UserControls/DeleteConfirm.ascx"    TagPrefix="uc"    TagName="DeleteConfirm" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
@@ -80,7 +83,26 @@
                 border-top: solid 0px #000000;
                 border-bottom: solid 0px #000000;
             }
-    </style>
+
+    .radio-space input[type="radio"] {
+        margin-left: 8px;
+    }
+
+    .radio-space label {
+        margin-left: 25px;
+    }
+
+    .radio-space input[type="radio"] {
+        margin-left: 8px;
+    }
+
+    .radio-space label {
+        margin-left: 25px;
+    }
+</style>
+
+
+
     <script>
 
         function ValidateHeading() {
@@ -328,6 +350,7 @@
     </asp:UpdatePanel>
     <!--END TITLE & BREADCRUMB PAGE-->
     <!--BEGIN CONTENT-->
+    <uc:DeleteConfirm ID="DeleteConfirm1" runat="server" />
 
     <div class="row mbl" id="tblSearch" style="min-height: 450px;" runat="server">
 
@@ -358,8 +381,6 @@
 												<i class="icon-circle-down2"></i>
 											</a>--%>
                             </legend>
-
-
 
 
                             <div class="col-md-4">
@@ -497,6 +518,43 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-6">
+                             <div class="form-group">
+                            
+                                                           
+                              <label class="col-lg-3 control-label">النوع:</label>
+                        
+                             <div class="col-lg-9">
+                                <asp:RadioButtonList ID="RadioButtonTypesList" runat="server" 
+                                RepeatDirection="Horizontal" 
+                                RepeatLayout="Flow" 
+                                CssClass="radio-space smart-view-display" >
+
+                                <asp:ListItem Text="عرض الكل" Value="0" Selected="True"></asp:ListItem>
+                                <asp:ListItem Text="اللجان والمجالس العليا" Value="1"></asp:ListItem>
+                                <asp:ListItem Text="مجالس إدارات الهيئات والمؤسسات العامة" Value="2"></asp:ListItem>
+
+                            </asp:RadioButtonList>
+
+                            </div>
+                        </div>
+                                </div>
+                            <div class="col-md-6">
+                             <div class="form-group">
+                             <label class="col-lg-3 control-label">حالة التشكيل:</label>
+                            <div class="col-lg-9">
+                              <asp:RadioButtonList ID="RadioButtonFinishedList" runat="server" 
+                                  RepeatDirection="Horizontal" RepeatLayout="Flow" 
+                                   CssClass="radio-space smart-view-display" 
+                                   >
+                                  <asp:ListItem Text="عرض الكل" Value="0" Selected="True"></asp:ListItem>
+                                  <asp:ListItem Text="الحالية" Value="1" ></asp:ListItem>
+                                  <asp:ListItem Text="المنتهية" Value="2"></asp:ListItem>
+                              </asp:RadioButtonList>
+                            </div>
+
+                                    </div>
+                            </div>
                         </fieldset>
                     </div>
                     <div class="text-right">
@@ -690,6 +748,10 @@
                                                                     <b><%# NullDateifEmptyToText(gets(Eval("JoinExpireDate"))) %></b>
                                                                 </ItemTemplate>
                                                             </asp:TemplateColumn>
+                                                               <asp:BoundColumn DataField="LastModificationDate" HeaderText="اخر تحديث"  >
+                                                                <HeaderStyle Wrap="false"  />
+                                                                     <ItemStyle  Width="10%" />
+                                                            </asp:BoundColumn>
                                                             <asp:TemplateColumn HeaderText="التفاصيل">
                                                                 <ItemStyle HorizontalAlign="right" Width="5%" />
                                                                 <HeaderStyle HorizontalAlign="Center" />
@@ -702,7 +764,7 @@
 
                                                                     </div>
                                                                     <div style="margin-top: 10px;">
-                                                                        <a href="CommitteeData.aspx?CommitteeID=<%#Eval("Code")%>" class="label border-left-success label-striped" style="font-size: 12px;">
+                                                                        <a href="CommitteeData.aspx?CommitteeID=<%#Eval("Code")%>&editflag=1" class="label border-left-success label-striped" style="font-size: 12px;">
                                                                             <i class="fa fa-file"></i>&nbsp;
 																						   التفاصيل
                                                                         </a>
@@ -713,7 +775,14 @@
                                                                 <ItemStyle Width="5%" HorizontalAlign="Center" />
                                                                 <HeaderStyle Wrap="False" HorizontalAlign="Center" />
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>
+                                                                    <%--<asp:LinkButton ID="lnkDelete"  OnClientClick="return confirm('<%= GetGlobalResourceObject("Alerts", "DeleteAlert") %>');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>--%>
+                                                                    <asp:LinkButton
+                                                                        ID="lnkDelete"
+                                                                        OnClientClick="return DeleteConfirm.show(this);"
+                                                                        CommandName="delete"
+                                                                        runat="server">
+                                                                        <i class="fa fa-trash" style="color:#333"></i>&nbsp;
+                                                                    </asp:LinkButton>
                                                                 </ItemTemplate>
                                                             </asp:TemplateColumn>
 
@@ -884,7 +953,7 @@
                                                         <div class="row">
                                                             <div class="col-md-8">
                                                                 <div class="form-group">
-                                                                    <label class="col-md-2 control-label" for="">نص الأداه القانونية للإنشاء والتشكيل ومدة العضوية <span class="text-danger">*</span> :</label>
+                                                                    <label class="col-md-2 control-label" for="">تفاصيل المجلس او اللجنة <span class="text-danger">*</span> :</label>
 
                                                                     <div class="col-md-10 autoDrop">
                                                                         <asp:TextBox runat="server" ID="txtSubject" class="form-control" Rows="6" TextMode="MultiLine"></asp:TextBox>

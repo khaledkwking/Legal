@@ -24,9 +24,17 @@ namespace UI.Web.Admin.Pages
         {
           //  Access ac = new Access(ViewState["CurrentPage"].ToString());
             lbkColse.Attributes.Add("onclick", "return confirm('Are you sure you want to clear all permissions for this job/user?');");
+            applyUserPermission();
 
         }
+        private void applyUserPermission()
+        {
 
+            //btnNew.Visible = userAccess.Add;
+            lnkSave.Visible = userAccess.Edit;
+            lbkColse.Visible = userAccess.Delete;
+
+        }
         protected void Page_Load(object sender, System.EventArgs e)
         {
             lblError.Text = "";
@@ -68,6 +76,7 @@ namespace UI.Web.Admin.Pages
             ViewState["Group3"] = new ArrayList();
             ViewState["Group4"] = new ArrayList();
             ViewState["Group5"] = new ArrayList();
+            ViewState["Group6"] = new ArrayList();
             ViewState["RowGroup"] = new ArrayList();
 
 
@@ -112,6 +121,12 @@ namespace UI.Web.Admin.Pages
                 par = (CheckBox)Session["LastParent5"];
                 par.Attributes.Add("onclick", "CheckSystem(this,gr_" + sysid + "Date)");
             }
+            if ((Session["LastParent6"] != null))
+            {
+                def += "var gr_" + sysid + "Audit = \"" + SerializeArray((ArrayList)ViewState["Group6"]) + "\";";
+                par = (CheckBox)Session["LastParent6"];
+                par.Attributes.Add("onclick", "CheckSystem(this,gr_" + sysid + "Audit)");
+            }
 
             ViewState["Group1"] = null;
             ViewState["Group2"] = null;
@@ -124,6 +139,8 @@ namespace UI.Web.Admin.Pages
             Session["LastParent3"] = null;
             Session["LastParent4"] = null;
             Session["LastParent5"] = null;
+            Session["LastParent6"] = null;
+
             ViewState["Def"] = def;
 
             //Rows hidden/visible functionality
@@ -166,7 +183,7 @@ namespace UI.Web.Admin.Pages
                 string sysid = e.Item.Cells[0].Text.Trim();
                 string pgid = e.Item.Cells[1].Text.Trim();
 
-                if (!pgid.Trim().Equals("0"))
+                if (!pgid.Trim().Equals("0")) // main page moudule
                 {
                     // page permission
                     e.Item.Cells[3].Text = "&nbsp;";
@@ -175,6 +192,7 @@ namespace UI.Web.Admin.Pages
                     CheckBox c3 = (CheckBox)e.Item.Cells[6].FindControl("chkAdd");
                     CheckBox c4 = (CheckBox)e.Item.Cells[8].FindControl("chkDelete");
                     CheckBox c5 = (CheckBox)e.Item.Cells[9].FindControl("chkDate");
+                    CheckBox c6 = (CheckBox)e.Item.Cells[10].FindControl("chkAudit");
 
                     CheckBox par = default(CheckBox);
                     if ((Session["LastParent1"] != null))
@@ -202,6 +220,11 @@ namespace UI.Web.Admin.Pages
                         par = (CheckBox)Session["LastParent5"];
                         c5.Attributes.Add("onclick", "KeepCheck('" + par.ClientID + "',gr_" + sysid + "Date);");
                     }
+                    if ((Session["LastParent6"] != null))
+                    {
+                        par = (CheckBox)Session["LastParent6"];
+                        c6.Attributes.Add("onclick", "KeepCheck('" + par.ClientID + "',gr_" + sysid + "Audit);");
+                    }
                     ArrayList arr = (ArrayList)ViewState["Group1"];
                     arr.Add(c1.ClientID);
                     ViewState["Group1"] = arr;
@@ -217,6 +240,10 @@ namespace UI.Web.Admin.Pages
                     arr = (ArrayList)ViewState["Group5"];
                     arr.Add(c5.ClientID);
                     ViewState["Group5"] = arr;
+
+                    arr = (ArrayList)ViewState["Group6"];
+                    arr.Add(c6.ClientID);
+                    ViewState["Group6"] = arr;
 
                     //Rows hidden/visible functionality
                     arr = (ArrayList)ViewState["RowGroup"];
@@ -260,6 +287,12 @@ namespace UI.Web.Admin.Pages
                         par = (CheckBox)Session["LastParent5"];
                         par.Attributes.Add("onclick", "CheckSystem(this,gr_" + Convert.ToString(ViewState["LastSystem"]) + "Date)");
                     }
+                    if ((Session["LastParent6"] != null))
+                    {
+                        def += "var gr_" + Convert.ToString(ViewState["LastSystem"]) + "Audit = \"" + SerializeArray((ArrayList)ViewState["Group6"]) + "\";";
+                        par = (CheckBox)Session["LastParent6"];
+                        par.Attributes.Add("onclick", "CheckSystem(this,gr_" + Convert.ToString(ViewState["LastSystem"]) + "Audit)");
+                    }
                     e.Item.Cells[4].Visible = false;
                     e.Item.Cells[3].ColumnSpan = 2;
 
@@ -270,6 +303,7 @@ namespace UI.Web.Admin.Pages
                     CheckBox c3 = (CheckBox)e.Item.Cells[6].FindControl("chkAdd");
                     CheckBox c4 = (CheckBox)e.Item.Cells[8].FindControl("chkDelete");
                     CheckBox c5 = (CheckBox)e.Item.Cells[9].FindControl("chkDate");
+                    CheckBox c6 = (CheckBox)e.Item.Cells[10].FindControl("chkAudit");
 
                     ViewState["Group1"] = new ArrayList();
                     ViewState["Group2"] = new ArrayList();
@@ -281,6 +315,7 @@ namespace UI.Web.Admin.Pages
                     Session["LastParent3"] = c3;
                     Session["LastParent4"] = c4;
                     Session["LastParent5"] = c5;
+                    Session["LastParent6"] = c6;
                     ViewState["LastSystem"] = sysid;
                     //Rows hidden/visible functionality
                     if ((Session["RowImage"] != null) & (Session["RowLink"] != null))
@@ -343,6 +378,14 @@ namespace UI.Web.Admin.Pages
 			check = (CheckBox)grdResult.Items[i].Cells[9].FindControl("chkDate");
 			string dateControl = bit(check.Checked);
 
+            check = (CheckBox)grdResult.Items[i].Cells[10].FindControl("chkAudit");
+            string AuditControl = bit(check.Checked);
+
+                if (pageid == "2061")
+                {
+                    string oo="";
+                    oo = "7676";
+                }
                 prObj = new Security_pr_Permission();
                 prObj.jobid = ZeroIntergerIFNull(lstJob.SelectedValue);
                 prObj.userid = ZeroIntergerIFNull(lstMember.SelectedValue);
@@ -353,6 +396,7 @@ namespace UI.Web.Admin.Pages
                 prObj.AddRecord = getBool(@add);
                 prObj.DeleteRecord = getBool(delete);
                 prObj.DateControl = getBool(dateControl);
+                prObj.Audit = getBool(AuditControl);
 
                 Security_Users.ins.AddPermission(prObj);
 

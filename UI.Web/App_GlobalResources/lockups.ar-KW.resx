@@ -210,17 +210,11 @@
   <data name="Law_DocType" xml:space="preserve">
     <value>إنواع الوثائق</value>
   </data>
-  <data name="Library_DocsCategory" xml:space="preserve">
-    <value>تصنيف الوثائق</value>
-  </data>
   <data name="Complaints_RelatedOrg" xml:space="preserve">
     <value>جهات الإختصاص</value>
   </data>
-  <data name="Parliament_CMGSRelatedOrgs" xml:space="preserve">
-    <value>الجهات التابعة لمجلس الوزراء</value>
-  </data>
   <data name="LegalMemo" xml:space="preserve">
-    <value>مذكرات الرأي القانوني</value>
+    <value>كتب ومذكرات الرأي القانوني</value>
   </data>
   <data name="LegalMemoMaster" xml:space="preserve">
     <value>البيانات الأساسية</value>
@@ -242,5 +236,14 @@
   </data>
   <data name="Committees_ProceduresTypes" xml:space="preserve">
     <value>أنواع الأداة القانونية</value>
+  </data>
+  <data name="Committees_Types" xml:space="preserve">
+    <value>انواع اللجان و المجالس</value>
+  </data>
+  <data name="Library_DocsCategory" xml:space="preserve">
+    <value>تصنيف الوثائق</value>
+  </data>
+  <data name="Parliament_CMGSRelatedOrgs" xml:space="preserve">
+    <value>الجهات التابعة لمجلس الوزراء</value>
   </data>
 </root>

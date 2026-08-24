@@ -23,7 +23,8 @@ namespace Infrastructure.DAL.Model
         public int Code { get; set; }
         public string NameEn { get; set; }
         public string NameAr { get; set; }
-        public Nullable<int> CatId { get; set; }
+        public Nullable<int> catId { get; set; }
+        public Nullable<bool> isDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LegalMemo> LegalMemo { get; set; }

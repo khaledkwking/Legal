@@ -169,7 +169,7 @@ namespace UI.Web.Modules.Committees.Reports
             var objList = objRepository.GetList(ZeroIntergerIFNull(txtFilterSerialNum.Text), 0,
                  NullDateifEmpty(txtFilterDatefrom.Text), NullDateifEmpty(txtFilterDateTo.Text), txtFilterSubject.Text, txtFilterDetails.Text, "",
                 NullDateifEmpty(txtFilterExpireFrom.Text), NullDateifEmpty(txtFilterExpireTo.Text),ZeroIntergerIFNull(lstfilterminister.SelectedValue),
-                ZeroIntergerIFNull(lstfilterProcedureType.SelectedValue), ZeroIntergerIFNull(lstFilterCommittee.SelectedValue), MapSearchKeys());
+                ZeroIntergerIFNull(lstfilterProcedureType.SelectedValue), ZeroIntergerIFNull(lstFilterCommittee.SelectedValue),0, MapSearchKeys());
 
 
             

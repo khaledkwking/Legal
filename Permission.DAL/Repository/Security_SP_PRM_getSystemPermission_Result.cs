@@ -23,6 +23,7 @@ namespace Permission.DAL.Repository
         public Nullable<int> AddRecord { get; set; }
         public Nullable<int> DeleteRecord { get; set; }
         public Nullable<int> DateControl { get; set; }
+        public Nullable<int> AuditControl { get; set; }
         public string url { get; set; }
     }
 }

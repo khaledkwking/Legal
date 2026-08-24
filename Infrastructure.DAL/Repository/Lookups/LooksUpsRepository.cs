@@ -37,6 +37,7 @@ namespace Infrastructure.DAL
 
                 var result =
                     (from obj in DC.Library_DocsCategory
+                     where obj.isActive.Value
                      orderby obj.D_Order
                      select obj);
 
@@ -639,6 +640,16 @@ namespace Infrastructure.DAL
                 return result.ToList<Law_DocType>();
         }
 
+        public List<Law_DocData_Linked_Status> FillLawDocLinkedStatus()
+        {
+            var result =
+                (from obj in DC.Law_DocData_Linked_Status
+                 orderby obj.NameAr
+                 select obj);
+
+            return result.ToList<Law_DocData_Linked_Status>();
+        }
+
         public List<Committees_Ministers> fillMinisters()
         {
             var result =
@@ -736,6 +747,8 @@ namespace Infrastructure.DAL
 
         }
 
+    
+
         public List<law_DocProceduresTypes> Filllaw_DocProceduresTypes()
         {
 
@@ -832,7 +845,7 @@ namespace Infrastructure.DAL
         {
             var result =
                 (from obj in DC.LegalMemo_Org
-                 where obj.CatId == catId
+                 where obj.catId == catId
                  select obj);
 
             return result.ToList<LegalMemo_Org>();

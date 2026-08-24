@@ -355,12 +355,19 @@ namespace UI.Web.Admin.Masters
                     strmenu.Append("</li>");
                 }
 
-
+                
                 if (ShowPage("LawDocData.aspx"))
                 {
                     strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/laws/Forms/LawDocData.aspx' ><i class='icon-law'></i>  " + Resources.menu.LawDocData + "  </a></li>");
                 }
-
+                if (ShowPage("LawSearch.aspx"))
+                {
+                    strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/laws/Forms/LawSearch.aspx' ><i class='icon-law'></i>  " + "التشريعات و ارتباطاتها" + "  </a></li>");
+                }
+                if (ShowPage("LawType.aspx"))
+                {
+                    strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/laws/LawType.aspx' ><i class='icon-law'></i>  " + "المنصة القانونية الداخلية" + "  </a></li>");
+                }
                 if (ShowPage("LawDessionData.aspx"))
                 {
                     strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/laws/Forms/LawDessionData.aspx' ><i class='icon-stack-text'></i>  " + Resources.menu.LawDession + "  </a></li>");
@@ -884,6 +891,11 @@ namespace UI.Web.Admin.Masters
                         strmenu.Append(("\r\n" + "  <li><a href=\'/Modules/MasterData/lookups.aspx?tableName=Committees_ProceduresTypes'><i class=\'fa fa-angle-left\'></i><span class=\'submenu-title\'" +
                             ">" + Resources.menu.Committees_ProceduresTypes + "</span></a></li>"));
                     }
+                    if (ShowPage("lookups.aspx?tableName=Committees_Types"))
+                    {
+                        strmenu.Append(("\r\n" + "  <li><a href=\'/Modules/MasterData/lookups.aspx?tableName=Committees_Types'><i class=\'fa fa-angle-left\'></i><span class=\'submenu-title\'" +
+                            ">" + Resources.menu.Committees_Types + "</span></a></li>"));
+                    }
 
                     strmenu.Append("</ul>");
                     strmenu.Append("</li>");
@@ -1237,6 +1249,12 @@ namespace UI.Web.Admin.Masters
                     strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/audit/Forms/Frm_UserOperaionAudit.aspx' ><i class='icon-popout'></i> " + Resources.menu.UseroperationsAudit + "</a></li>");
                 }
 
+                if (ShowPage("Frm_UserPerformance.aspx"))
+                {
+                    strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/audit/Forms/Frm_UserPerformance.aspx' ><i class='icon-popout'></i> " + Resources.menu.UserPerformance + "</a></li>");
+
+                    
+                }
 
 
                 if (ShowPage("PermissionsNew.aspx"))

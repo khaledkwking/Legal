@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Infrastructure.DAL</RootNamespace>
     <AssemblyName>Infrastructure.DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -45,6 +45,10 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Infrastructure.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Assets\Infrastructure.DAL\bin\Debug\Infrastructure.DAL.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -102,6 +106,12 @@
     <Compile Include="Model\Law_DocData_Linked.cs">
       <DependentUpon>CMGS_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Law_DocData_Linked_Status.cs">
+      <DependentUpon>CMGS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Law_DocSectors.cs">
+      <DependentUpon>CMGS_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\LegalMemo.cs">
       <DependentUpon>CMGS_DB.tt</DependentUpon>
     </Compile>
@@ -129,6 +139,9 @@
     <Compile Include="Model\Parliament_CMGSRelatedOrgs.cs">
       <DependentUpon>CMGS_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Sectors.cs">
+      <DependentUpon>CMGS_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Security_pr_SystemTables.cs">
       <DependentUpon>CMGS_DB.tt</DependentUpon>
     </Compile>
@@ -144,7 +157,13 @@
     <Compile Include="Model\sp_MedalPersonAutoComp_Result.cs">
       <DependentUpon>CMGS_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\SP_UserMonthlyStatistics_Result.cs">
+      <DependentUpon>CMGS_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\viewCommitteeData.cs">
+      <DependentUpon>CMGS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewUser_AuditLog.cs">
       <DependentUpon>CMGS_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\View_AuditLog.cs">
@@ -432,9 +451,6 @@
     <Compile Include="Model\Security_SP_PRM_getJobPermissions_Result.cs">
       <DependentUpon>CMGS_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Security_SP_PRM_getSystemPermission_Result.cs">
-      <DependentUpon>CMGS_DB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\Security_SP_PRM_getUserPage_Result.cs">
       <DependentUpon>CMGS_DB.tt</DependentUpon>
     </Compile>
@@ -542,7 +558,7 @@
       <Name>DomainInterface</Name>
     </ProjectReference>
     <ProjectReference Include="..\Permission.DAL\Permission.DAL.csproj">
-      <Project>{899BF54E-9B16-4A5F-8EBF-19FE0F355B6E}</Project>
+      <Project>{899bf54e-9b16-4a5f-8ebf-19fe0f355b6e}</Project>
       <Name>Permission.DAL</Name>
     </ProjectReference>
   </ItemGroup>

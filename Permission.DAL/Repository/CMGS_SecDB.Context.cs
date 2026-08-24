@@ -65,6 +65,19 @@ namespace Permission.DAL.Repository
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Security_SP_PRM_getJobPage_Result>("Security_SP_PRM_getJobPage", jobidParameter, urlParameter);
         }
     
+        public virtual ObjectResult<Security_SP_PRM_getuserPermissions_Result> Security_SP_PRM_getuserPermissions(Nullable<int> jobid, Nullable<int> userID)
+        {
+            var jobidParameter = jobid.HasValue ?
+                new ObjectParameter("jobid", jobid) :
+                new ObjectParameter("jobid", typeof(int));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Security_SP_PRM_getuserPermissions_Result>("Security_SP_PRM_getuserPermissions", jobidParameter, userIDParameter);
+        }
+    
         public virtual ObjectResult<Security_SP_PRM_getJobPermissions_Result> Security_SP_PRM_getJobPermissions(Nullable<int> jobid)
         {
             var jobidParameter = jobid.HasValue ?
@@ -102,19 +115,6 @@ namespace Permission.DAL.Repository
                 new ObjectParameter("url", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Security_SP_PRM_getUserPage_Result>("Security_SP_PRM_getUserPage", jobidParameter, empidParameter, urlParameter);
-        }
-    
-        public virtual ObjectResult<Security_SP_PRM_getuserPermissions_Result> Security_SP_PRM_getuserPermissions(Nullable<int> jobid, Nullable<int> userID)
-        {
-            var jobidParameter = jobid.HasValue ?
-                new ObjectParameter("jobid", jobid) :
-                new ObjectParameter("jobid", typeof(int));
-    
-            var userIDParameter = userID.HasValue ?
-                new ObjectParameter("userID", userID) :
-                new ObjectParameter("userID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Security_SP_PRM_getuserPermissions_Result>("Security_SP_PRM_getuserPermissions", jobidParameter, userIDParameter);
         }
     }
 }

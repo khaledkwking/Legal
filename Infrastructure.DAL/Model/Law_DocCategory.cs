@@ -18,5 +18,7 @@ namespace Infrastructure.DAL.Model
         public string NameEn { get; set; }
         public string NameAr { get; set; }
         public Nullable<int> TypeID { get; set; }
+    
+        public virtual Law_DocType Law_DocType { get; set; }
     }
 }

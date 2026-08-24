@@ -38,11 +38,14 @@ namespace Infrastructure.DAL.Model
         public Nullable<int> assignedEmp { get; set; }
         public Nullable<int> DocStatusId { get; set; }
         public Nullable<int> ConsultantId { get; set; }
+        public Nullable<System.DateTime> LastAuditDate { get; set; }
+        public Nullable<int> LastAuditBy { get; set; }
+        public Nullable<bool> isAudited { get; set; }
     
         public virtual LegalMemo_AssignedPersons LegalMemo_AssignedPersons { get; set; }
         public virtual LegalMemo_Category LegalMemo_Category { get; set; }
-        public virtual LegalMemo_Org LegalMemo_Org { get; set; }
         public virtual LegalMemo_Procedure LegalMemo_Procedure { get; set; }
         public virtual LegalMemo_Status LegalMemo_Status { get; set; }
+        public virtual LegalMemo_Org LegalMemo_Org { get; set; }
     }
 }

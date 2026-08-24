@@ -19,7 +19,29 @@ namespace Infrastructure.DAL
         #region "AuditRepository master Data"
 
         #region List
+        public List<ViewUser_AuditLog> GetUserTransactionAuditList(int userId, string TableName, string operationType, DateTime TransactionDatFrom, DateTime TransactionDatTo)
+        {
 
+
+            var result =
+                (from obj in DC.ViewUser_AuditLog
+
+                 orderby obj.Date ascending
+                 where 1 == 1
+
+                  && (userId != 0 ? obj.UserId == userId : 1 == 1)
+                  && (TableName != "" && TableName != "0" ? obj.TableName == TableName : 1 == 1)
+                  && (operationType != "" && operationType != "0" ? obj.AuditType == operationType : 1 == 1)
+                 && ((TransactionDatFrom != new DateTime(1990, 01, 01) ? obj.Date >= TransactionDatFrom : 1 == 1))
+              && ((TransactionDatTo != new DateTime(1990, 01, 01) ? obj.Date <= TransactionDatTo : 1 == 1)
+              //&& (obj.TabaleNameAr !=null )
+              )
+
+                 select obj);
+
+            return result.ToList<ViewUser_AuditLog>();
+
+        }
 
         public List<View_AuditLog> GetUserAuditList(int userId, string TableName,string operationType, DateTime TransactionDatFrom, DateTime TransactionDatTo)
         {
@@ -62,6 +84,26 @@ namespace Infrastructure.DAL
                 return result.ToList<View_AudiLogUserOperations>();
 
         }
+        public List<SP_UserMonthlyStatistics_Result> GetuserStatisticList(int userId, DateTime TransactionDatFrom, DateTime TransactionDatTo)
+        {
+
+
+            var result = DC.SP_UserMonthlyStatistics(userId, TransactionDatFrom, TransactionDatTo);
+
+              //   orderby obj.TransDate ascending
+              //   where 1 == 1
+
+              //    && (userId != 0 ? obj.UserID == userId : 1 == 1)
+              //    && (moduleId != 0 ? obj.moduleCode == moduleId : 1 == 1)
+              //   && ((TransactionDatFrom != new DateTime(1990, 01, 01) ? obj.TransDate >= TransactionDatFrom : 1 == 1))
+              //&& ((TransactionDatTo != new DateTime(1990, 01, 01) ? obj.TransDate <= TransactionDatTo : 1 == 1))
+
+              //   select obj);
+
+            return result.ToList<SP_UserMonthlyStatistics_Result>();
+
+        }
+
         public View_AudiLogUserOperations GetDetails(int _Code)
         {
                 var result =
@@ -100,7 +142,7 @@ namespace Infrastructure.DAL
                      NameAr=(from sub in DC.Security_pr_SystemTables where sub.RefTable== obj.TableName select sub).FirstOrDefault().TabaleNameAr
 
                  }).Distinct();
-
+            result = result.Where(c => c.NameAr != null);
             return result.ToList<AuditLockupModel>();
         }
 

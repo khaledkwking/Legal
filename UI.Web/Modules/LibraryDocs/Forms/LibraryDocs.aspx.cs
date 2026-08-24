@@ -22,7 +22,7 @@ namespace UI.Web.LibraryDocs.Forms
 
         public LooksUpsRepository objLookup = IoC.Resolve<LooksUpsRepository>();
         public LibraryDocsRepository objRepository = IoC.Resolve<LibraryDocsRepository>();
-        public string _PageTitle = "المكتبة القانونية ";
+        public string _PageTitle = "المكتبة الإلكترونية ";
         public string AgreementCode = "0";
 
 
@@ -343,7 +343,22 @@ namespace UI.Web.LibraryDocs.Forms
             btnNew.Visible = userAccess.Add;
 
 
-            btnSave.Visible = userAccess.Edit ||  userAccess.Add;
+           
+
+            if (Request.QueryString["editflag"] != null)
+            {
+                string editflag = Request.QueryString["editflag"].ToString();
+
+                btnSave.Visible = userAccess.Edit;
+
+            }
+            else
+            {
+
+                btnSave.Visible = userAccess.Edit || userAccess.Add;
+               
+            }
+
             grdInboundItems.Columns[5].Visible = userAccess.Delete;
 
             grdInboundItems.Columns[7].Visible = userAccess.Delete;

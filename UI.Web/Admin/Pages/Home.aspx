@@ -944,7 +944,7 @@
 
                         <h3 class="no-margin"><a href="/Modules/LegalMemos/Forms/LegalMemoData.aspx?all=1" style="color: #000"><%=gets(_AllLegalMemo)%></a> </h3>
                      <%--   <b>  إجمالي الأسئلة </b>--%>
-                        <div class="text-muted text-size-large"> إجمالي مذكرات الرأي القانوني </div>
+                        <div class="text-muted text-size-large"> إجمالي كتب ومذكرات الرأي القانوني </div>
 
                     </div>
                 </div>
@@ -967,7 +967,7 @@
 
                                 $("#legalMemopie").dxPieChart({
                                     dataSource: legalMemmoProcedure,
-                                    title: "مذكرات الرأي القانوني طبقا للإجراء",
+                                    title: "كتب ومذكرات الرأي القانوني طبقا للإجراء",
 
                                     legend: {
                                         horizontalAlignment: "right",
@@ -1066,7 +1066,7 @@
 
                                         },
 
-                                        title: "إحصائية مذكرات الرأي القانوني  طبقا للسنة والحالة    ",
+                                        title: "إحصائية كتب ومذكرات الرأي القانوني  طبقا للسنة والحالة    ",
                                         palette: ["#02b6ad", "#ffd365", "#b34446", "#ff7f50"],
                                         //palette: ["#e884aa", "#9f5287", "#ffd365", "#02b6ad","#b34446","#5cb85c"],
                                         legend: {

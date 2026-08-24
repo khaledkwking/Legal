@@ -21,12 +21,12 @@ namespace Infrastructure.DAL
 
         public List<viewCommitteeData> GetList(int SerialNum, int SerialYear,
           DateTime TransactionDatFrom, DateTime TransactionDatTo, string CommitteesSubject, string CommitteesDetails, string CommitteesDocSerial,
-          DateTime ExpireDatFrom, DateTime ExpireDatTo, int MinisterRefId, int lastProcedureId,int CommiteeRefCode, string SearchKeys)
+          DateTime ExpireDatFrom, DateTime ExpireDatTo, int MinisterRefId, int lastProcedureId,int CommiteeRefCode,int CommiteeType, string SearchKeys)
         {
             var result =
                 (from obj in DC.viewCommitteeData
                      //orderby obj.Q_Serial descending    chnaged by Nada Request ib 12052018
-                 orderby obj.committeeYear descending, obj.committeeNum descending //obj.DocDate
+                 orderby obj.LastModificationDate descending//, obj.committeeYear descending, obj.committeeNum descending //obj.DocDate
                  where 1 == 1
              && (CommitteesDocSerial != "" ? obj.committeeSerial == CommitteesDocSerial : 1 == 1)
              && (SerialNum != 0 ? obj.committeeNum == SerialNum : 1 == 1)
@@ -34,6 +34,7 @@ namespace Infrastructure.DAL
              && (MinisterRefId != 0 ? obj.MinisterRefId == MinisterRefId : 1 == 1)
              && (lastProcedureId != 0 ? obj.LastProcedureID == lastProcedureId : 1 == 1)
              && (CommiteeRefCode != 0 ? obj.committeeRefCode == CommiteeRefCode : 1 == 1)
+             && (CommiteeType != 0 ? obj.CommiteeType == CommiteeType : 1 == 1) // CommiteeType search
              && ((TransactionDatFrom != new DateTime(1990, 01, 01) ? obj.lastJoinDate >= TransactionDatFrom : 1 == 1) || (TransactionDatFrom != new DateTime(1990, 01, 01) ? obj.lastJoinDate >= TransactionDatFrom : 1 == 1))
              && ((TransactionDatTo != new DateTime(1990, 01, 01) ? obj.lastJoinDate <= TransactionDatTo : 1 == 1) || (TransactionDatTo != new DateTime(1990, 01, 01) ? obj.lastJoinDate <= TransactionDatTo : 1 == 1))
              && ((ExpireDatFrom != new DateTime(1990, 01, 01) ? obj.JoinExpireDate >= ExpireDatFrom : 1 == 1) || (ExpireDatFrom != new DateTime(1990, 01, 01) ? obj.JoinExpireDate >= ExpireDatFrom : 1 == 1))
@@ -51,6 +52,7 @@ namespace Infrastructure.DAL
 
 
         }
+
 
 
         public Committees_Data GetDetails(int _Code)

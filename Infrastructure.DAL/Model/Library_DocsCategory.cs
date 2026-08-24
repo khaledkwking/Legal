@@ -25,6 +25,7 @@ namespace Infrastructure.DAL.Model
         public string NameAr { get; set; }
         public Nullable<int> D_Order { get; set; }
         public string img { get; set; }
+        public Nullable<bool> isActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Library_DocsType> Library_DocsType { get; set; }

@@ -843,7 +843,7 @@
                                                                                     <ItemStyle Width="5%" HorizontalAlign="Center" />
                                                                                     <HeaderStyle Wrap="False" HorizontalAlign="Center" />
                                                                                     <ItemTemplate>
-                                                                                        <asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>
+                                                                                        <asp:LinkButton ID="lnkDelete" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:#333"></i>&nbsp;</asp:LinkButton>
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateColumn>
 
@@ -913,7 +913,7 @@
                                                                 <ItemStyle Width="5%" HorizontalAlign="Center" />
                                                                 <HeaderStyle Wrap="False" HorizontalAlign="Center" />
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>
+                                                                    <asp:LinkButton ID="lnkDelete" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:#333"></i>&nbsp;</asp:LinkButton>
                                                                 </ItemTemplate>
                                                             </asp:TemplateColumn>
 
@@ -1051,7 +1051,7 @@
                                                                 <ItemStyle Width="5%" HorizontalAlign="Center" />
                                                                 <HeaderStyle Wrap="False" HorizontalAlign="Center" />
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>
+                                                                    <asp:LinkButton ID="lnkDelete" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:#333"></i>&nbsp;</asp:LinkButton>
                                                                 </ItemTemplate>
                                                             </asp:TemplateColumn>
 

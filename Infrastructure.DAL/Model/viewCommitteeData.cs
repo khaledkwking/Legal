@@ -39,5 +39,8 @@ namespace Infrastructure.DAL.Model
         public string LastProcedureNameEn { get; set; }
         public string LastProcedureNameAr { get; set; }
         public Nullable<int> committeeRefCode { get; set; }
+        public string NameAr { get; set; }
+        public string CommitteesTypeDesc { get; set; }
+        public Nullable<int> CommiteeType { get; set; }
     }
 }

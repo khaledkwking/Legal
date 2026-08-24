@@ -234,6 +234,7 @@
                                                                                   <asp:ListItem Value="A" Text="إضافة"></asp:ListItem>
                                                                             <asp:ListItem Value="M" Text="تعديل"></asp:ListItem>
                                                                             <asp:ListItem Value="D" Text="حذف"></asp:ListItem>
+                                                                            <asp:ListItem Value="U" Text="حذف"></asp:ListItem>
 
                                                                         </asp:DropDownList>
 

@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UI.Web</RootNamespace>
     <AssemblyName>UI.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
@@ -31,6 +31,8 @@
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
     <Use64BitIISExpress />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,6 +68,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Bin\CKEditor.NET.dll</HintPath>
     </Reference>
+    <Reference Include="DomainInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\DomainInterface.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -89,7 +95,71 @@
     <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.10.0.3\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.Cryptography, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Cryptography.8.0.0\lib\net462\Microsoft.Bcl.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.TimeProvider, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.TimeProvider.8.0.1\lib\net462\Microsoft.Bcl.TimeProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.SqlClient, Version=7.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.SqlClient.7.0.2\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.SqlClient.Extensions.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.SqlClient.Extensions.Abstractions.7.0.2\lib\netstandard2.0\Microsoft.Data.SqlClient.Extensions.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.SqlClient.Internal.Logging, Version=7.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.SqlClient.Internal.Logging.7.0.2\lib\netstandard2.0\Microsoft.Data.SqlClient.Internal.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.8.0.1\lib\net462\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.8.0.2\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.8.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=8.16.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.8.16.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=8.16.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.8.16.0\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=8.16.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.8.16.0\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=8.16.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.8.16.0\lib\net472\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=8.16.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.8.16.0\lib\net472\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=8.16.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.8.16.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder2">
+      <HintPath>..\..\..\..\Assets\UI.Web\bin\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\..\Assets\UI.Web\bin\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\..\..\Assets\UI.Web\bin\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -114,6 +184,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -126,11 +199,83 @@
       <HintPath>..\packages\NWebsec.Core.1.5.0\lib\40\NWebsec.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Permission.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Permission.DAL\bin\Debug\Permission.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=10.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.10.0.3\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=8.16.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.8.16.0\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Pipelines, Version=10.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.10.0.3\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.8\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.1.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.4.1.0\lib\net462\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=8.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.8.0.1\lib\net462\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=10.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.10.0.3\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=10.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.10.0.3\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=10.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.10.0.3\lib\net462\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Thread.4.0.0\lib\net46\System.Threading.Thread.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
@@ -145,6 +290,19 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Configuration.5.11.1\lib\net47\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.11.1\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\Utilities.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Controller\ItemDescComplete.vb" />
@@ -167,17 +325,1612 @@
     <Content Include="Error\Unauthorized.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Layout\Assets\Basic\Basic.js" />
+    <Content Include="Layout\Assets\Basic\minus.gif" />
+    <Content Include="Layout\Assets\Basic\plus.gif" />
+    <Content Include="Layout\Assets\colorbox\colorbox\jquery.colorbox-min.js" />
+    <Content Include="Layout\Assets\colorbox\colorbox\jquery.colorbox.js" />
+    <Content Include="Layout\Assets\colorbox\content\ajax.html" />
+    <Content Include="Layout\Assets\colorbox\content\flash.html" />
+    <Content Include="Layout\Assets\colorbox\content\homer.jpg" />
+    <Content Include="Layout\Assets\colorbox\content\marylou.jpg" />
+    <Content Include="Layout\Assets\colorbox\content\ohoopee1.jpg" />
+    <Content Include="Layout\Assets\colorbox\content\ohoopee2.jpg" />
+    <Content Include="Layout\Assets\colorbox\content\ohoopee3.jpg" />
+    <Content Include="Layout\Assets\colorbox\example1\colorbox.css" />
+    <Content Include="Layout\Assets\colorbox\example1\images\border.png" />
+    <Content Include="Layout\Assets\colorbox\example1\images\controls.png" />
+    <Content Include="Layout\Assets\colorbox\example1\images\ie6\borderBottomCenter.png" />
+    <Content Include="Layout\Assets\colorbox\example1\images\ie6\borderBottomLeft.png" />
+    <Content Include="Layout\Assets\colorbox\example1\images\ie6\borderBottomRight.png" />
+    <Content Include="Layout\Assets\colorbox\example1\images\ie6\borderMiddleLeft.png" />
+    <Content Include="Layout\Assets\colorbox\example1\images\ie6\borderMiddleRight.png" />
+    <Content Include="Layout\Assets\colorbox\example1\images\ie6\borderTopCenter.png" />
+    <Content Include="Layout\Assets\colorbox\example1\images\ie6\borderTopLeft.png" />
+    <Content Include="Layout\Assets\colorbox\example1\images\ie6\borderTopRight.png" />
+    <Content Include="Layout\Assets\colorbox\example1\images\loading.gif" />
+    <Content Include="Layout\Assets\colorbox\example1\images\loading_background.png" />
+    <Content Include="Layout\Assets\colorbox\example1\images\overlay.png" />
+    <Content Include="Layout\Assets\colorbox\example1\index.html" />
+    <Content Include="Layout\Assets\colorbox\example2\colorbox.css" />
+    <Content Include="Layout\Assets\colorbox\example2\images\controls.png" />
+    <Content Include="Layout\Assets\colorbox\example2\images\loading.gif" />
+    <Content Include="Layout\Assets\colorbox\example2\index.html" />
+    <Content Include="Layout\Assets\colorbox\example3\colorbox.css" />
+    <Content Include="Layout\Assets\colorbox\example3\images\controls.png" />
+    <Content Include="Layout\Assets\colorbox\example3\images\loading.gif" />
+    <Content Include="Layout\Assets\colorbox\example3\index.html" />
+    <Content Include="Layout\Assets\colorbox\example4\colorbox.css" />
+    <Content Include="Layout\Assets\colorbox\example4\images\border1.png" />
+    <Content Include="Layout\Assets\colorbox\example4\images\border2.png" />
+    <Content Include="Layout\Assets\colorbox\example4\images\ie6\borderBottomCenter.png" />
+    <Content Include="Layout\Assets\colorbox\example4\images\ie6\borderBottomLeft.png" />
+    <Content Include="Layout\Assets\colorbox\example4\images\ie6\borderBottomRight.png" />
+    <Content Include="Layout\Assets\colorbox\example4\images\ie6\borderMiddleLeft.png" />
+    <Content Include="Layout\Assets\colorbox\example4\images\ie6\borderMiddleRight.png" />
+    <Content Include="Layout\Assets\colorbox\example4\images\ie6\borderTopCenter.png" />
+    <Content Include="Layout\Assets\colorbox\example4\images\ie6\borderTopLeft.png" />
+    <Content Include="Layout\Assets\colorbox\example4\images\ie6\borderTopRight.png" />
+    <Content Include="Layout\Assets\colorbox\example4\images\loading.gif" />
+    <Content Include="Layout\Assets\colorbox\example4\index.html" />
+    <Content Include="Layout\Assets\colorbox\example5\colorbox.css" />
+    <Content Include="Layout\Assets\colorbox\example5\images\border.png" />
+    <Content Include="Layout\Assets\colorbox\example5\images\controls.png" />
+    <Content Include="Layout\Assets\colorbox\example5\images\loading.gif" />
+    <Content Include="Layout\Assets\colorbox\example5\images\loading_background.png" />
+    <Content Include="Layout\Assets\colorbox\example5\index.html" />
+    <Content Include="Layout\Assets\DX\dx.common.css" />
+    <Content Include="Layout\Assets\DX\dx.dark.css" />
+    <Content Include="Layout\Assets\DX\dx.light.css" />
+    <Content Include="Layout\Assets\DX\dx.spa.css" />
+    <Content Include="Layout\Assets\DX_JS\africa.js" />
+    <Content Include="Layout\Assets\DX_JS\canada.js" />
+    <Content Include="Layout\Assets\DX_JS\dx.all.js" />
+    <Content Include="Layout\Assets\DX_JS\dx.chartjs.js" />
+    <Content Include="Layout\Assets\DX_JS\dx.webappjs.js" />
+    <Content Include="Layout\Assets\DX_JS\eurasia.js" />
+    <Content Include="Layout\Assets\DX_JS\europe.js" />
+    <Content Include="Layout\Assets\DX_JS\globalize.min.js" />
+    <Content Include="Layout\Assets\DX_JS\usa.js" />
+    <Content Include="Layout\Assets\DX_JS\world.js" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\AdminLTE.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\AdminLTE.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-black-light.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-black-light.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-black.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-black.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-blue-light.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-blue-light.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-blue.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-blue.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-green-light.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-green-light.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-green.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-green.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-purple-light.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-purple-light.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-purple.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-purple.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-red-light.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-red-light.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-red.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-red.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-yellow-light.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-yellow-light.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-yellow.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\skin-yellow.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\_all-skins.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\css\skins\_all-skins.min.css" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\arrow.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\arrow2 - Copy.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\arrow2.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\arrowDown.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\boxed-bg.jpg" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\boxed-bg.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\BudgetIcon.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\CustomViewIcon.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\DailyRevenueIcon.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\DailyRevenueIcon2.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\DailyRevenueIcon3.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\default-50x50.gif" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\GreenArrow.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\icons.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\MOV.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\MRVIcon.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\RedArrow.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\spreadsheed_sum.png" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\user2-160x160.jpg" />
+    <Content Include="Layout\Assets\External\GDB\dist\img\user2-160x160Old.jpg" />
+    <Content Include="Layout\Assets\External\GDB\dist\js\app.js" />
+    <Content Include="Layout\Assets\External\GDB\dist\js\app.min.js" />
+    <Content Include="Layout\Assets\External\GDB\dist\js\demo.js" />
+    <Content Include="Layout\Assets\External\GDB\dist\js\pages\dashboard.js" />
+    <Content Include="Layout\Assets\External\GDB\dist\js\pages\dashboard2.js" />
+    <Content Include="Layout\Assets\External\google\css.css" />
+    <Content Include="Layout\Assets\External\img\bg.png" />
+    <Content Include="Layout\Assets\External\KPI\img\bg.png" />
+    <Content Include="Layout\Assets\External\KPI\theme-default-head-light.css" />
+    <Content Include="Layout\Assets\External\KPI\theme-default.css" />
+    <Content Include="Layout\Assets\fonts\css.css" />
+    <Content Include="Layout\Assets\fonts\css\font-awesome.min.css" />
+    <Content Include="Layout\Assets\fonts\fonts\fontawesome-webfont.svg" />
+    <Content Include="Layout\Assets\images\coming.png" />
+    <Content Include="Layout\Assets\images\logo.png" />
+    <Content Include="Layout\Assets\images\minus.gif" />
+    <Content Include="Layout\Assets\images\minus.png" />
+    <Content Include="Layout\Assets\images\option_Password.gif" />
+    <Content Include="Layout\Assets\images\outgoing.png" />
+    <Content Include="Layout\Assets\images\plus.gif" />
+    <Content Include="Layout\Assets\images\Ports\MH-MR.jpg" />
+    <Content Include="Layout\Assets\img\icon-maker.png" />
+    <Content Include="Layout\Assets\img\no-access.png" />
+    <Content Include="Layout\Assets\js\jquery-1.10.2.min.js" />
+    <Content Include="Layout\Assets\map\js.js" />
+    <Content Include="Layout\Assets\map\style.css" />
+    <Content Include="Layout\Assets\Select2\css\select2.css" />
+    <Content Include="Layout\Assets\Select2\css\select2.min.css" />
+    <Content Include="Layout\Assets\Select2\js\i18n\ar.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\az.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\bg.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\ca.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\cs.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\da.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\de.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\en.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\es.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\et.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\eu.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\fa.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\fi.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\fr.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\gl.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\he.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\hi.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\hr.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\hu.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\id.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\is.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\it.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\ja.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\ko.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\lt.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\lv.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\mk.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\ms.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\nb.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\nl.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\pl.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\pt-BR.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\pt.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\ro.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\ru.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\sk.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\sr-Cyrl.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\sr.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\sv.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\th.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\tr.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\uk.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\vi.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\zh-CN.js" />
+    <Content Include="Layout\Assets\Select2\js\i18n\zh-TW.js" />
+    <Content Include="Layout\Assets\Select2\js\select2.full.js" />
+    <Content Include="Layout\Assets\Select2\js\select2.full.min.js" />
+    <Content Include="Layout\Assets\Select2\js\select2.js" />
+    <Content Include="Layout\Assets\Select2\js\select2.min.js" />
+    <Content Include="Layout\Assets\zebra-dialog\changelog.txt" />
+    <Content Include="Layout\Assets\zebra-dialog\documentation.txt" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\AUTHORS.en.txt" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\css\dark.css" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\css\default.css" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\css\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\css\ir_black.css" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\css\sunburst.css" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\css\zenburn.css" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\javascript\css.js" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\javascript\highlight.js" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\javascript\html-xml.js" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\javascript\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\javascript\javascript.js" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\javascript\php.js" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\readme.eng.txt" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\public\css\coffee_48.png" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\public\css\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\public\css\reset.css" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\public\css\style.css" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\public\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\public\javascript\functions.js" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\public\javascript\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\public\javascript\jquery-1.7.2.js" />
+    <Content Include="Layout\Assets\zebra-dialog\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\license.txt" />
+    <Content Include="Layout\Assets\zebra-dialog\public\css\confirmation.png" />
+    <Content Include="Layout\Assets\zebra-dialog\public\css\error.png" />
+    <Content Include="Layout\Assets\zebra-dialog\public\css\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\public\css\information.png" />
+    <Content Include="Layout\Assets\zebra-dialog\public\css\question.png" />
+    <Content Include="Layout\Assets\zebra-dialog\public\css\warning.png" />
+    <Content Include="Layout\Assets\zebra-dialog\public\css\zebra_dialog.css" />
+    <Content Include="Layout\Assets\zebra-dialog\public\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\public\javascript\index.html" />
+    <Content Include="Layout\Assets\zebra-dialog\public\javascript\zebra_dialog.js" />
+    <Content Include="Layout\Assets\zebra-dialog\public\javascript\zebra_dialog.src.js" />
+    <Content Include="Layout\Assets\zebra-dialog\readme.txt" />
+    <Content Include="Layout\Assets\zebra-tooltips\changelog.txt" />
+    <Content Include="Layout\Assets\zebra-tooltips\documentation.txt" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\syntaxhighlighter\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\syntaxhighlighter\public\css\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\syntaxhighlighter\public\css\shCoreDefault.css" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\syntaxhighlighter\public\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\syntaxhighlighter\public\javascript\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\syntaxhighlighter\public\javascript\shBrushCss.js" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\syntaxhighlighter\public\javascript\shBrushJScript.js" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\syntaxhighlighter\public\javascript\shBrushXml.js" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\syntaxhighlighter\public\javascript\shCore.js" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\syntaxhighlighter\public\javascript\XRegExp.js" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\public\css\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\public\css\reset.css" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\public\css\style.css" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\public\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\public\javascript\core.js" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\public\javascript\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\public\javascript\jquery-1.7.1.js" />
+    <Content Include="Layout\Assets\zebra-tooltips\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\license.txt" />
+    <Content Include="Layout\Assets\zebra-tooltips\public\css\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\public\css\zebra_tooltips.css" />
+    <Content Include="Layout\Assets\zebra-tooltips\public\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\public\javascript\index.html" />
+    <Content Include="Layout\Assets\zebra-tooltips\public\javascript\zebra_tooltips.js" />
+    <Content Include="Layout\Assets\zebra-tooltips\public\javascript\zebra_tooltips.src.js" />
+    <Content Include="Layout\Assets\zebra-tooltips\readme.txt" />
+    <Content Include="Layout\Assets\zebra-tooltips\todo.txt" />
+    <Content Include="Layout\images\back.png" />
+    <Content Include="Layout\images\coming.png" />
+    <Content Include="Layout\images\kuwaitlogo.png" />
+    <Content Include="Layout\images\login.png" />
+    <Content Include="Layout\images\logo-banner.png" />
+    <Content Include="Layout\images\minus.gif" />
+    <Content Include="Layout\images\outgoing.png" />
+    <Content Include="Layout\images\plus.gif" />
+    <Content Include="Layout\images\scan-document.gif" />
+    <Content Include="Layout\images\scannerCall.gif" />
+    <Content Include="Layout\RTL\assets\css\bootstrap.css" />
+    <Content Include="Layout\RTL\assets\css\bootstrap.min.css" />
+    <Content Include="Layout\RTL\assets\css\colors.css" />
+    <Content Include="Layout\RTL\assets\css\colors.min.css" />
+    <Content Include="Layout\RTL\assets\css\components.css" />
+    <Content Include="Layout\RTL\assets\css\components.min.css" />
+    <Content Include="Layout\RTL\assets\css\core.css" />
+    <Content Include="Layout\RTL\assets\css\core.min.css" />
+    <Content Include="Layout\RTL\assets\css\extras\animate.min.css" />
+    <Content Include="Layout\RTL\assets\css\icons\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Layout\RTL\assets\css\icons\fontawesome\styles.min.css" />
+    <Content Include="Layout\RTL\assets\css\icons\glyphicons\glyphicons-halflings-regular.svg" />
+    <Content Include="Layout\RTL\assets\css\icons\icomoon\fonts\icomoon.svg" />
+    <Content Include="Layout\RTL\assets\css\icons\icomoon\styles.css" />
+    <Content Include="Layout\RTL\assets\images\addPerson.png" />
+    <Content Include="Layout\RTL\assets\images\backgrounds\boxed_bg.png" />
+    <Content Include="Layout\RTL\assets\images\backgrounds\boxed_bg_retina.png" />
+    <Content Include="Layout\RTL\assets\images\backPattern.png" />
+    <Content Include="Layout\RTL\assets\images\border.png" />
+    <Content Include="Layout\RTL\assets\images\CatIco.png" />
+    <Content Include="Layout\RTL\assets\images\CMGS_H.png" />
+    <Content Include="Layout\RTL\assets\images\CMGS_H_w.png" />
+    <Content Include="Layout\RTL\assets\images\cover.jpg" />
+    <Content Include="Layout\RTL\assets\images\DeletePerson.png" />
+    <Content Include="Layout\RTL\assets\images\EditPerson.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ad.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ae.png" />
+    <Content Include="Layout\RTL\assets\images\flags\af.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ag.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ai.png" />
+    <Content Include="Layout\RTL\assets\images\flags\al.png" />
+    <Content Include="Layout\RTL\assets\images\flags\am.png" />
+    <Content Include="Layout\RTL\assets\images\flags\an.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ao.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ar.png" />
+    <Content Include="Layout\RTL\assets\images\flags\as.png" />
+    <Content Include="Layout\RTL\assets\images\flags\at.png" />
+    <Content Include="Layout\RTL\assets\images\flags\au.png" />
+    <Content Include="Layout\RTL\assets\images\flags\aw.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ax.png" />
+    <Content Include="Layout\RTL\assets\images\flags\az.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ba.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bb.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bd.png" />
+    <Content Include="Layout\RTL\assets\images\flags\be.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bf.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bg.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bh.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bi.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bj.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bm.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bn.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bo.png" />
+    <Content Include="Layout\RTL\assets\images\flags\br.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bs.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bt.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bv.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bw.png" />
+    <Content Include="Layout\RTL\assets\images\flags\by.png" />
+    <Content Include="Layout\RTL\assets\images\flags\bz.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ca.png" />
+    <Content Include="Layout\RTL\assets\images\flags\catalonia.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cc.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cd.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cf.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cg.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ch.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ci.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ck.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cl.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cm.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cn.png" />
+    <Content Include="Layout\RTL\assets\images\flags\co.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cr.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cs.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cu.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cv.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cx.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cy.png" />
+    <Content Include="Layout\RTL\assets\images\flags\cz.png" />
+    <Content Include="Layout\RTL\assets\images\flags\de.png" />
+    <Content Include="Layout\RTL\assets\images\flags\dj.png" />
+    <Content Include="Layout\RTL\assets\images\flags\dk.png" />
+    <Content Include="Layout\RTL\assets\images\flags\dm.png" />
+    <Content Include="Layout\RTL\assets\images\flags\do.png" />
+    <Content Include="Layout\RTL\assets\images\flags\dz.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ec.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ee.png" />
+    <Content Include="Layout\RTL\assets\images\flags\eg.png" />
+    <Content Include="Layout\RTL\assets\images\flags\eh.png" />
+    <Content Include="Layout\RTL\assets\images\flags\england.png" />
+    <Content Include="Layout\RTL\assets\images\flags\er.png" />
+    <Content Include="Layout\RTL\assets\images\flags\es.png" />
+    <Content Include="Layout\RTL\assets\images\flags\et.png" />
+    <Content Include="Layout\RTL\assets\images\flags\europeanunion.png" />
+    <Content Include="Layout\RTL\assets\images\flags\fam.png" />
+    <Content Include="Layout\RTL\assets\images\flags\fi.png" />
+    <Content Include="Layout\RTL\assets\images\flags\fj.png" />
+    <Content Include="Layout\RTL\assets\images\flags\fk.png" />
+    <Content Include="Layout\RTL\assets\images\flags\fm.png" />
+    <Content Include="Layout\RTL\assets\images\flags\fo.png" />
+    <Content Include="Layout\RTL\assets\images\flags\fr.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ga.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gb.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gd.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ge.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gf.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gh.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gi.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gl.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gm.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gn.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gp.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gq.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gr.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gs.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gt.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gu.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gw.png" />
+    <Content Include="Layout\RTL\assets\images\flags\gy.png" />
+    <Content Include="Layout\RTL\assets\images\flags\hk.png" />
+    <Content Include="Layout\RTL\assets\images\flags\hm.png" />
+    <Content Include="Layout\RTL\assets\images\flags\hn.png" />
+    <Content Include="Layout\RTL\assets\images\flags\hr.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ht.png" />
+    <Content Include="Layout\RTL\assets\images\flags\hu.png" />
+    <Content Include="Layout\RTL\assets\images\flags\id.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ie.png" />
+    <Content Include="Layout\RTL\assets\images\flags\il.png" />
+    <Content Include="Layout\RTL\assets\images\flags\in.png" />
+    <Content Include="Layout\RTL\assets\images\flags\io.png" />
+    <Content Include="Layout\RTL\assets\images\flags\iq.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ir.png" />
+    <Content Include="Layout\RTL\assets\images\flags\is.png" />
+    <Content Include="Layout\RTL\assets\images\flags\it.png" />
+    <Content Include="Layout\RTL\assets\images\flags\jm.png" />
+    <Content Include="Layout\RTL\assets\images\flags\jo.png" />
+    <Content Include="Layout\RTL\assets\images\flags\jp.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ke.png" />
+    <Content Include="Layout\RTL\assets\images\flags\kg.png" />
+    <Content Include="Layout\RTL\assets\images\flags\kh.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ki.png" />
+    <Content Include="Layout\RTL\assets\images\flags\km.png" />
+    <Content Include="Layout\RTL\assets\images\flags\kn.png" />
+    <Content Include="Layout\RTL\assets\images\flags\kp.png" />
+    <Content Include="Layout\RTL\assets\images\flags\kr.png" />
+    <Content Include="Layout\RTL\assets\images\flags\kw.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ky.png" />
+    <Content Include="Layout\RTL\assets\images\flags\kz.png" />
+    <Content Include="Layout\RTL\assets\images\flags\la.png" />
+    <Content Include="Layout\RTL\assets\images\flags\lb.png" />
+    <Content Include="Layout\RTL\assets\images\flags\lc.png" />
+    <Content Include="Layout\RTL\assets\images\flags\li.png" />
+    <Content Include="Layout\RTL\assets\images\flags\lk.png" />
+    <Content Include="Layout\RTL\assets\images\flags\lr.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ls.png" />
+    <Content Include="Layout\RTL\assets\images\flags\lt.png" />
+    <Content Include="Layout\RTL\assets\images\flags\lu.png" />
+    <Content Include="Layout\RTL\assets\images\flags\lv.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ly.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ma.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mc.png" />
+    <Content Include="Layout\RTL\assets\images\flags\md.png" />
+    <Content Include="Layout\RTL\assets\images\flags\me.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mg.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mh.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mk.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ml.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mm.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mn.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mo.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mp.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mq.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mr.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ms.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mt.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mu.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mv.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mw.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mx.png" />
+    <Content Include="Layout\RTL\assets\images\flags\my.png" />
+    <Content Include="Layout\RTL\assets\images\flags\mz.png" />
+    <Content Include="Layout\RTL\assets\images\flags\na.png" />
+    <Content Include="Layout\RTL\assets\images\flags\nc.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ne.png" />
+    <Content Include="Layout\RTL\assets\images\flags\nf.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ng.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ni.png" />
+    <Content Include="Layout\RTL\assets\images\flags\nl.png" />
+    <Content Include="Layout\RTL\assets\images\flags\no.png" />
+    <Content Include="Layout\RTL\assets\images\flags\np.png" />
+    <Content Include="Layout\RTL\assets\images\flags\nr.png" />
+    <Content Include="Layout\RTL\assets\images\flags\nu.png" />
+    <Content Include="Layout\RTL\assets\images\flags\nz.png" />
+    <Content Include="Layout\RTL\assets\images\flags\om.png" />
+    <Content Include="Layout\RTL\assets\images\flags\pa.png" />
+    <Content Include="Layout\RTL\assets\images\flags\pe.png" />
+    <Content Include="Layout\RTL\assets\images\flags\pf.png" />
+    <Content Include="Layout\RTL\assets\images\flags\pg.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ph.png" />
+    <Content Include="Layout\RTL\assets\images\flags\pk.png" />
+    <Content Include="Layout\RTL\assets\images\flags\pl.png" />
+    <Content Include="Layout\RTL\assets\images\flags\pm.png" />
+    <Content Include="Layout\RTL\assets\images\flags\pn.png" />
+    <Content Include="Layout\RTL\assets\images\flags\pr.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ps.png" />
+    <Content Include="Layout\RTL\assets\images\flags\pt.png" />
+    <Content Include="Layout\RTL\assets\images\flags\pw.png" />
+    <Content Include="Layout\RTL\assets\images\flags\py.png" />
+    <Content Include="Layout\RTL\assets\images\flags\qa.png" />
+    <Content Include="Layout\RTL\assets\images\flags\re.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ro.png" />
+    <Content Include="Layout\RTL\assets\images\flags\rs.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ru.png" />
+    <Content Include="Layout\RTL\assets\images\flags\rw.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sa.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sb.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sc.png" />
+    <Content Include="Layout\RTL\assets\images\flags\scotland.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sd.png" />
+    <Content Include="Layout\RTL\assets\images\flags\se.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sg.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sh.png" />
+    <Content Include="Layout\RTL\assets\images\flags\si.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sj.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sk.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sl.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sm.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sn.png" />
+    <Content Include="Layout\RTL\assets\images\flags\so.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sr.png" />
+    <Content Include="Layout\RTL\assets\images\flags\st.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sv.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sy.png" />
+    <Content Include="Layout\RTL\assets\images\flags\sz.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tc.png" />
+    <Content Include="Layout\RTL\assets\images\flags\td.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tf.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tg.png" />
+    <Content Include="Layout\RTL\assets\images\flags\th.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tj.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tk.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tl.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tm.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tn.png" />
+    <Content Include="Layout\RTL\assets\images\flags\to.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tr.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tt.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tv.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tw.png" />
+    <Content Include="Layout\RTL\assets\images\flags\tz.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ua.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ug.png" />
+    <Content Include="Layout\RTL\assets\images\flags\um.png" />
+    <Content Include="Layout\RTL\assets\images\flags\us.png" />
+    <Content Include="Layout\RTL\assets\images\flags\uy.png" />
+    <Content Include="Layout\RTL\assets\images\flags\uz.png" />
+    <Content Include="Layout\RTL\assets\images\flags\va.png" />
+    <Content Include="Layout\RTL\assets\images\flags\vc.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ve.png" />
+    <Content Include="Layout\RTL\assets\images\flags\vg.png" />
+    <Content Include="Layout\RTL\assets\images\flags\vi.png" />
+    <Content Include="Layout\RTL\assets\images\flags\vn.png" />
+    <Content Include="Layout\RTL\assets\images\flags\vu.png" />
+    <Content Include="Layout\RTL\assets\images\flags\wales.png" />
+    <Content Include="Layout\RTL\assets\images\flags\wf.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ws.png" />
+    <Content Include="Layout\RTL\assets\images\flags\ye.png" />
+    <Content Include="Layout\RTL\assets\images\flags\yt.png" />
+    <Content Include="Layout\RTL\assets\images\flags\za.png" />
+    <Content Include="Layout\RTL\assets\images\flags\zm.png" />
+    <Content Include="Layout\RTL\assets\images\flags\zw.png" />
+    <Content Include="Layout\RTL\assets\images\header_bg.gif" />
+    <Content Include="Layout\RTL\assets\images\Icons\Ahkam.png" />
+    <Content Include="Layout\RTL\assets\images\Icons\book.png" />
+    <Content Include="Layout\RTL\assets\images\Icons\doc - Copy.png" />
+    <Content Include="Layout\RTL\assets\images\Icons\doc.png" />
+    <Content Include="Layout\RTL\assets\images\Icons\doc_Cat.png" />
+    <Content Include="Layout\RTL\assets\images\Icons\Kuwait_Logo.png" />
+    <Content Include="Layout\RTL\assets\images\Icons\laws.png" />
+    <Content Include="Layout\RTL\assets\images\Icons\oma.png" />
+    <Content Include="Layout\RTL\assets\images\Icons\oma_Letter.png" />
+    <Content Include="Layout\RTL\assets\images\Icons\_doc.png" />
+    <Content Include="Layout\RTL\assets\images\Icons\__doc.png" />
+    <Content Include="Layout\RTL\assets\images\libAnimated.gif" />
+    <Content Include="Layout\RTL\assets\images\lib_bg.jpg" />
+    <Content Include="Layout\RTL\assets\images\lib_ico.png" />
+    <Content Include="Layout\RTL\assets\images\login_cover.jpg" />
+    <Content Include="Layout\RTL\assets\images\logo-banner.png" />
+    <Content Include="Layout\RTL\assets\images\logo.png" />
+    <Content Include="Layout\RTL\assets\images\logosmall.png" />
+    <Content Include="Layout\RTL\assets\images\placeholder.jpg" />
+    <Content Include="Layout\RTL\assets\images\pnotify\danger.png" />
+    <Content Include="Layout\RTL\assets\images\pnotify\default.png" />
+    <Content Include="Layout\RTL\assets\images\pnotify\info.png" />
+    <Content Include="Layout\RTL\assets\images\pnotify\success.png" />
+    <Content Include="Layout\RTL\assets\images\pnotify\warning.png" />
+    <Content Include="Layout\RTL\assets\images\ui\datepicker_trigger.png" />
+    <Content Include="Layout\RTL\assets\images\ui\map_marker.png" />
+    <Content Include="Layout\RTL\assets\images\_libAnimated.gif" />
+    <Content Include="Layout\RTL\assets\js\Basic.js" />
+    <Content Include="Layout\RTL\assets\js\charts\c3\c3_advanced.js" />
+    <Content Include="Layout\RTL\assets\js\charts\c3\c3_axis.js" />
+    <Content Include="Layout\RTL\assets\js\charts\c3\c3_bars_pies.js" />
+    <Content Include="Layout\RTL\assets\js\charts\c3\c3_grid.js" />
+    <Content Include="Layout\RTL\assets\js\charts\c3\c3_lines_areas.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\bars\bars_advanced_hierarchical.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\bars\bars_advanced_histogram.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\bars\bars_advanced_simple_interaction.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\bars\bars_advanced_sortable_horizontal.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\bars\bars_advanced_sortable_vertical.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\bars\bars_advanced_stacked_multiple.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\bars\bars_basic_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\bars\bars_basic_horizontal.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\bars\bars_basic_stacked.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\bars\bars_basic_stacked_normalized.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\bars\bars_basic_tooltip.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\bars\bars_basic_vertical.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\chords\chord_arcs.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\chords\chord_basic.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\chords\chord_chart.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\chords\chord_tweens.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_advanced_difference.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_advanced_missing.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_advanced_small_multiples.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_advanced_spline_transition.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_advanced_transitions.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_advanced_zoom.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_basic.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_basic_area.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_basic_bivariate.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_basic_gradient.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_basic_multi_series.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_basic_stacked.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\lines\lines_basic_stacked_nest.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\other\bubbles.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\other\streamgraph.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\other\treemap.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\other\waterfall.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\pies\donut_arc_tween.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\pies\donut_basic.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\pies\donut_entry_animation.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\pies\donut_multiple.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\pies\donut_multiple_nesting.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\pies\donut_update.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\pies\pie_arc_tween.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\pies\pie_basic.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\pies\pie_entry_animation.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\pies\pie_multiple.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\pies\pie_multiple_nesting.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\pies\pie_update.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\sunburst\sunburst_basic.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\sunburst\sunburst_combined.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\sunburst\sunburst_distortion.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\sunburst\sunburst_zoom.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\tree\tree_basic.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\tree\tree_bracket.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\tree\tree_collapsible.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\tree\tree_dendrogram.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\tree\tree_dendrogram_radial.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\tree\tree_radial.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\venn\venn_basic.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\venn\venn_colors.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\venn\venn_interactive.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\venn\venn_rings.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\venn\venn_tooltip.js" />
+    <Content Include="Layout\RTL\assets\js\charts\d3\venn\venn_weighted.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\area\area_horizontal.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\area\area_horizontal_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\area\area_horizontal_stacked.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\area\area_horizontal_stacked_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\area\area_horizontal_stacked_normalized.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\area\area_vertical.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\area\area_vertical_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\area\area_vertical_stacked.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\area\area_vertical_stacked_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\area\area_vertical_stacked_normalized.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bars\bar_horizontal.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bars\bar_horizontal_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bars\bar_horizontal_stacked.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bars\bar_horizontal_stacked_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bars\bar_horizontal_stacked_normalized.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bars\bar_vertical.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bars\bar_vertical_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bars\bar_vertical_stacked.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bars\bar_vertical_stacked_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bars\bar_vertical_stacked_normalized.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bubble\bubble_basic.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bubble\bubble_horizontal_lollipop.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bubble\bubble_lollipop_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bubble\bubble_matrix.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\bubble\bubble_vertical_lollipop.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\lines\line_horizontal_multiple.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\lines\line_horizontal_multiple_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\lines\line_horizontal_single.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\lines\line_horizontal_single_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\lines\line_vertical_multiple.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\lines\line_vertical_multiple_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\lines\line_vertical_single.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\lines\line_vertical_single_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\pies\pie_basic.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\pies\pie_bubble.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\pies\pie_legend.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\pies\pie_lollipop.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\pies\pie_matrix.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\pies\pie_scatter.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\rings\ring_basic.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\rings\ring_bubble.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\rings\ring_concentric.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\rings\ring_lollipop.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\rings\ring_matrix.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\rings\ring_scatter.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\scatter\scatter_basic.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\scatter\scatter_horizontal_lollipop.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\scatter\scatter_lollipop_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\scatter\scatter_matrix.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\scatter\scatter_vertical_lollipop.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\step\step_horizontal_multiple.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\step\step_horizontal_multiple_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\step\step_horizontal_single.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\step\step_horizontal_single_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\step\step_vertical_multiple.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\step\step_vertical_multiple_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\step\step_vertical_single.js" />
+    <Content Include="Layout\RTL\assets\js\charts\dimple\step\step_vertical_single_grouped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\echarts\bars_tornados.js" />
+    <Content Include="Layout\RTL\assets\js\charts\echarts\candlesticks_others.js" />
+    <Content Include="Layout\RTL\assets\js\charts\echarts\columns_waterfalls.js" />
+    <Content Include="Layout\RTL\assets\js\charts\echarts\combinations.js" />
+    <Content Include="Layout\RTL\assets\js\charts\echarts\funnels_chords.js" />
+    <Content Include="Layout\RTL\assets\js\charts\echarts\lines_areas.js" />
+    <Content Include="Layout\RTL\assets\js\charts\echarts\pies_donuts.js" />
+    <Content Include="Layout\RTL\assets\js\charts\echarts\scatter.js" />
+    <Content Include="Layout\RTL\assets\js\charts\echarts\timeline_option.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\bars\bar.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\bars\bar_stacked.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\bars\column.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\bars\column_stacked.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\bars\combo.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\bars\histogram.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\bubbles\bubble.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\bubbles\bubble_gradient.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\lines\area.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\lines\area_intervals.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\lines\area_stacked.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\lines\area_stepped.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\lines\lines.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\lines\line_intervals.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\other\candlestick.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\other\diff.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\other\geo.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\other\sankey.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\other\trendline.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\pies\3d_exploded.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\pies\donut.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\pies\donut_exploded.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\pies\donut_rotate.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\pies\pie.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\pies\pie_3d.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\pies\pie_diff_border.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\pies\pie_diff_invert.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\pies\pie_diff_opacity.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\pies\pie_diff_radius.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\pies\pie_exploded.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\pies\pie_rotate.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\scatter\scatter.js" />
+    <Content Include="Layout\RTL\assets\js\charts\google\scatter\scatter_diff.js" />
+    <Content Include="Layout\RTL\assets\js\core\app.js" />
+    <Content Include="Layout\RTL\assets\js\core\app.min.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\bootstrap.min.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jasny_bootstrap.min.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery.min.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\core.min.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\effects.min.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\full.min.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.af-ZA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.af.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.am-ET.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.am.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-AE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-BH.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-DZ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-EG.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-IQ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-JO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-KW.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-LB.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-LY.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-MA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-OM.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-QA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-SA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-SY.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-TN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar-YE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ar.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.arn-CL.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.arn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.as-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.as.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.az-Cyrl-AZ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.az-Cyrl.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.az-Latn-AZ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.az-Latn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.az.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ba-RU.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ba.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.be-BY.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.be.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.bg-BG.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.bg.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.bn-BD.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.bn-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.bn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.bo-CN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.bo.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.br-FR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.br.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.bs-Cyrl-BA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.bs-Cyrl.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.bs-Latn-BA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.bs-Latn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.bs.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ca-ES.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ca.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.co-FR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.co.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.cs-CZ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.cs.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.cy-GB.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.cy.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.da-DK.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.da.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.de-AT.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.de-CH.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.de-DE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.de-LI.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.de-LU.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.de.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.dsb-DE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.dsb.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.dv-MV.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.dv.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.el-GR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.el.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-029.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-AU.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-BZ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-CA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-GB.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-IE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-JM.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-MY.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-NZ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-PH.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-SG.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-TT.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-US.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-ZA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-ZW.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-AR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-BO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-CL.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-CO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-CR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-DO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-EC.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-ES.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-GT.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-HN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-MX.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-NI.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-PA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-PE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-PR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-PY.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-SV.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-US.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-UY.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es-VE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.es.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.et-EE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.et.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.eu-ES.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.eu.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fa-IR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fa.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fi-FI.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fi.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fil-PH.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fil.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fo-FO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fo.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fr-BE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fr-CA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fr-CH.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fr-FR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fr-LU.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fr-MC.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fr.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fy-NL.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.fy.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ga-IE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ga.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.gd-GB.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.gd.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.gl-ES.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.gl.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.gsw-FR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.gsw.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.gu-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.gu.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ha-Latn-NG.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ha-Latn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ha.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.he-IL.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.he.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.hi-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.hi.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.hr-BA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.hr-HR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.hr.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.hsb-DE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.hsb.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.hu-HU.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.hu.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.hy-AM.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.hy.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.id-ID.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.id.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ig-NG.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ig.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ii-CN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ii.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.is-IS.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.is.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.it-CH.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.it-IT.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.it.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.iu-Cans-CA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.iu-Cans.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.iu-Latn-CA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.iu-Latn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.iu.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ja-JP.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ja.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ka-GE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ka.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.kk-KZ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.kk.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.kl-GL.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.kl.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.km-KH.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.km.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.kn-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.kn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ko-KR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ko.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.kok-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.kok.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ky-KG.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ky.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.lb-LU.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.lb.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.lo-LA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.lo.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.lt-LT.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.lt.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.lv-LV.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.lv.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mi-NZ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mi.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mk-MK.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mk.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ml-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ml.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mn-Cyrl.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mn-MN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mn-Mong-CN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mn-Mong.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.moh-CA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.moh.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mr-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mr.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ms-BN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ms-MY.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ms.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mt-MT.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.mt.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.nb-NO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.nb.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ne-NP.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ne.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.nl-BE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.nl-NL.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.nl.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.nn-NO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.nn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.no.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.nso-ZA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.nso.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.oc-FR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.oc.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.or-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.or.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.pa-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.pa.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.pl-PL.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.pl.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.prs-AF.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.prs.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ps-AF.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ps.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.pt-BR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.pt-PT.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.pt.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.qut-GT.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.qut.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.quz-BO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.quz-EC.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.quz-PE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.quz.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.rm-CH.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.rm.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ro-RO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ro.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ru-RU.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ru.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.rw-RW.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.rw.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sa-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sa.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sah-RU.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sah.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.se-FI.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.se-NO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.se-SE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.se.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.si-LK.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.si.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sk-SK.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sk.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sl-SI.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sl.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sma-NO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sma-SE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sma.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.smj-NO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.smj-SE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.smj.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.smn-FI.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.smn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sms-FI.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sms.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sq-AL.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sq.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sr-Cyrl-BA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sr-Cyrl-CS.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sr-Cyrl-ME.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sr-Cyrl-RS.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sr-Cyrl.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sr-Latn-BA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sr-Latn-CS.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sr-Latn-ME.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sr-Latn-RS.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sr-Latn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sr.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sv-FI.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sv-SE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sv.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sw-KE.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.sw.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.syr-SY.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.syr.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ta-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ta.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.te-IN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.te.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tg-Cyrl-TJ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tg-Cyrl.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tg.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.th-TH.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.th.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tk-TM.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tk.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tn-ZA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tr-TR.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tr.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tt-RU.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tt.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tzm-Latn-DZ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tzm-Latn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.tzm.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ug-CN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ug.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.uk-UA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.uk.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ur-PK.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.ur.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.uz-Cyrl-UZ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.uz-Cyrl.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.uz-Latn-UZ.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.uz-Latn.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.uz.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.vi-VN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.vi.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.wo-SN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.wo.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.xh-ZA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.xh.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.yo-NG.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.yo.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.zh-CHS.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.zh-CHT.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.zh-CN.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.zh-Hans.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.zh-Hant.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.zh-HK.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.zh-MO.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.zh-SG.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.zh-TW.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.zh.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.zu-ZA.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.zu.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.cultures.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\globalize\globalize.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\interactions.min.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\slider.rtl.min.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\touch.min.js" />
+    <Content Include="Layout\RTL\assets\js\core\libraries\jquery_ui\widgets.min.js" />
+    <Content Include="Layout\RTL\assets\js\jquery-3.1.1.min.js" />
+    <Content Include="Layout\RTL\assets\js\pages\dashboard.js" />
+    <Content Include="Layout\RTL\assets\js\pages\form_select2.js" />
+    <Content Include="Layout\RTL\assets\js\pages\picker_date.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\buttons\hover_dropdown.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\buttons\ladda.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\buttons\spin.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\extensions\contextmenu.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\extensions\cookie.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\extensions\mockjax.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\extensions\mousewheel.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\extensions\session_timeout.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\editable\address.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\editable\editable.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\editable\wysihtml5.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\inputs\autosize.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\inputs\duallistbox.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\inputs\formatter.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\inputs\maxlength.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\inputs\passy.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\inputs\touchspin.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\selects\bootstrap_multiselect.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\selects\bootstrap_select.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\selects\select2.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\selects\selectboxit.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\styling\switch.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\styling\switchery.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\styling\uniform.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\tags\tagsinput.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\tags\tokenfield.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\additional_methods.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ar.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ar.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_bg.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_bg.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ca.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ca.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_cs.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_cs.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_da.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_da.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_de.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_de.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_el.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_el.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_es.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_es.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_es_AR.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_es_AR.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_et.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_et.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_eu.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_eu.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_fa.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_fa.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_fi.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_fi.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_fr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_fr.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_gl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_gl.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_he.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_he.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_hr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_hr.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_hu.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_hu.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_id.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_id.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_is.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_is.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_it.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_it.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ja.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ja.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ka.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ka.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_kk.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_kk.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ko.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ko.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_lt.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_lt.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_lv.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_lv.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_my.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_my.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_nl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_nl.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_no.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_no.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_pl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_pl.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_pt_BR.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_pt_BR.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_pt_PT.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_pt_PT.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ro.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ro.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ru.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_ru.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_si.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_si.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_sk.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_sk.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_sl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_sl.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_sr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_sr.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_sr_lat.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_sr_lat.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_sv.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_sv.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_th.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_th.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_tj.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_tj.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_tr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_tr.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_uk.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_uk.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_vi.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_vi.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_zh.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_zh.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_zh_TW.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\messages_zh_TW.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\methods_de.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\methods_de.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\methods_es_CL.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\methods_es_CL.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\methods_fi.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\methods_fi.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\methods_nl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\methods_nl.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\methods_pt.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\localization\methods_pt.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\validation\validate.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\wizards\form_wizard\form.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\wizards\form_wizard\form_wizard.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\wizards\steps.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\forms\wizards\stepy.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\internationalization\i18next.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\loaders\blockui.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\loaders\pace.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\loaders\progressbar.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\jvectormap.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\argentina.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\australia.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\austria.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\belgium.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\canada.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\china.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\colombia.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\denmark.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\france.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\germany.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\india.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\italy.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\netherlands.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\new_zealand.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\norway.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\philippines.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\poland.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\portugal.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\south_africa.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\spain.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\sweden.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\switzerland.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\thailand.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\thailand_regions.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\uk.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\usa.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\countries\venezuela.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\europe.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\maps\jvectormap\map_files\world.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\media\cropper.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\media\fancybox.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\notifications\bootbox.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\notifications\jgrowl.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\notifications\noty.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\notifications\pnotify.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\notifications\sweet_alert.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pagination\bootpag.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pagination\bs_pagination.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pagination\datepaginator.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\anytime.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-de.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-dk.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-es.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-fa.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-fi.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-fr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-he.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-it.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-ja.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-nl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-pt-br.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-ru.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-sv.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-tr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\i18n\jquery.spectrum-zh-cn.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\color\spectrum.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\datepicker.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\daterangepicker.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\location\autocomplete_addresspicker.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\location\location.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\location\typeahead_addresspicker.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\legacy.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\picker.date.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\picker.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\picker.time.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\ar.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\bg_BG.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\bs_BA.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\ca_ES.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\cs_CZ.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\da_DK.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\de_DE.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\el_GR.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\es_ES.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\et_EE.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\eu_ES.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\fi_FI.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\fr_FR.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\gl_ES.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\he_IL.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\hr_HR.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\hu_HU.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\id_ID.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\is_IS.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\it_IT.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\ja_JP.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\ko_KR.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\ne_NP.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\nl_NL.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\no_NO.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\pl_PL.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\pt_BR.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\pt_PT.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\ro_RO.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\ru_RU.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\sk_SK.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\sl_SI.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\sv_SE.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\th_TH.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\tr_TR.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\uk_UA.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\vi_VN.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\zh_CN.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\zh_TW.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\sliders\ion_rangeslider.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\sliders\nouislider.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\sliders\slider_pips.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\datatables.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\autofill.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\buttons.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\col_reorder.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\fixed_columns.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\fixed_header.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\jszip\jszip.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\key_table.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\natural_sort.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\pdfmake\pdfmake.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\pdfmake\vfs_fonts.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\responsive.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\row_reorder.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\scroller.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\datatables\extensions\select.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\footable\footable.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\handsontable.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\be-nl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\chs.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\cs.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\da-dk.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\de-ch.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\de.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\en-gb.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\es-ES.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\es.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\et.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\fi.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\fr-CA.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\fr-ch.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\fr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\hu.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\it.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\ja.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\nl-nl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\pl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\pt-br.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\pt-pt.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\ru-UA.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\ru.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\sk.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\th.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\tr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\languages\uk-UA.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\tables\handsontable\zero_clipboard.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\trees\fancytree_all.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\trees\fancytree_childcounter.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\dragula.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\drilldown.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\all.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\ar-ma.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\ar-sa.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\ar.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\bg.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\ca.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\cs.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\da.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\de-at.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\de.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\el.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\en-au.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\en-ca.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\en-gb.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\es.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\fa.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\fi.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\fr-ca.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\fr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\hi.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\hr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\hu.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\id.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\is.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\it.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\ja.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\ko.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\lt.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\lv.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\nl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\pl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\pt-br.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\pt.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\ro.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\ru.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\sk.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\sl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\sr-cyrl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\sr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\sv.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\th.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\tr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\uk.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\vi.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\zh-cn.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\fullcalendar\lang\zh-tw.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\headroom\headroom.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\headroom\headroom_jquery.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\moment\moment.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\moment\moment_locales.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\nicescroll.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\ui\prism.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\dropzone.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\fileinput.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\files\Moxie.swf" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\ar.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\az.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\bs.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\cs.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\cy.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\da.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\de.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\el.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\en.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\es.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\et.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\fa.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\fi.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\fr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\he.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\hr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\hu.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\hy.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\id.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\it.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\ja.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\ka.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\kk.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\km.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\ko.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\lt.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\lv.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\mn.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\ms.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\nl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\pl.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\pt_BR.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\ro.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\ru.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\sk.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\sq.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\sr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\sr_RS.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\sv.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\th_TH.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\tr.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\uk_UA.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\zh_CN.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\i18n\zh_TW.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\moxie.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\plupload.full.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\plupload.queue.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\velocity\velocity.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\velocity\velocity.ui.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\c3\c3.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\d3\d3.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\d3\d3_tooltip.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\d3\venn.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\dimple\dimple.min.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\bar.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\chord.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\eventRiver.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\force.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\funnel.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\gauge.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\k.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\line.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\map.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\pie.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\radar.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\scatter.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\tree.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\treemap.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\venn.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\chart\wordCloud.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\echarts.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\echarts\theme\limitless.js" />
+    <Content Include="Layout\RTL\assets\js\plugins\visualization\sparkline.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\buttons.bootstrap.min.css" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\buttons.bootstrap.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\buttons.html5.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\buttons.print.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\dataTables.bootstrap.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\dataTables.bootstrap.min.css" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\dataTables.buttons.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\dataTables.colVis.css" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\dataTables.colVis.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\dataTables.fixedColumns.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\dataTables.fixedHeader.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\dataTables.keyTable.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\dataTables.responsive.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\dataTables.scroller.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\fixedColumns.dataTables.min.css" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\fixedHeader.bootstrap.min.css" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\jquery.dataTables.min.css" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\jquery.dataTables.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\jszip.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\pdfmake.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\responsive.bootstrap.min.css" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\responsive.bootstrap.min.js" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\scroller.bootstrap.min.css" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\vfs_fonts.js" />
+    <Content Include="Layout\RTL\assets\progress\jQuery-plugin-progressbar.css" />
+    <Content Include="Layout\RTL\assets\progress\jQuery-plugin-progressbar.html" />
+    <Content Include="Layout\RTL\assets\progress\jQuery-plugin-progressbar.js" />
+    <Content Include="Layout\RTL\js\Basic.js" />
+    <Content Include="Layout\uploads\Adminprofile\13131313141414141414151515151516.jpg" />
+    <Content Include="Layout\uploads\Adminprofile\23456678910111213141516.png" />
+    <Content Include="Layout\uploads\Adminprofile\4.png" />
+    <Content Include="Layout\uploads\Adminprofile\5.png" />
+    <Content Include="Layout\uploads\Adminprofile\mask.png" />
+    <Content Include="Layout\uploads\Sectors\1a814826370341ab97ff593a1c79f151.png" />
+    <Content Include="Layout\uploads\Sectors\1f69c482b6bc4263a8ba155facf4f43d.PNG" />
+    <Content Include="Layout\uploads\Sectors\94ba3be240114f7cbf746088800930ee.png" />
+    <Content Include="Layout\uploads\Sectors\e0ce7523668f4a89955819f3bd806941.png" />
+    <Content Include="LibraryDocs\forms\lib_img\65719076747266657681.jpg" />
+    <Content Include="LibraryDocs\forms\lib_img\66778269707185877480.png" />
+    <Content Include="LibraryDocs\forms\lib_img\66867374856865807868.jpg" />
+    <Content Include="LibraryDocs\forms\lib_img\67718574878277857183.png" />
+    <Content Include="LibraryDocs\forms\lib_img\68828986847380687089.jpg" />
+    <Content Include="LibraryDocs\forms\lib_img\69756585739076718788.jpg" />
+    <Content Include="LibraryDocs\forms\lib_img\72818882708772717486.png" />
+    <Content Include="LibraryDocs\forms\lib_img\77676672898473728970.jpg" />
+    <Content Include="LibraryDocs\forms\lib_img\77887286887678816865.jpg" />
+    <Content Include="LibraryDocs\forms\lib_img\81678777776876657184.jpg" />
+    <Content Include="LibraryDocs\forms\lib_img\85886765656582847766.jpg" />
+    <Content Include="LibraryDocs\forms\lib_img\86808270727873749074.png" />
+    <Content Include="LibraryDocs\forms\lib_img\88677978716782886570.jpg" />
+    <Content Include="LibraryDocs\forms\lib_img\88878282897267837367.png" />
+    <Content Include="LibraryDocs\forms\lib_img\89707480767284837767.png" />
     <Content Include="Modules\Agreements\Forms\AgreementProcedures.aspx" />
     <Content Include="Modules\Agreements\Forms\AgreementMainAttachments.aspx" />
     <Content Include="Modules\Agreements\Forms\AgreementsDataLink.aspx" />
     <Content Include="Modules\Agreements\Forms\AgreementsData.aspx" />
     <Content Include="Modules\Agreements\Forms\AgreementAttachments.aspx" />
     <Content Include="Modules\Agreements\Forms\LawDocView.aspx" />
+    <Content Include="Modules\Audit\Forms\Frm_UserOperaionAudit.aspx" />
+    <Content Include="Modules\Audit\Forms\Frm_UserPerformance.aspx" />
     <Content Include="Modules\Cases\Forms\CaseTypes.aspx" />
     <Content Include="Modules\Agreements\reports\AgreementsStatistics.aspx" />
     <Content Include="Modules\Agreements\reports\AgreementsReport.aspx" />
     <Content Include="Modules\APICall\datatables.init.js" />
-    <Content Include="Modules\Audit\Forms\Frm_UserOperaionAudit.aspx" />
+    <Content Include="Modules\Audit\Forms\Frm_UserTechnicalOperaionAudit.aspx" />
     <Content Include="Modules\Audit\Forms\operationKeysDetails.aspx" />
     <Content Include="Modules\Audit\Forms\operationDetails.aspx" />
     <Content Include="Modules\Audit\Forms\Frm_UserOperaions.aspx" />
@@ -186,12 +1939,24 @@
     <Content Include="Modules\Cases\Reports\CaseResports.aspx" />
     <Content Include="Modules\Committees\Forms\CommitteeData.aspx" />
     <Content Include="Modules\Committees\Reports\CommitteeReport.aspx" />
+    <Content Include="Modules\Laws\CommitteeDetails.aspx" />
+    <Content Include="Modules\Laws\DessionData.aspx" />
     <Content Include="Modules\Laws\Forms\LawDessionData.aspx" />
+    <Content Include="Modules\Laws\Forms\lawDocDataDetails.aspx" />
+    <Content Include="Modules\Laws\LawDetailsDocData.aspx" />
+    <Content Include="Modules\Laws\Forms\LawDocSearch.aspx" />
+    <Content Include="Modules\Laws\Forms\LawDocSearchDetails.aspx" />
     <Content Include="Modules\Laws\Forms\LawProjectData.aspx" />
     <Content Include="Modules\Laws\Forms\LawDocDatalnk.aspx" />
+    <Content Include="Modules\Laws\Forms\LawSearch.aspx" />
+    <Content Include="Modules\Laws\Forms\LawsTree.aspx" />
+    <Content Include="Modules\Laws\LawDetails.aspx" />
+    <Content Include="Modules\Laws\LawType.aspx" />
     <Content Include="Modules\Laws\reports\LawProjectReport.aspx" />
     <Content Include="Modules\Laws\reports\LawDessionReport.aspx" />
     <Content Include="Modules\Laws\reports\LawDocDataReport.aspx" />
+    <Content Include="Modules\Laws\Sectors.aspx" />
+    <Content Include="Modules\Laws\WebForm1.aspx" />
     <Content Include="Modules\LegalMemos\Forms\LegalMemoData.aspx" />
     <Content Include="Modules\LegalMemos\Forms\LegalMemoOrg.aspx" />
     <Content Include="Modules\LegalMemos\Reports\LegalMemoReport.aspx" />
@@ -229,6 +1994,7 @@
     <Content Include="Modules\Questions\reports\QuestionsReports.aspx" />
     <Content Include="Modules\Questions\reports\suggestionReport.aspx" />
     <Content Include="Modules\ScanningRouter.html" />
+    <Content Include="UserControls\DeleteConfirm.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -249,9 +2015,59 @@
     <Content Include="CMGS_DBDataSet.xss">
       <DependentUpon>CMGS_DBDataSet.xsd</DependentUpon>
     </Content>
-    <EmbeddedResource Include="Modules\Committees\RDLC\rpt_CommitteeList.rdlc" />
-    <EmbeddedResource Include="Modules\Committees\RDLC\rpt_CommitteeListgrouping.rdlc" />
-    <EmbeddedResource Include="Modules\LegalMemos\RDLC\rpt_LegalMemogrouping.rdlc" />
+    <EmbeddedResource Include="Modules\Agreements\RDLC\Report1.rdlc" />
+    <Content Include="Modules\Audit\RDLC\rpt_UserAuditPerformance.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Audit\RDLC\rpt_AuditLogUserFunctions.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Committees\RDLC\rpt_CommitteeList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Committees\RDLC\rpt_CommitteeListgrouping.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\LegalMemos\RDLC\rpt_LegalMemogrouping.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Layout\Assets\colorbox\colorbox.ai" />
+    <Content Include="Layout\Assets\colorbox\README.md" />
+    <Content Include="Layout\Assets\DX\icons\dxicons.eot" />
+    <Content Include="Layout\Assets\DX\icons\dxicons.ttf" />
+    <Content Include="Layout\Assets\DX\icons\dxicons.woff" />
+    <Content Include="Layout\Assets\DX\icons\dxiconsios.eot" />
+    <Content Include="Layout\Assets\DX\icons\dxiconsios.ttf" />
+    <Content Include="Layout\Assets\DX\icons\dxiconsios.woff" />
+    <Content Include="Layout\Assets\External\KPI\fonts\DroidKufi-Bold.eot" />
+    <Content Include="Layout\Assets\External\KPI\fonts\DroidKufi-Bold.ttf" />
+    <Content Include="Layout\Assets\External\KPI\fonts\DroidKufi-Bold.woff" />
+    <Content Include="Layout\Assets\External\KPI\fonts\DroidKufi-Regular.eot" />
+    <Content Include="Layout\Assets\External\KPI\fonts\DroidKufi-Regular.ttf" />
+    <Content Include="Layout\Assets\External\KPI\fonts\DroidKufi-Regular.woff" />
+    <Content Include="Layout\Assets\fonts\fonts\fontawesome-webfont.eot" />
+    <Content Include="Layout\Assets\fonts\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Layout\Assets\fonts\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Layout\Assets\map\js" />
+    <Content Include="Layout\Assets\zebra-dialog\examples\libraries\highlight\public\LICENSE" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\syntaxhighlighter\LGPL-LICENSE" />
+    <Content Include="Layout\Assets\zebra-tooltips\examples\libraries\syntaxhighlighter\MIT-LICENSE" />
+    <Content Include="Layout\RTL\assets\css\icons\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Layout\RTL\assets\css\icons\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Layout\RTL\assets\css\icons\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Layout\RTL\assets\css\icons\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Layout\RTL\assets\css\icons\fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="Layout\RTL\assets\css\icons\glyphicons\glyphicons-halflings-regular.eot" />
+    <Content Include="Layout\RTL\assets\css\icons\glyphicons\glyphicons-halflings-regular.ttf" />
+    <Content Include="Layout\RTL\assets\css\icons\glyphicons\glyphicons-halflings-regular.woff" />
+    <Content Include="Layout\RTL\assets\css\icons\glyphicons\glyphicons-halflings-regular.woff2" />
+    <Content Include="Layout\RTL\assets\css\icons\icomoon\fonts\icomoon.eot" />
+    <Content Include="Layout\RTL\assets\css\icons\icomoon\fonts\icomoon.ttf" />
+    <Content Include="Layout\RTL\assets\css\icons\icomoon\fonts\icomoon.woff" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\FORMATTING.md" />
+    <Content Include="Layout\RTL\assets\js\plugins\pickers\pickadate\translations\NAMING.md" />
+    <Content Include="Layout\RTL\assets\js\plugins\uploaders\plupload\files\Moxie.xap" />
+    <Content Include="Layout\RTL\assets\plugins\datatables\json\scroller-demo.json" />
     <None Include="Properties\PublishProfiles\CMGS_PortalDeploy.pubxml" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <None Include="Properties\Settings.settings">
@@ -389,11 +2205,19 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="App_GlobalResources\lockups.designer.cs">
+    <Compile Include="UserControls\DeleteConfirm.ascx.cs">
+      <DependentUpon>DeleteConfirm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\DeleteConfirm.ascx.designer.cs">
+      <DependentUpon>DeleteConfirm.ascx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="App_GlobalResources\lockups.designer.cs">
       <DependentUpon>lockups.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Compile Include="App_GlobalResources\lockups.ar-KW.designer.cs">
       <DependentUpon>lockups.ar-KW.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -408,16 +2232,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Utilities.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_GlobalResources\ValidationResources.ar.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ValidationResources.ar.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_GlobalResources\ValidationResources.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ValidationResources.resx</DependentUpon>
     </Compile>
     <Compile Include="CMGS_DBDataSet.cs">
       <DependentUpon>CMGS_DBDataSet.xsd</DependentUpon>
@@ -446,6 +2260,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\LawSummaryDTO.cs" />
     <Compile Include="Modules\Agreements\Forms\AgreementProcedures.aspx.cs">
       <DependentUpon>AgreementProcedures.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -488,6 +2303,20 @@
     <Compile Include="Modules\Agreements\Forms\LawDocView.aspx.designer.cs">
       <DependentUpon>LawDocView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Audit\Forms\Frm_UserOperaionAudit.aspx.cs">
+      <DependentUpon>Frm_UserOperaionAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Audit\Forms\Frm_UserOperaionAudit.aspx.designer.cs">
+      <DependentUpon>Frm_UserOperaionAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Audit\Forms\Frm_UserPerformance.aspx.cs">
+      <DependentUpon>Frm_UserPerformance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Audit\Forms\Frm_UserPerformance.aspx.designer.cs">
+      <DependentUpon>Frm_UserPerformance.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Cases\Forms\CaseTypes.aspx.cs">
       <DependentUpon>CaseTypes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -509,12 +2338,12 @@
     <Compile Include="Modules\Agreements\reports\AgreementsReport.aspx.designer.cs">
       <DependentUpon>AgreementsReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Audit\Forms\Frm_UserOperaionAudit.aspx.cs">
-      <DependentUpon>Frm_UserOperaionAudit.aspx</DependentUpon>
+    <Compile Include="Modules\Audit\Forms\Frm_UserTechnicalOperaionAudit.aspx.cs">
+      <DependentUpon>Frm_UserTechnicalOperaionAudit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Modules\Audit\Forms\Frm_UserOperaionAudit.aspx.designer.cs">
-      <DependentUpon>Frm_UserOperaionAudit.aspx</DependentUpon>
+    <Compile Include="Modules\Audit\Forms\Frm_UserTechnicalOperaionAudit.aspx.designer.cs">
+      <DependentUpon>Frm_UserTechnicalOperaionAudit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Audit\Forms\operationKeysDetails.aspx.cs">
       <DependentUpon>operationKeysDetails.aspx</DependentUpon>
@@ -569,12 +2398,54 @@
     <Compile Include="Modules\Committees\Reports\CommitteeReport.aspx.designer.cs">
       <DependentUpon>CommitteeReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Laws\CommitteeDetails.aspx.cs">
+      <DependentUpon>CommitteeDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\CommitteeDetails.aspx.designer.cs">
+      <DependentUpon>CommitteeDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\DessionData.aspx.cs">
+      <DependentUpon>DessionData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\DessionData.aspx.designer.cs">
+      <DependentUpon>DessionData.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Laws\Forms\LawDessionData.aspx.cs">
       <DependentUpon>LawDessionData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Modules\Laws\Forms\LawDessionData.aspx.designer.cs">
       <DependentUpon>LawDessionData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\lawDocDataDetails.aspx.cs">
+      <DependentUpon>lawDocDataDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\lawDocDataDetails.aspx.designer.cs">
+      <DependentUpon>lawDocDataDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\LawDetailsDocData.aspx.cs">
+      <DependentUpon>LawDetailsDocData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\LawDetailsDocData.aspx.designer.cs">
+      <DependentUpon>LawDetailsDocData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawDocSearch.aspx.cs">
+      <DependentUpon>LawDocSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawDocSearch.aspx.designer.cs">
+      <DependentUpon>LawDocSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawDocSearchDetails.aspx.cs">
+      <DependentUpon>LawDocSearchDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawDocSearchDetails.aspx.designer.cs">
+      <DependentUpon>LawDocSearchDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Laws\Forms\LawProjectData.aspx.cs">
       <DependentUpon>LawProjectData.aspx</DependentUpon>
@@ -589,6 +2460,34 @@
     </Compile>
     <Compile Include="Modules\Laws\Forms\LawDocDatalnk.aspx.designer.cs">
       <DependentUpon>LawDocDatalnk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawSearch.aspx.cs">
+      <DependentUpon>LawSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawSearch.aspx.designer.cs">
+      <DependentUpon>LawSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawsTree.aspx.cs">
+      <DependentUpon>LawsTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\Forms\LawsTree.aspx.designer.cs">
+      <DependentUpon>LawsTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\LawDetails.aspx.cs">
+      <DependentUpon>LawDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\LawDetails.aspx.designer.cs">
+      <DependentUpon>LawDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\LawType.aspx.cs">
+      <DependentUpon>LawType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\LawType.aspx.designer.cs">
+      <DependentUpon>LawType.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Laws\reports\LawProjectReport.aspx.cs">
       <DependentUpon>LawProjectReport.aspx</DependentUpon>
@@ -610,6 +2509,20 @@
     </Compile>
     <Compile Include="Modules\Laws\reports\LawDocDataReport.aspx.designer.cs">
       <DependentUpon>LawDocDataReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\Sectors.aspx.cs">
+      <DependentUpon>Sectors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\Sectors.aspx.designer.cs">
+      <DependentUpon>Sectors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\LegalMemos\Forms\LegalMemoData.aspx.cs">
       <DependentUpon>LegalMemoData.aspx</DependentUpon>
@@ -876,32 +2789,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DomainInterface\DomainInterface.csproj">
-      <Project>{f07a1f32-8f62-4e73-b25b-b5a2413a945b}</Project>
-      <Name>DomainInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Infrastructure.DAL\Infrastructure.DAL.csproj">
-      <Project>{96FFFB5F-0713-47A1-B2D7-9128DBD56107}</Project>
-      <Name>Infrastructure.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Infrastructure.EnterpriseLibrary\Infrastructure.EnterpriseLibrary.csproj">
-      <Project>{A385AFD8-7D81-47D6-99FE-5FD666164B60}</Project>
-      <Name>Infrastructure.EnterpriseLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Permission.DAL\Permission.DAL.csproj">
-      <Project>{899BF54E-9B16-4A5F-8EBF-19FE0F355B6E}</Project>
-      <Name>Permission.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UI.Culture\UI.Culture.csproj">
-      <Project>{2a464b36-8f40-437d-a8f5-e1982ab97aba}</Project>
-      <Name>UI.Culture</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Utilities\Utilities.csproj">
-      <Project>{b29bbade-7ee4-4c9a-8840-eefb4a798aa2}</Project>
-      <Name>Utilities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_Themes\Skins\Skins.skin" />
     <Content Include="Admin\Masters\Empty.Master" />
     <Content Include="Admin\Masters\Tempmaster.Master" />
@@ -911,14 +2798,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\ValidationResources.ar.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>ValidationResources.ar.designer.cs</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\ValidationResources.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>ValidationResources.designer.cs</LastGenOutput>
-    </Content>
     <Content Include="App_GlobalResources\Utilities.ar-KW.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Utilities.ar-KW.designer.cs</LastGenOutput>
@@ -971,48 +2850,99 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_GlobalResources\lockups.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>lockups.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="App_GlobalResources\lockups.ar-KW.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>lockups.ar-KW.designer.cs</LastGenOutput>
     </Content>
-    <EmbeddedResource Include="Admin\RDLC\UserSystemsDeliveryForm.rdlc" />
-    <EmbeddedResource Include="Admin\RDLC\UserSystemsDeliveryForm2.rdlc" />
-    <EmbeddedResource Include="Modules\Agreements\RDLC\rpt_AgreementsListwithoutGroup.rdlc" />
-    <EmbeddedResource Include="Modules\Agreements\RDLC\rpt_AgreementsList.rdlc" />
-    <EmbeddedResource Include="Modules\Agreements\RDLC\rpt_AgreementsStatistics.rdlc" />
-    <EmbeddedResource Include="Modules\Audit\RDLC\rpt_AuditLogFunctions.rdlc" />
-    <EmbeddedResource Include="Modules\Audit\RDLC\rpt_UserAuditOperation.rdlc" />
-    <EmbeddedResource Include="Modules\Audit\RDLC\rpt_UserAuditOperations.rdlc" />
-    <EmbeddedResource Include="Modules\Cases\RDLC\rpt_CasesListgrouping.rdlc" />
-    <EmbeddedResource Include="Modules\Laws\RDLC\rpt_Dessionlawdocs.rdlc" />
-    <EmbeddedResource Include="Modules\Laws\RDLC\rpt_lawProjectdocs.rdlc" />
-    <EmbeddedResource Include="Modules\Laws\RDLC\rpt_lawdocs.rdlc" />
-    <EmbeddedResource Include="Modules\Laws\RDLC\rpt_Dessionlawdocsgrouping.rdlc" />
-    <EmbeddedResource Include="Modules\Laws\RDLC\rpt_lawdocsgrouping.rdlc" />
-    <EmbeddedResource Include="Modules\PM\RDLC\rpt_PmList.rdlc" />
-    <EmbeddedResource Include="Modules\PM\RDLC\rpt_PmListgrouping.rdlc" />
-    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_ComplaintsList.rdlc" />
-    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_Suggestiongrouping.rdlc" />
-    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_InterrrogationList.rdlc">
+    <Content Include="Admin\RDLC\UserSystemsDeliveryForm.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Admin\RDLC\UserSystemsDeliveryForm2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Agreements\RDLC\rpt_AgreementsListwithoutGroup.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Agreements\RDLC\rpt_AgreementsList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Agreements\RDLC\rpt_AgreementsStatistics.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Audit\RDLC\rpt_AuditLogFunctions.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Audit\RDLC\rpt_UserAuditOperation.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Audit\RDLC\rpt_UserAuditOperations.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Cases\RDLC\rpt_CasesListgrouping.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Laws\RDLC\rpt_Dessionlawdocs.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Laws\RDLC\rpt_lawProjectdocs.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Laws\RDLC\rpt_lawdocs.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Laws\RDLC\rpt_Dessionlawdocsgrouping.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Laws\RDLC\rpt_lawdocsgrouping.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\PM\RDLC\rpt_PmList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\PM\RDLC\rpt_PmListgrouping.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Questions\RDLC\rpt_ComplaintsList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Questions\RDLC\rpt_Suggestiongrouping.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Questions\RDLC\rpt_InterrrogationList.rdlc">
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_ComplaintsListgrouping.rdlc" />
-    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_InterrrogationListgrouping.rdlc" />
-    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_MadbataList.rdlc" />
-    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_MadbataListgrouping.rdlc" />
-    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_QuestionsStatistics.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Questions\RDLC\rpt_ComplaintsListgrouping.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Questions\RDLC\rpt_InterrrogationListgrouping.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Questions\RDLC\rpt_MadbataList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Questions\RDLC\rpt_MadbataListgrouping.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Questions\RDLC\rpt_QuestionsStatistics.rdlc">
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_QuestionsLIstSectionGroup.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Questions\RDLC\rpt_QuestionsLIstSectionGroup.rdlc">
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_QuestionsLIst.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Questions\RDLC\rpt_QuestionsLIst.rdlc">
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Questions\RDLC\rpt_SuggestionList.rdlc" />
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\Questions\RDLC\rpt_SuggestionList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
@@ -1022,11 +2952,26 @@
     <Folder Include="App_Data\" />
     <Folder Include="aspnet_client\" />
     <Folder Include="bin\" />
+    <Folder Include="Layout\uploads\MedalFiles\" />
     <Folder Include="Modules\Agreements\Master\" />
     <Folder Include="Modules\Agreements\UC\" />
     <Folder Include="Modules\Medals\UC\" />
     <Folder Include="SharedMasters\" />
     <Folder Include="UC\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure.DAL\Infrastructure.DAL.csproj">
+      <Project>{96fffb5f-0713-47a1-b2d7-9128dbd56107}</Project>
+      <Name>Infrastructure.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.EnterpriseLibrary\Infrastructure.EnterpriseLibrary.csproj">
+      <Project>{a385afd8-7d81-47d6-99fe-5fd666164b60}</Project>
+      <Name>Infrastructure.EnterpriseLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI.Culture\UI.Culture.csproj">
+      <Project>{2a464b36-8f40-437d-a8f5-e1982ab97aba}</Project>
+      <Name>UI.Culture</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -1044,6 +2989,15 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets'))" />
+    <Error Condition="!Exists('..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets'))" />
+  </Target>
+  <Import Project="..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

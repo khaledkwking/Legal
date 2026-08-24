@@ -21,7 +21,7 @@ namespace UI.Web.LibraryDocs.Forms
         #region "Page Members"
         public LooksUpsRepository objLookup = IoC.Resolve<LooksUpsRepository>();
         public LibraryDocsRepository objRepository = IoC.Resolve<LibraryDocsRepository>();
-        public string _PageTitle = "المكتبة القانونية ";
+        public string _PageTitle = "المكتبة الإلكترونية ";
         public string AgreementCode = "0";
 
 

@@ -476,7 +476,7 @@ namespace UI.Web.Modules.Laws.Forms
             var objList = objRepository.GetList(ZeroIntergerIFNull(txtFilterSerialNum.Text), ZeroIntergerIFNull(txtFilterSerialYear.Text),
                  NullDateifEmpty(txtFilterDatefrom.Text),
                 NullDateifEmpty(txtFilterDateTo.Text), ZeroIntergerIFNull(lstFilterType.SelectedValue), ZeroIntergerIFNull(lstFilterCategory.SelectedValue),
-               ZeroIntergerIFNull(lstFilterIsUnderStudy.SelectedValue), txtFilterSubject.Text,
+               ZeroIntergerIFNull(lstFilterIsUnderStudy.SelectedValue), txtFilterSubject.Text,"",
                txtFilterDetails.Text, ZeroIntergerIFNull(lstFilterPublish.SelectedValue), ZeroIntergerIFNull(lstFilterprocedureType.SelectedValue), NullDateifEmpty(txtFilterExpireDateFrom.Text), NullDateifEmpty(txtFilterExpireDateTo.Text), MapSearchKeys());
 
 

@@ -38,5 +38,6 @@ namespace Infrastructure.DAL.Model
         public Nullable<int> LastModifiedBy { get; set; }
         public Nullable<System.DateTime> LastModifiedAt { get; set; }
         public Nullable<bool> isDeleted { get; set; }
+        public Nullable<int> committeeRefCode { get; set; }
     }
 }

@@ -69,6 +69,15 @@ namespace UI.Web.Modules.Laws.Forms
         protected global::System.Web.UI.UpdatePanel Updatepanel1;
 
         /// <summary>
+        /// DeleteConfirm1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::UI.Web.UserControls.DeleteConfirm DeleteConfirm1;
+
+        /// <summary>
         /// tblSearch control.
         /// </summary>
         /// <remarks>
@@ -231,6 +240,15 @@ namespace UI.Web.Modules.Laws.Forms
         protected global::System.Web.UI.WebControls.DropDownList lstFilterPublish;
 
         /// <summary>
+        /// txtFilterNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFilterNotes;
+
+        /// <summary>
         /// lnkSearch control.
         /// </summary>
         /// <remarks>
@@ -384,6 +402,33 @@ namespace UI.Web.Modules.Laws.Forms
         protected global::System.Web.UI.WebControls.CheckBox chkIspublished;
 
         /// <summary>
+        /// DivAudit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAudit;
+
+        /// <summary>
+        /// Auidtlbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Auidtlbl;
+
+        /// <summary>
+        /// chkIsAudit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkIsAudit;
+
+        /// <summary>
         /// txtPublishDate control.
         /// </summary>
         /// <remarks>
@@ -400,6 +445,24 @@ namespace UI.Web.Modules.Laws.Forms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lstDocType;
+
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// lstSectors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstSectors;
 
         /// <summary>
         /// lblcattitle control.

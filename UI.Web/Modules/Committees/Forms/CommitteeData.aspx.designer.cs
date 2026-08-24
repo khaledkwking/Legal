@@ -69,6 +69,15 @@ namespace UI.Web.Modules.Committees.Forms
         protected global::System.Web.UI.UpdatePanel Updatepanel1;
 
         /// <summary>
+        /// DeleteConfirm1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::UI.Web.UserControls.DeleteConfirm DeleteConfirm1;
+
+        /// <summary>
         /// tblSearch control.
         /// </summary>
         /// <remarks>
@@ -193,6 +202,24 @@ namespace UI.Web.Modules.Committees.Forms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFilterSubject;
+
+        /// <summary>
+        /// RadioButtonTypesList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonTypesList;
+
+        /// <summary>
+        /// RadioButtonFinishedList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonFinishedList;
 
         /// <summary>
         /// lnkSearch control.

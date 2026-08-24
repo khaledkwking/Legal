@@ -207,7 +207,7 @@ namespace UI.Web.Modules.Laws.Reports
             var objList = objRepository.GetList(ZeroIntergerIFNull(txtFilterSerialNum.Text), ZeroIntergerIFNull(txtFilterSerialYear.Text),
                  NullDateifEmpty(txtFilterDatefrom.Text),
                 NullDateifEmpty(txtFilterDateTo.Text), ZeroIntergerIFNull(lstFilterType.SelectedValue), ZeroIntergerIFNull(lstFilterCategory.SelectedValue),
-               ZeroIntergerIFNull(lstFilterIsUnderStudy.SelectedValue), txtFilterSubject.Text, txtFilterDetails.Text,
+               ZeroIntergerIFNull(lstFilterIsUnderStudy.SelectedValue), txtFilterSubject.Text,"", txtFilterDetails.Text,
                ZeroIntergerIFNull(lstFilterPublish.SelectedValue), ZeroIntergerIFNull(lstfilterProceduretype.SelectedValue), NullDateifEmpty(txtFilterExpireFrom.Text), NullDateifEmpty(txtFilterExpireTo.Text), MapSearchKeys());
 
 

@@ -214,7 +214,7 @@
     <value>Complaints_RelatedOrg</value>
   </data>
   <data name="LegalMemo" xml:space="preserve">
-    <value>مذكرات الرأي القانوني</value>
+    <value>كتب ومذكرات الرأي القانوني</value>
   </data>
   <data name="LegalMemoMaster" xml:space="preserve">
     <value>البيانات الأساسية</value>
@@ -236,5 +236,14 @@
   </data>
   <data name="Committees_ProceduresTypes" xml:space="preserve">
     <value>Committees_ProceduresTypes</value>
+  </data>
+  <data name="Committees_Types" xml:space="preserve">
+    <value>Committees_Types</value>
+  </data>
+  <data name="Library_DocsCategory" xml:space="preserve">
+    <value>تصنيف الوثائق</value>
+  </data>
+  <data name="Parliament_CMGSRelatedOrgs" xml:space="preserve">
+    <value>Parliament_CMGSRelatedOrgs</value>
   </data>
 </root>

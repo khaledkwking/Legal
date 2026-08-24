@@ -161,7 +161,7 @@
                                                                     </table>
                                                                 </ItemTemplate>
                                                             </asp:TemplateColumn>
-                                                            <asp:BoundColumn DataField="PageTitle" HeaderText="Page Title">
+                                                            <asp:BoundColumn DataField="PageTitle" HeaderText="الصلاحية">
                                                                 <HeaderStyle Wrap="false"></HeaderStyle>
                                                                 <ItemStyle />
                                                             </asp:BoundColumn>
@@ -200,6 +200,13 @@
                                                                     <asp:CheckBox Style="border-style: none;" CssClass="check" runat="server" ID="chkDate" Checked='<%#getBool(DataBinder.Eval(Container.DataItem,"DateControl")) %>' />
                                                                 </ItemTemplate>
                                                             </asp:TemplateColumn>
+                                                             <asp:TemplateColumn HeaderText="تدقيق">
+                                                             <HeaderStyle Wrap="false" HorizontalAlign="center" />
+                                                             <ItemStyle Wrap="false" HorizontalAlign="center" />
+                                                             <ItemTemplate>
+                                                                 <asp:CheckBox Style="border-style: none;" CssClass="check" runat="server" ID="chkAudit" Checked='<%#getBool(DataBinder.Eval(Container.DataItem,"AuditControl")) %>' />
+                                                             </ItemTemplate>
+                                                         </asp:TemplateColumn>
                                                         </Columns>
                                                     </asp:DataGrid>
 

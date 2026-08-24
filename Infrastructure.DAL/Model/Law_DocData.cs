@@ -17,9 +17,10 @@ namespace Infrastructure.DAL.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Law_DocData()
         {
+            this.Law_DocProcedures = new HashSet<Law_DocProcedures>();
+            this.Law_DocSectors = new HashSet<Law_DocSectors>();
             this.Law_DocData_Linked = new HashSet<Law_DocData_Linked>();
             this.Law_DocData_Linked1 = new HashSet<Law_DocData_Linked>();
-            this.Law_DocProcedures = new HashSet<Law_DocProcedures>();
         }
     
         public int Code { get; set; }
@@ -55,12 +56,17 @@ namespace Infrastructure.DAL.Model
         public Nullable<bool> isPrivate { get; set; }
         public Nullable<System.DateTime> ExpireDate { get; set; }
         public Nullable<System.DateTime> effectiveDate { get; set; }
+        public Nullable<System.DateTime> LastAuditDate { get; set; }
+        public Nullable<int> LastAuditBy { get; set; }
+        public Nullable<bool> isAudited { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Law_DocProcedures> Law_DocProcedures { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Law_DocSectors> Law_DocSectors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Law_DocData_Linked> Law_DocData_Linked { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Law_DocData_Linked> Law_DocData_Linked1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Law_DocProcedures> Law_DocProcedures { get; set; }
     }
 }

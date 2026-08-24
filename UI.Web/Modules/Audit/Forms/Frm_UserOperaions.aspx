@@ -164,7 +164,7 @@
                 <div class="page-title2">
                     <h4>
                         <i class="icon-grid position-left"></i>
-                        نظام تتبع العمليات
+                        تقرير تتبع العمليات
                     </h4>
                 </div>
 

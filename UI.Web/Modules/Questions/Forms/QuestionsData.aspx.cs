@@ -819,6 +819,25 @@ public string fillDocTypefolder(string DocType)
             lnkSaveIncoming.Visible = userAccess.Edit ||  userAccess.Add;
             lnkSaveOut.Visible = userAccess.Edit ||  userAccess.Add;
 
+            if (Request.QueryString["editflag"] != null)
+            {
+                string editflag = Request.QueryString["editflag"].ToString();
+
+                btnSave.Visible = userAccess.Edit;
+                lnkSaveAnswer.Visible = userAccess.Edit;
+                lnkSaveIncoming.Visible = userAccess.Edit;
+                lnkSaveOut.Visible = userAccess.Edit;
+            }
+            else
+            {
+
+                btnSave.Visible = userAccess.Edit || userAccess.Add;
+                lnkSaveAnswer.Visible = userAccess.Edit || userAccess.Add;
+                lnkSaveIncoming.Visible = userAccess.Edit || userAccess.Add;
+                lnkSaveOut.Visible = userAccess.Edit || userAccess.Add;
+            }
+
+
 
             //btnDelete.Visible = userAccess.Delete;
             lnkDeleteAnswer.Visible = userAccess.Delete;

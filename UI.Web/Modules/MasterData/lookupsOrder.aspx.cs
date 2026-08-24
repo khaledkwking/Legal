@@ -13,6 +13,7 @@ using Infrastructure.DAL;
 
 using Microsoft.VisualBasic;
 using System.Resources;
+
 using Infrastructure;
 
 namespace UI.Web.Modules.MasterData
@@ -34,12 +35,12 @@ namespace UI.Web.Modules.MasterData
                 {
                     TargetTableName = Request.QueryString["tableName"].ToString();
 
-                    ResourceManager rm = new ResourceManager(typeof(Resources.lockups));
-                    string someString = 
-                    _PageTitle = (String)GetGlobalResourceObject(
-                     "lockups", TargetTableName); // Resources.Utilities.TargetTableName;
-
-                  //  _PageTitle = "البيانات الاساسيه";
+                    //ResourceManager rm = new ResourceManager(typeof(Resources.lockups));
+                    //string someString = 
+                    //_PageTitle = (String)GetGlobalResourceObject(
+                    // "lockups", TargetTableName); // Resources.Utilities.TargetTableName;
+                    _PageTitle = (string)GetGlobalResourceObject("lockups", TargetTableName);
+                    //  _PageTitle = "البيانات الاساسيه";
                 }
                 else
                 {

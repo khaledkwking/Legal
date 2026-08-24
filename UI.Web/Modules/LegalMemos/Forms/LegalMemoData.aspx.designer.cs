@@ -393,6 +393,33 @@ namespace UI.Web.Modules.LegalMemos.Forms
         protected global::System.Web.UI.WebControls.TextBox txtSubject;
 
         /// <summary>
+        /// DivAudit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAudit;
+
+        /// <summary>
+        /// Auidtlbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Auidtlbl;
+
+        /// <summary>
+        /// chkIsAudit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkIsAudit;
+
+        /// <summary>
         /// lstCategory control.
         /// </summary>
         /// <remarks>

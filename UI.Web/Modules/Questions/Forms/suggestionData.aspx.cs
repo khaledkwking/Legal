@@ -1378,9 +1378,25 @@ namespace UI.Web.Modules.Questions.Forms
             lnkAddNewOutGoing.Visible = userAccess.Add;
 
 
-            btnSave.Visible = userAccess.Edit ||  userAccess.Add;
-            lnkSaveIncoming.Visible = userAccess.Edit ||  userAccess.Add;
-            lnkSaveOut.Visible = userAccess.Edit ||  userAccess.Add;
+            
+
+
+            if (Request.QueryString["editflag"] != null)
+            {
+                string editflag = Request.QueryString["editflag"].ToString();
+
+                btnSave.Visible = userAccess.Edit;
+               
+                lnkSaveIncoming.Visible = userAccess.Edit;
+                lnkSaveOut.Visible = userAccess.Edit;
+            }
+            else
+            {
+
+                btnSave.Visible = userAccess.Edit || userAccess.Add;
+                lnkSaveIncoming.Visible = userAccess.Edit || userAccess.Add;
+                lnkSaveOut.Visible = userAccess.Edit || userAccess.Add;
+            }
 
             //btnDelete.Visible = userAccess.Delete;
             lnkDeleteIncoming.Visible = userAccess.Delete;

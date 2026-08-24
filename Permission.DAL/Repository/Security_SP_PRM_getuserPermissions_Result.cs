@@ -14,7 +14,7 @@ namespace Permission.DAL.Repository
     public partial class Security_SP_PRM_getuserPermissions_Result
     {
         public int SystemID { get; set; }
-        public Nullable<int> PageID { get; set; }
+        public int PageID { get; set; }
         public Nullable<int> PermissionID { get; set; }
         public string SystemTitle { get; set; }
         public string PageTitle { get; set; }
@@ -23,6 +23,7 @@ namespace Permission.DAL.Repository
         public Nullable<int> AddRecord { get; set; }
         public Nullable<int> DeleteRecord { get; set; }
         public Nullable<int> DateControl { get; set; }
+        public Nullable<int> AuditControl { get; set; }
         public string url { get; set; }
     }
 }

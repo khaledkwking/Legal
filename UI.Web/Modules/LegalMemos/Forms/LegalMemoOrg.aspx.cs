@@ -171,7 +171,7 @@ namespace UI.Web.LegalMemos.Forms
 
 
 
-                    obj.CatId = ZeroIntergerIFNull(lstChapter.SelectedValue);
+                    obj.catId  = ZeroIntergerIFNull(lstChapter.SelectedValue);
                     obj.NameAr = txtNameAr.Text;
                     obj.NameEn = txtNameEn.Text;
                      //obj.sessionOrder =ZeroIntergerIFNull( txtOrder.Text);
@@ -191,7 +191,7 @@ namespace UI.Web.LegalMemos.Forms
 
                     obj = objRepository.GetOrgDetails(ZeroIntergerIFNull(ViewState["itemID"].ToString()));
 
-                    obj.CatId = ZeroIntergerIFNull(lstChapter.SelectedValue);
+                    obj.catId = ZeroIntergerIFNull(lstChapter.SelectedValue);
                     obj.NameAr = txtNameAr.Text;
                     obj.NameEn = txtNameEn.Text;
                     //obj.sessionOrder = ZeroIntergerIFNull(txtOrder.Text);
@@ -294,7 +294,7 @@ namespace UI.Web.LegalMemos.Forms
                 txtNameEn.Text = gets(objList.NameEn);
                 try
                 {
-                    lstChapter.SelectedValue = gets(objList.CatId);
+                    lstChapter.SelectedValue = gets(objList.catId);
                 }
                 catch (Exception)
                 {

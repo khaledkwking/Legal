@@ -157,6 +157,12 @@ namespace UI.Web.Modules.Committees.Forms
                 //LinkButton lnk = ((LinkButton)(e.Item.Cells[0].Controls[0]));
                 //lnk.Attributes.Add("onclick", "return confirm(\'Are you sure you want to delete this Invoice?\');");
 
+                //LinkButton lnkDelete = ((LinkButton)(e.Item.FindControl("lnkDelete")));
+                //if (lnkDelete != null)
+                //{
+                //    string deleteMessage = GetGlobalResourceObject("Alerts", "DeleteAlert").ToString();
+                //    lnkDelete.Attributes.Add("onclick", "return confirm('" + deleteMessage + "');");
+                //}
 
 
 
@@ -484,13 +490,37 @@ namespace UI.Web.Modules.Committees.Forms
         }
         private void FillCommittees()
         {
+            int typeId = int.Parse(RadioButtonTypesList.SelectedValue.ToString());
+            int FinishedId = int.Parse(RadioButtonFinishedList.SelectedValue.ToString());
+            List<viewCommitteeData> objList;
+            string CurDate = "";
+            if (FinishedId == 2)
+            {
+                CurDate = DateTime.Today.AddDays(-1).ToShortDateString();
+            }
 
-            var objList = objRepository.GetList(ZeroIntergerIFNull(txtFilterSerialNum.Text), 0,
+            if (FinishedId == 0 || FinishedId == 2)
+            {
+                objList = objRepository.GetList(ZeroIntergerIFNull(txtFilterSerialNum.Text), 0,
                  NullDateifEmpty(txtFilterDatefrom.Text), NullDateifEmpty(txtFilterDateTo.Text), txtFilterSubject.Text, txtFilterDetails.Text, "",
-                NullDateifEmpty(txtFilterExpireFrom.Text), NullDateifEmpty(txtFilterExpireTo.Text),ZeroIntergerIFNull(lstfilterminister.SelectedValue),
-                ZeroIntergerIFNull(lstfilterProcedureType.SelectedValue), ZeroIntergerIFNull(lstFilterCommittee.SelectedValue), MapSearchKeys());
+                NullDateifEmpty(""), NullDateifEmpty(CurDate), ZeroIntergerIFNull(lstfilterminister.SelectedValue),
+                ZeroIntergerIFNull(lstfilterProcedureType.SelectedValue), ZeroIntergerIFNull(lstFilterCommittee.SelectedValue), typeId, MapSearchKeys()).ToList();
+                //objList = objRepository.GetList(0, 0, NullDateifEmpty(""), NullDateifEmpty(""), "", "", "", NullDateifEmpty(""), NullDateifEmpty(CurDate), 0, 0, 0, typeId, MapSearchKeys()).ToList();
+            }
+            else
+            {
+                //objList = objRepository.GetList(0, 0, NullDateifEmpty(""), NullDateifEmpty(""), "", "", "", NullDateifEmpty(""), NullDateifEmpty(CurDate), 0, 0, 0, typeId, MapSearchKeys()).Where(obj =>
+                //obj.JoinExpireDate >= DateTime.Today).ToList();
+                objList = objRepository.GetList(ZeroIntergerIFNull(txtFilterSerialNum.Text), 0,
+                     NullDateifEmpty(txtFilterDatefrom.Text), NullDateifEmpty(txtFilterDateTo.Text), txtFilterSubject.Text, txtFilterDetails.Text, "",
+                   NullDateifEmpty(""), NullDateifEmpty(CurDate), ZeroIntergerIFNull(lstfilterminister.SelectedValue),
+                    ZeroIntergerIFNull(lstfilterProcedureType.SelectedValue), ZeroIntergerIFNull(lstFilterCommittee.SelectedValue), typeId, MapSearchKeys()).ToList();
 
+                objList= objList.Where(obj =>obj.JoinExpireDate >= DateTime.Today).ToList();
 
+            }
+
+            
             lblcount.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
             lblSearchResultCount.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
 
@@ -637,9 +667,23 @@ namespace UI.Web.Modules.Committees.Forms
           
             btnSave.Visible = userAccess.Edit || userAccess.Add;
 
+            if (Request.QueryString["editflag"] != null)
+            {
+                string editflag = Request.QueryString["editflag"].ToString();
+
+                btnSave.Visible = userAccess.Edit;
+               
+            }
+            else
+            {
+
+                btnSave.Visible = userAccess.Edit || userAccess.Add;
+               
+            }
 
 
-            grdCommitteesList.Columns[10].Visible = userAccess.Delete;
+
+            grdCommitteesList.Columns[12].Visible = userAccess.Delete;
             lnkDeleteProcedure.Visible = userAccess.Delete;
 
         }
@@ -775,6 +819,12 @@ namespace UI.Web.Modules.Committees.Forms
                     objCommittee.committeeRefCode = ZeroIntergerIFNull( lstCommittee.SelectedValue);
                     objCommittee.committeeTitle = lstCommittee.SelectedItem.Text;
 
+                    Committees_RefList objCommittees_RefList = new Committees_RefList(); // الجهات
+                    if (objCommittee.committeeRefCode !=null)
+                    {
+                        objCommittees_RefList= objLookup.FillCommitteeList().Where(c => c.Code == objCommittee.committeeRefCode).FirstOrDefault();
+                        objCommittee.committeeTypeID = objCommittees_RefList.TypeID;
+                    }
                     
 
                     objCommittee.LegalDocsDesc = txtSubject.Text;
@@ -826,7 +876,12 @@ namespace UI.Web.Modules.Committees.Forms
                     objCommittee.JoinExpireDate = NullDateifEmpty(txtExpireDate.Text);
                     objCommittee.MinisterRefId = ZeroIntergerIFNull(lstMinister.SelectedValue);
 
-
+                    Committees_RefList objCommittees_RefList = new Committees_RefList(); // الجهات
+                    if (objCommittee.committeeRefCode != null)
+                    {
+                        objCommittees_RefList = objLookup.FillCommitteeList().Where(c => c.Code == objCommittee.committeeRefCode).FirstOrDefault();
+                        objCommittee.committeeTypeID = objCommittees_RefList.TypeID;
+                    }
 
                     objCommittee.Notes = gets(txtNotes.Text);
 
@@ -1646,6 +1701,16 @@ namespace UI.Web.Modules.Committees.Forms
 
             return _out;
 
+        }
+
+        protected void RadioButtonTypesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillCommittees();
+        }
+
+        protected void RadioButtonFinishedList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillCommittees();
         }
     }
 }

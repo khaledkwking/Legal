@@ -538,9 +538,25 @@ namespace UI.Web.Modules.Laws.Forms
             lnkAddProcedure.Visible = userAccess.Add;
            
 
-            btnSave.Visible = userAccess.Edit ||  userAccess.Add;
-            lnkSaveProcedure.Visible = userAccess.Edit ||  userAccess.Add;
-            divlinklaws.Visible = userAccess.Edit ||  userAccess.Add;
+            
+
+            if (Request.QueryString["editflag"] != null)
+            {
+                string editflag = Request.QueryString["editflag"].ToString();
+
+                btnSave.Visible = userAccess.Edit;
+                lnkSaveProcedure.Visible = userAccess.Edit;
+                divlinklaws.Visible = userAccess.Edit;
+            }
+            else
+            {
+
+                btnSave.Visible = userAccess.Edit || userAccess.Add;
+               
+                lnkSaveProcedure.Visible = userAccess.Edit || userAccess.Add;
+                divlinklaws.Visible = userAccess.Edit || userAccess.Add;
+            }
+
 
             grdLawDocsList.Columns[12].Visible = userAccess.Delete;
             lnkDeleteProcedure.Visible = userAccess.Delete;

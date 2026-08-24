@@ -23,8 +23,10 @@ namespace Infrastructure.DAL.Model
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public Nullable<int> LastModifiedBy { get; set; }
         public Nullable<System.DateTime> LastModifiedAt { get; set; }
+        public Nullable<int> LinkedStatusID { get; set; }
     
         public virtual Law_DocData Law_DocData { get; set; }
         public virtual Law_DocData Law_DocData1 { get; set; }
+        public virtual Law_DocData_Linked_Status Law_DocData_Linked_Status { get; set; }
     }
 }

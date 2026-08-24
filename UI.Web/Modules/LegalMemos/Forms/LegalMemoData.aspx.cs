@@ -22,7 +22,7 @@ namespace UI.Web.Modules.LegalMemos.Forms
         #region "Page Members"
         public LooksUpsRepository objLookup = IoC.Resolve<LooksUpsRepository>();
         public LegalMemoRepository objRepository = IoC.Resolve<LegalMemoRepository>();
-        public string _PageTitle = "  مذكرات الرأي القانوني  ";
+        public string _PageTitle = "  كتب ومذكرات الرأي القانوني  ";
 
         public string _TargetUrl = System.Configuration.ConfigurationManager.AppSettings["ScanningModuleURL"].ToString();
         public string _TargetUploadPath = System.Configuration.ConfigurationManager.AppSettings["legalRepository"].ToString() + "LegalMemos/";
@@ -222,7 +222,10 @@ namespace UI.Web.Modules.LegalMemos.Forms
             ViewState["LawDocitemID"] = "0";
             ViewState["ProceduresitemID"] = "0";
 
-
+            chkIsAudit.Checked = false;
+            chkIsAudit.Visible = false;
+            DivAudit.Visible = false;
+            Auidtlbl.Visible = false;
             // txtautoNum.Text = GenerateAutoSerial();
         }
 
@@ -283,8 +286,25 @@ namespace UI.Web.Modules.LegalMemos.Forms
             ClearCaseForm();
         }
         protected void lstOrgCategory_SelectedIndexChanged(object sender, EventArgs e)
+
         {
-            FillDllwithoptional_ALL(objLookup.fill_LegalMemo_OrgByCat(ZeroIntergerIFNull(lstOrgCategory.SelectedValue)), ref lstOrg, "NameAr", "Code", "اختر");
+
+            if (Request.QueryString["editflag"] != null) // edit mode
+            {
+                FillDllwithoptional_ALL(objLookup.fill_LegalMemo_OrgByCat(ZeroIntergerIFNull(lstOrgCategory.SelectedValue)), ref lstOrg, "NameAr", "Code", "اختر");
+
+
+            }
+            else // add mode
+            {
+                List<LegalMemo_Org> list = objLookup.fill_LegalMemo_OrgByCat(ZeroIntergerIFNull(lstOrgCategory.SelectedValue)).Where(c => !c.isDeleted.HasValue || c.isDeleted.Value == false).ToList();
+
+                FillDllwithoptional_ALL(list, ref lstOrg, "NameAr", "Code", "اختر");
+
+            }
+
+            
+
         }
 
         #endregion
@@ -564,11 +584,24 @@ namespace UI.Web.Modules.LegalMemos.Forms
             btnNew.Visible = userAccess.Add;
             lnkAddNewOutGoing.Visible = userAccess.Add;
             Lnkincoming.Visible = userAccess.Add;
+            DivAudit.Visible = userAccess.AuditControl;
 
+            if (Request.QueryString["editflag"] != null)
+            {
+                string editflag = Request.QueryString["editflag"].ToString();
 
-            btnSave.Visible = userAccess.Edit || userAccess.Add;
+                btnSave.Visible = userAccess.Edit;
+            }
+            else
+            {
 
-            grdLawDocsList.Columns[12].Visible = userAccess.Delete;
+                btnSave.Visible = userAccess.Edit || userAccess.Add;
+                //chkIsAudit.Checked = false;
+                //chkIsAudit.Visible = false;
+
+            }
+
+            grdLawDocsList.Columns[16].Visible = userAccess.Delete;
             lnkDeleteIncoming.Visible = userAccess.Delete;
             lnkDeleteOutgoing.Visible = userAccess.Delete;
 
@@ -617,7 +650,17 @@ namespace UI.Web.Modules.LegalMemos.Forms
 
                 txtDocDate.Text = NullDateifEmptyToText(objList.DocDate).ToString();
 
+                //chkIsAudit.Checked = getBool(objList.isAudited);
 
+                //if (Request.QueryString["editflag"] != null)
+                //{
+                    chkIsAudit.Checked = getBool(objList.isAudited);
+                //}
+                //else
+                //{
+                //    chkIsAudit.Checked = false;
+                //    chkIsAudit.Visible = false;
+                //}
 
 
                 try
@@ -625,7 +668,7 @@ namespace UI.Web.Modules.LegalMemos.Forms
                     lstCategory.SelectedValue = gets(objList.DocCategoryId);
                     lstAssignedEmployee.SelectedValue = gets(objList.assignedEmp);
                     lstProcedure.SelectedValue = gets(objList.ProcedureId);
-                    lstOrgCategory.SelectedValue = gets(objList.LegalMemo_Org.CatId);
+                    lstOrgCategory.SelectedValue = gets(objList.LegalMemo_Org.catId);
 
                     FillDllwithoptional_ALL(objLookup.fill_LegalMemo_OrgByCat(ZeroIntergerIFNull(lstOrgCategory.SelectedValue)), ref lstOrg, "NameAr", "Code", "اختر");
 
@@ -720,6 +763,12 @@ namespace UI.Web.Modules.LegalMemos.Forms
                     //objLawDoc.UnderStudy = getBool(chkIsUnderStudy.Checked);
 
                     objLawDoc.DocNotes = gets(txtNotes.Text);
+                    objLawDoc.isAudited = getBool(chkIsAudit.Checked);
+                    if (getBool(chkIsAudit.Checked) && chkIsAudit.Visible == true)
+                    {
+                        objLawDoc.LastAuditDate = DateTime.Now;
+                        objLawDoc.LastAuditBy = Convert.ToInt32(HttpContext.Current.Session["userid"].ToString());
+                    }
 
                     objLawDoc.ConsultantId = ZeroIntergerIFNull(lstConsultant.SelectedValue);
                     objLawDoc.aUser = ZeroIntergerIFNull(ReadSession("userid").ToString());
@@ -769,6 +818,13 @@ namespace UI.Web.Modules.LegalMemos.Forms
                     objLawDoc.DocStatusId = ZeroIntergerIFNull(lstStatus.SelectedValue);
 
                     objLawDoc.DocNotes = gets(txtNotes.Text);
+                    objLawDoc.isAudited = getBool(chkIsAudit.Checked);
+                    if (getBool(chkIsAudit.Checked) && chkIsAudit.Visible == true)
+                    {
+                        objLawDoc.LastAuditDate = DateTime.Now;
+                        objLawDoc.LastAuditBy = Convert.ToInt32(HttpContext.Current.Session["userid"].ToString());
+                    }
+
                     objLawDoc.ConsultantId = ZeroIntergerIFNull(lstConsultant.SelectedValue);
                     objLawDoc.aUser = ZeroIntergerIFNull(ReadSession("userid").ToString());
                     objRepository.UpdateLegalMemo(objLawDoc);
@@ -841,7 +897,12 @@ namespace UI.Web.Modules.LegalMemos.Forms
             FillDllwithoptional_ALL(objLookup.fill_LegalMemo_OrgCat(), ref lstOrgCategory, "NameAr", "Code", "اختر");
 
 
+       
             FillDllwithoptional_ALL(objLookup.fill_LegalMemo_OrgByCat(ZeroIntergerIFNull(lstOrgCategory.SelectedValue)), ref lstOrg, "NameAr", "Code", "اختر");
+               
+
+       
+
             FillDllwithoptional_ALL(objLookup.fill_LegalMemo_Org(), ref lstfilterOrg, "NameAr", "Code", "الكل");
 
             FillDllwithoptional_ALL(objLookup.fill_LegalMemo_AssignedPersons(), ref lstAssignedEmployee, "NameAr", "Code", "اختر");

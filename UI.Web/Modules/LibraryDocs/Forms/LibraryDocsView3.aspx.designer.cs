@@ -7,20 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UI.Web.LibraryDocs.Forms {
-    
-    
-    public partial class LibraryDocsView3 {
-        
-        /// <summary>
-        /// Updatepanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel Updatepanel1;
-        
+namespace UI.Web.LibraryDocs.Forms
+{
+
+
+    public partial class LibraryDocsView3
+    {
+
         /// <summary>
         /// tblSearch control.
         /// </summary>
@@ -29,7 +22,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblSearch;
-        
+
         /// <summary>
         /// divback control.
         /// </summary>
@@ -38,7 +31,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divback;
-        
+
         /// <summary>
         /// libback control.
         /// </summary>
@@ -47,7 +40,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor libback;
-        
+
         /// <summary>
         /// divtxtSearch control.
         /// </summary>
@@ -56,7 +49,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divtxtSearch;
-        
+
         /// <summary>
         /// txtpartName control.
         /// </summary>
@@ -65,7 +58,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtpartName;
-        
+
         /// <summary>
         /// lnkSearch control.
         /// </summary>
@@ -74,7 +67,43 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkSearch;
-        
+
+        /// <summary>
+        /// SearchDocBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton SearchDocBtn;
+
+        /// <summary>
+        /// litDostorText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField litDostorText;
+
+        /// <summary>
+        /// hdnHighlightedText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnHighlightedText;
+
+        /// <summary>
+        /// txtDocDastor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal txtDocDastor;
+
         /// <summary>
         /// lblerror control.
         /// </summary>
@@ -83,7 +112,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblerror;
-        
+
         /// <summary>
         /// txtFilterSerial control.
         /// </summary>
@@ -92,7 +121,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFilterSerial;
-        
+
         /// <summary>
         /// lstfilterDocCategory control.
         /// </summary>
@@ -101,7 +130,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lstfilterDocCategory;
-        
+
         /// <summary>
         /// lstfilterDocType control.
         /// </summary>
@@ -110,7 +139,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lstfilterDocType;
-        
+
         /// <summary>
         /// txtFilterDatefrom control.
         /// </summary>
@@ -119,7 +148,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFilterDatefrom;
-        
+
         /// <summary>
         /// txtFilterDateTo control.
         /// </summary>
@@ -128,7 +157,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFilterDateTo;
-        
+
         /// <summary>
         /// txtPartofName control.
         /// </summary>
@@ -137,7 +166,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPartofName;
-        
+
         /// <summary>
         /// divFilterSession control.
         /// </summary>
@@ -146,7 +175,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFilterSession;
-        
+
         /// <summary>
         /// lstFilterChapter control.
         /// </summary>
@@ -155,7 +184,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lstFilterChapter;
-        
+
         /// <summary>
         /// lstFilterSession control.
         /// </summary>
@@ -164,7 +193,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lstFilterSession;
-        
+
         /// <summary>
         /// rptCategory control.
         /// </summary>
@@ -173,7 +202,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptCategory;
-        
+
         /// <summary>
         /// rptTypes control.
         /// </summary>
@@ -182,7 +211,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptTypes;
-        
+
         /// <summary>
         /// rptDocs control.
         /// </summary>
@@ -191,7 +220,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptDocs;
-        
+
         /// <summary>
         /// tblshow control.
         /// </summary>
@@ -200,7 +229,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblshow;
-        
+
         /// <summary>
         /// lblSearchResultCount control.
         /// </summary>
@@ -209,7 +238,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSearchResultCount;
-        
+
         /// <summary>
         /// lnkSearchback control.
         /// </summary>
@@ -218,7 +247,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkSearchback;
-        
+
         /// <summary>
         /// grdInboundItems control.
         /// </summary>
@@ -227,7 +256,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataGrid grdInboundItems;
-        
+
         /// <summary>
         /// lblcount control.
         /// </summary>
@@ -236,7 +265,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblcount;
-        
+
         /// <summary>
         /// pager1 control.
         /// </summary>
@@ -245,7 +274,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CutePager.Pager pager1;
-        
+
         /// <summary>
         /// tblAdd control.
         /// </summary>
@@ -254,7 +283,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblAdd;
-        
+
         /// <summary>
         /// lblAdderror control.
         /// </summary>
@@ -263,7 +292,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAdderror;
-        
+
         /// <summary>
         /// lblSubTitle control.
         /// </summary>
@@ -272,7 +301,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSubTitle;
-        
+
         /// <summary>
         /// hdnMasterID control.
         /// </summary>
@@ -281,7 +310,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnMasterID;
-        
+
         /// <summary>
         /// txtSubject control.
         /// </summary>
@@ -290,7 +319,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSubject;
-        
+
         /// <summary>
         /// txtSerial control.
         /// </summary>
@@ -299,7 +328,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSerial;
-        
+
         /// <summary>
         /// lstDocCategory control.
         /// </summary>
@@ -308,7 +337,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lstDocCategory;
-        
+
         /// <summary>
         /// lstTypeCode control.
         /// </summary>
@@ -317,7 +346,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lstTypeCode;
-        
+
         /// <summary>
         /// Label3 control.
         /// </summary>
@@ -326,7 +355,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-        
+
         /// <summary>
         /// txtImage control.
         /// </summary>
@@ -335,7 +364,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload txtImage;
-        
+
         /// <summary>
         /// btnScan control.
         /// </summary>
@@ -344,7 +373,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnScan;
-        
+
         /// <summary>
         /// chkIsPrivate control.
         /// </summary>
@@ -353,7 +382,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkIsPrivate;
-        
+
         /// <summary>
         /// divChapterSessions control.
         /// </summary>
@@ -362,7 +391,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divChapterSessions;
-        
+
         /// <summary>
         /// lstChapter control.
         /// </summary>
@@ -371,7 +400,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lstChapter;
-        
+
         /// <summary>
         /// lstSession control.
         /// </summary>
@@ -380,7 +409,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lstSession;
-        
+
         /// <summary>
         /// btnSave control.
         /// </summary>
@@ -389,7 +418,7 @@ namespace UI.Web.LibraryDocs.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnSave;
-        
+
         /// <summary>
         /// btnCancel control.
         /// </summary>

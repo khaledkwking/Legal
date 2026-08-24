@@ -104,11 +104,32 @@ namespace UI.Web.Modules.Audit.Forms
         #region "Fill Information"
         private void FillAudit()
         {
+            //string ToDate = txtFilterDateTo.Text;
+            //if (!string.IsNullOrEmpty(ToDate))
+            //{
+            //    ToDate = ToDate + " 11:59 PM";
+            //}
+            //var objList = objRepository.GetUserTransactionAuditList(ZeroIntergerIFNull(lstFilerUser.SelectedValue),
+            //    (lstFilerTable.SelectedValue), (lstOperationType.SelectedValue),
+            //    (txtFilterDatefrom.Text),
+            //    NullDateifEmpty(ToDate));
 
-            var objList = objRepository.GetUserAuditList(ZeroIntergerIFNull(lstFilerUser.SelectedValue),
-                (lstFilerTable.SelectedValue), (lstOperationType.SelectedValue),
-                NullDateifEmpty(txtFilterDatefrom.Text),
-                NullDateifEmpty(txtFilterDateTo.Text));
+             DateTime? fromDate = NullDateifEmpty(txtFilterDatefrom.Text);
+            DateTime? toDate = NullDateifEmpty(txtFilterDateTo.Text);
+
+            if (toDate.HasValue)
+            {
+                toDate = toDate.Value.Date.AddDays(1).AddTicks(-1);
+            }
+
+            var objList = objRepository.GetUserTransactionAuditList(
+                ZeroIntergerIFNullNew(lstFilerUser.SelectedValue),
+                lstFilerTable.SelectedValue,
+                lstOperationType.SelectedValue,
+                fromDate.Value,
+                toDate.Value // use < toDate in SQL
+            );
+
 
             lblcount.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
             lblSearchResultCount.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
@@ -150,9 +171,9 @@ namespace UI.Web.Modules.Audit.Forms
 
             DataTable TempDT = ConvertHelper.ToDataTable(objList);
             //Bind Report And SubReport
-
+      
             TempDT.TableName = "ds_AuditLog";
-            ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/modules/Audit/RDLC/rpt_AuditLogFunctions.rdlc");
+            ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/modules/Audit/RDLC/rpt_AuditLogUserFunctions.rdlc");
             ReportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("report_title", "تقرير تتبع بعمليات المستخدم بالنظام "));
 
             ReportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("reportSubTitle", "  عن الفترة من   " + txtFilterDatefrom.Text + "  الي " + txtFilterDateTo.Text + " "));

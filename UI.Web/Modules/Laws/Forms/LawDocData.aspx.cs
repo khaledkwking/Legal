@@ -1,25 +1,54 @@
-﻿using System;
+﻿using Infrastructure;
+using Infrastructure.DAL;
+using Infrastructure.DAL.Enum;
+using Infrastructure.DAL.Model;
+using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using Infrastructure;
-using Infrastructure.DAL;
-using Infrastructure.DAL.Model;
-using Infrastructure.DAL.Enum;
 using UI.Web.Admin.Controller;
-using Newtonsoft.Json;
+using UI.Web.Helper;
+using static iTextSharp.text.pdf.AcroFields;
 
 namespace UI.Web.Modules.Laws.Forms
 {
     public partial class LawDocData : BaseFormAdmin
     {
+        private class LinkedStatusLookup
+        {
+            public int Code { get; set; }
+            public string NameAr { get; set; }
+        }
+        private class Sectors
+        {
+            public int Code { get; set; }
+            public string NameAr { get; set; }
+            public string NameEn { get; set; }
+        }
+        private class Law_DocSectors
+        {
+            public int Code { get; set; }
+            public int SectorId { get; set; }
+            public int Law_DocId { get; set; }
+        }
+        private class LinkedStatusValue
+        {
+            public int? LinkedStatusID { get; set; }
+        }
+
         #region "Page Members"
+
         public LooksUpsRepository objLookup = IoC.Resolve<LooksUpsRepository>();
         public LawsRepository objRepository = IoC.Resolve<LawsRepository>();
         public AgreementsRepository agreemtnyRepository = IoC.Resolve<AgreementsRepository>();
@@ -81,7 +110,7 @@ namespace UI.Web.Modules.Laws.Forms
                     txtFilterExpireFrom.Text = DateTime.Now.ToString("dd/MM/yyyy");
                     txtFilterExpireTo.Text = DateTime.Now.AddMonths(6).ToString("dd/MM/yyyy");
                     FillLawDocs();
-                
+
                 }
                 if (Request.QueryString["projectId"] != null)
                 {
@@ -173,8 +202,6 @@ namespace UI.Web.Modules.Laws.Forms
                     ViewState["itemID"] = Request.QueryString["LawDocID"].ToString();
                     FillLawDocMasterInformation();
 
-                  
-                    
 
 
 
@@ -330,7 +357,6 @@ namespace UI.Web.Modules.Laws.Forms
                 else { e.Item.Attributes.Add("onmouseout", "this.style.backgroundColor=\'#FFFFFF\';"); }
 
 
-
             }
         }
 
@@ -369,6 +395,11 @@ namespace UI.Web.Modules.Laws.Forms
             tblSearch.Visible = false;
             ViewState["LawDocitemID"] = "0";
             ViewState["ProceduresitemID"] = "0";
+
+            chkIsAudit.Checked = false;
+            chkIsAudit.Visible = false;
+            DivAudit.Visible = false;
+            Auidtlbl.Visible = false;
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -406,26 +437,32 @@ namespace UI.Web.Modules.Laws.Forms
 
         protected void btnCancel_Click(object sender, System.EventArgs e)
         {
-            ClearForm();
+            if (Request.QueryString["DocRelated"] != null)
+            {
+                Response.Redirect("/ar-KW/Modules/laws/Forms/Lawstree.aspx");
+            }
+            else
+            {
+                ClearForm();
 
-            tblSearch.Visible = true;
-            tblAdd.Visible = false;
+                tblSearch.Visible = true;
+                tblAdd.Visible = false;
 
-            ViewState["SpEdit"] = "0";
-            ViewState["NewDesc"] = "";
-            ViewState["NewBar"] = "";
-            ViewState["NewIsbn"] = "";
-            ViewState["SPITEM"] = "";
-            ViewState["NewPrice"] = "0";
-            Session["ItemList"] = null;
-            ViewState["itemID"] = "0";
-            ViewState["itemID"] = "0";
-            ViewState["LawDocitemID"] = "0";
-            ViewState["ProceduresitemID"] = "0";
-            Session["PersonsList"] = null;
-            // Response.Redirect("/Modules/laws/Forms/LawDocData.aspx");
-            FillLawDocs();
-
+                ViewState["SpEdit"] = "0";
+                ViewState["NewDesc"] = "";
+                ViewState["NewBar"] = "";
+                ViewState["NewIsbn"] = "";
+                ViewState["SPITEM"] = "";
+                ViewState["NewPrice"] = "0";
+                Session["ItemList"] = null;
+                ViewState["itemID"] = "0";
+                ViewState["itemID"] = "0";
+                ViewState["LawDocitemID"] = "0";
+                ViewState["ProceduresitemID"] = "0";
+                Session["PersonsList"] = null;
+                Response.Redirect("/Modules/laws/Forms/LawDocData.aspx");
+                //FillLawDocs();
+            }
         }
 
         protected void btnFilter_Click(object sender, EventArgs e)
@@ -564,6 +601,7 @@ namespace UI.Web.Modules.Laws.Forms
                 _keyList.Add(" قيد الدراسة    ", lstFilterIsUnderStudy.SelectedItem.Text);
                 _keyList.Add(lblFilterCatTitle.Text, lstFilterCategory.SelectedItem.Text);
                 _keyList.Add("  جزء من الموضوع ", txtFilterSubject.Text);
+                _keyList.Add("  جزء من الملاحظات ", txtFilterNotes.Text);
                 _keyList.Add("نشر بالجريدة الرسمية", lstFilterPublish.Text);
 
                 _keyList.Add(" تاريخ  انتهاء الوثيقة من ", txtFilterExpireFrom.Text);
@@ -587,9 +625,14 @@ namespace UI.Web.Modules.Laws.Forms
             var objList = objRepository.GetList(ZeroIntergerIFNull(txtFilterSerialNum.Text), ZeroIntergerIFNull(txtFilterSerialYear.Text),
                  NullDateifEmpty(txtFilterDatefrom.Text),
                 NullDateifEmpty(txtFilterDateTo.Text), ZeroIntergerIFNull(lstFilterType.SelectedValue), ZeroIntergerIFNull(lstFilterCategory.SelectedValue),
-               ZeroIntergerIFNull(lstFilterIsUnderStudy.SelectedValue), txtFilterSubject.Text, txtFilterDetails.Text,
+               ZeroIntergerIFNull(lstFilterIsUnderStudy.SelectedValue), txtFilterSubject.Text, "", txtFilterDetails.Text,
                ZeroIntergerIFNull(lstFilterPublish.SelectedValue), ZeroIntergerIFNull(lstfilterProceduretype.SelectedValue), NullDateifEmpty(txtFilterExpireFrom.Text), NullDateifEmpty(txtFilterExpireTo.Text), MapSearchKeys());
 
+            if (!string.IsNullOrEmpty(txtFilterNotes.Text))
+            {
+                string NotesSearch = txtFilterNotes.Text;
+                objList = objList.Where(o => string.IsNullOrEmpty(NotesSearch) || (o.DocNotes != null && o.DocNotes.Contains(NotesSearch))).ToList();
+            }
 
             lblcount.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
             lblSearchResultCount.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
@@ -619,7 +662,7 @@ namespace UI.Web.Modules.Laws.Forms
 
             }
 
-          
+
 
             var duplicatedList = objList.SelectMany(t =>
            Enumerable.Repeat(t, 2)).ToList();
@@ -638,13 +681,29 @@ namespace UI.Web.Modules.Laws.Forms
             else if (lstFilterType.SelectedValue == "3")// مرسوم
             {
                 grdLawDocsList.Columns[13].Visible = true;
-                grdLawDocsList.Columns[16].Visible = true;
+                grdLawDocsList.Columns[16].Visible = false;
                 grdLawDocsList.Columns[15].Visible = false;
+                grdLawDocsList.Columns[17].Visible = false;
+
             }
-            else {
+            else
+            {
                 grdLawDocsList.Columns[13].Visible = true;
                 grdLawDocsList.Columns[16].Visible = false;
                 grdLawDocsList.Columns[15].Visible = true;
+            }
+            if (lstFilterType.SelectedValue == "3" && lstFilterCategory.SelectedValue == "134")// مرسوم
+            {
+                grdLawDocsList.Columns[17].Visible = true;
+
+            }
+            if (lstFilterType.SelectedValue == "4")// قانون - أمر اميري
+            {
+                grdLawDocsList.Columns[14].Visible = false;
+            }
+            else
+            {
+                grdLawDocsList.Columns[14].Visible = true;
             }
             grdLawDocsList.DataBind();
         }
@@ -660,6 +719,7 @@ namespace UI.Web.Modules.Laws.Forms
             txtVersionNum.Text = "";
             lstDocType.SelectedValue = "0";
             lstCategory.SelectedValue = "0";
+            lstSectors.ClearSelection();
 
             txtDocDate.Text = "";
             txtEffectiveDate.Text = "";
@@ -746,7 +806,7 @@ namespace UI.Web.Modules.Laws.Forms
             //ViewState["itemID"] = "0";
             //txtfilnum.Text = "";
             // txtMedalNotes.Text = "";
-            //txtMedalDate.Text = "";
+            //txtMedalDate.Text =";
 
 
             //BlblSubTitle.Text = this.GetTitle(true);
@@ -760,11 +820,29 @@ namespace UI.Web.Modules.Laws.Forms
             lnkAgreementLink.Visible = userAccess.Add;
 
 
-            btnSave.Visible = userAccess.Edit || userAccess.Add;
+            DivAudit.Visible = userAccess.AuditControl;
+
+            if (Request.QueryString["editflag"] != null)
+            {
+                string editflag = Request.QueryString["editflag"].ToString();
+
+
+                btnSave.Visible = userAccess.Edit;
+            }
+            else
+            {
+
+                btnSave.Visible = userAccess.Edit || userAccess.Add;
+                //chkIsAudit.Checked = false;
+                //chkIsAudit.Visible = false;
+            }
+
+
             lnkCancelLawDoc.Visible = userAccess.Edit || userAccess.Add;
 
 
-            grdLawDocsList.Columns[18].Visible = userAccess.Delete;
+            grdLawDocsList.Columns[19].Visible = userAccess.Delete;
+
             lnkDeleteProcedure.Visible = userAccess.Delete;
 
         }
@@ -838,15 +916,21 @@ namespace UI.Web.Modules.Laws.Forms
                 if (gets(objList.DocTypeID) == "3")//مرسوم
                 {
                     lblcattitle.Text = "تصنيف المرسوم <span class='text-danger'>*</span>:";
+
                     FillDllwithoptional_ALL(objLookup.FillLaw_DocCategory(ZeroIntergerIFNull(lstDocType.SelectedValue)), ref lstCategory, "NameAr", "Code", "إختر");
                 }
                 else
                 {
                     lblcattitle.Text = "التصنيف <span class='text-danger'>*</span>:";
+
                     FillDllwithoptional_ALL(objLookup.FillLaw_DocZeroCategory(), ref lstCategory, "NameAr", "Code", "إختر");
                 }
 
                 lstCategory.SelectedValue = gets(objList.DocCategoryID);
+
+
+
+
                 try
                 {
                     lstkngDession.SelectedValue = gets(objList.kng_Dession);
@@ -863,6 +947,13 @@ namespace UI.Web.Modules.Laws.Forms
                 chkIspublished.Checked = getBool(objList.isPublished);
                 chkIsUnderStudy.Checked = getBool(objList.UnderStudy);
 
+                chkIsAudit.Checked = getBool(objList.isAudited);
+                //}
+                //else
+                //{
+                //    //chkIsAudit.Checked = false;
+                //    //chkIsAudit.Visible = false;
+                //}    
                 txtVersionNum.Text = gets(objList.PublishVersion);
                 if (!gets(objList.DocFilepath).Equals(""))
                 {
@@ -934,6 +1025,13 @@ namespace UI.Web.Modules.Laws.Forms
 
 
 
+                var selectedSectors = objRepository.DC.Database.SqlQuery<Law_DocSectors>(
+               "SELECT SectorId FROM Law_DocSectors WHERE Law_DocId = @LawDocId",
+               new SqlParameter("@LawDocId", objList.Code)).ToList();
+                foreach (ListItem item in lstSectors.Items)
+                {
+                    item.Selected = selectedSectors.Any(s => s.SectorId == Convert.ToInt32(item.Value));
+                }
 
             }
             else
@@ -988,6 +1086,14 @@ namespace UI.Web.Modules.Laws.Forms
                     objLawDoc.PublishDate = NullDateifEmpty(txtPublishDate.Text);
                     objLawDoc.PublishVersion = txtVersionNum.Text;
 
+
+                    objLawDoc.isAudited = getBool(chkIsAudit.Checked);
+                    if (getBool(chkIsAudit.Checked) && chkIsAudit.Visible == true)
+                    {
+                        objLawDoc.LastAuditDate = DateTime.Now;
+                        objLawDoc.LastAuditBy = Convert.ToInt32(HttpContext.Current.Session["userid"].ToString());
+                    }
+
                     objLawDoc.DocNotes = gets(txtNotes.Text);
 
                     objLawDoc.DocDetails = gets(txtDetails.Text);
@@ -997,6 +1103,17 @@ namespace UI.Web.Modules.Laws.Forms
                     objRepository.AddLaw(objLawDoc);
                     hdnMasterID.Value = gets(objLawDoc.Code);
                     ViewState["itemID"] = gets(objLawDoc.Code);
+
+                    foreach (ListItem item in lstSectors.Items)
+                    {
+                        if (item.Selected)
+                        {
+                            objRepository.DC.Database.ExecuteSqlCommand(
+                                "INSERT INTO Law_DocSectors (SectorId, Law_DocId) VALUES (@SectorId, @LawDocId)",
+                                new SqlParameter("@SectorId", item.Value),
+                                new SqlParameter("@LawDocId", objLawDoc.Code));
+                        }
+                    }
 
                     // Add Linked Project
                     if (Request.QueryString["projectId"] != null)
@@ -1107,15 +1224,35 @@ namespace UI.Web.Modules.Laws.Forms
                     objLawDoc.DocDetails = gets(txtDetails.Text);
 
                     objLawDoc.kng_Dession = gets(lstkngDession.Text);
+                    objLawDoc.isAudited = getBool(chkIsAudit.Checked);
 
+                    if (getBool(chkIsAudit.Checked) && chkIsAudit.Visible == true)
+                    {
+                        objLawDoc.LastAuditDate = DateTime.Now;
+                        objLawDoc.LastAuditBy = Convert.ToInt32(HttpContext.Current.Session["userid"].ToString());
+                    }
 
                     objLawDoc.aUser = ZeroIntergerIFNull(ReadSession("userid").ToString());
 
 
+                    objRepository.DC.Database.ExecuteSqlCommand(
+                               "DELETE FROM Law_DocSectors WHERE Law_DocId = @LawDocId",
+                               new SqlParameter("@LawDocId", objLawDoc.Code));
+
+                    foreach (ListItem item in lstSectors.Items)
+                    {
+                        if (item.Selected)
+                        {
+                            objRepository.DC.Database.ExecuteSqlCommand(
+                                "INSERT INTO Law_DocSectors (SectorId, Law_DocId) VALUES (@SectorId, @LawDocId)",
+                                new SqlParameter("@SectorId", item.Value),
+                                new SqlParameter("@LawDocId", objLawDoc.Code));
+                        }
+                    }
+                    objRepository.UpdateLaw(objLawDoc);
+                    //objRepository.UpdateLaw(objLawDoc);
 
 
-                    objRepository.UpdateLaw(objLawDoc);
-                    objRepository.UpdateLaw(objLawDoc);
                 }
 
 
@@ -1205,15 +1342,19 @@ namespace UI.Web.Modules.Laws.Forms
             FillDllwithoptional_ALL(objLookup.FillLaw_DocType(), ref lstDocType, "NameAr", "Code", "اختر");
             FillDllwithoptional_ALL(objLookup.FillLaw_DocType(), ref lstFilterType, "NameAr", "Code", "الكل");
 
-
-
-            FillDllwithoptional_ALL(objLookup.FillLaw_DocZeroCategory(), ref lstCategory, "NameAr", "Code", "اختر");
+            //FillDllwithoptional_ALL(objLookup.FillLaw_DocZeroCategory(), ref lstCategory, "NameAr", "Code", "اختر");
             FillDllwithoptional_ALL(objLookup.FillLaw_DocZeroCategory(), ref lstFilterCategory, "NameAr", "Code", "الكل");
 
             FillDllwithoptional_ALL(objLookup.Filllaw_DocProceduresTypes(), ref lstprocedureType, "NameAr", "Code", "إختر");
             FillDllwithoptional_ALL(objLookup.Filllaw_DocProceduresTypes(), ref lstfilterProceduretype, "NameAr", "Code", "الكل");
 
+            var statuses = objLookup.DC.Database.SqlQuery<Sectors>(
+             "SELECT Code, NameAr FROM Sectors ORDER BY NameAr").ToList();
 
+            lstSectors.DataSource = statuses;
+            lstSectors.DataTextField = "NameAr";
+            lstSectors.DataValueField = "Code";
+            lstSectors.DataBind();
         }
 
         public string activeTab(int tabindex)
@@ -1454,7 +1595,6 @@ namespace UI.Web.Modules.Laws.Forms
 
             }
         }
-
         protected void lnkQScan_Click(object sender, EventArgs e)
         {
             //Show Loadin div
@@ -1754,6 +1894,7 @@ namespace UI.Web.Modules.Laws.Forms
 
                 }
 
+
                 string _img = UploadFileoServer(txtProcedureimage, ScannerRepository + _TargetUploadPath + gets(RefDocID) + "/procedure/" + gets(obj.Code) + "/");
                 if (_img != "")
                 {
@@ -1874,10 +2015,6 @@ namespace UI.Web.Modules.Laws.Forms
             }
         }
 
-        #endregion
-
-
-
         protected void grdLawDocsList_ItemCommand(object source, DataGridCommandEventArgs e)
         {
             if (e.CommandName == "delete")
@@ -1924,16 +2061,16 @@ namespace UI.Web.Modules.Laws.Forms
             else if (lstFilterType.SelectedValue == "4")//امر اميرس
             {
                 lblFilterCatTitle.Text = "تصنيف الأمر الأميري <span class='text-danger'>*</span>:";
-                FillDllwithoptional_ALL(objLookup.FillLaw_DocCategory(ZeroIntergerIFNull(lstFilterType.SelectedValue)), ref lstFilterCategory, "NameAr", "Code", "الكل");
-                
-                lblFilterCatTitle.Visible=false;
+                FillDllwithoptional_ALL(objLookup.FillLaw_DocCategory(ZeroIntergerIFNull(lstFilterType.SelectedValue)), ref lstFilterCategory, "NameAr", "Code", "إختر");
+
+                lblFilterCatTitle.Visible = false;
                 lstFilterCategory.Visible = false;
 
             }
             else
             {
                 lblFilterCatTitle.Text = "التصنيف<span class='text-danger'>*</span>: ";
-                FillDllwithoptional_ALL(objLookup.FillLaw_DocZeroCategory(), ref lstFilterCategory, "NameAr", "Code", "الكل");
+                FillDllwithoptional_ALL(objLookup.FillLaw_DocZeroCategory(), ref lstFilterCategory, "NameAr", "Code", "إختر");
 
                 lblFilterCatTitle.Visible = true;
                 lstFilterCategory.Visible = true;
@@ -1950,7 +2087,7 @@ namespace UI.Web.Modules.Laws.Forms
 
             if (lstDocType.SelectedValue == "3")//مرسوم
             {
-                lblcattitle.Text = "تصنيف المرسوم <span class='text-danger'>*</span>:";
+                lblcattitle.Text = "تصنيف فرعي للمرسوم  <span class='text-danger'>*</span>:";
                 FillDllwithoptional_ALL(objLookup.FillLaw_DocCategory(ZeroIntergerIFNull(lstDocType.SelectedValue)), ref lstCategory, "NameAr", "Code", "إختر");
 
                 lblcattitle.Visible = true;
@@ -1960,7 +2097,7 @@ namespace UI.Web.Modules.Laws.Forms
             else if (lstDocType.SelectedValue == "4")//امر اميرس
             {
                 lblcattitle.Text = "تصنيف الأمر الأميري <span class='text-danger'>*</span>:";
-                FillDllwithOutoptional_ALL(objLookup.FillLaw_DocCategory(ZeroIntergerIFNull(lstDocType.SelectedValue)), ref lstCategory, "NameAr", "Code" );
+                FillDllwithoptional_ALL(objLookup.FillLaw_DocCategory(ZeroIntergerIFNull(lstDocType.SelectedValue)), ref lstCategory, "NameAr", "Code", "إختر");
 
                 lblcattitle.Visible = false;
                 lstCategory.Visible = false;
@@ -1968,7 +2105,7 @@ namespace UI.Web.Modules.Laws.Forms
             }
             else
             {
-                lblcattitle.Text = "التصنيف <span class='text-danger'>*</span>:";
+                lblcattitle.Text = "التصنيف الفرعي <span class='text-danger'>*</span>:";
                 FillDllwithoptional_ALL(objLookup.FillLaw_DocZeroCategory(), ref lstCategory, "NameAr", "Code", "إختر");
 
                 lblcattitle.Visible = true;
@@ -2068,6 +2205,69 @@ namespace UI.Web.Modules.Laws.Forms
 
         }
 
+        protected void grdLinkedDocs_ItemDataBound(object sender, DataGridItemEventArgs e)
+        {
+            if (e.Item.ItemType != ListItemType.Item && e.Item.ItemType != ListItemType.AlternatingItem)
+            {
+                return;
+            }
+
+            var ddl = e.Item.FindControl("lstLinkedStatus") as DropDownList;
+            if (ddl == null)
+            {
+                return;
+            }
+
+            var statuses = objLookup.DC.Database.SqlQuery<LinkedStatusLookup>(
+                "SELECT Code, NameAr FROM Law_DocData_Linked_Status ORDER BY NameAr").ToList();
+
+            ddl.DataSource = statuses;
+            ddl.DataTextField = "NameAr";
+            ddl.DataValueField = "Code";
+            ddl.DataBind();
+            ddl.Items.Insert(0, new ListItem("--- اختر ---", "0"));
+
+            var linkedId = ZeroIntergerIFNull(e.Item.Cells[0].Text);
+            ddl.Attributes["data-linked-id"] = linkedId.ToString();
+
+            var statusValue = objRepository.DC.Database.SqlQuery<LinkedStatusValue>(
+                "SELECT LinkedStatusID FROM Law_DocData_Linked WHERE Code = @code",
+                new SqlParameter("@code", linkedId)).FirstOrDefault();
+
+            var selectedId = statusValue != null && statusValue.LinkedStatusID.HasValue ? statusValue.LinkedStatusID.Value : 0;
+            if (selectedId != 0)
+            {
+                var selectedValue = selectedId.ToString();
+                if (ddl.Items.FindByValue(selectedValue) != null)
+                {
+                    ddl.SelectedValue = selectedValue;
+                }
+            }
+        }
+
+        protected void lstLinkedStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var ddl = sender as DropDownList;
+            if (ddl == null)
+            {
+                return;
+            }
+
+            var linkedId = ZeroIntergerIFNull(ddl.Attributes["data-linked-id"]);
+            if (linkedId == 0)
+            {
+                return;
+            }
+            if (ddl.SelectedValue != "0")
+            {
+                var statusId = ZeroIntergerIFNull(ddl.SelectedValue);
+                objRepository.DC.Database.ExecuteSqlCommand(
+                    "UPDATE Law_DocData_Linked SET LinkedStatusID = @statusId WHERE Code = @code",
+                    new SqlParameter("@statusId", statusId),
+                    new SqlParameter("@code", linkedId));
+            }
+        }
+
         protected void lnkCancelLawDoc_Click(object sender, EventArgs e)
         {
             if (!ViewState["itemID"].Equals("0"))
@@ -2151,7 +2351,7 @@ namespace UI.Web.Modules.Laws.Forms
         {
             if (txtEffectiveDate.Text != "" && lstCategory.SelectedValue == "134") // مرسوم قيادين
             {
-                txtExpireDate.Text = NullDateifEmptyToText(NullDateifEmpty(txtEffectiveDate.Text).AddYears(4));
+                txtExpireDate.Text = NullDateifEmptyToText(NullDateifEmpty(txtEffectiveDate.Text).AddYears(4).AddDays(-1));
 
             }
 
@@ -2208,9 +2408,57 @@ namespace UI.Web.Modules.Laws.Forms
 
 
 
-
             return _out;
 
         }
+
+        /// <summary>
+        /// Highlights search text in the provided text with background color
+        /// </summary>
+        public string HighlightSearchText(string text, string searchText)
+        {
+            if (string.IsNullOrEmpty(text) || string.IsNullOrEmpty(searchText))
+            {
+                return text;
+            }
+
+            try
+            {
+                // Escape special regex characters in the search text
+                string pattern = System.Text.RegularExpressions.Regex.Escape(searchText.Trim());
+
+                // Create replacement with highlight span
+                string replacement = $"<span class='highlight-search'>{System.Web.HttpUtility.HtmlEncode(searchText.Trim())}</span>";
+
+                // Replace with case-insensitive matching
+                string highlightedText = System.Text.RegularExpressions.Regex.Replace(
+                    text,
+                    pattern,
+                    replacement,
+                    System.Text.RegularExpressions.RegexOptions.IgnoreCase
+                );
+
+                return highlightedText;
+            }
+            catch
+            {
+                // If regex fails, return original text
+                return text;
+            }
+        }
+
+
+        public class Law_DocCategoryNew
+        {
+            public int Code { get; set; }
+
+            public string NameEn { get; set; }
+
+            public string NameAr { get; set; }
+
+            public int? TypeID { get; set; }
+        }
+        #endregion
     }
+
 }

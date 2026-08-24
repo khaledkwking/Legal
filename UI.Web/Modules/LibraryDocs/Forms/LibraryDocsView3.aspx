@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Masters/Admin.Master" AutoEventWireup="true" CodeBehind="LibraryDocsView3.aspx.cs" Inherits="UI.Web.LibraryDocs.Forms.LibraryDocsView3" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Masters/Admin.Master" AutoEventWireup="true" CodeBehind="LibraryDocsView3.aspx.cs" Inherits="UI.Web.LibraryDocs.Forms.LibraryDocsView3" ValidateRequest="false" %>
 <%@ Register TagPrefix="cc1" Namespace="CutePager" Assembly="ASPnetPagerV2netfx2_0" %>
 
 <%@ Register Assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
@@ -71,8 +70,23 @@
             return true;
         }
 
+
+
     </script>
 
+           <style type="text/css">
+
+         .highlight-search {
+    background-color: #FFFF00;
+    color: #000;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(255, 193, 7, 0.5);
+}
+
+
+       </style>
 
 
     <div class="row">
@@ -110,17 +124,14 @@
 
 
 
-    <asp:UpdatePanel runat="server" ID="Updatepanel1" ChildrenAsTriggers="true" UpdateMode="conditional">
-        <ContentTemplate>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+   
     <!--END TITLE & BREADCRUMB PAGE-->
     <!--BEGIN CONTENT-->
 
     <div class="row mbl" id="tblSearch" style="" runat="server">
           <div class="panel panel-flat" style="min-height:750px;background:#fff">
             <div class="">
-                    <div class="pull-left" id="divback" runat="server" style="position:absolute;z-index:9999"> <a href="javascript:void(0)"  runat="server" id="libback"><img src="/Modules/LibraryDocs/Forms/lib_img/back.png" /></a></div>
+               <div class="pull-left" id="divback" runat="server" style="position:absolute;z-index:9999"> <a href="javascript:void(0)"  runat="server" id="libback"><img src="/Modules/LibraryDocs/Forms/lib_img/back.png" /></a></div>
                 <div  class="pull-right" id="divtxtSearch" runat="server" style="position:absolute;left:20px;z-index:9999">
                     <div class="form-group has-feedback has-feedback-left" style="float:right">
                             <asp:TextBox ID="txtpartName" runat="server" class="form-control" placeholder="كلمة فى اسم الوثيقة"></asp:TextBox>
@@ -131,11 +142,70 @@
 
 
                     </div>
+                    <% if (!(Request.QueryString["catid"] == "4" && Request.QueryString["typeid"] == "17")) { %>
                     <div style="float:left">  <asp:LinkButton ID="lnkSearch" class="btn btn-primary" runat="server" OnClick="lnkSearch_Click1"> بحث  </asp:LinkButton></div>
+                     <% } %>
+                    <% if (Request.QueryString["catid"] == "4" && Request.QueryString["typeid"] == "17") { %>
+                           <%-- <a href="YourPage.aspx">Open Link</a>--%>
+                    
+                    <div style="float:left">  
+                         
+                   
+                         <asp:LinkButton ID="SearchDocBtn"
+    runat="server"
+    CssClass="btn btn-success btn-lg"
+    OnClick="SearchDocBtn_Click">
+    <i class="fa fa-search"></i> البحث في الدستور
+</asp:LinkButton>
+                                                  <a href="#"
+                               class="btn btn-primary btn-lg rounded-pill shadow-sm px-4"
+                               data-toggle="modal"
+                               data-target="#modal_dastor">
+                                <i class="fa fa-book mr-2"></i>
+                                عرض نص الدستور
+                            </a>
+                    </div>
+                   <asp:HiddenField ID="litDostorText" runat="server" />
+                       <asp:HiddenField ID="hdnHighlightedText" runat="server" />
+                       <%-- <asp:LinkButton ID="SearchDocBtn" class="btn btn-primary" runat="server" OnClick="SearchDocBtn_Click"> البحث فى الدستور  </asp:LinkButton>--%>
+                              <div id="modal_dastor" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h5 class="modal-title">تفاصيل الوثيقة</h5>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <p>
+                                            <asp:Literal ID="txtDocDastor" runat="server" >
+                                             
+                                            </asp:Literal>
+                                            
+                                             <%--<%#HighlightSearchText(litDostorText.Value, txtpartName.Text) %>--%>
+
+                                        </p>
+
+
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-link" data-dismiss="modal">إغلاق</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                   
+
+                    
+
+                        <% } %>
                  </div>
                   </div>
 
-
+      
                 <div class="panel-body" style="min-height:400px">
          <div class="form-horizontal">
 
@@ -433,7 +503,7 @@
 
 
                                                         <cc1:Pager CurrentIndex="1" OnCommand="pager_Command" ShowFirstLast="False" ID="pager1"
-                                                            runat="server" Width="100%" PageSize="20" AlternativeTextEnabled="False" BackToFirstClause="" BackToPageClause="" EnableSmartShortCuts="True" EnableTheming="True" FirstClause="" FromClause="" GoClause="" GoToLastClause="" LastClause="" NextClause="التالي" OfClause="من" PageClause="صفحة" PreviousClause="السابق" RTL="True" ShowingResultClause="" ShowResultClause=""></cc1:Pager>
+                                                            runat="server" Width="100%" PageSize="20" AlternativeTextEnabled="False" BackToFirstClause="" BackToPageClause="" EnableSmartShortCuts="True" EnableTheming="True" FirstClause="" FromClause="" GoClause="" GoToLastClause="" LastClause="" NextClause="التالي" OfClause="من" PageClause="صفخة" PreviousClause="السابق" RTL="True" ShowingResultClause="" ShowResultClause=""></cc1:Pager>
 
 
                                                     </div>

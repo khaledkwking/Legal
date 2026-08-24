@@ -2,7 +2,7 @@
 
 <%@ Register TagPrefix="cc1" Namespace="CutePager" Assembly="ASPnetPagerV2netfx2_0" %>
 
-
+<%@ Register Src="~/UserControls/DeleteConfirm.ascx"  TagPrefix="uc"  TagName="DeleteConfirm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
@@ -118,14 +118,29 @@
                                                                                 </asp:TemplateColumn>
 
 
-                                                                                <asp:TemplateColumn>
+                                                                              <%--  <asp:TemplateColumn>
                                                                                     <ItemStyle Width="5%" HorizontalAlign="Center" />
                                                                                     <HeaderStyle Wrap="False" HorizontalAlign="Center" />
                                                                                     <ItemTemplate>
                                                                                         <asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>
                                                                                     </ItemTemplate>
-                                                                                </asp:TemplateColumn>
+                                                                                </asp:TemplateColumn>--%>
+                                                                                            <%-- </asp:TemplateColumn>--%>
 
+                	                                                     <asp:TemplateColumn>
+                                                                                    <ItemStyle Width="5%" HorizontalAlign="Center" />
+                                                                                    <HeaderStyle Wrap="False" HorizontalAlign="Center" />
+                                                                                    <ItemTemplate>
+                                                                                                    <%--<asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>--%>
+                                                                                  <asp:LinkButton
+                                                                                                   ID="lnkDelete"
+                                                                                                   OnClientClick="return DeleteConfirm.show(this);"
+                                                                                                   CommandName="delete"
+                                                                                                   runat="server">
+                                                                                                   <i class="fa fa-trash" style="color:#333"></i>&nbsp;
+                                                                                   </asp:LinkButton>
+                                                                                  </ItemTemplate>
+                                                                            </asp:TemplateColumn>
 
                                                                             </Columns>
                                                                         </asp:DataGrid>
@@ -157,5 +172,5 @@
 
     </div>
 
-    
+     <uc:DeleteConfirm runat="server" />
  </asp:Content>

@@ -24,7 +24,7 @@ namespace UI.Web.Modules.LegalMemos.Reports
         #region "Page Members"
         public LooksUpsRepository objLookup = IoC.Resolve<LooksUpsRepository>();
         public LegalMemoRepository objRepository = IoC.Resolve<LegalMemoRepository>();
-        public string _PageTitle = "  مذكرات الرأي القانوني  ";
+        public string _PageTitle = "  كتب ومذكرات الرأي القانوني  ";
 
         public string _TargetUrl = System.Configuration.ConfigurationManager.AppSettings["ScanningModuleURL"].ToString();
         public string _TargetUploadPath = System.Configuration.ConfigurationManager.AppSettings["legalRepository"].ToString() + "LegalMemos/";
@@ -137,7 +137,7 @@ namespace UI.Web.Modules.LegalMemos.Reports
         private void FillReport()
         {
 
-            string reportTitle = "تقرير  مذكرات الرأي القانوني ";
+            string reportTitle = "تقرير  كتب ومذكرات الرأي القانوني ";
             var objList = objRepository.GetList(txtFilterAutoNum.Text, ZeroIntergerIFNull(txtFilterSerialNum.Text), ZeroIntergerIFNull(txtFilterSerialYear.Text),
                 NullDateifEmpty(txtFilterDatefrom.Text),NullDateifEmpty(txtFilterDateTo.Text), ZeroIntergerIFNull(lstFilterCategory.SelectedValue), 
                 ZeroIntergerIFNull(lstfilterOrg.SelectedValue),ZeroIntergerIFNull(lstfilterAssignedEmployee.SelectedValue), ZeroIntergerIFNull(lstfilterProcedure.SelectedValue),

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UI.Web.Modules.MasterData {
-    
-    
-    public partial class lookups {
-        
+namespace UI.Web.Modules.MasterData
+{
+
+
+    public partial class lookups
+    {
+
         /// <summary>
         /// Updatepanel1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel Updatepanel1;
-        
+
         /// <summary>
         /// lblerror control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblerror;
-        
+
         /// <summary>
         /// tblAdd control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblAdd;
-        
+
         /// <summary>
         /// lblSubTitle control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSubTitle;
-        
+
         /// <summary>
         /// txtNameEn control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNameEn;
-        
+
         /// <summary>
         /// txtNameAr control.
         /// </summary>
@@ -65,7 +67,61 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNameAr;
-        
+
+        /// <summary>
+        /// divTypeId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTypeId;
+
+        /// <summary>
+        /// ddlTypeId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTypeId;
+
+        /// <summary>
+        /// divSectorImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSectorImage;
+
+        /// <summary>
+        /// txtSectorImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload txtSectorImage;
+
+        /// <summary>
+        /// hdnSectorImagePath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnSectorImagePath;
+
+        /// <summary>
+        /// imgSectorPreview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgSectorPreview;
+
         /// <summary>
         /// btnSave control.
         /// </summary>
@@ -74,7 +130,7 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnSave;
-        
+
         /// <summary>
         /// btnCancel control.
         /// </summary>
@@ -83,7 +139,7 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
-        
+
         /// <summary>
         /// tblshow control.
         /// </summary>
@@ -92,7 +148,7 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblshow;
-        
+
         /// <summary>
         /// btnNew control.
         /// </summary>
@@ -101,7 +157,7 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnNew;
-        
+
         /// <summary>
         /// btnDelete control.
         /// </summary>
@@ -110,16 +166,16 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnDelete;
-        
+
         /// <summary>
-        /// txtPArtOfName control.
+        /// phFilters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPArtOfName;
-        
+        protected global::System.Web.UI.WebControls.PlaceHolder phFilters;
+
         /// <summary>
         /// btnFilter control.
         /// </summary>
@@ -128,7 +184,7 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnFilter;
-        
+
         /// <summary>
         /// grdData control.
         /// </summary>
@@ -137,7 +193,7 @@ namespace UI.Web.Modules.MasterData {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataGrid grdData;
-        
+
         /// <summary>
         /// lblcount control.
         /// </summary>

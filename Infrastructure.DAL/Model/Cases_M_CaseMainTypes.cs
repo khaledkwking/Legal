@@ -14,17 +14,8 @@ namespace Infrastructure.DAL.Model
     
     public partial class Cases_M_CaseMainTypes
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cases_M_CaseMainTypes()
-        {
-            this.Cases_M_CaseTypes = new HashSet<Cases_M_CaseTypes>();
-        }
-    
         public int Code { get; set; }
         public string NameEn { get; set; }
         public string NameAr { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cases_M_CaseTypes> Cases_M_CaseTypes { get; set; }
     }
 }

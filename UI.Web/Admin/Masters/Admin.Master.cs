@@ -292,23 +292,27 @@ namespace UI.Web.Admin.Masters
                     }
 
 
-
+                    if (ShowPage("lookups.aspx?tableName=Sectors"))
+                    {
+                        strmenu.Append(("\r\n" + "  <li><a href=\'/Modules/MasterData/lookups.aspx?tableName=Sectors'><i class=\'fa fa-angle-left\'></i><span class=\'submenu-title\'" +
+                            ">" + "القطاعات" + "</span></a></li>"));
+                    }
                     if (ShowPage("lookups.aspx?tableName=Law_DocCategory"))
                     {
                         strmenu.Append(("\r\n" + "  <li><a href=\'/Modules/MasterData/lookups.aspx?tableName=Law_DocCategory'><i class=\'fa fa-angle-left\'></i><span class=\'submenu-title\'" +
-                            ">" + Resources.menu.Law_DocCategory + "</span></a></li>"));
+                            ">" + "التصنيف الفرعي للوثائق" + "</span></a></li>"));
                     }
 
-                    if (ShowPage("lookups.aspx?tableName=Law_DocCategory"))
-                    {
-                        strmenu.Append(("\r\n" + "  <li><a href=\'/Modules/MasterData/lookupsfixedCat.aspx?tableName=Law_DocCategory&refname=typeid&refvalue=3'><i class=\'fa fa-angle-left\'></i><span class=\'submenu-title\'" +
-                            ">" + Resources.menu.Law_DocCategoryMarsoom + "</span></a></li>"));
-                    }
-                    if (ShowPage("lookups.aspx?tableName=Law_DocCategory"))
-                    {
-                        strmenu.Append(("\r\n" + "  <li><a href=\'/Modules/MasterData/lookupsfixedCat.aspx?tableName=Law_DocCategory&refname=typeid&refvalue=4'><i class=\'fa fa-angle-left\'></i><span class=\'submenu-title\'" +
-                            ">" + Resources.menu.Law_DocCategoryPrinceOrder + "</span></a></li>"));
-                    }
+                    //if (ShowPage("lookups.aspx?tableName=Law_DocCategory"))
+                    //{
+                    //    strmenu.Append(("\r\n" + "  <li><a href=\'/Modules/MasterData/lookupsfixedCat.aspx?tableName=Law_DocCategory&refname=typeid&refvalue=3'><i class=\'fa fa-angle-left\'></i><span class=\'submenu-title\'" +
+                    //        ">" + Resources.menu.Law_DocCategoryMarsoom + "</span></a></li>"));
+                    //}
+                    //if (ShowPage("lookups.aspx?tableName=Law_DocCategory"))
+                    //{
+                    //    strmenu.Append(("\r\n" + "  <li><a href=\'/Modules/MasterData/lookupsfixedCat.aspx?tableName=Law_DocCategory&refname=typeid&refvalue=4'><i class=\'fa fa-angle-left\'></i><span class=\'submenu-title\'" +
+                    //        ">" + Resources.menu.Law_DocCategoryPrinceOrder + "</span></a></li>"));
+                    //}
 
                     if (ShowPage("lookups.aspx?tableName=law_DocProceduresTypes"))
                     {
@@ -379,6 +383,14 @@ namespace UI.Web.Admin.Masters
                     strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/laws/Forms/LawDocData.aspx' ><i class='icon-law'></i>  " + Resources.menu.LawDocData + "  </a></li>");
                 }
 
+                if (ShowPage("LawSearch.aspx"))
+                {
+                    strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/laws/Forms/LawSearch.aspx' ><i class='icon-law'></i>  " + "التشريعات و ارتباطاتها" + "  </a></li>");
+                }
+                if (ShowPage("LawType.aspx"))
+                {
+                    strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/laws/LawType.aspx' ><i class='icon-law'></i>  " + "المنصة القانونية الداخلية" + "  </a></li>");
+                }
                 if (ShowPage("LawDessionData.aspx"))
                 {
                     strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/laws/Forms/LawDessionData.aspx' ><i class='icon-stack-text'></i>  " + Resources.menu.LawDession + "  </a></li>");
@@ -899,6 +911,11 @@ namespace UI.Web.Admin.Masters
                         strmenu.Append(("\r\n" + "  <li><a href=\'/Modules/MasterData/lookups.aspx?tableName=Committees_ProceduresTypes'><i class=\'fa fa-angle-left\'></i><span class=\'submenu-title\'" +
                             ">" + Resources.menu.Committees_ProceduresTypes + "</span></a></li>"));
                     }
+                    if (ShowPage("lookups.aspx?tableName=Committees_Types"))
+                    {
+                        strmenu.Append(("\r\n" + "  <li><a href=\'/Modules/MasterData/lookups.aspx?tableName=Committees_Types'><i class=\'fa fa-angle-left\'></i><span class=\'submenu-title\'" +
+                            ">" + Resources.menu.Committees_Types + "</span></a></li>"));
+                    }
 
                     strmenu.Append("</ul>");
                     strmenu.Append("</li>");
@@ -1250,6 +1267,7 @@ namespace UI.Web.Admin.Masters
                     strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/audit/Forms/Frm_UserOperaions.aspx' ><i class='icon-popout'></i> " + Resources.menu.Useroperations + "</a></li>");
 
                     strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/audit/Forms/Frm_UserOperaionAudit.aspx' ><i class='icon-popout'></i> " + Resources.menu.UseroperationsAudit + "</a></li>");
+                    strmenu.Append("<li ><a href='" + Resources.Utilities.cutureRoute + "/Modules/audit/Forms/Frm_UserPerformance.aspx' ><i class='icon-popout'></i> " + Resources.menu.UserPerformance + "</a></li>");
                 }
 
 

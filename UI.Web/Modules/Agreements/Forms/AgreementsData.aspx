@@ -6,7 +6,7 @@
     Namespace="System.Web.UI" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
+<%@ Register Src="~/UserControls/DeleteConfirm.ascx"  TagPrefix="uc"  TagName="DeleteConfirm" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
     <script>
 
@@ -864,13 +864,13 @@
                                                                 <HeaderStyle Wrap="False" HorizontalAlign="left" />
 
                                                                 <ItemTemplate>
-                                                                    <a href="AgreementsData.aspx?id=<%#Eval("code") %>" class="btn btn-default btn-xs">
+                                                                    <a href="AgreementsData.aspx?id=<%#Eval("code") %>&editflag=1" class="btn btn-default btn-xs">
                                                                         <i class="fa fa-file"></i>&nbsp;
                                                                                             التفاصيل
                                                                     </a>
                                                                     <br />
                                                                     <div style="margin-top: 5px">
-                                                                        <a href="AgreementMainAttachments.aspx?AgreementCode=<%#Eval("Code") %>" class="btn btn-default btn-xs iframe">
+                                                                        <a href="AgreementMainAttachments.aspx?AgreementCode=<%#Eval("Code") %>&editflag=1" class="btn btn-default btn-xs iframe">
                                                                             <i class="icon-attachment"></i>&nbsp;
                                                                        مرفقات
                                                                         </a>
@@ -895,14 +895,28 @@
                                                                 </ItemTemplate>
                                                             </asp:TemplateColumn>
 
+                                                                                                                 <asp:TemplateColumn>
+                                                    <ItemStyle Width="5%" HorizontalAlign="Center" />
+                                                    <HeaderStyle Wrap="False" HorizontalAlign="Center" />
+                                                    <ItemTemplate>
+                                                                    <%--<asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>--%>
+                                                  <asp:LinkButton
+                                                                   ID="lnkDelete"
+                                                                   OnClientClick="return DeleteConfirm.show(this);"
+                                                                   CommandName="delete"
+                                                                   runat="server">
+                                                                   <i class="fa fa-trash" style="color:#333"></i>&nbsp;
+                                                   </asp:LinkButton>
+                                                  </ItemTemplate>
+                                            </asp:TemplateColumn>
 
-                                                            <asp:TemplateColumn  >
+                                                            <%--<asp:TemplateColumn  >
                                                                 <ItemStyle Width="5%" HorizontalAlign="Center" />
                                                                 <HeaderStyle Wrap="False" HorizontalAlign="Center" />
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>
+                                                                    <asp:LinkButton ID="lnkDelete" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:#333"></i>&nbsp;</asp:LinkButton>
                                                                 </ItemTemplate>
-                                                            </asp:TemplateColumn>
+                                                            </asp:TemplateColumn>--%>
 
                                                         </Columns>
                                                     </asp:DataGrid>
@@ -1218,7 +1232,7 @@
                                                                         &nbsp;
                                                                           <asp:LinkButton ID="lnkMOvetoFinal" runat="server" class="btn btn-danger" OnClientClick="return confirm('هل انت متأكد من تحويل الملف لإتفاقية نهائية?');" OnClick="lnkMOvetoFinal_Click"><i class='icon-cog5'></i>&nbsp;   التحويل لاتفاقية نهائية </asp:LinkButton>
 
-                                                                        <a href="#" class="btn btn-warning btn-labeled iframe linkedpopup" id="lnklawDoc" visible="false" runat="server"><b><i class="glyphicon glyphicon-link"></i></b>إضافة تشريع مرتبط</a>
+                                                                        <a href="#" class="btn btn-warning btn-labeled iframe linkedpopup" id="lnklawDoc" visible="False" runat="server"><b><i class="glyphicon glyphicon-link"></i></b>إضافة تشريع مرتبط</a>
 
                                                                         <asp:LinkButton ID="lnklaeUnlink" Visible="false" runat="server" class="btn btn-warning btn-labeled" OnClientClick="return confirm('هل انت متأكد من فك ارتباط التشريع بالاتفاقية؟');" OnClick="lnklaeUnlink_Click" style="background:red"><b><i class="icon-unlink2"></i></b>&nbsp;   فك ارتباط التشريع </asp:LinkButton>
 
@@ -1787,5 +1801,5 @@
 
     <!--END CONTENT-->
     <!--BEGIN FOOTER-->
-
+       <uc:DeleteConfirm runat="server" />
 </asp:Content>

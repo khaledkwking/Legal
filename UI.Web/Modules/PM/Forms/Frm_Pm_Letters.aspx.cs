@@ -481,7 +481,22 @@ namespace UI.Web.Modules.PM.Forms
         {
 
             btnNew.Visible = userAccess.Add;
-            btnSave.Visible = userAccess.Edit ||  userAccess.Add;
+           
+
+            if (Request.QueryString["editflag"] != null)
+            {
+                string editflag = Request.QueryString["editflag"].ToString();
+
+                btnSave.Visible = userAccess.Edit;
+                               
+            }
+            else
+            {
+
+                btnSave.Visible = userAccess.Edit || userAccess.Add;
+                
+            }
+
             grdLetter.Columns[11].Visible = userAccess.Delete;
 
         }

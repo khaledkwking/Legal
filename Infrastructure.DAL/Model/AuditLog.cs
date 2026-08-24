@@ -23,5 +23,7 @@ namespace Infrastructure.DAL.Model
         public string NewValue { get; set; }
         public System.DateTime Date { get; set; }
         public Nullable<int> UserId { get; set; }
+        public string No { get; set; }
+        public string ModuleName { get; set; }
     }
 }

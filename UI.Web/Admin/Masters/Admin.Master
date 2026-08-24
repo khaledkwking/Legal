@@ -386,7 +386,7 @@
 		<div class="navbar-header">
 			<%--<a class="navbar-brand" href="index.html"><img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/logo_light.png" alt=""></a>--%>
 
-             <img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/logo-banner.png" alt="">
+             <img src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/images/CMGS_H_w.png" alt="">
 
 			<ul class="nav navbar-nav pull-right visible-xs-block">
 				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
@@ -710,7 +710,7 @@
                         <%--<i class="icon-archive"></i>--%>
                         <i style="font-size: 19px;font-weight: bold;">
                             <img src="/layout/rtl/assets/images/libAnimated.gif" style="height:43px" />
-                            المكتبة القانونية  </i>
+                            المكتبة الإلكترونية  </i>
                     </a>
                 </li>
             </ul>

@@ -646,7 +646,7 @@ namespace UI.Web.Modules.Laws.Forms
 
             //    }
             //}
-
+     
 
             //Get Selectd Persons
 
@@ -657,7 +657,7 @@ namespace UI.Web.Modules.Laws.Forms
                ZeroIntergerIFNull(lstFilterIsUnderStudy.SelectedValue),
                txtFilterSubject.Text, txtFilterDetails.Text,
                ZeroIntergerIFNull(lstFilterPublish.SelectedValue), txtFilterSerial.Text, MapSearchKeys(), 
-               ZeroIntergerIFNull(lstfilterProceduretype.SelectedValue), getBool(ReadSession("ViewPrivate")), ZeroIntergerIFNull( lstFilterPrivate.SelectedValue));
+               ZeroIntergerIFNull(lstfilterProceduretype.SelectedValue), getBool(ReadSession("ViewPrivate")), ZeroIntergerIFNullNew( lstFilterPrivate.SelectedValue));
 
 
             lblcount.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
@@ -805,9 +805,19 @@ namespace UI.Web.Modules.Laws.Forms
             lnkAddProcedure.Visible = userAccess.Add;
             lnkAddNewOutGoing.Visible = userAccess.Add;
             Lnkincoming.Visible = userAccess.Add;
+            DivAudit.Visible = userAccess.AuditControl;
 
+            if (Request.QueryString["editflag"] != null)
+            {
+                string editflag = Request.QueryString["editflag"].ToString();
 
-            btnSave.Visible = userAccess.Edit || userAccess.Add;
+                btnSave.Visible=userAccess.Edit;
+            }
+            else
+            {
+
+                btnSave.Visible = userAccess.Edit || userAccess.Add;
+            }
 
             grdLawDocsList.Columns[15].Visible = userAccess.Delete;
             lnkDeleteProcedure.Visible = userAccess.Delete;
@@ -879,10 +889,9 @@ namespace UI.Web.Modules.Laws.Forms
                 }
 
 
-
-
                 chkIspublished.Checked = getBool(objList.isPublished);
                 chkIsUnderStudy.Checked = getBool(objList.UnderStudy);
+                chkIsAudit.Checked= getBool(objList.isAudited);
 
                 txtVersionNum.Text = gets(objList.PublishVersion);
                 if (!gets(objList.DocFilepath).Equals(""))
@@ -957,6 +966,13 @@ namespace UI.Web.Modules.Laws.Forms
 
                     objLawDoc.UnderStudy = getBool(chkIsUnderStudy.Checked);
                     objLawDoc.isPublished = getBool(chkIspublished.Checked);
+                    objLawDoc.isAudited = getBool(chkIsAudit.Checked);
+                    if (getBool(chkIsAudit.Checked) && chkIsAudit.Visible ==true)
+                    {
+                        objLawDoc.LastAuditDate = DateTime.Now;
+                        objLawDoc.LastAuditBy = Convert.ToInt32(HttpContext.Current.Session["userid"].ToString());
+                    }
+
                     objLawDoc.PublishDate = NullDateifEmpty(txtPublishDate.Text);
                     objLawDoc.PublishVersion = txtVersionNum.Text;
 
@@ -1005,7 +1021,12 @@ namespace UI.Web.Modules.Laws.Forms
                     objLawDoc.isPublished = getBool(chkIspublished.Checked);
                     objLawDoc.PublishDate = NullDateifEmpty(txtPublishDate.Text);
                     objLawDoc.PublishVersion = txtVersionNum.Text;
-
+                    objLawDoc.isAudited = getBool(chkIsAudit.Checked);
+                    if (getBool(chkIsAudit.Checked))
+                    {
+                        objLawDoc.LastAuditDate = DateTime.Now;
+                        objLawDoc.LastAuditBy = Convert.ToInt32(HttpContext.Current.Session["userid"].ToString());
+                    }
                     objLawDoc.DocNotes = gets(txtNotes.Text);
                     objLawDoc.DocDetails = gets(txtDetails.Text);
 

@@ -4,12 +4,11 @@
 
 <%@ Register Assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
     Namespace="System.Web.UI" TagPrefix="asp" %>
+<%@ Register Src="~/UserControls/DeleteConfirm.ascx"  TagPrefix="uc"  TagName="DeleteConfirm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
-
-
 
     <style type="text/css">
         label {
@@ -410,7 +409,7 @@
             <div class="panel-heading">
                 <div class="position-right" style="float: left; margin-left: 30px">
 
-                    <asp:LinkButton runat="server" ID="btnNew" class="btn btn-success btn-xs" OnClick="btnNew_Click1"><i class="fa fa-plus"></i>&nbsp; إضافة مذكرة جديدة  &nbsp;</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnNew" class="btn btn-success btn-xs" OnClick="btnNew_Click1"><i class="fa fa-plus"></i>&nbsp; إضافة جديد  &nbsp;</asp:LinkButton>
 
                     <asp:LinkButton OnClientClick="return checkDelete();" runat="server" Visible="false" ID="btnDelete" class="btn btn-danger btn-xs" OnClick="btnDelete_Click"><i class="fa fa-times"></i>&nbsp;Delete Selected Data</asp:LinkButton>
 
@@ -895,7 +894,7 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemTemplate>
                                                                     <div style="margin-top: 0px;">
-                                                                        <a href="LegalMemoData.aspx?LawDocID=<%#Eval("Code")%>" class="label border-left-success label-striped" style="font-size: 12px;">
+                                                                        <a href="LegalMemoData.aspx?LawDocID=<%#Eval("Code")%>&editflag=1" class="label border-left-success label-striped" style="font-size: 12px;">
                                                                             <i class="fa fa-file"></i>&nbsp;
                                                                                            التفاصيل
                                                                         </a>
@@ -909,13 +908,27 @@
                                                             </asp:TemplateColumn>
 
 
-                                                            <asp:TemplateColumn>
+                                                           <%-- <asp:TemplateColumn>
                                                                 <ItemStyle Width="2%" HorizontalAlign="Center" />
                                                                 <HeaderStyle Wrap="False" HorizontalAlign="Center" />
                                                                 <ItemTemplate>
                                                                     <asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>
                                                                 </ItemTemplate>
-                                                            </asp:TemplateColumn>
+                                                            </asp:TemplateColumn>--%>
+                                                                     <asp:TemplateColumn>
+                                                                <ItemStyle Width="5%" HorizontalAlign="Center" />
+                                                                <HeaderStyle Wrap="False" HorizontalAlign="Center" />
+                                                                <ItemTemplate>
+                                                                                <%--<asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>--%>
+                                                              <asp:LinkButton
+                                                                               ID="lnkDelete"
+                                                                               OnClientClick="return DeleteConfirm.show(this);"
+                                                                               CommandName="delete"
+                                                                               runat="server">
+                                                                               <i class="fa fa-trash" style="color:#333"></i>&nbsp;
+                                                               </asp:LinkButton>
+                                                              </ItemTemplate>
+                                                        </asp:TemplateColumn>
 
                                                         </Columns>
                                                     </asp:DataGrid>
@@ -960,7 +973,7 @@
 
                         <div class="tabbable">
                             <ul class="nav nav-tabs nav-tabs-highlight">
-                                <li class="<%=activeTab(1) %>" onclick="setactiveTab(1)"><a href="#badges-tab1" data-toggle="tab"><i class="icon-menu7 position-left"></i>بيانات المذكرة</a></li>
+                                <li class="<%=activeTab(1) %>" onclick="setactiveTab(1)"><a href="#badges-tab1" data-toggle="tab"><i class="icon-menu7 position-left"></i>بيانات الكتاب / المذكرة</a></li>
                                 <%--<li class="<%=activeTab(2) %>" onclick="setactiveTab(2)"><a href="#badges-tab2" data-toggle="tab" > الإجراءات <span class="badge badge-success  position-right">
                                     <asp:Label ID="lblProcedureCount" runat="server" Text="0"></asp:Label></span></a></li>--%>
 
@@ -1007,7 +1020,14 @@
 
                                                                 </div>
                                                             </div>
+                                                                <div class="col-md-4" runat="server" id="DivAudit">
+                                                                <label class="col-md-3 control-label" runat="server" id="Auidtlbl" > تم التدقيق  </label>
 
+                                                                  <div class="col-md-9">
+
+                                                                      <asp:CheckBox ID="chkIsAudit" runat="server" />
+                                                                  </div>
+                                                           </div> 
 
                                                         </div>
 
@@ -1732,4 +1752,5 @@
     <div id="scanLoading" class="scanLoading" style="display: none">
         <img src="/Layout/images/scan-document.gif" />
     </div>
+    <uc:DeleteConfirm runat="server" />
 </asp:Content>

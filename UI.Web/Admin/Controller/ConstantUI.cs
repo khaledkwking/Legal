@@ -12,11 +12,23 @@ namespace UI.Web
         {
             get
             {
-                return (IUser)HttpContext.Current.Session["IUser"];
+                var context = HttpContext.Current;
+                if (context == null || context.Session == null)
+                {
+                    return null;
+                }
+
+                return (IUser)context.Session["IUser"];
             }
             set
             {
-                HttpContext.Current.Session["IUser"] = value;
+                var context = HttpContext.Current;
+                if (context == null || context.Session == null)
+                {
+                    return;
+                }
+
+                context.Session["IUser"] = value;
             }
         }
     }

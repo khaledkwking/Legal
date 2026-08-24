@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Infrastructure;
+using Infrastructure.DAL;
+using Infrastructure.DAL.Model;
+using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
@@ -8,11 +12,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using Infrastructure;
-using Infrastructure.DAL;
-using Infrastructure.DAL.Model;
-using Newtonsoft.Json;
 using UI.Web.Admin.Controller;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace UI.Web.LibraryDocs.Forms
 {
@@ -21,7 +22,7 @@ namespace UI.Web.LibraryDocs.Forms
         #region "Page Members"
         public LooksUpsRepository objLookup = IoC.Resolve<LooksUpsRepository>();
         public LibraryDocsRepository objRepository = IoC.Resolve<LibraryDocsRepository>();
-        public string _PageTitle = "المكتبة القانونية ";
+        public string _PageTitle = "المكتبة الإلكترونية ";
         public string AgreementCode = "0";
 
 
@@ -30,8 +31,7 @@ namespace UI.Web.LibraryDocs.Forms
         public string ScannerRepositoryViewer = System.Configuration.ConfigurationManager.AppSettings["ScannerRepositoryViewer"].ToString();
         public string ScannerRepository = System.Configuration.ConfigurationManager.AppSettings["ScannerRepository"].ToString();
 
-
-
+        public string DostorText;
         #endregion
 
         #region "Page Events"
@@ -95,10 +95,61 @@ namespace UI.Web.LibraryDocs.Forms
                 SetPageTitle();
                 ViewState["OutboundItemID"] = "0";
                 fillGallery();
+                //DostorText = getsDocDetails(9);
+                //ViewState["DostorText"] = getsDocDetails(9);
+                string subject = getsDocDetails(9);
+                litDostorText.Value = subject;
+                ViewState["DostorText"] = subject;
+                txtDocDastor.Text = Server.HtmlEncode(subject).Replace("\r\n", "<br />");
+            }
+            else
+            {
+                //string dostorText = ViewState["DostorText"]?.ToString() ?? "";
+                //string subject = HighlightSearchText(litDostorText.Value, txtpartName.Text); 
+                //string HtmlSub = Server.HtmlEncode(subject).Replace("\r\n", "<br />").Replace("\n", "<br />");
+
+                //txtDocDastor.Text = HtmlSub;
+
+                //string text = Server.HtmlEncode(litDostorText.Value);
+                string highlightedText = hdnHighlightedText.Value;
+                if (!string.IsNullOrEmpty(highlightedText))
+                {
+                    txtDocDastor.Text = highlightedText.Replace("\r\n", "<br />");
+                }
+                else
+                {
+                    // If no highlighted text, get original and highlight based on search
+                    string dostorText = ViewState["DostorText"]?.ToString() ?? litDostorText.Value;
+                    highlightedText = HighlightSearchText(dostorText, txtpartName.Text);
+                    txtDocDastor.Text = highlightedText.Replace("\r\n", "<br />");
+                }
+
+
+                //text = text.Replace("\r\n", "<br />")
+                //           .Replace("\n", "<br />");
+
+                //litDostorText = text;
+
+                //txtDocDastor.InnerHtml = text;
+
+                //litDostorText.Text = HighlightSearchText(DostorText, txtpartName.Text); 
             }
 
         }
+        protected void SearchDocBtn_Click(object sender, EventArgs e)
+        {
+            // Get the original text from ViewState or the database
+            string dostorText = ViewState["DostorText"]?.ToString() ?? getsDocDetails(9);
 
+            // Apply highlighting based on search text
+            string highlightedText = HighlightSearchText(dostorText, txtpartName.Text);
+
+            // Store the highlighted text in hidden field for display
+            hdnHighlightedText.Value = highlightedText;
+
+            // Also update the Literal control for display in the modal
+            txtDocDastor.Text = highlightedText.Replace("\r\n", "<br />");
+        }
 
         protected void grdInboundItems_ItemDataBound(object sender, DataGridItemEventArgs e)
         {
@@ -754,6 +805,60 @@ namespace UI.Web.LibraryDocs.Forms
         {
             FillLibraryDocs2();
 
+        }
+        public string HighlightSearchText(string text, string searchText)
+        {
+            if (string.IsNullOrEmpty(text) || string.IsNullOrEmpty(searchText))
+            {
+                return text;
+            }
+
+            try
+            {
+                // Escape special regex characters in the search text
+                string pattern = System.Text.RegularExpressions.Regex.Escape(searchText.Trim());
+
+                // Create replacement with highlight span
+                string replacement = $"<span class='highlight-search'>{System.Web.HttpUtility.HtmlEncode(searchText.Trim())}</span>";
+
+                // Replace with case-insensitive matching
+                string highlightedText = System.Text.RegularExpressions.Regex.Replace(
+                    text,
+                    pattern,
+                    replacement,
+                    System.Text.RegularExpressions.RegexOptions.IgnoreCase
+                );
+
+                return highlightedText;
+            }
+            catch
+            {
+                // If regex fails, return original text
+                return text;
+            }
+        }
+        public string getsDocDetails(object code)
+        {
+             LawsRepository objlawRepository = IoC.Resolve<LawsRepository>();
+            if (code == null || code == DBNull.Value)
+                return string.Empty;
+
+            var docData = objlawRepository.GetDetailsByType((int)GetNullableInt(code.ToString()),151);
+
+            if (docData == null)
+                return string.Empty;
+
+            return docData.DocDetails ?? string.Empty;
+        }
+        private object GetNullableInt(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return DBNull.Value;
+            }
+
+            var parsed = ZeroIntergerIFNull(value);
+            return parsed == 0 ? (object)DBNull.Value : parsed;
         }
     }
 }

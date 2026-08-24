@@ -76,6 +76,7 @@ namespace Infrastructure.DAL
         }
 
 
+
         public int getMemoCountForCurrentYear(int DocYear)
         {
             var result =
@@ -142,7 +143,7 @@ namespace Infrastructure.DAL
 
             var result =
                 (from obj in DC.LegalMemo_Org
-                 where obj.CatId == ChapterId && obj.NameAr == itemName && obj.Code != RefId
+                 where obj.catId == ChapterId && obj.NameAr == itemName && obj.Code != RefId
                  select obj).FirstOrDefault();
 
             if (result != null)
@@ -163,7 +164,7 @@ namespace Infrastructure.DAL
                  .Include("LegalMemo_OrgCat")
                      //orderby obj.DocYear descending, obj.FileNum descending
                  where 1 == 1
-                 && (catId != 0 ? obj.CatId == catId : 1 == 1)
+                 && (catId != 0 ? obj.catId == catId : 1 == 1)
                  select obj);
 
             var _out = result.ToList<LegalMemo_Org>();

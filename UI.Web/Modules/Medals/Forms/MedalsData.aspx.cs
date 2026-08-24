@@ -1389,13 +1389,28 @@ namespace UI.Web.Medals.Forms
 
             btnNew.Visible = userAccess.Add;
             lnkAddNewProcedurew.Visible = userAccess.Add;
-            btnSave.Visible = userAccess.Edit ||  userAccess.Add;
-            lnkAddRelatedDoc.Visible = userAccess.Edit ||  userAccess.Add;
+            
             
             //btnDelete.Visible = userAccess.Delete;
             grdInboundItems.Columns[14].Visible = userAccess.Delete;
             lnkDeleteProcedure.Visible = userAccess.Delete;
             lnkSaveProcesure.Visible = userAccess.Edit ||  userAccess.Add;
+
+            if (Request.QueryString["editflag"] != null)
+            {
+                string editflag = Request.QueryString["editflag"].ToString();
+
+                btnSave.Visible = userAccess.Edit;
+
+                lnkAddRelatedDoc.Visible = userAccess.Edit;
+                
+            }
+            else
+            {
+
+                btnSave.Visible = userAccess.Edit || userAccess.Add;
+                lnkAddRelatedDoc.Visible = userAccess.Edit || userAccess.Add;
+            }
 
 
 

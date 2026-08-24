@@ -178,7 +178,7 @@ namespace UI.Web.Modules.Cases.Forms
 
 
 
-                    obj.CatId = ZeroIntergerIFNull(lstCategory.SelectedValue);
+                    obj.CatID = ZeroIntergerIFNull(lstCategory.SelectedValue);
                     obj.NameAr = txtNameAr.Text;
                     obj.NameEn = txtNameEn.Text;
 
@@ -197,7 +197,7 @@ namespace UI.Web.Modules.Cases.Forms
 
                     obj = objRepository.FillCaseTypeDetails(ZeroIntergerIFNull(ViewState["itemID"].ToString()));
 
-                    obj.CatId = ZeroIntergerIFNull(lstCategory.SelectedValue);
+                    obj.CatID = ZeroIntergerIFNull(lstCategory.SelectedValue);
                     obj.NameAr = txtNameAr.Text;
                     obj.NameEn = txtNameEn.Text;
 
@@ -259,7 +259,7 @@ namespace UI.Web.Modules.Cases.Forms
 
                 try
                 {
-                    lstCategory.SelectedValue = gets(objList.CatId);
+                    lstCategory.SelectedValue = gets(objList.CatID);
                 }
                 catch (Exception)
                 {
