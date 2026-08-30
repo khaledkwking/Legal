@@ -284,6 +284,20 @@ namespace Infrastructure.DAL
                 return result.ToList<Medal_M_Types>();
            // }
         }
+        public Medal_M_Types FillMedalsTypeByCode(string TypeCode)
+        {
+            if (string.IsNullOrEmpty(TypeCode) || !int.TryParse(TypeCode, out int parsedCode))
+            {
+                return null;
+            }
+
+            var result = (from obj in DC.Medal_M_Types
+                 where obj.Code == parsedCode
+                 select obj);
+
+            return result.FirstOrDefault();
+        }
+
         public  Medal_M_Types FillMedalsTypeByName(string NameAr )
         {
 
@@ -296,6 +310,7 @@ namespace Infrastructure.DAL
             return result.FirstOrDefault<Medal_M_Types>();
             // }
         }
+
         public Medal_M_jobGrade getGradeByName(string NameAr)
         {
 
@@ -308,7 +323,20 @@ namespace Infrastructure.DAL
             return result.FirstOrDefault<Medal_M_jobGrade>();
             // }
         }
+        public Medal_M_jobGrade getGradeByCode(string Code)
+        {
+            if (string.IsNullOrEmpty(Code) || !int.TryParse(Code, out int parsedCode))
+            {
+                return null;
+            }
 
+            var result =
+                (from obj in DC.Medal_M_jobGrade
+                 where obj.Code == parsedCode
+                 select obj);
+
+            return result.FirstOrDefault();
+        }
 
         public int AddMedal_M_Types<T>(T item)
         {

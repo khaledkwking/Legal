@@ -236,7 +236,9 @@ namespace UI.Web.Modules.Laws.Forms
                 "EXEC sp_SearchLawHierarchyV9 @DocId, @DocNum, @DocYear, @DocTypeID, @DocCategoryID, @UnderStudy, @isPublished, @DocDateFrom, @DocDateTo, @DocSubject, @DocNotes, @DocDetails, @ExpireDateFrom, @ExpireDateTo,@Flag",
                 parameters.ToArray()).ToList();
 
+            // get all unlinked 
             var extraDocs = LoadAllUnlinkedDocs();
+            // get list of chlids
             var existingIds = new HashSet<int>(result.Where(item => item.ChildDocId.HasValue)
                 .Select(item => item.ChildDocId.Value));
 
@@ -246,7 +248,7 @@ namespace UI.Web.Modules.Laws.Forms
                 {
                     continue;
                 }
-
+                // get if parent has no chlid
                 result.Add(new LawHierarchyResult
                 {
                     Level = 0,
@@ -321,25 +323,25 @@ namespace UI.Web.Modules.Laws.Forms
         private List<LawExtraDoc> LoadAllUnlinkedDocs()
         {
             var query = @"SELECT d.Code, d.DocNum, d.DocYear, d.DocSubject, d.DocFilepath, t.NameAr AS DocTypeName
-FROM Law_DocData d
+            FROM Law_DocData d
 
-LEFT JOIN View_LawsLinkedDocs l ON l.SouceDocID = d.Code OR l.DestDocId = d.Code
-LEFT JOIN Law_DocType t ON d.DocTypeID = t.Code
-WHERE l.Code IS NULL
-  AND (@docTypeId IS NULL OR d.DocTypeID = @docTypeId)
-  AND (@docCategoryId IS NULL OR d.DocCategoryID = @docCategoryId)
-  AND (@docNum IS NULL OR d.DocNum = @docNum)
-  AND (@docYear IS NULL OR d.DocYear = @docYear)
+            LEFT JOIN View_LawsLinkedDocs l ON l.SouceDocID = d.Code OR l.DestDocId = d.Code
+            LEFT JOIN Law_DocType t ON d.DocTypeID = t.Code
+            WHERE l.Code IS NULL
+              AND (@docTypeId IS NULL OR d.DocTypeID = @docTypeId)
+              AND (@docCategoryId IS NULL OR d.DocCategoryID = @docCategoryId)
+              AND (@docNum IS NULL OR d.DocNum = @docNum)
+              AND (@docYear IS NULL OR d.DocYear = @docYear)
 
-  AND (@UnderStudy IS NULL OR d.UnderStudy = @UnderStudy)
-  AND (@isPublished IS NULL OR d.isPublished = @isPublished)
-  AND (@DocDateFrom IS NULL OR d.DocDate >= @DocDateFrom)
-  AND (@DocDateTo IS NULL OR d.DocDate <= @DocDateTo)
-  AND (@ExpireDateFrom IS NULL OR ExpireDate >= @ExpireDateFrom)
-  AND (@ExpireDateTo IS NULL OR ExpireDate <= @ExpireDateTo)
-  AND (@DocSubject IS NULL OR d.DocSubject LIKE '%' + @DocSubject + '%')
-  AND (@DocNotes IS NULL OR d.DocNotes LIKE '%' + @DocNotes + '%')
-  AND (@DocDetails IS NULL OR d.DocDetails LIKE '%' + @DocDetails + '%')";
+              AND (@UnderStudy IS NULL OR d.UnderStudy = @UnderStudy)
+              AND (@isPublished IS NULL OR d.isPublished = @isPublished)
+              AND (@DocDateFrom IS NULL OR d.DocDate >= @DocDateFrom)
+              AND (@DocDateTo IS NULL OR d.DocDate <= @DocDateTo)
+              AND (@ExpireDateFrom IS NULL OR ExpireDate >= @ExpireDateFrom)
+              AND (@ExpireDateTo IS NULL OR ExpireDate <= @ExpireDateTo)
+              AND (@DocSubject IS NULL OR d.DocSubject LIKE '%' + @DocSubject + '%')
+              AND (@DocNotes IS NULL OR d.DocNotes LIKE '%' + @DocNotes + '%')
+              AND (@DocDetails IS NULL OR d.DocDetails LIKE '%' + @DocDetails + '%')";
 
             return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
                 query,

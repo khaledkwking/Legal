@@ -169,6 +169,7 @@
                                     <HeaderStyle BackColor="#efefef" Font-Bold="True" />
                                     <Columns>
                                         <asp:BoundColumn DataField="code" Visible="False"></asp:BoundColumn>
+                                        <asp:BoundColumn DataField="Code" HeaderText="الكود" Visible="True"></asp:BoundColumn>
                                         <%--<asp:BoundColumn DataField="NameEn" Visible="false" HeaderText="الاسم بالانجليزيه"></asp:BoundColumn>--%>
                                         <asp:BoundColumn DataField="NameAr" HeaderText="الاسم بالعربيه "></asp:BoundColumn>
                                         <asp:BoundColumn DataField="TypeNameAr" Visible="false" HeaderText="النوع"></asp:BoundColumn>

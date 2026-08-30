@@ -365,7 +365,31 @@
 
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">
-                                        رقم وارد الجهة :
+                                        رقم الوارد :
+                                    </label>
+                                    <div class="col-lg-3">
+
+                                        <asp:TextBox ID="txtFilterFileSerial" runat="server" class="form-control"></asp:TextBox>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">
+                                        السنة :
+                                    </label>
+                                    <div class="col-lg-3">
+
+                                        <asp:TextBox ID="txtFilterFileYear" runat="server" class="form-control"></asp:TextBox>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="display:none">
+                                    <label class="col-lg-3 control-label">
+                                        رقم الملف :
                                     </label>
                                     <div class="col-lg-3">
 
@@ -608,6 +632,13 @@
                                                                                 PrevPageText="&lt;&lt; Previous &nbsp;&nbsp;&nbsp;" NextPageText="&nbsp;&nbsp;&nbsp;Next&gt;&gt;" />
                                                                             <Columns>
                                                                                 <asp:BoundColumn DataField="code" Visible="False"></asp:BoundColumn>
+                                                                                <asp:TemplateColumn HeaderText="م">
+                                                                                    <HeaderStyle HorizontalAlign="center" Width="30px" />
+                                                                                    <ItemStyle HorizontalAlign="center" Width="30px" />
+                                                                                    <ItemTemplate>
+                                                                                        <%# (Container.ItemIndex + 1).ToString() %>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateColumn>
                                                                                 <asp:TemplateColumn HeaderText="نوع  الوسام">
 
                                                                                     <HeaderStyle HorizontalAlign="right" />
@@ -1029,7 +1060,7 @@
                                                                             <asp:TemplateColumn HeaderText="م.">
                                                                                 <ItemStyle HorizontalAlign="center" Width="2px" />
                                                                                 <ItemTemplate>
-                                                                                    <%#Convert.ToInt32(DataBinder.Eval(Container, "ItemIndex")) + 1%>
+                                                                                    <%#IsPlaceholderRow(Container.DataItem) ? "" : (Convert.ToInt32(DataBinder.Eval(Container, "ItemIndex")) - GetPlaceholderRowsBefore(Container.ItemIndex) + 1).ToString()%>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateColumn>
 
@@ -1136,6 +1167,18 @@
 
                                                                             </asp:TemplateColumn>
 
+                                                                            <asp:TemplateColumn HeaderText="بيانات إضافية">
+
+                                                                                <HeaderStyle HorizontalAlign="right" />
+                                                                                <ItemTemplate><%#Eval("AdditionalData") %></ItemTemplate>
+                                                                                <EditItemTemplate>
+                                                                                    <asp:TextBox ID="txtAdditionalData" CssClass="form-control" Width="100%" runat="server"></asp:TextBox>
+                                                                                    <input id="hdnAdditionalData" value='<%#Eval("AdditionalData") %>' runat="server" type="hidden" />
+
+                                                                                </EditItemTemplate>
+
+
+                                                                            </asp:TemplateColumn>
 
                                                                             <asp:TemplateColumn HeaderText="ملاحظات">
 
@@ -1404,4 +1447,29 @@
         </div>
     </div>
        <uc:DeleteConfirm runat="server" />
+
+    <script type="text/javascript">
+        // Initialize Select2 for dropdown lists
+        function initializeSelect2() {
+            $('.Select2Drop').select2({
+                language: 'ar',
+                allowClear: true,
+                dir: 'rtl',
+                minimumInputLength: 0
+            });
+        }
+
+        // Initialize on page load
+        $(document).ready(function () {
+            initializeSelect2();
+        });
+
+        // Re-initialize after partial postback
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        if (prm != null) {
+            prm.add_endRequest(function () {
+                initializeSelect2();
+            });
+        }
+    </script>
 </asp:Content>

@@ -444,6 +444,8 @@ namespace UI.Web.Medals.Forms
                 HtmlInputHidden hdnMilitaryNum = (HtmlInputHidden)e.Item.FindControl("hdnMilitaryNum");
                 HtmlInputHidden hdnCountryId = (HtmlInputHidden)e.Item.FindControl("hdnCountryId");
                 HtmlInputHidden hdnPersonTitle = (HtmlInputHidden)e.Item.FindControl("hdnPersonTitle");
+                HtmlInputHidden hdnAdditionalData = (HtmlInputHidden)e.Item.FindControl("hdnAdditionalData");
+                TextBox txtAdditionalData = (TextBox)e.Item.FindControl("txtAdditionalData");
 
 
 
@@ -503,6 +505,11 @@ namespace UI.Web.Medals.Forms
                 if (hdnPersonTitle.Value != "" && hdnPersonTitle.Value != "0")
                 {
                     txtPersonTitle.Text = hdnPersonTitle.Value;
+                }
+
+                if (hdnAdditionalData.Value != "" && hdnAdditionalData.Value != "0")
+                {
+                    txtAdditionalData.Text = hdnAdditionalData.Value;
                 }
 
                 if (hdnMilitaryNum.Value != "" && hdnMilitaryNum.Value != "0")
@@ -618,12 +625,37 @@ namespace UI.Web.Medals.Forms
                     PersonsList = (List<Medal_Persons>)Session["PersonsList"];
                 }
 
+                // Get the controls from edit row
+                TextBox txtname = ((TextBox)e.Item.FindControl("txtname"));
+                TextBox txtMilitaryNum = ((TextBox)e.Item.FindControl("txtMilitaryNum"));
                 DropDownList lstMedalType = ((DropDownList)e.Item.FindControl("lstMedalType"));
                 DropDownList lstJobGrade = ((DropDownList)e.Item.FindControl("lstJobGrade"));
                 DropDownList lstGrantreasons = ((DropDownList)e.Item.FindControl("lstGrantreasons"));
                 DropDownList lstCountryId = ((DropDownList)e.Item.FindControl("lstCountryId"));
 
+                // Validation: Check if required fields are not empty
+                if (string.IsNullOrWhiteSpace(txtname.Text))
+                {
+                    string errorScript = FormatpopupErrorMSG("فضلاً، يجب إدخال الاسم", "1");
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", errorScript, true);
+                    return;
+                }
 
+                if (ZeroIntergerIFNull(lstMedalType.SelectedValue) == 0)
+                {
+                    string errorScript = FormatpopupErrorMSG("فضلاً، يجب اختيار نوع الوسام", "1");
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", errorScript, true);
+                    return;
+                }
+
+                if (ZeroIntergerIFNull(lstJobGrade.SelectedValue) == 0)
+                {
+                    string errorScript = FormatpopupErrorMSG("فضلاً، يجب اختيار الرتبة", "1");
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", errorScript, true);
+                    return;
+                }
+
+                // Military Number is optional - removed validation
 
                 Medal_Persons _personobj = new Medal_Persons();
 
@@ -671,6 +703,7 @@ namespace UI.Web.Medals.Forms
 
 
                 _personobj.PersonTitle = gets(((TextBox)e.Item.FindControl("txtPersonTitle")).Text);
+                _personobj.AdditionalData = gets(((TextBox)e.Item.FindControl("txtAdditionalData")).Text);
                 _personobj.MilitaryNum = gets(((TextBox)e.Item.FindControl("txtMilitaryNum")).Text);
                 _personobj.CountryName = gets(lstCountryId.SelectedItem.Text);
 
@@ -691,9 +724,6 @@ namespace UI.Web.Medals.Forms
 
                 grdPersons.DataSource = AddDefaultItems(PersonsList);
                 grdPersons.DataBind();
-                //  FillMedalPersons(ZeroIntergerIFNull(hdnMasterID.Value));
-
-                // FillMedalPersons(ZeroIntergerIFNull(Request.QueryString["id"].ToString()));
 
                 string script = FormatpopupErrorMSG("Person Added Successfully ", "3");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", script, true);
@@ -966,7 +996,13 @@ namespace UI.Web.Medals.Forms
                             {
                                 if (gets(PersonList.Rows[i][0]) != "" && gets(PersonList.Rows[i][1]) != "" && gets(PersonList.Rows[i][2]) != "" && gets(PersonList.Rows[i][3]) != "")
                                 {
-                                    AppendPersonFromExcel(gets(PersonList.Rows[i][1]), gets(PersonList.Rows[i][0]), gets(PersonList.Rows[i][2]), gets(PersonList.Rows[i][3]));
+                                    string medalType = gets(PersonList.Rows[i][0]);
+                                    string personName = gets(PersonList.Rows[i][1]);
+                                    string grade = gets(PersonList.Rows[i][2]);
+                                    string militaryNum = gets(PersonList.Rows[i][3]);
+                                    string additionalData = PersonList.Columns.Count > 4 ? gets(PersonList.Rows[i][4]) : "";
+
+                                    AppendPersonFromExcel(personName, medalType, grade, militaryNum, additionalData);
                                 }
                                 else
                                 {
@@ -979,7 +1015,9 @@ namespace UI.Web.Medals.Forms
 
                             File.Delete("/Layout/uploads/MedalFiles" + _uploadeFileName);
 
-
+                            // Show success message - Select2 will be initialized automatically
+                            string successScript = FormatpopupErrorMSG("تم إضافة الأشخاص بنجاح", "3");
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", successScript, true);
                         }
                         else
                         {
@@ -1049,7 +1087,7 @@ namespace UI.Web.Medals.Forms
 
         }
 
-        private void AppendPersonFromExcel(string Person_NameEn, string medalType, string grade, string MilitaryNum)
+        private void AppendPersonFromExcel(string Person_NameEn, string medalType, string grade, string MilitaryNum, string AdditionalData = "")
         {
 
             ViewState["SpEdit"] = "0";
@@ -1067,8 +1105,8 @@ namespace UI.Web.Medals.Forms
             medal_M_Grantreasons _medal_M_Grantreasons = new medal_M_Grantreasons();
             Agreement_Orgs _Countries = new Agreement_Orgs();
 
-            _Medal_M_Types = getMeadalTypeByName(medalType);
-            _Medal_M_jobGrade = getGrdeByName(grade);
+            _Medal_M_Types = getMeadalTypeByCode(medalType);
+            _Medal_M_jobGrade = getGrdeByCode(grade);
 
             _personobj.Code = -1;
             _personobj.MedalType = _Medal_M_Types.Code;
@@ -1077,6 +1115,11 @@ namespace UI.Web.Medals.Forms
             _personobj.Person_NameEn = Person_NameEn;
             _personobj.Person_NameAr = Person_NameEn;
             _personobj.MilitaryNum = MilitaryNum;
+
+            if (!string.IsNullOrEmpty(AdditionalData))
+            {
+                _personobj.AdditionalData = AdditionalData;
+            }
 
 
             _personobj.Medal_M_Types = _Medal_M_Types;
@@ -1093,11 +1136,11 @@ namespace UI.Web.Medals.Forms
             lblPersonCount.Text = "<span style='color:red'>(" + PersonsList.Count.ToString() + ")</span>";
 
         }
-        private Medal_M_Types getMeadalTypeByName(string medalTypeText)
+        private Medal_M_Types getMeadalTypeByCode(string medalTypeCode)
         {
-            if (!string.IsNullOrEmpty(medalTypeText))
+            if (!string.IsNullOrEmpty(medalTypeCode))
             {
-                var MedalTypeList = objLookup.FillMedalsTypeByName(medalTypeText);
+                var MedalTypeList = objLookup.FillMedalsTypeByCode(medalTypeCode);
                 if (MedalTypeList != null)
                 {
                     return MedalTypeList;
@@ -1106,8 +1149,8 @@ namespace UI.Web.Medals.Forms
                 {
                     //Add New Recode and 
                     Medal_M_Types objnew = new Medal_M_Types();
-                    objnew.NameEn = medalTypeText;
-                    objnew.NameAr = medalTypeText;
+                    objnew.NameEn = medalTypeCode;
+                    objnew.NameAr = medalTypeCode;
                     objLookup.AddMedal_M_Types(objnew);
                     return objnew;
 
@@ -1116,11 +1159,11 @@ namespace UI.Web.Medals.Forms
             }
             return null;
         }
-        private Medal_M_jobGrade getGrdeByName(string GradeText)
+        private Medal_M_jobGrade getGrdeByCode(string GradeCode)
         {
-            if (!string.IsNullOrEmpty(GradeText))
+            if (!string.IsNullOrEmpty(GradeCode))
             {
-                var medalGrade = objLookup.getGradeByName(GradeText);
+                var medalGrade = objLookup.getGradeByCode(GradeCode);
                 if (medalGrade != null)
                 {
                     return medalGrade;
@@ -1129,8 +1172,8 @@ namespace UI.Web.Medals.Forms
                 {
                     //Add New Recode and 
                     Medal_M_jobGrade objnew = new Medal_M_jobGrade();
-                    objnew.NameEn = GradeText;
-                    objnew.NameAr = GradeText;
+                    objnew.NameEn = GradeCode;
+                    objnew.NameAr = GradeCode;
                     objLookup.AddMedalGrade(objnew);
                     return objnew;
 
@@ -1164,11 +1207,16 @@ namespace UI.Web.Medals.Forms
 
                 grdPersons.DataSource = AddDefaultItems(objpersonsList);
 
-
+                // Always set edit index to 0 (for the blank row) in add mode (SpEdit = "0")
                 if (ViewState["SpEdit"].Equals("0"))
                 {
-                    // grdPersons.EditItemIndex = objpersonsList.Count;
                     grdPersons.EditItemIndex = 0;
+                }
+                else
+                {
+                    // In details view mode (SpEdit = "1"), don't set edit index
+                    // so rows show as read-only
+                    grdPersons.EditItemIndex = -1;
                 }
 
                 grdPersons.DataBind();
@@ -1190,6 +1238,40 @@ namespace UI.Web.Medals.Forms
 
 
         }
+
+        /// <summary>
+        /// Determines if a row is a placeholder (empty) row.
+        /// </summary>
+        public bool IsPlaceholderRow(object dataItem)
+        {
+            if (dataItem == null)
+                return true;
+
+            var row = dataItem as Medal_Persons;
+            if (row == null)
+                return true;
+
+            // A row is considered a placeholder if it has no name and no medal type
+            return string.IsNullOrWhiteSpace(row.Person_NameAr) && row.MedalType == 0;
+        }
+
+        /// <summary>
+        /// Counts placeholder rows before the given index to adjust serial numbering.
+        /// </summary>
+        public int GetPlaceholderRowsBefore(int itemIndex)
+        {
+            int count = 0;
+            if (grdPersons.DataSource is List<Medal_Persons> dataSource)
+            {
+                for (int i = 0; i < itemIndex && i < dataSource.Count; i++)
+                {
+                    if (IsPlaceholderRow(dataSource[i]))
+                        count++;
+                }
+            }
+            return count;
+        }
+
         private List<Medal_Persons> AddDefaultItems(List<Medal_Persons> _SourceList)
         {
             List<Medal_Persons> _OutList = new List<Medal_Persons>();
@@ -1197,33 +1279,25 @@ namespace UI.Web.Medals.Forms
             int TargetCount = 10;
             int _RoundCount = TargetCount - _SourceList.Count;
 
+            // Always add a blank row at the beginning (for add mode or details view)
+            _OutList.Add(new Medal_Persons());
+
+            // Add actual data
+            for (int i = 0; i < _SourceList.Count; i++)
+            {
+                _OutList.Add(_SourceList[i]);
+            }
+
+            // Add empty rows for remaining count
+            _RoundCount--; // Because we already added one blank row
             if (_RoundCount > 0)
             {
-
-
                 for (int i = 0; i < _RoundCount; i++)
                 {
                     _OutList.Add(new Medal_Persons());
                 }
-
-                //  _OutList = _SourceList;
-                for (int i = 0; i < _SourceList.Count; i++)
-                {
-                    _OutList.Add(_SourceList[i]);
-                }
-
-
-
             }
-            else if (_RoundCount <= 0)
-            {
-                _OutList.Add(new Medal_Persons());
-                //  _OutList = _SourceList;
-                for (int i = 0; i < _SourceList.Count; i++)
-                {
-                    _OutList.Add(_SourceList[i]);
-                }
-            }
+
             return _OutList;
         }
         private string MapSearchKeys()
@@ -1231,7 +1305,9 @@ namespace UI.Web.Medals.Forms
             Dictionary<string, string> _keyList = new Dictionary<string, string>();
             try
             {
-                _keyList.Add("  رقم الملف", txtFilterFileNUm.Text);
+                _keyList.Add("رقم الوارد", txtFilterFileSerial.Text);
+                _keyList.Add("السنة", txtFilterFileYear.Text);
+                _keyList.Add("رقم الملف", txtFilterFileNUm.Text);
                 _keyList.Add("جزء من الاسم", txtFilterName.Text);
                 _keyList.Add("تاريخ المنح من", txtFilterDatefrom.Text);
                 _keyList.Add(" الي تاريخ   ", txtFilterDateTo.Text);
@@ -1253,11 +1329,12 @@ namespace UI.Web.Medals.Forms
         private void FillMedals()
         {
             Session["fileName"] = null;
-            var objList = objRepository.GetList(txtFilterFileNUm.Text, NullDateifEmpty(txtFilterDatefrom.Text),
+            var objList = objRepository.GetList( NullDateifEmpty(txtFilterDatefrom.Text),
                 NullDateifEmpty(txtFilterDateTo.Text), ZeroIntergerIFNull(lstFilterType.SelectedValue),
                 0, ZeroIntergerIFNull(lstFilterOrg.SelectedValue),
                 ZeroIntergerIFNull(lstFilterProcedures.SelectedValue), txtFilterName.Text,
-                ZeroIntergerIFNull(lstFilterJobGrade.SelectedValue), getBool(ReadSession("ViewPrivate")), MapSearchKeys(), ZeroIntergerIFNull(lstFilterMedalCat.SelectedValue));
+                ZeroIntergerIFNull(lstFilterJobGrade.SelectedValue), getBool(ReadSession("ViewPrivate")), MapSearchKeys(), ZeroIntergerIFNull(lstFilterMedalCat.SelectedValue),
+                ZeroIntergerIFNull(txtFilterFileSerial.Text), ZeroIntergerIFNull(txtFilterFileYear.Text));
             lblcount.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
             lblcount2.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
 

@@ -326,7 +326,10 @@ namespace UI.Web.Modules.MasterData
                     ColName = "النوع";
                 else if (ColName == "NameAr")
                     ColName = "الاسم بالعربيه";
-                if (column.ColumnName != "imgPath")
+                //else if (ColName == "OrgType")
+                //    ColName = "الاسم بالعربيه";
+
+                if (column.ColumnName != "imgPath" && ColName != "OrgType" && ColName != "CatID")
                     phFilters.Controls.Add(new LiteralControl("<div class=\"col-md-3\"><div class=\"form-group\"><span>" + ColName + ":</span>"));
 
                 Control control;
@@ -350,11 +353,13 @@ namespace UI.Web.Modules.MasterData
                         CssClass = "table-group-action-select form-control input-inline"
                     };
                 }
-                if (column.ColumnName != "imgPath")
+                if (column.ColumnName != "imgPath" && ColName != "OrgType" && ColName != "CatID")
                 {
                     phFilters.Controls.Add(control);
                     phFilters.Controls.Add(new LiteralControl("</div></div>"));
                 }
+
+
             }
         }
 

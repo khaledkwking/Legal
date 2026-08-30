@@ -39,9 +39,9 @@ namespace Infrastructure.DAL
         #endregion
 
         #region List
-        public List<MedalViewModel> GetList(string Medalserial, DateTime TransactionDatFrom,
+        public List<MedalViewModel> GetList( DateTime TransactionDatFrom,
             DateTime TransactionDatTo, int MedalType, int Agr_CatID, int orgCodeID,
-            int LastActionID,string FilterName, int JObGradeID,Boolean isPrivate, string SelectedFilterKeys,int MedalCatId )
+            int LastActionID,string FilterName, int JObGradeID,Boolean isPrivate, string SelectedFilterKeys,int MedalCatId, int FileSerial = 0, int FileYear = 0)
         {
 
 
@@ -54,7 +54,7 @@ namespace Infrastructure.DAL
                          //.Include("Medal_Persons.Medal_M_Types")
                          //    orderby obj.FileSerial descending, obj.FileYear descending
                      where 1 == 1// Stop Getting Data As per Osama request on 13112019
-                   && (Medalserial != "" ? obj.FileNum == Medalserial : 1 == 1)
+                   //&& (Medalserial != "" ? obj.FileNum.Contains(Medalserial) : 1 == 1)
                    && (TransactionDatFrom != new DateTime(1990, 01, 01) ? obj.TransDate >= TransactionDatFrom : 1 == 1)
                    && (TransactionDatTo != new DateTime(1990, 01, 01) ? obj.TransDate <= TransactionDatFrom : 1 == 1)
                    && (MedalType != 0 ? obj.Medal_Persons.Any(a=>a.Medal_M_Types.Code == MedalType) : 1 == 1)
@@ -65,6 +65,8 @@ namespace Infrastructure.DAL
                    && (FilterName != "" ? obj.Medal_Persons.Any(sub => sub.Person_NameAr.Contains(FilterName)) : 1 == 1)
                    && (JObGradeID != 0 ? obj.Medal_Persons.Any(sub => sub.GradeID == JObGradeID) : 1 == 1)
                     && (isPrivate != true ? obj.isPrivate == false : 1 == 1)
+                   && (FileSerial != 0 ? obj.FileSerial == FileSerial : 1 == 1)
+                   && (FileYear != 0 ? obj.FileYear == FileYear : 1 == 1)
                      //&& (ManifestNo != "" ? obj.ManifestNo == ManifestNo : 1 == 1)
                      //&& (DekiveryOrderNo != "" ? obj.DeliveryOrderNo == DekiveryOrderNo : 1 == 1)
                      //&& (Decalrationtype != 0 ? obj.DepositeDeclarationTypeCode == Decalrationtype : 1 == 1)

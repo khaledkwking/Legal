@@ -1669,7 +1669,10 @@
 
                                                                     <ItemTemplate>
                                                                         <a data-toggle="modal" data-target="#modal_<%#Eval("Code") %>">
-                                                                            <%#HighlightSearchText(gets(Eval("DocNum")), txtFilterDetails.Text) %></a>
+                                                                          <%--  <%#HighlightSearchText(gets(Eval("DocNum")), txtFilterDetails.Text) %>--%>
+                                                                            
+                                                                             <%#Eval("DocSubject") %>
+                                                                        </a>
                                                                         <div id="modal_<%#Eval("Code") %>" class="modal fade">
                                                                             <div class="modal-dialog">
                                                                                 <div class="modal-content">

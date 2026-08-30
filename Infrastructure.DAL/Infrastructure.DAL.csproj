@@ -136,6 +136,7 @@
     <Compile Include="Model\LegalMemo_Status.cs">
       <DependentUpon>CMGS_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Medal_Persons_Extension.cs" />
     <Compile Include="Model\Parliament_CMGSRelatedOrgs.cs">
       <DependentUpon>CMGS_DB.tt</DependentUpon>
     </Compile>
