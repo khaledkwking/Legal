@@ -141,7 +141,7 @@ namespace UI.Web.Modules.MasterData
                     objLookup.DeleteList(TargetTableName, lst);
                     this.FillGrid();
 
-                    Script = FormatpopupErrorMSG("Data Deleted Successfully", "3");
+                    Script = FormatpopupErrorMSG("تم الحذف بنجاج", "3");
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", Script, true);
                 }
                 catch (Exception)
@@ -322,14 +322,14 @@ namespace UI.Web.Modules.MasterData
                     objLookup.Update(TargetTableName, ViewState["Item"].ToString(), txtNameEn.Text, txtNameAr.Text, txtOrder.Text);
                 }
 
-                Script = FormatpopupErrorMSG("Data Saved Successfully", "3");
+                Script = FormatpopupErrorMSG("تم حفظ البيانات بنجاح", "3");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", Script, true);
                 this.ClearForm();
                 this.FillGrid();
             }
             catch (Exception ex)
             {
-                Script = FormatpopupErrorMSG("Fail To Save Data", "1");
+                Script = FormatpopupErrorMSG("خطأ فى حفظ البيانات", "1");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", Script, true);
                 lblerror.ForeColor = System.Drawing.Color.Red;
                 lblerror.Text = ("Error :" + ex.Message);

@@ -3,7 +3,7 @@
 
 <%@ Register TagPrefix="cc1" Namespace="CutePager" Assembly="ASPnetPagerV2netfx2_0" %>
 
-
+<%@ Register Src="~/UserControls/DeleteConfirm.ascx"  TagPrefix="uc"  TagName="DeleteConfirm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -51,7 +51,7 @@
     </asp:UpdatePanel>
     <!--END TITLE & BREADCRUMB PAGE-->
     <!--BEGIN CONTENT-->
-
+    <uc:DeleteConfirm ID="DeleteConfirm1" runat="server" />
     <div class="row mbl">
 
         <div class="col-lg-12">
@@ -140,7 +140,8 @@
 
                                         <asp:LinkButton runat="server" ID="btnNew" class="btn btn-info btn-xs"><i class="fa fa-plus"></i>&nbsp; إضافة جديد&nbsp;</asp:LinkButton>
 
-                                        <asp:LinkButton OnClientClick="return checkDelete();" runat="server" ID="btnDelete" class="btn btn-danger btn-xs" OnClick="btnDelete_Click"><i class="fa fa-times"></i>&nbsp;حذف الببانات المختاره</asp:LinkButton>
+                                        <asp:LinkButton OnClientClick="return DeleteConfirm.show(this);" runat="server" ID="btnDelete" class="btn btn-danger btn-xs" OnClick="btnDelete_Click"><i class="fa fa-times"></i>&nbsp;حذف الببانات المختاره</asp:LinkButton>
+
 
                                     </div>
                                 </div>

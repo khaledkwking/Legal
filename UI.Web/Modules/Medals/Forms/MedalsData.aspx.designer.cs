@@ -231,6 +231,24 @@ namespace UI.Web.Medals.Forms
         protected global::CutePager.Pager pager1;
 
         /// <summary>
+        /// personDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl personDiv;
+
+        /// <summary>
+        /// PersonsAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataGrid PersonsAll;
+
+        /// <summary>
         /// tblAdd control.
         /// </summary>
         /// <remarks>
@@ -393,33 +411,6 @@ namespace UI.Web.Medals.Forms
         protected global::System.Web.UI.WebControls.LinkButton lnkUploadPersons;
 
         /// <summary>
-        /// Updatepanel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel Updatepanel2;
-
-        /// <summary>
-        /// btnAddNewItem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddNewItem;
-
-        /// <summary>
-        /// grdPersons control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid grdPersons;
-
-        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>
@@ -463,6 +454,51 @@ namespace UI.Web.Medals.Forms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkViewRelatedDoc;
+
+        /// <summary>
+        /// Updatepanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel Updatepanel2;
+
+        /// <summary>
+        /// btnAddNewItem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddNewItem;
+
+        /// <summary>
+        /// grdPersons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataGrid grdPersons;
+
+        /// <summary>
+        /// lblPersonsCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPersonsCount;
+
+        /// <summary>
+        /// pagerPersons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CutePager.Pager pagerPersons;
 
         /// <summary>
         /// divAddProcedure control.

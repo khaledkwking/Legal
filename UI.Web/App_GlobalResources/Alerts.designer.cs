@@ -70,7 +70,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data Saved Successfully.
+        ///   Looks up a localized string similar to  „ Õ›Ÿ «·»Ì«‰«  »‰Ã«Õ.
         /// </summary>
         internal static string DataSavedSuccessfully {
             get {
@@ -160,7 +160,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fail To Save Data.
+        ///   Looks up a localized string similar to Œÿ√ ›Ï Õ›Ÿ «·»Ì«‰« .
         /// </summary>
         internal static string FailToSaveData {
             get {

@@ -155,6 +155,7 @@ namespace Infrastructure.DAL.Model
         public virtual DbSet<Cases_M_CaseTypes> Cases_M_CaseTypes { get; set; }
         public virtual DbSet<Complaints_Data> Complaints_Data { get; set; }
         public virtual DbSet<Law_DocData_Linked> Law_DocData_Linked { get; set; }
+        public virtual DbSet<View_MedalPersonsData> View_MedalPersonsData { get; set; }
     
         public virtual ObjectResult<Nullable<int>> Security_SP_getPermissionsCount(Nullable<int> jobid, Nullable<int> userID)
         {

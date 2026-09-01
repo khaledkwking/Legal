@@ -329,6 +329,8 @@ namespace UI.Web.Medals.Forms
             tblAdd.Visible = true;
             tblshow.Visible = false;
             tblSearch.Visible = false;
+            PersonsAll.Visible = false;
+            personDiv.Visible = false;
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -415,6 +417,11 @@ namespace UI.Web.Medals.Forms
 
         protected void lnkSearch_Click(object sender, EventArgs e)
         {
+            // Clear previous search results for detail view
+            ViewState["itemID"] = "0";
+            ViewState["SpEdit"] = "1";
+            Session["PersonsList"] = null;
+
             FillMedals();
         }
 
@@ -725,6 +732,14 @@ namespace UI.Web.Medals.Forms
                 grdPersons.DataSource = AddDefaultItems(PersonsList);
                 grdPersons.DataBind();
 
+                // Update pager
+                if (pagerPersons != null)
+                {
+                    pagerPersons.ItemCount = PersonsList.Count;
+                    pagerPersons.CurrentIndex = 1;
+                }
+                grdPersons.CurrentPageIndex = 0;
+
                 string script = FormatpopupErrorMSG("Person Added Successfully ", "3");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", script, true);
             }
@@ -828,6 +843,14 @@ namespace UI.Web.Medals.Forms
                 grdPersons.DataSource = AddDefaultItems(PersonsList);
                 grdPersons.DataBind();
 
+                // Update pager
+                if (pagerPersons != null)
+                {
+                    pagerPersons.ItemCount = PersonsList.Count;
+                    pagerPersons.CurrentIndex = 1;
+                }
+                grdPersons.CurrentPageIndex = 0;
+
                 string script = FormatpopupErrorMSG("Person Updated Successfully ", "3");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", script, true);
 
@@ -863,6 +886,21 @@ namespace UI.Web.Medals.Forms
 
                 grdPersons.DataSource = AddDefaultItems(PersonsList);
                 grdPersons.DataBind();
+
+                // Update pager after delete
+                if (pagerPersons != null)
+                {
+                    pagerPersons.ItemCount = PersonsList.Count;
+
+                    // Validate current page index doesn't exceed page count
+                    decimal pageCount = Math.Ceiling((decimal)PersonsList.Count / grdPersons.PageSize);
+                    if (grdPersons.CurrentPageIndex >= pageCount)
+                    {
+                        grdPersons.CurrentPageIndex = (int)pageCount - 1;
+                    }
+
+                    pagerPersons.CurrentIndex = grdPersons.CurrentPageIndex + 1;
+                }
             }
             else if (e.CommandName.Equals("Cancel"))
             {
@@ -878,6 +916,13 @@ namespace UI.Web.Medals.Forms
 
                 grdPersons.DataSource = AddDefaultItems(PersonsList);
                 grdPersons.DataBind();
+
+                // Update pager
+                if (pagerPersons != null)
+                {
+                    pagerPersons.ItemCount = PersonsList.Count;
+                    pagerPersons.CurrentIndex = grdPersons.CurrentPageIndex + 1;
+                }
             }
         }
 
@@ -1135,6 +1180,15 @@ namespace UI.Web.Medals.Forms
             grdPersons.DataBind();
             lblPersonCount.Text = "<span style='color:red'>(" + PersonsList.Count.ToString() + ")</span>";
 
+            // Set pager item count for Excel upload
+            if (pagerPersons != null)
+            {
+                pagerPersons.ItemCount = PersonsList.Count;
+                pagerPersons.CurrentIndex = 1;
+            }
+
+            // Reset to first page
+            grdPersons.CurrentPageIndex = 0;
         }
         private Medal_M_Types getMeadalTypeByCode(string medalTypeCode)
         {
@@ -1201,42 +1255,63 @@ namespace UI.Web.Medals.Forms
                 Session["PersonsList"] = objpersonsList;
             }
 
-
             if (objpersonsList != null && objpersonsList.Count > 0)
             {
+                var dataSource = AddDefaultItems(objpersonsList);
 
-                grdPersons.DataSource = AddDefaultItems(objpersonsList);
+                // Set CurrentPageIndex FIRST before setting DataSource
+                // This ensures the page index is set before DataBind processes it
+                int currentPageIndex = grdPersons.CurrentPageIndex;
+                if (currentPageIndex >= dataSource.Count / grdPersons.PageSize)
+                {
+                    currentPageIndex = Math.Max(0, (dataSource.Count / grdPersons.PageSize) - 1);
+                }
+
+                grdPersons.CurrentPageIndex = currentPageIndex;
+                grdPersons.DataSource = dataSource;
 
                 // Always set edit index to 0 (for the blank row) in add mode (SpEdit = "0")
                 if (ViewState["SpEdit"].Equals("0"))
                 {
                     grdPersons.EditItemIndex = 0;
+                    // Show upload section in add mode
+                    UploadPersonsList.Visible = true;
                 }
                 else
                 {
                     // In details view mode (SpEdit = "1"), don't set edit index
                     // so rows show as read-only
                     grdPersons.EditItemIndex = -1;
+                    // Hide upload section in details view
+                    UploadPersonsList.Visible = false;
                 }
 
+                // DataBind should preserve the CurrentPageIndex that was just set
                 grdPersons.DataBind();
-
-
-
             }
             else
             {
-
                 grdPersons.EditItemIndex = 0;
                 grdPersons.DataSource = AddDefaultItems(objpersonsList);
                 grdPersons.DataBind();
 
+                // Show upload section when adding new
+                UploadPersonsList.Visible = (ViewState["SpEdit"].ToString() == "0");
             }
+
             lblPersonCount.Text = "(" + objpersonsList.Count().ToString() + ")";
 
+            // Set pager item count and current index
+            // Use the actual dataSource count for paging calculations (which includes placeholder rows)
+            if (pagerPersons != null)
+            {
+                // Only count non-placeholder rows for the pager ItemCount
+                // The pager should show the number of actual data rows, not including blanks
+                pagerPersons.ItemCount = objpersonsList.Count;
 
-
-
+                // Set pager current index based on grid's current page
+                pagerPersons.CurrentIndex = grdPersons.CurrentPageIndex + 1;
+            }
         }
 
         /// <summary>
@@ -1272,29 +1347,81 @@ namespace UI.Web.Medals.Forms
             return count;
         }
 
+        /// <summary>
+        /// Gets the correct row number accounting for placeholder rows and pagination
+        /// </summary>
+        public int GetRowNumber(int itemIndex)
+        {
+            // Initialize serial number based on current page and items per page
+            // Count non-placeholder items up to current position
+            int serialNumber = 1;
+            int itemsPerPage = grdPersons.PageSize;
+            int currentPageStart = grdPersons.CurrentPageIndex * itemsPerPage;
+
+            if (grdPersons.DataSource is List<Medal_Persons> dataSource)
+            {
+                // Count non-placeholder rows from the beginning to the start of current page
+                for (int i = 0; i < currentPageStart && i < dataSource.Count; i++)
+                {
+                    if (!IsPlaceholderRow(dataSource[i]))
+                    {
+                        serialNumber++;
+                    }
+                }
+
+                // Count non-placeholder rows from current page start to current item
+                for (int i = currentPageStart; i < currentPageStart + itemIndex && i < dataSource.Count; i++)
+                {
+                    if (!IsPlaceholderRow(dataSource[i]))
+                    {
+                        serialNumber++;
+                    }
+                }
+            }
+            else
+            {
+                // Fallback to simple calculation if DataSource is not available
+                serialNumber = (grdPersons.CurrentPageIndex * itemsPerPage) + itemIndex + 1;
+            }
+
+            return serialNumber;
+        }
+
         private List<Medal_Persons> AddDefaultItems(List<Medal_Persons> _SourceList)
         {
             List<Medal_Persons> _OutList = new List<Medal_Persons>();
 
-            int TargetCount = 10;
-            int _RoundCount = TargetCount - _SourceList.Count;
+            int TargetCount = 10; // Minimum rows per page for empty grids
 
-            // Always add a blank row at the beginning (for add mode or details view)
-            _OutList.Add(new Medal_Persons());
-
-            // Add actual data
-            for (int i = 0; i < _SourceList.Count; i++)
+            // Only add blank rows if we have fewer items than TargetCount
+            if (_SourceList.Count < TargetCount)
             {
-                _OutList.Add(_SourceList[i]);
-            }
+                // Add a blank row at the beginning (for add mode or details view)
+                _OutList.Add(new Medal_Persons());
 
-            // Add empty rows for remaining count
-            _RoundCount--; // Because we already added one blank row
-            if (_RoundCount > 0)
-            {
-                for (int i = 0; i < _RoundCount; i++)
+                // Add actual data
+                for (int i = 0; i < _SourceList.Count; i++)
                 {
-                    _OutList.Add(new Medal_Persons());
+                    _OutList.Add(_SourceList[i]);
+                }
+
+                // Add empty rows for remaining count to reach TargetCount
+                int _RoundCount = TargetCount - _SourceList.Count - 1; // -1 because we added one blank row
+                if (_RoundCount > 0)
+                {
+                    for (int i = 0; i < _RoundCount; i++)
+                    {
+                        _OutList.Add(new Medal_Persons());
+                    }
+                }
+            }
+            else
+            {
+                // For large datasets, don't add placeholder rows
+                // Just add the actual data
+                for (int i = 0; i < _SourceList.Count; i++)
+                {
+                    _OutList.Add(_SourceList[i]);
                 }
             }
 
@@ -1328,58 +1455,84 @@ namespace UI.Web.Medals.Forms
         }
         private void FillMedals()
         {
-            Session["fileName"] = null;
-            var objList = objRepository.GetList( NullDateifEmpty(txtFilterDatefrom.Text),
+            if (txtFilterName.Text == "")
+            {
+                Session["fileName"] = null;
+                var objList = objRepository.GetList(NullDateifEmpty(txtFilterDatefrom.Text),
+                    NullDateifEmpty(txtFilterDateTo.Text), ZeroIntergerIFNull(lstFilterType.SelectedValue),
+                    0, ZeroIntergerIFNull(lstFilterOrg.SelectedValue),
+                    ZeroIntergerIFNull(lstFilterProcedures.SelectedValue), txtFilterName.Text,
+                    ZeroIntergerIFNull(lstFilterJobGrade.SelectedValue), getBool(ReadSession("ViewPrivate")), MapSearchKeys(), ZeroIntergerIFNull(lstFilterMedalCat.SelectedValue),
+                    ZeroIntergerIFNull(txtFilterFileSerial.Text), ZeroIntergerIFNull(txtFilterFileYear.Text));
+                lblcount.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
+                lblcount2.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
+
+                if (!txtFilterName.Text.Equals(""))
+                {
+                    Session["fileName"] = txtFilterName.Text;
+                }
+
+                var duplicatedList = objList.SelectMany(t =>
+               Enumerable.Repeat(t, 2)).ToList();
+
+                //decimal c = System.Math.Ceiling(Convert.ToDecimal(objList.Count / grdInboundItems.PageSize));
+                //if ((c <= grdInboundItems.CurrentPageIndex))
+                //{
+                //    grdInboundItems.CurrentPageIndex = 0;
+                //}
+
+                //List Duplication
+                //List<View_InboundItems> duplicatedList = new List<View_InboundItems>();
+                //duplicatedList = DuplicatedList(objList);
+
+                if (objList.Count > 0)
+                {
+                    //btnSave.Visible = true;
+                    //lnkBack.Visible = true;
+
+                    tblshow.Visible = true;
+                    tblSearch.Visible = false;
+                    pager1.Visible = true;
+
+                }
+                else
+                {
+                    tblshow.Visible = false;
+                    pager1.Visible = false;
+                    tblSearch.Visible = true;
+                    string script = FormatpopupErrorMSG("لا يوجد نتيجة للبحث ", "2");
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", script, true);
+
+                }
+                personDiv.Visible = false;
+                PersonsAll.Visible = false;
+                grdInboundItems.Visible = true;
+
+                grdInboundItems.DataSource = duplicatedList;
+                grdInboundItems.DataBind();
+                pager1.ItemCount = duplicatedList.Count;
+            }
+            else if (txtFilterName.Text != "")
+            {
+                var objpersonsList = objRepository.GetPersonList(NullDateifEmpty(txtFilterDatefrom.Text),
                 NullDateifEmpty(txtFilterDateTo.Text), ZeroIntergerIFNull(lstFilterType.SelectedValue),
                 0, ZeroIntergerIFNull(lstFilterOrg.SelectedValue),
                 ZeroIntergerIFNull(lstFilterProcedures.SelectedValue), txtFilterName.Text,
                 ZeroIntergerIFNull(lstFilterJobGrade.SelectedValue), getBool(ReadSession("ViewPrivate")), MapSearchKeys(), ZeroIntergerIFNull(lstFilterMedalCat.SelectedValue),
                 ZeroIntergerIFNull(txtFilterFileSerial.Text), ZeroIntergerIFNull(txtFilterFileYear.Text));
-            lblcount.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
-            lblcount2.Text = (Resources.Utilities.foundTotal + (objList.Count.ToString() + Resources.Utilities.records));
+                PersonsAll.DataSource = objpersonsList;
+                PersonsAll.DataBind();
 
-            if (!txtFilterName.Text.Equals(""))
-            {
-                Session["fileName"] = txtFilterName.Text;
-            }
+                personDiv.Visible = true;
+                PersonsAll.Visible = true;
 
-            var duplicatedList = objList.SelectMany(t =>
-           Enumerable.Repeat(t, 2)).ToList();
-
-            //decimal c = System.Math.Ceiling(Convert.ToDecimal(objList.Count / grdInboundItems.PageSize));
-            //if ((c <= grdInboundItems.CurrentPageIndex))
-            //{
-            //    grdInboundItems.CurrentPageIndex = 0;
-            //}
-
-            //List Duplication
-            //List<View_InboundItems> duplicatedList = new List<View_InboundItems>();
-            //duplicatedList = DuplicatedList(objList);
-
-            if (objList.Count > 0)
-            {
-                //btnSave.Visible = true;
-                //lnkBack.Visible = true;
-
-                tblshow.Visible = true;
-                tblSearch.Visible = false;
-                pager1.Visible = true;
-
-            }
-            else
-            {
                 tblshow.Visible = false;
                 pager1.Visible = false;
-                tblSearch.Visible = true;
-                string script = FormatpopupErrorMSG("لا يوجد نتيجة للبحث ", "2");
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", script, true);
-
+                grdInboundItems.Visible = false;
+                
+               
             }
-
-            grdInboundItems.DataSource = duplicatedList;
-            grdInboundItems.DataBind();
-            pager1.ItemCount = duplicatedList.Count;
-
+           
         }
 
 
@@ -1757,7 +1910,7 @@ namespace UI.Web.Medals.Forms
                 catch (Exception)
                 {
 
-                    throw;
+                    //throw;
                 }
 
 
@@ -1969,66 +2122,95 @@ namespace UI.Web.Medals.Forms
 
         private void SavePersons(int MedalCode)
         {
-
             if (Session["PersonsList"] != null)
             {
                 List<Medal_Persons> _PersonsList = new List<Medal_Persons>();
-
                 _PersonsList = (List<Medal_Persons>)Session["PersonsList"];
 
-                for (int i = 0; i < _PersonsList.Count; i++)
+                // Separate into new and existing persons
+                List<Medal_Persons> newPersons = new List<Medal_Persons>();
+                List<Medal_Persons> existingPersons = new List<Medal_Persons>();
+
+                // Filter out placeholder rows and categorize
+                foreach (var person in _PersonsList)
                 {
+                    // Skip placeholder rows (empty rows without data)
+                    if (IsPlaceholderRow(person))
+                    {
+                        continue;
+                    }
 
-
-                    if (_PersonsList[i].Code == 0 || _PersonsList[i].Code == -1)
-                    {//Insert
-                        _PersonsList[i].MedalmasterID = MedalCode;
-                        //Adding Child Enitty
-
-
-                        _PersonsList[i].Medal_M_Types = null;
-                        _PersonsList[i].Medal_M_jobGrade = null;
-                        //  _PersonsList[i].medal_M_Grantreasons = null;
-
-
-
-                        objRepository.AddPerson(_PersonsList[i]);
-
+                    if (person.Code == 0 || person.Code == -1)
+                    {
+                        // New person
+                        person.MedalmasterID = MedalCode;
+                        person.Medal_M_Types = null;
+                        person.Medal_M_jobGrade = null;
+                        newPersons.Add(person);
                     }
                     else
-
-                    {//Update
-                     // _PersonsList[i].MedalmasterID = MedalCode;
-                        _PersonsList[i].Medal_M_jobGrade = null;
-                        _PersonsList[i].Medal_M_Types = null;
-                        var objforupdate = objRepository.getpersonDetails(_PersonsList[i].Code);
-                        objforupdate.Medal_M_jobGrade = null;
-                        objforupdate.Medal_M_Types = null;
-                        objforupdate.CivilID = _PersonsList[i].CivilID;
-                        objforupdate.GradeID = _PersonsList[i].GradeID;
-                        objforupdate.GrantReason = _PersonsList[i].GrantReason;
-                        objforupdate.GrantReasonText = _PersonsList[i].GrantReasonText;
-                        objforupdate.Person_NameAr = _PersonsList[i].Person_NameAr;
-                        objforupdate.Person_NameEn = _PersonsList[i].Person_NameEn;
-                        objforupdate.MedalType = _PersonsList[i].MedalType;
-                        objforupdate.GradeID = _PersonsList[i].GradeID;
-
-                        objforupdate.MilitaryNum = _PersonsList[i].MilitaryNum;
-                        objforupdate.PersonTitle = _PersonsList[i].PersonTitle;
-                        objforupdate.CountryName = _PersonsList[i].CountryName;
-                        objforupdate.CountryId = _PersonsList[i].CountryId;
-
-
-                        objRepository.UpdatePersons(objforupdate);
+                    {
+                        // Existing person - prepare for update
+                        person.Medal_M_jobGrade = null;
+                        person.Medal_M_Types = null;
+                        existingPersons.Add(person);
                     }
-
                 }
 
+                // Batch size for processing
+                int batchSize = 200;
 
+                // Add new persons in batches
+                if (newPersons.Count > 0)
+                {
+                    for (int i = 0; i < newPersons.Count; i += batchSize)
+                    {
+                        var batch = newPersons.Skip(i).Take(batchSize).ToList();
+                        objRepository.AddPersonsBatch(batch);
+                    }
+                }
+
+                // Update existing persons in batches
+                if (existingPersons.Count > 0)
+                {
+                    // First, fetch all existing records to update
+                    List<Medal_Persons> personsToUpdate = new List<Medal_Persons>();
+
+                    foreach (var person in existingPersons)
+                    {
+                        var objforupdate = objRepository.getpersonDetails(person.Code);
+                        if (objforupdate != null)
+                        {
+                            objforupdate.Medal_M_jobGrade = null;
+                            objforupdate.Medal_M_Types = null;
+                            objforupdate.CivilID = person.CivilID;
+                            objforupdate.GradeID = person.GradeID;
+                            objforupdate.GrantReason = person.GrantReason;
+                            objforupdate.GrantReasonText = person.GrantReasonText;
+                            objforupdate.Person_NameAr = person.Person_NameAr;
+                            objforupdate.Person_NameEn = person.Person_NameEn;
+                            objforupdate.MedalType = person.MedalType;
+                            objforupdate.MilitaryNum = person.MilitaryNum;
+                            objforupdate.PersonTitle = person.PersonTitle;
+                            objforupdate.CountryName = person.CountryName;
+                            objforupdate.CountryId = person.CountryId;
+
+                            personsToUpdate.Add(objforupdate);
+                        }
+                    }
+
+                    // Update in batches
+                    for (int i = 0; i < personsToUpdate.Count; i += batchSize)
+                    {
+                        var batch = personsToUpdate.Skip(i).Take(batchSize).ToList();
+                        objRepository.UpdatePersonsBatch(batch);
+                    }
+                }
+
+                // Final garbage collection
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
-
-
-
         }
         protected void grdInboundItems_ItemCommand(object source, DataGridCommandEventArgs e)
         {
@@ -2039,12 +2221,30 @@ namespace UI.Web.Medals.Forms
             FillMedals();
         }
 
-        protected void grdPersons_PageIndexChanged(object source, DataGridPageChangedEventArgs e)
+        /// <summary>
+        /// Handle pager command for grdPersons pagination
+        /// </summary>
+        protected void pagerPersons_Command(object sender, CommandEventArgs e)
         {
-            grdPersons.CurrentPageIndex = e.NewPageIndex;
-            FillMedalPersons(ZeroIntergerIFNull(ViewState["itemID"].ToString()));
+            int currnetPageIndx = ((int)(e.CommandArgument));
+            if ((currnetPageIndx <= 0))
+            {
+                currnetPageIndx = 1;
+            }
 
+            if ((currnetPageIndx > grdPersons.PageCount))
+            {
+                currnetPageIndx = (grdPersons.PageCount - 1);
+            }
+
+            // Set both pager and grid indices BEFORE FillMedalPersons
+            pagerPersons.CurrentIndex = currnetPageIndx;
+            grdPersons.CurrentPageIndex = (currnetPageIndx - 1);
+
+            // Reload the data for the new page
+            FillMedalPersons(ZeroIntergerIFNull(ViewState["itemID"].ToString()));
         }
+
         #endregion
 
         #region "Scanning"

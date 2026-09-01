@@ -176,6 +176,9 @@
     <Compile Include="Model\View_LegalMemosDocs.cs">
       <DependentUpon>CMGS_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\View_MedalPersonsData.cs">
+      <DependentUpon>CMGS_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\view_QuestionsFollow.cs">
       <DependentUpon>CMGS_DB.tt</DependentUpon>
     </Compile>

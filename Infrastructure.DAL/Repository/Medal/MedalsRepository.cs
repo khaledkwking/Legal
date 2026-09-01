@@ -94,6 +94,45 @@ namespace Infrastructure.DAL
             return _out;
 
         }
+
+        public List<View_MedalPersonsData> GetPersonList(DateTime TransactionDatFrom,
+          DateTime TransactionDatTo, int MedalType, int Agr_CatID, int orgCodeID,
+          int LastActionID, string FilterName, int JObGradeID, Boolean isPrivate, string SelectedFilterKeys, int MedalCatId, int FileSerial = 0, int FileYear = 0)
+        {
+
+
+            var result =
+                (from obj in DC.View_MedalPersonsData
+
+                 where 1 == 1
+
+                   && (TransactionDatFrom != new DateTime(1990, 01, 01) ? obj.TransDate >= TransactionDatFrom : 1 == 1)
+                   && (TransactionDatTo != new DateTime(1990, 01, 01) ? obj.TransDate <= TransactionDatFrom : 1 == 1)
+                   && (MedalType != 0 ? obj.MedalType == MedalType : 1 == 1)
+                   && (orgCodeID != 0 ? obj.Medal_OrgID == orgCodeID : 1 == 1)
+                   && (LastActionID != 0 ? obj.LastActionID == LastActionID : 1 == 1)
+                      && (MedalCatId != 0 ? obj.MedalCatId == MedalCatId : 1 == 1)
+                   && (FilterName != "" ? obj.Person_NameAr.Contains(FilterName) : 1 == 1)
+                   && (JObGradeID != 0 ? obj.GradeID == JObGradeID : 1 == 1)
+                    && (isPrivate != true ? obj.isPrivate == false : 1 == 1)
+                   && (FileSerial != 0 ? obj.FileSerial == FileSerial : 1 == 1)
+                   && (FileYear != 0 ? obj.FileYear == FileYear : 1 == 1)
+
+                 select obj
+
+                 ).OrderByDescending(x => x.FileYear).ThenByDescending(x => x.FileSerial);
+               
+
+
+            var _out = result.ToList<View_MedalPersonsData>();
+            //PostResultToAudit((int)SysModulesRef.medal, nameof(SysModulesRef.medal), "Search Result /GetList",
+            // SelectedFilterKeys, JsonConvert.SerializeObject(_out, _settings), _out.Count);
+        
+            return _out;
+
+        }
+
+        
         public Medal_Data FillDetails(int _Code)
         {
 
@@ -255,6 +294,29 @@ namespace Infrastructure.DAL
 
         }
 
+        /// <summary>
+        /// Add multiple persons in batch (more efficient than adding one by one)
+        /// </summary>
+        public int AddPersonsBatch(List<Medal_Persons> items)
+        {
+            foreach (var item in items)
+            {
+                DC.Medal_Persons.Add(item);
+            }
+            return DC.SaveChanges();
+        }
+
+        /// <summary>
+        /// Update multiple persons in batch (more efficient than updating one by one)
+        /// </summary>
+        public int UpdatePersonsBatch(List<Medal_Persons> items)
+        {
+            foreach (var item in items)
+            {
+                DC.Entry(item).State = System.Data.Entity.EntityState.Modified;
+            }
+            return DC.SaveChanges();
+        }
 
         #endregion
         #endregion

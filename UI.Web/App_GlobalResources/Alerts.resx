@@ -121,7 +121,7 @@
     <value>Sorry, you couldn't make operation month is Closed</value>
   </data>
   <data name="DataSavedSuccessfully" xml:space="preserve">
-    <value>Data Saved Successfully</value>
+    <value>تم حفظ البيانات بنجاح</value>
   </data>
   <data name="Educationtype" xml:space="preserve">
     <value>Education type</value>
@@ -145,7 +145,7 @@
     <value>Expire Date</value>
   </data>
   <data name="FailToSaveData" xml:space="preserve">
-    <value>Fail To Save Data</value>
+    <value>خطأ فى حفظ البيانات</value>
   </data>
   <data name="leavemustnotexceedcurrnt" xml:space="preserve">
     <value>sorry, return date must not exceed end of the currnt month</value>

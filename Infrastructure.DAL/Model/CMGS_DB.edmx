@@ -1890,6 +1890,49 @@ warning 6002: The table/view 'CMGS_DB.dbo.View_MedalData' does not have a primar
           <Property Name="MedalCatId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'CMGS_DB.dbo.View_MedalPersonsData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_MedalPersonsData">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="MedalType" />
+          </Key>
+          <Property Name="TransDate" Type="datetime" />
+          <Property Name="LastUpdate" Type="datetime" />
+          <Property Name="FileNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="Medal_receivedDate" Type="datetime" />
+          <Property Name="Medal_OrgID" Type="int" />
+          <Property Name="OrgNameEn" Type="nvarchar" MaxLength="250" />
+          <Property Name="OrgNameAr" Type="nvarchar" MaxLength="250" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="aUser" Type="int" />
+          <Property Name="LastActionID" Type="int" />
+          <Property Name="isPrivate" Type="bit" />
+          <Property Name="OrgType" Type="int" />
+          <Property Name="FileSerial" Type="int" />
+          <Property Name="FileYear" Type="int" />
+          <Property Name="isDeleted" Type="bit" />
+          <Property Name="LinkDate" Type="datetime" />
+          <Property Name="RelatedLawDocRefId" Type="int" />
+          <Property Name="MedalCatId" Type="int" />
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="MedalmasterID" Type="int" />
+          <Property Name="MedalType" Type="int" Nullable="false" />
+          <Property Name="MedalTypeCatID" Type="int" />
+          <Property Name="Person_NameEn" Type="nvarchar" MaxLength="250" />
+          <Property Name="Person_NameAr" Type="nvarchar" MaxLength="250" />
+          <Property Name="CivilID" Type="nvarchar" MaxLength="50" />
+          <Property Name="GrantReason" Type="int" />
+          <Property Name="GradeID" Type="int" />
+          <Property Name="GrantReasonText" Type="nvarchar" MaxLength="250" />
+          <Property Name="MilitaryNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="PersonTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="NameEn" Type="nvarchar" MaxLength="250" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="250" />
+          <Property Name="Medal_M_TypesNameAr" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'CMGS_DB.dbo.View_OrgMedalbyProcedures' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="View_OrgMedalbyProcedures">
           <Key>
@@ -3469,6 +3512,45 @@ warning 6002: The table/view 'CMGS_DB.dbo.ViewUser_AuditLog' does not have a pri
     [View_MedalData].[MedalCatId] AS [MedalCatId]
     FROM [dbo].[View_MedalData] AS [View_MedalData]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="View_MedalPersonsData" EntityType="Self.View_MedalPersonsData" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_MedalPersonsData].[TransDate] AS [TransDate], 
+    [View_MedalPersonsData].[LastUpdate] AS [LastUpdate], 
+    [View_MedalPersonsData].[FileNum] AS [FileNum], 
+    [View_MedalPersonsData].[Medal_receivedDate] AS [Medal_receivedDate], 
+    [View_MedalPersonsData].[Medal_OrgID] AS [Medal_OrgID], 
+    [View_MedalPersonsData].[OrgNameEn] AS [OrgNameEn], 
+    [View_MedalPersonsData].[OrgNameAr] AS [OrgNameAr], 
+    [View_MedalPersonsData].[Remarks] AS [Remarks], 
+    [View_MedalPersonsData].[aUser] AS [aUser], 
+    [View_MedalPersonsData].[LastActionID] AS [LastActionID], 
+    [View_MedalPersonsData].[isPrivate] AS [isPrivate], 
+    [View_MedalPersonsData].[OrgType] AS [OrgType], 
+    [View_MedalPersonsData].[FileSerial] AS [FileSerial], 
+    [View_MedalPersonsData].[FileYear] AS [FileYear], 
+    [View_MedalPersonsData].[isDeleted] AS [isDeleted], 
+    [View_MedalPersonsData].[LinkDate] AS [LinkDate], 
+    [View_MedalPersonsData].[RelatedLawDocRefId] AS [RelatedLawDocRefId], 
+    [View_MedalPersonsData].[MedalCatId] AS [MedalCatId], 
+    [View_MedalPersonsData].[Code] AS [Code], 
+    [View_MedalPersonsData].[MedalmasterID] AS [MedalmasterID], 
+    [View_MedalPersonsData].[MedalType] AS [MedalType], 
+    [View_MedalPersonsData].[MedalTypeCatID] AS [MedalTypeCatID], 
+    [View_MedalPersonsData].[Person_NameEn] AS [Person_NameEn], 
+    [View_MedalPersonsData].[Person_NameAr] AS [Person_NameAr], 
+    [View_MedalPersonsData].[CivilID] AS [CivilID], 
+    [View_MedalPersonsData].[GrantReason] AS [GrantReason], 
+    [View_MedalPersonsData].[GradeID] AS [GradeID], 
+    [View_MedalPersonsData].[GrantReasonText] AS [GrantReasonText], 
+    [View_MedalPersonsData].[MilitaryNum] AS [MilitaryNum], 
+    [View_MedalPersonsData].[CountryName] AS [CountryName], 
+    [View_MedalPersonsData].[CountryId] AS [CountryId], 
+    [View_MedalPersonsData].[PersonTitle] AS [PersonTitle], 
+    [View_MedalPersonsData].[NameEn] AS [NameEn], 
+    [View_MedalPersonsData].[NameAr] AS [NameAr], 
+    [View_MedalPersonsData].[Medal_M_TypesNameAr] AS [Medal_M_TypesNameAr]
+    FROM [dbo].[View_MedalPersonsData] AS [View_MedalPersonsData]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="View_OrgMedalbyProcedures" EntityType="Self.View_OrgMedalbyProcedures" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [View_OrgMedalbyProcedures].[RowNumber] AS [RowNumber], 
@@ -4434,6 +4516,7 @@ warning 6002: The table/view 'CMGS_DB.dbo.ViewUser_AuditLog' does not have a pri
             <End Role="Law_DocData_Linked_Status" EntitySet="Law_DocData_Linked_Status" />
             <End Role="Law_DocData_Linked" EntitySet="Law_DocData_Linked" />
           </AssociationSet>
+          <EntitySet Name="View_MedalPersonsData" EntityType="CMGS_DBModel.View_MedalPersonsData" />
           </EntityContainer>
         <ComplexType Name="Security_SP_PRM_getJobPage_Result">
           <Property Type="Int32" Name="SystemID" Nullable="false" />
@@ -7606,6 +7689,47 @@ warning 6002: The table/view 'CMGS_DB.dbo.ViewUser_AuditLog' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="View_MedalPersonsData">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="MedalType" />
+          </Key>
+          <Property Name="TransDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="FileNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Medal_receivedDate" Type="DateTime" Precision="3" />
+          <Property Name="Medal_OrgID" Type="Int32" />
+          <Property Name="OrgNameEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OrgNameAr" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="aUser" Type="Int32" />
+          <Property Name="LastActionID" Type="Int32" />
+          <Property Name="isPrivate" Type="Boolean" />
+          <Property Name="OrgType" Type="Int32" />
+          <Property Name="FileSerial" Type="Int32" />
+          <Property Name="FileYear" Type="Int32" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <Property Name="LinkDate" Type="DateTime" Precision="3" />
+          <Property Name="RelatedLawDocRefId" Type="Int32" />
+          <Property Name="MedalCatId" Type="Int32" />
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="MedalmasterID" Type="Int32" />
+          <Property Name="MedalType" Type="Int32" Nullable="false" />
+          <Property Name="MedalTypeCatID" Type="Int32" />
+          <Property Name="Person_NameEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Person_NameAr" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CivilID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GrantReason" Type="Int32" />
+          <Property Name="GradeID" Type="Int32" />
+          <Property Name="GrantReasonText" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MilitaryNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" />
+          <Property Name="PersonTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NameEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NameAr" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Medal_M_TypesNameAr" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9991,6 +10115,47 @@ warning 6002: The table/view 'CMGS_DB.dbo.ViewUser_AuditLog' does not have a pri
                 <ScalarProperty Name="DestDocId" ColumnName="DestDocId" />
                 <ScalarProperty Name="SouceDocID" ColumnName="SouceDocID" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_MedalPersonsData">
+            <EntityTypeMapping TypeName="CMGS_DBModel.View_MedalPersonsData">
+              <MappingFragment StoreEntitySet="View_MedalPersonsData">
+                <ScalarProperty Name="Medal_M_TypesNameAr" ColumnName="Medal_M_TypesNameAr" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="PersonTitle" ColumnName="PersonTitle" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="MilitaryNum" ColumnName="MilitaryNum" />
+                <ScalarProperty Name="GrantReasonText" ColumnName="GrantReasonText" />
+                <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+                <ScalarProperty Name="GrantReason" ColumnName="GrantReason" />
+                <ScalarProperty Name="CivilID" ColumnName="CivilID" />
+                <ScalarProperty Name="Person_NameAr" ColumnName="Person_NameAr" />
+                <ScalarProperty Name="Person_NameEn" ColumnName="Person_NameEn" />
+                <ScalarProperty Name="MedalTypeCatID" ColumnName="MedalTypeCatID" />
+                <ScalarProperty Name="MedalType" ColumnName="MedalType" />
+                <ScalarProperty Name="MedalmasterID" ColumnName="MedalmasterID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="MedalCatId" ColumnName="MedalCatId" />
+                <ScalarProperty Name="RelatedLawDocRefId" ColumnName="RelatedLawDocRefId" />
+                <ScalarProperty Name="LinkDate" ColumnName="LinkDate" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="FileYear" ColumnName="FileYear" />
+                <ScalarProperty Name="FileSerial" ColumnName="FileSerial" />
+                <ScalarProperty Name="OrgType" ColumnName="OrgType" />
+                <ScalarProperty Name="isPrivate" ColumnName="isPrivate" />
+                <ScalarProperty Name="LastActionID" ColumnName="LastActionID" />
+                <ScalarProperty Name="aUser" ColumnName="aUser" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="OrgNameAr" ColumnName="OrgNameAr" />
+                <ScalarProperty Name="OrgNameEn" ColumnName="OrgNameEn" />
+                <ScalarProperty Name="Medal_OrgID" ColumnName="Medal_OrgID" />
+                <ScalarProperty Name="Medal_receivedDate" ColumnName="Medal_receivedDate" />
+                <ScalarProperty Name="FileNum" ColumnName="FileNum" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

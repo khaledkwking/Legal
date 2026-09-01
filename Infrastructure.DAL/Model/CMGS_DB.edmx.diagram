@@ -197,6 +197,7 @@
         <AssociationConnector Association="CMGS_DBModel.FK_Law_DocData_Linked_Law_DocData" />
         <AssociationConnector Association="CMGS_DBModel.FK_Law_DocData_Linked_Law_DocData1" />
         <AssociationConnector Association="CMGS_DBModel.FK_Law_DocData_Linked_Law_DocData_Linked_Status" />
+        <EntityTypeShape EntityType="CMGS_DBModel.View_MedalPersonsData" Width="1.5" PointX="38.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

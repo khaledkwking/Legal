@@ -751,27 +751,8 @@
                                                                 </ItemTemplate>
                                                             </asp:TemplateColumn>
 
-                                                            <%--  <asp:TemplateColumn>
-                                                                <ItemStyle Width="3%" HorizontalAlign="Center" />
-                                                                <HeaderStyle Wrap="False" HorizontalAlign="Center" />
-                                                                <HeaderTemplate>
-                                                                    <input id="chkAllItems" class="checkall" style="border-style: none;" type="checkbox" onclick="CheckAllDataGridCheckBoxes('chkItem', this.checked)" />
-                                                                </HeaderTemplate>
-                                                                <ItemTemplate>
-                                                                    <asp:CheckBox runat="server" ID="chkItem" CssClass="check" />
-                                                                </ItemTemplate>
-                                                            </asp:TemplateColumn>--%>
-
-
-
-                                                           <%-- <asp:TemplateColumn>
-                                                                <ItemStyle Width="5%" HorizontalAlign="Center" />
-                                                                <HeaderStyle Wrap="False" HorizontalAlign="Center" />
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton ID="lnkDelete" OnClientClick="return confirm('are you sure you want to delete selected items?');" CommandName="delete" runat="server">  <i class="fa fa-trash" style="color:##333"></i>&nbsp;</asp:LinkButton>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateColumn>--%>
-                                                                     <asp:TemplateColumn>
+                                                        
+                                                            <asp:TemplateColumn>
                                                             <ItemStyle Width="5%" HorizontalAlign="Center" />
                                                             <HeaderStyle Wrap="False" HorizontalAlign="Center" />
                                                             <ItemTemplate>
@@ -788,6 +769,7 @@
 
                                                         </Columns>
                                                     </asp:DataGrid>
+
 
                                                 </div>
 
@@ -811,6 +793,8 @@
 
                                                     </div>
                                                 </div>
+
+                                              
                                             </fieldset>
                                         </div>
                                     </div>
@@ -825,7 +809,87 @@
             </div>
         </div>
     </div>
+        <div class="row mbl">
 
+        <div class="panel" id="personDiv" runat="server" visible="false">
+
+            <div class="panel-body">
+                <div class="row">
+
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+
+                            <div class="col-lg-12">
+                                <div class="portlet box">
+                                    <div class="portlet-header">
+
+                                        <div class="portlet-body">
+                                                                                              <div class="datatable-scroll">
+                                                     <asp:DataGrid ID="PersonsAll" runat="server" Visible="false"
+                         DataKeyField="code" AllowPaging="True" AutoGenerateColumns="False" PageSize="20" class="table datatable-basic dataTable no-footer" Width="100%">
+
+    <SelectedItemStyle ForeColor="White" />
+ <ItemStyle CssClass="grdItem" />
+ <AlternatingItemStyle CssClass="grdItem" />
+
+ <HeaderStyle BackColor="Black" ForeColor="White" Font-Bold="False" />
+
+   <%-- <HeaderStyle CssClass="grdHead" BackColor="#ece0a4" ForeColor="Black" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />--%>
+    <FooterStyle CssClass="grdFoot" />
+    <PagerStyle CssClass="grdPager" HorizontalAlign="center" Mode="NextPrev"
+        PrevPageText="&lt;&lt; Previous &nbsp;&nbsp;&nbsp;" NextPageText="&nbsp;&nbsp;&nbsp;Next&gt;&gt;" />
+    <Columns>
+        <asp:BoundColumn DataField="code" Visible="False"></asp:BoundColumn>
+        <asp:TemplateColumn HeaderText="م">
+            <HeaderStyle HorizontalAlign="center" Width="30px" />
+            <ItemStyle HorizontalAlign="center" Width="30px" />
+            <ItemTemplate>
+                <%# (Container.ItemIndex + 1).ToString() %>
+            </ItemTemplate>
+        </asp:TemplateColumn>
+        <asp:TemplateColumn HeaderText="نوع  الوسام">
+
+            <HeaderStyle HorizontalAlign="right" />
+            <ItemTemplate>
+                <%#Eval("Medal_M_TypesNameAr") %>
+            </ItemTemplate>
+        </asp:TemplateColumn>
+        <asp:BoundColumn DataField="Person_NameEn" HeaderText="الاسم"></asp:BoundColumn>
+        <asp:TemplateColumn HeaderText="  الرتبه">
+
+            <HeaderStyle HorizontalAlign="right" />
+            <ItemTemplate>
+                <%#Eval("NameAr") %>
+            </ItemTemplate>
+        </asp:TemplateColumn>
+        <asp:BoundColumn DataField="CivilID" HeaderText="الرقم المدني" Visible="false"></asp:BoundColumn>
+        <asp:BoundColumn DataField="FileNum" HeaderText="رقم الوارد "></asp:BoundColumn>
+
+        <asp:BoundColumn DataField="OrgNameAr" HeaderText="الجهة"></asp:BoundColumn>
+        <asp:BoundColumn DataField="TransDate" HeaderText=" التاريخ "></asp:BoundColumn>
+
+        <%--<asp:TemplateColumn HeaderText="ملاحظات">
+
+            <HeaderStyle HorizontalAlign="right" />
+            <ItemTemplate>
+                <%#Eval("GrantReasonText") %>
+            </ItemTemplate>
+        </asp:TemplateColumn>--%>
+
+
+    </Columns>
+</asp:DataGrid>
+                                                      </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
     <div class="row mbl">
 
         <div class="panel-heading" id="tblAdd" runat="server" visible="false">
@@ -966,33 +1030,65 @@
                                                         <div class="row">
                                                         </div>
 
-                                                        <div style="height: 600px; overflow-y: scroll;">
+                                                        <fieldset class="content-group">
                                                             <legend class="text-semibold">
                                                                 <i class="icon-file-text2 position-left"></i>
                                                                 بيانات  الشخصيات
                                                                 <asp:Label ID="lblPersonCount" runat="server" ></asp:Label>
-										 
-                                                                
-                                                            <div class="col-md-5 col-md-offset-3 pull-right" runat="server" id="UploadPersonsList">
-                                                            
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">إختر الملف  </label>
-
-                                                        <div class="col-md-6">
-                                                            <asp:FileUpload ID="txtUploadPersons" runat="server" class="file-styled" />
-                                                            <span class="help-block">Accepted formats: xls,xlsx</span>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <asp:LinkButton runat="server" ID="lnkUploadPersons" class="btn btn-primary btn-labeled " OnClientClick="return validateFileUpladed();"  OnClick="lnkUploadPersons_Click"><b><i class="icon-users"></i></b>إضافة قائمة الاشخاص  </asp:LinkButton>
-                                                        </div>
-
-                                                    </div>
-                                                                </div>
-
                                                             </legend>
+
+                                                            <div class="col-md-5 col-md-offset-3 pull-left" runat="server" id="UploadPersonsList">
+
+                                                                <div class="form-group">
+                                                                    <label class="col-md-2 control-label">إختر الملف  </label>
+
+                                                                    <div class="col-md-6">
+                                                                        <asp:FileUpload ID="txtUploadPersons" runat="server" class="file-styled" />
+                                                                        <span class="help-block">Accepted formats: xls,xlsx</span>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <asp:LinkButton runat="server" ID="lnkUploadPersons" class="btn btn-primary btn-labeled " OnClientClick="return validateFileUpladed();" OnClick="lnkUploadPersons_Click"><b><i class="icon-users"></i></b>إضافة قائمة الاشخاص  </asp:LinkButton>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                                <div class="row" style="padding-top: 10px">
+                                                               <div class="col-md-12">
+                                                                   <div class="form-actions">
+                                                                       <div class="col-md-offset-6 col-md-12">
+
+
+                                                                           <asp:LinkButton ID="btnSave" runat="server" class="btn btn-primary" OnClick="btnSave_Click1"><i class='fa fa-save'></i>&nbsp; حفظ البيانات </asp:LinkButton>
+
+
+
+                                                                           &nbsp;
+                                                                          <asp:Button runat="server" ID="btnCancel" class="btn btn-default" Text=" الغاء / رجوع  " OnClick="btnCancel_Click" />
+                                                                           &nbsp;
+                                                                        <a id="anchorAttachment" visible="false" runat="server" href='#' class="btn btn-success btn-xs iframe">
+                                                                            <i class="icon-attachment"></i>&nbsp;
+                                                           مرفقات
+                                                                        </a>
+
+                                                                             &nbsp;
+                                                                                        <a href="#" class="btn btn-primary btn-labeled iframe linkedpopup" id="lnkAddRelatedDoc" runat="server"><b><i class="glyphicon glyphicon-link"></i></b>إضافة تشريع مرتبط </a>
+
+                                                                           &nbsp;
+                                                                                        <a href="#" class="btn btn-primary btn-labeled" id="lnkViewRelatedDoc" runat="server"><b><i class="glyphicon glyphicon-link"></i></b>عرض التشريع المرتبط   </a>
+
+
+                                                                       </div>
+                                                                   </div>
+                                                               </div>
+
+                                                           </div>
+                                                        </fieldset>
 
 
                                                             <asp:UpdatePanel runat="server" ID="Updatepanel2" ChildrenAsTriggers="true" UpdateMode="conditional">
+                                                                <Triggers>
+                                                                    <asp:AsyncPostBackTrigger ControlID="pagerPersons" EventName="Command" />
+                                                                </Triggers>
                                                                 <ContentTemplate>
 
 
@@ -1000,7 +1096,7 @@
 
                                                                     <asp:DataGrid ID="grdPersons" runat="server"
                                                                         class="table table-hover table-striped table-bordered table-advanced tablesorter"
-                                                                        AutoGenerateColumns="False"
+                                                                        DataKeyField="Code" AllowPaging="True" AutoGenerateColumns="False" PageSize="20"
                                                                         BackColor="White" BorderStyle="Solid" BorderWidth="1px" Font-Names="Tahoma"
                                                                         CellPadding="3" Width="100%" OnItemDataBound="grdPersons_ItemDataBound" OnItemCommand="grdPersons_ItemCommand">
                                                                         <SelectedItemStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
@@ -1008,8 +1104,7 @@
                                                                         <AlternatingItemStyle CssClass="grdItem" />
                                                                         <HeaderStyle CssClass="grdHead" BackColor="Gray" ForeColor="White" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                                                         <FooterStyle CssClass="grdFoot" />
-                                                                        <PagerStyle CssClass="grdPager" HorizontalAlign="center" Mode="NextPrev"
-                                                                            PrevPageText="&lt;&lt; Previous &nbsp;&nbsp;&nbsp;" NextPageText="&nbsp;&nbsp;&nbsp;Next&gt;&gt;" />
+                                                                        <PagerStyle Visible="false" />
                                                                         <Columns>
 
                                                                             <asp:TemplateColumn HeaderText="">
@@ -1060,7 +1155,7 @@
                                                                             <asp:TemplateColumn HeaderText="م.">
                                                                                 <ItemStyle HorizontalAlign="center" Width="2px" />
                                                                                 <ItemTemplate>
-                                                                                    <%#IsPlaceholderRow(Container.DataItem) ? "" : (Convert.ToInt32(DataBinder.Eval(Container, "ItemIndex")) - GetPlaceholderRowsBefore(Container.ItemIndex) + 1).ToString()%>
+                                                                                    <%# !IsPlaceholderRow(Container.DataItem) ? GetRowNumber(Container.ItemIndex).ToString() : "" %>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateColumn>
 
@@ -1194,55 +1289,45 @@
 
                                                                             </asp:TemplateColumn>
 
-                                                                        </Columns>
-                                                                    </asp:DataGrid>
+                                                                                     </Columns>
+                                                                                </asp:DataGrid>
 
-                                                                </ContentTemplate>
-                                                            </asp:UpdatePanel>
+                                                                                <!-- Pagination Footer for grdPersons -->
+                                                                                <div class="row mbm">
+                                                                                    <div class="col-lg-12">
+                                                                                        <div class="pagination-panel">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="datatable-footer">
+                                                                                    <div class="dataTables_info" role="status" aria-live="polite">
+                                                                                        <asp:Label ID="lblPersonsCount" runat="server"></asp:Label>
+                                                                                    </div>
+                                                                                    <div class="dataTables_paginate paging_simple_numbers">
+                                                                                        <cc1:Pager CurrentIndex="1" OnCommand="pagerPersons_Command" ShowFirstLast="False" ID="pagerPersons"
+                                                                                            runat="server" Width="100%" PageSize="20" AlternativeTextEnabled="False" BackToFirstClause="" BackToPageClause="" EnableSmartShortCuts="True" EnableTheming="True" FirstClause="" FromClause="" GoClause="" GoToLastClause="" LastClause="" NextClause="التالي" OfClause="من" PageClause="صفحة" PreviousClause="السابق" RTL="True" ShowingResultClause="" ShowResultClause=""></cc1:Pager>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </ContentTemplate>
+                                                                        </asp:UpdatePanel>
+                                                               </fieldset>
                                                         </div>
                                                 </div>
 
 
 
-                                                <div class="row" style="padding-top: 10px">
-                                                    <div class="col-md-12">
-                                                        <div class="form-actions">
-                                                            <div class="col-md-offset-6 col-md-12">
-
-
-                                                                <asp:LinkButton ID="btnSave" runat="server" class="btn btn-primary" OnClick="btnSave_Click1"><i class='fa fa-save'></i>&nbsp; حفظ البيانات </asp:LinkButton>
+                                             
 
 
 
-                                                                &nbsp;
-				                                               <asp:Button runat="server" ID="btnCancel" class="btn btn-default" Text=" الغاء / رجوع  " OnClick="btnCancel_Click" />
-                                                                &nbsp;
-                                                             <a id="anchorAttachment" visible="false" runat="server" href='#' class="btn btn-success btn-xs iframe">
-                                                                 <i class="icon-attachment"></i>&nbsp;
-                                                مرفقات
-                                                             </a>
-
-                                                                  &nbsp;
-                                                                             <a href="#" class="btn btn-primary btn-labeled iframe linkedpopup" id="lnkAddRelatedDoc" runat="server"><b><i class="glyphicon glyphicon-link"></i></b>إضافة تشريع مرتبط </a>
-
-                                                                &nbsp;
-                                                                             <a href="#" class="btn btn-primary btn-labeled" id="lnkViewRelatedDoc" runat="server"><b><i class="glyphicon glyphicon-link"></i></b>عرض التشريع المرتبط   </a>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-
-                                                </fieldset>
+                                         
 
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                               
 
                                 <div class="tab-pane <%=activeTab(2) %>" id="badges-tab2">
 
@@ -1415,14 +1500,7 @@
                                                             <asp:Label ID="lblProcerduresCount" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_3_paginate">
-                                                            <%-- <a class="paginate_button previous disabled" aria-controls="DataTables_Table_3" data-dt-idx="0" tabindex="0" id="DataTables_Table_3_previous">→</a>
-                        <span><a class="paginate_button current" aria-controls="DataTables_Table_3" data-dt-idx="1" tabindex="0">1</a>
-                            <a class="paginate_button " aria-controls="DataTables_Table_3" data-dt-idx="2" tabindex="0">2</a>
-
-
-                        </span>
-                        <a class="paginate_button next" aria-controls="DataTables_Table_3" data-dt-idx="3" tabindex="0" id="DataTables_Table_3_next">←</a>--%>
-
+                                                           
 
                                                             <cc1:Pager CurrentIndex="1" OnCommand="pager_Command" ShowFirstLast="False" ID="pager2"
                                                                 runat="server" Width="100%" PageSize="20" AlternativeTextEnabled="False" BackToFirstClause="" BackToPageClause="" EnableSmartShortCuts="True" EnableTheming="True" FirstClause="" FromClause="" GoClause="" GoToLastClause="" LastClause="" NextClause="التالي" OfClause="من" PageClause="صفحة" PreviousClause="السابق" RTL="True" ShowingResultClause="" ShowResultClause=""></cc1:Pager>
@@ -1437,7 +1515,7 @@
 
                                 </div>
 
-                                 
+                                  </div>
 
                             </div>
                         </div>
@@ -1445,7 +1523,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
        <uc:DeleteConfirm runat="server" />
 
     <script type="text/javascript">
