@@ -817,7 +817,7 @@ namespace UI.Web.Modules.Laws.Forms
             btnNew.Visible = userAccess.Add;
             lnkAddProcedure.Visible = userAccess.Add;
             lnkAddRelatedDoc.Visible = userAccess.Add;
-            lnkAgreementLink.Visible = userAccess.Add;
+            //lnkAgreementLink.Visible = userAccess.Add;
 
 
             DivAudit.Visible = userAccess.AuditControl;
@@ -839,8 +839,6 @@ namespace UI.Web.Modules.Laws.Forms
 
 
             lnkCancelLawDoc.Visible = userAccess.Edit || userAccess.Add;
-
-
             grdLawDocsList.Columns[19].Visible = userAccess.Delete;
 
             lnkDeleteProcedure.Visible = userAccess.Delete;
@@ -1004,24 +1002,24 @@ namespace UI.Web.Modules.Laws.Forms
 
 
                 //Check Law Doc Agreement Link
-                var LinkedAgreement = objRepository.GetlawDocLinkedAgreemt(objList.Code);
-                if (LinkedAgreement != null)
-                {
-                    lnkAgreementLink.InnerHtml = "<b><i class='glyphicon glyphicon-link'></i></b>عرض إتفاقية مرتبطة";
-                    lnkAgreementLink.HRef = "/modules/Agreements/forms/AgreementsDataLink.aspx?linkedId=" + gets(objList.Code) + "&AgreementRefId=" + LinkedAgreement.Code;
-                    btnUnlinkAgreement.Visible = true;
+                //var LinkedAgreement = objRepository.GetlawDocLinkedAgreemt(objList.Code);
+                //if (LinkedAgreement != null)
+                //{
+                //    lnkAgreementLink.InnerHtml = "<b><i class='glyphicon glyphicon-link'></i></b>عرض إتفاقية مرتبطة";
+                //    lnkAgreementLink.HRef = "/modules/Agreements/forms/AgreementsDataLink.aspx?linkedId=" + gets(objList.Code) + "&AgreementRefId=" + LinkedAgreement.Code;
+                //    btnUnlinkAgreement.Visible = true;
 
-                    ViewState["linkedAgreement"] = LinkedAgreement.Code.ToString();
+                //    ViewState["linkedAgreement"] = LinkedAgreement.Code.ToString();
 
-                }
-                else
-                {
-                    btnUnlinkAgreement.Visible = false;
-                    lnkAgreementLink.InnerHtml = "<b><i class='glyphicon glyphicon-link'></i></b>إضافة إتفاقية مرتبطة ";
-                    lnkAgreementLink.HRef = "/modules/Agreements/forms/AgreementsDataLink.aspx?linkedId=" + gets(objList.Code) + "&lawDocRefId=0";
+                //}
+                //else
+                //{
+                //    btnUnlinkAgreement.Visible = false;
+                //    lnkAgreementLink.InnerHtml = "<b><i class='glyphicon glyphicon-link'></i></b>إضافة إتفاقية مرتبطة ";
+                //    lnkAgreementLink.HRef = "/modules/Agreements/forms/AgreementsDataLink.aspx?linkedId=" + gets(objList.Code) + "&lawDocRefId=0";
 
-                    ViewState["linkedAgreement"] = "0";
-                }
+                //    ViewState["linkedAgreement"] = "0";
+                //}
 
 
 
@@ -1035,7 +1033,7 @@ namespace UI.Web.Modules.Laws.Forms
 
             }
             else
-            { lnkAgreementLink.Visible = false; }
+            //{ lnkAgreementLink.Visible = false; }
             tblAdd.Visible = true;
             tblshow.Visible = false;
             tblSearch.Visible = false;
@@ -2125,7 +2123,6 @@ namespace UI.Web.Modules.Laws.Forms
                 //Update Agreemrnt]
                 AgreementData objagreement = new AgreementData();
                 objagreement = agreemtnyRepository.GetDetails(ZeroIntergerIFNull(ViewState["linkedAgreement"].ToString()));
-
                 if (objagreement != null)
                 {
                     objagreement.Law_DocDataRefId = 0;
@@ -2133,7 +2130,6 @@ namespace UI.Web.Modules.Laws.Forms
 
                     string script = FormatpopupErrorMSG("تم فك الربط بنجاح", "3");
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", script, true);
-
 
                     //Colse Popup
                     FillLawDocMasterInformation();

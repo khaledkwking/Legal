@@ -26,6 +26,7 @@ namespace UI.Web.Modules.Laws
             public string Path { get; set; }
             public int? DocNum { get; set; }
             public int? DocYear { get; set; }
+            public string DocSerial { get; set; }
             public string DocSubject { get; set; }
             public string DocDetails { get; set; }
             public string DocFilepath { get; set; }
@@ -40,6 +41,7 @@ namespace UI.Web.Modules.Laws
             public int Code { get; set; }
             public int? DocNum { get; set; }
             public int? DocYear { get; set; }
+            public string DocSerial { get; set; }
             public string DocSubject { get; set; }
             public string DocDetails { get; set; }
             public string DocFilepath { get; set; }
@@ -445,6 +447,7 @@ namespace UI.Web.Modules.Laws
                             ChildDocId = extra.Code,
                             DocNum = extra.DocNum,
                             DocYear = extra.DocYear,
+                            DocSerial = extra.DocSerial,
                             DocSubject = extra.DocSubject,
                             DocFilepath = extra.DocFilepath,
                             DocTypeName = extra.DocTypeName,
@@ -476,6 +479,7 @@ namespace UI.Web.Modules.Laws
                             ChildDocId = extra.Code,
                             DocNum = extra.DocNum,
                             DocYear = extra.DocYear,
+                            DocSerial = extra.DocSerial,
                             DocSubject = extra.DocSubject,
                             DocFilepath = extra.DocFilepath,
                             DocTypeName = extra.DocTypeName,
@@ -594,6 +598,7 @@ namespace UI.Web.Modules.Laws
                         ChildDocId = extra.Code,
                         DocNum = extra.DocNum,
                         DocYear = extra.DocYear,
+                        DocSerial = extra.DocSerial,
                         DocSubject = extra.DocSubject,
                         DocFilepath = extra.DocFilepath,
                         DocTypeName = extra.DocTypeName,
@@ -692,7 +697,7 @@ namespace UI.Web.Modules.Laws
 
         private List<LawExtraDoc> LoadSectorUnlinkedDocs(int sectorId, object docYearParam)
         {
-            var query = @"SELECT d.Code, d.DocNum, d.DocYear, d.DocSubject, d.DocFilepath, t.NameAr AS DocTypeName
+            var query = @"SELECT d.Code, d.DocNum, d.DocYear, d.DocSubject,d.DocSerial, d.DocFilepath, t.NameAr AS DocTypeName
             FROM Law_DocData d
             INNER JOIN Law_DocSectors s ON s.Law_DocId = d.Code AND s.SectorId = @sectorId
             LEFT JOIN View_LawsLinkedDocs l ON l.SouceDocID = d.Code OR l.DestDocId = d.Code
@@ -713,7 +718,7 @@ namespace UI.Web.Modules.Laws
         }
         private List<LawExtraDoc> LoadAllUnlinkedDocs( object docYearParam)
         {
-            var query = @"SELECT d.Code, d.DocNum, d.DocYear, d.DocSubject, d.DocFilepath, t.NameAr AS DocTypeName
+            var query = @"SELECT d.Code, d.DocNum, d.DocYear, d.DocSubject,d.DocSerial, d.DocFilepath, t.NameAr AS DocTypeName
             FROM Law_DocData d
 
             LEFT JOIN View_LawsLinkedDocs l ON l.SouceDocID = d.Code OR l.DestDocId = d.Code

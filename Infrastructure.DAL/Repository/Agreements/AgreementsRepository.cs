@@ -25,7 +25,7 @@ namespace Infrastructure.DAL
 
                 var result =
                     (from obj in DC.AgreementData
-                     where obj.Agr_SerialNum == SerialNUm && obj.isInitial == isInitial && obj.Agr_SerialYear == serialYear  && obj.Code != fileRefID
+                     where obj.Agr_SerialNum == SerialNUm &&  obj.Agr_SerialYear == serialYear  && obj.Code != fileRefID /*&& obj.isInitial == isInitial */
                      select obj).FirstOrDefault<AgreementData>();
                 if (result != null)
                 {

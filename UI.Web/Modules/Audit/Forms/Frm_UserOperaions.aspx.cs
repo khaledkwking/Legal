@@ -14,6 +14,7 @@ using Infrastructure.DAL.Model;
 using Infrastructure.DAL.Enum;
 using UI.Web.Admin.Controller;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Infrastructure.DAL.ViewModels;
 using System.Data;
 using Utilities;
@@ -129,17 +130,44 @@ namespace UI.Web.Modules.Audit.Forms
 
                 foreach (var item in objList)
                 {
+                    var tagsText = item.tages == null ? string.Empty : item.tages.Trim();
 
-
-                    if (item.tages != null && item.tages != "{}" && item.tages != "")
+                    if (!string.IsNullOrEmpty(tagsText) && tagsText != "{}")
                     {
-
-                        var Result = JsonConvert.DeserializeObject<Dictionary<string, string>>(item.tages);
-
-                        foreach (KeyValuePair<string, string> Keyitem in Result)
+                        try
                         {
-                            // Console.WriteLine(string.Format("Key: {0} Value: {1}", item.Key, item.Value));
-                            _SuboutList.Add(new searchkeys() { refRecordId = item.Code, key = Keyitem.Key, value = Keyitem.Value });
+                            var token = JToken.Parse(tagsText);
+
+                            if (token.Type == JTokenType.Object)
+                            {
+                                foreach (var property in ((JObject)token).Properties())
+                                {
+                                    _SuboutList.Add(new searchkeys()
+                                    {
+                                        refRecordId = item.Code,
+                                        key = property.Name,
+                                        value = property.Value == null ? string.Empty : property.Value.ToString()
+                                    });
+                                }
+                            }
+                            else
+                            {
+                                _SuboutList.Add(new searchkeys()
+                                {
+                                    refRecordId = item.Code,
+                                    key = "value",
+                                    value = token.ToString()
+                                });
+                            }
+                        }
+                        catch (JsonReaderException)
+                        {
+                            _SuboutList.Add(new searchkeys()
+                            {
+                                refRecordId = item.Code,
+                                key = "value",
+                                value = tagsText
+                            });
                         }
 
                     }

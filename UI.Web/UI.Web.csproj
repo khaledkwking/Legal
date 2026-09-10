@@ -467,6 +467,7 @@
     <Content Include="Layout\Assets\js\jquery-1.10.2.min.js" />
     <Content Include="Layout\Assets\map\js.js" />
     <Content Include="Layout\Assets\map\style.css" />
+    <Content Include="Layout\Assets\Menu\menu-theme-final.css" />
     <Content Include="Layout\Assets\Select2\css\select2.css" />
     <Content Include="Layout\Assets\Select2\css\select2.min.css" />
     <Content Include="Layout\Assets\Select2\js\i18n\ar.js" />
@@ -1920,9 +1921,9 @@
     <Content Include="LibraryDocs\forms\lib_img\89707480767284837767.png" />
     <Content Include="Modules\Agreements\Forms\AgreementProcedures.aspx" />
     <Content Include="Modules\Agreements\Forms\AgreementMainAttachments.aspx" />
-    <Content Include="Modules\Agreements\Forms\AgreementsDataLink.aspx" />
     <Content Include="Modules\Agreements\Forms\AgreementsData.aspx" />
     <Content Include="Modules\Agreements\Forms\AgreementAttachments.aspx" />
+    <Content Include="Modules\Agreements\Forms\AgreementsDataLink.aspx" />
     <Content Include="Modules\Agreements\Forms\LawDocView.aspx" />
     <Content Include="Modules\Audit\Forms\Frm_UserOperaionAudit.aspx" />
     <Content Include="Modules\Audit\Forms\Frm_UserPerformance.aspx" />
@@ -2205,6 +2206,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Modules\Agreements\Forms\AgreementsDataLink.aspx.cs">
+      <DependentUpon>AgreementsDataLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Agreements\Forms\AgreementsDataLink.aspx.designer.cs">
+      <DependentUpon>AgreementsDataLink.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DeleteConfirm.ascx.cs">
       <DependentUpon>DeleteConfirm.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2274,13 +2282,6 @@
     </Compile>
     <Compile Include="Modules\Agreements\Forms\AgreementMainAttachments.aspx.designer.cs">
       <DependentUpon>AgreementMainAttachments.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Agreements\Forms\AgreementsDataLink.aspx.cs">
-      <DependentUpon>AgreementsDataLink.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Modules\Agreements\Forms\AgreementsDataLink.aspx.designer.cs">
-      <DependentUpon>AgreementsDataLink.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Agreements\Forms\AgreementsData.aspx.cs">
       <DependentUpon>AgreementsData.aspx</DependentUpon>

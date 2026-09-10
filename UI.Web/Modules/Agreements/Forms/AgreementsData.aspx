@@ -858,6 +858,18 @@
                                                             <asp:BoundColumn DataField="RelatedOrgNameAr" HeaderText="جهة الإختصاص  ">
                                                                 <HeaderStyle Wrap="false" />
                                                             </asp:BoundColumn>
+                                                             <asp:BoundColumn DataField="Agr_EndDate" HeaderText="تاريخ الاتفاقية  " DataFormatString="{0:dd/MM/yyyy}">
+                                                                 <HeaderStyle Wrap="false" />
+                                                             </asp:BoundColumn>
+
+                                                             <asp:TemplateColumn HeaderText="تاريخ انتهاء الاتفاقية ">
+                                                                 <ItemStyle HorizontalAlign="Center" />
+                                                                 <ItemTemplate>
+                                                                     <%# checkExpiration(NullDateifEmpty(gets(Eval("Agr_StartDate"))),NullDateifEmpty(gets(Eval("Agr_EndDate")))) %>
+                                                                     <b><%# NullDateifEmptyToText(gets(Eval("Agr_EndDate"))) %></b>
+                                                                 </ItemTemplate>
+                                                             </asp:TemplateColumn>
+
 
                                                             <asp:TemplateColumn HeaderText=" التفاصيل/ مرفقات">
                                                                 <ItemStyle HorizontalAlign="left" />
@@ -877,17 +889,15 @@
                                                                     </div>
                                                                     <div style="margin-top: 5px;display:<%#viewlinkedfile(gets(Eval("Law_DocDataRefId")))%>">
 
-                                                                         <%-- <a href="<%#ScannerRepositoryViewer + "?targetpath=" + _LawDocsTargetUploadPath + gets(Eval("Law_DocDataRefId"))+"/"+ "&vfileList=[" + gets(Eval("lawfile")) +";]"%>"  style="font-size: 12px; <%#showattachment(gets(Eval("Law_DocDataRefId")))%>" class="btn btn-warning btn-labeled btn-xs iframe">
-                                                                            <b><i class="glyphicon glyphicon-link"></i> </b>
-                                                                       تشريع مرتبط
-                                                                        </a>--%>
-
-                                                                          <a href="LawDocView.aspx?LawDocRefID=<%#gets(Eval("Law_DocDataRefId"))%>&LawDocID=<%#gets(Eval("Law_DocDataRefId"))%>"  style="font-size: 12px; <%#showattachment(gets(Eval("Law_DocDataRefId")))%>" class="btn btn-warning btn-labeled btn-xs iframe">
+                                                                          <a href="<%#ScannerRepositoryViewer + "?targetpath=" + _LawDocsTargetUploadPath + gets(Eval("Law_DocDataRefId"))+"/"+ "&vfileList=[" + gets(Eval("lawfile")) +";]"%>"  style="font-size: 12px; <%#showattachment(gets(Eval("Law_DocDataRefId")))%>" class="btn btn-warning btn-labeled btn-xs iframe">
                                                                             <b><i class="glyphicon glyphicon-link"></i> </b>
                                                                        تشريع مرتبط
                                                                         </a>
 
-                                                                       
+                                                                      <%-- <a href="LawDocView.aspx?LawDocRefID=<%#gets(Eval("Law_DocDataRefId"))%>&LawDocID=<%#gets(Eval("Law_DocDataRefId"))%>"  style="font-size: 12px; <%#showattachment(gets(Eval("Law_DocDataRefId")))%>" class="btn btn-warning btn-labeled btn-xs iframe">
+                                                                            <b><i class="glyphicon glyphicon-link"></i> </b>
+                                                                            تشريع مرتبط
+                                                                       </a>--%>
 
 
                                                                     </div>
@@ -895,7 +905,7 @@
                                                                 </ItemTemplate>
                                                             </asp:TemplateColumn>
 
-                                                                                                                 <asp:TemplateColumn>
+                                                            <asp:TemplateColumn>
                                                     <ItemStyle Width="5%" HorizontalAlign="Center" />
                                                     <HeaderStyle Wrap="False" HorizontalAlign="Center" />
                                                     <ItemTemplate>
@@ -1213,7 +1223,6 @@
                                                                 <div class="form-actions">
                                                                     <div class="col-md-offset-3 col-md-12">
 
-
                                                                         <asp:LinkButton ID="btnSave" runat="server" class="btn btn-primary" OnClick="btnSave_Click1"><i class='fa fa-save'></i>&nbsp; حفظ البيانات </asp:LinkButton>
 
                                                                         &nbsp;
@@ -1222,19 +1231,30 @@
 
 
                                                                         &nbsp;
-				                                             <asp:Button runat="server" ID="btnCancel" class="btn btn-default" Text=" الغاء / رجوع  " OnClick="btnCancel_Click" />
-                                                                        &nbsp;
-                                                             <a id="anchorAgreementAttachemnt" visible="false" runat="server" href='#' class="btn btn-success btn-labeled iframe">
-                                                                 <b><i class="icon-attachment"></i></b>
-                                                                 مرفقات
-                                                             </a>
+				                                                     <asp:Button runat="server" ID="btnCancel" class="btn btn-default" Text=" الغاء / رجوع  " OnClick="btnCancel_Click" />
+                                                                                &nbsp;
+                                                                     <a id="anchorAgreementAttachemnt" visible="false" runat="server" href='#' class="btn btn-success btn-labeled iframe">
+                                                                         <b><i class="icon-attachment"></i></b>
+                                                                         مرفقات
+                                                                     </a>
+                                                                         &nbsp;
+                                                                       
+                                                                      
 
-                                                                        &nbsp;
                                                                           <asp:LinkButton ID="lnkMOvetoFinal" runat="server" class="btn btn-danger" OnClientClick="return confirm('هل انت متأكد من تحويل الملف لإتفاقية نهائية?');" OnClick="lnkMOvetoFinal_Click"><i class='icon-cog5'></i>&nbsp;   التحويل لاتفاقية نهائية </asp:LinkButton>
+                                                                          &nbsp;
+                                                                      
 
-                                                                        <a href="#" class="btn btn-warning btn-labeled iframe linkedpopup" id="lnklawDoc" visible="False" runat="server"><b><i class="glyphicon glyphicon-link"></i></b>إضافة تشريع مرتبط</a>
+                                                                        <a href="#" class="btn btn-warning btn-labeled iframe linkedpopup" id="lnklawDoc" runat="server"><b><i class="glyphicon glyphicon-link"></i></b>إضافة تشريع مرتبطة</a>
 
                                                                         <asp:LinkButton ID="lnklaeUnlink" Visible="false" runat="server" class="btn btn-warning btn-labeled" OnClientClick="return confirm('هل انت متأكد من فك ارتباط التشريع بالاتفاقية؟');" OnClick="lnklaeUnlink_Click" style="background:red"><b><i class="icon-unlink2"></i></b>&nbsp;   فك ارتباط التشريع </asp:LinkButton>
+
+
+<%--                                                                          <a href="#" class="btn btn-warning btn-labeled iframe linkedpopup" id="lnkAgreementLink" runat="server"><b><i class="glyphicon glyphicon-link"></i></b>إضافة إتفاقية مرتبطة</a>
+
+                                                                        <asp:LinkButton ID="btnUnlinkAgreement" Visible="false" runat="server" class="btn btn-warning btn-labeled " OnClick="btnUnlinkAgreement_Click" Style="background: red"><b><i class="icon-unlink2"></i></b>   فك ربط الاتفاقية </asp:LinkButton>--%>
+
+
 
                                                                     </div>
                                                                 </div>

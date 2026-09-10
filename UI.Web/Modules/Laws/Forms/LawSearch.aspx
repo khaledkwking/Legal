@@ -230,7 +230,7 @@
                                 runat="server" 
                                 Text='<%# "- يحتوي على " + Eval("DocProceduresTypesNameAr") %>'
                                 Visible='<%# Eval("DocProceduresTypesNameAr") != null 
-                                    && Eval("DocProceduresTypesNameAr").ToString().Contains("تدراك") %>'
+                                    && Eval("DocProceduresTypesNameAr").ToString().Contains("استدراك") %>'
                                 ForeColor="#e74c3c" 
                                 Font-Bold="true" 
                                 Font-Size="15px">
@@ -243,6 +243,14 @@
                            data-target="#modal_<%#Eval("ChildDocId") %>">
                             <i class="fa fa-file-text-o"></i> نص الوثيقة
                         </a>
+                                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                             <asp:Label 
+                                 ID="Label3" 
+                                 runat="server" 
+                                 class="btn  btn-success btn-sm shadow-sm rounded-pill px-4"
+                                 Text='<%# Eval("DocSerial") %>' BorderStyle="NotSet"  Font-Bold="True" ForeColor="Black">
+                             </asp:Label>
+
             <div id="modal_<%#Eval("ChildDocId") %>" class="modal fade">
                 <div class="modal-dialog">
                     <div class="modal-content">

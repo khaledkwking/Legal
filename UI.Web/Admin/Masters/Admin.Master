@@ -10,6 +10,66 @@
 	<title>CMGS | الأمانة العامة لمجلس الوزراء – دولة الكويت </title>
             
 
+	<!-- Menu stylesheets -->
+<%--    <link href="../../Layout/Assets/Menu/menu-theme-v2.css" rel="stylesheet" />--%>
+
+    <style type="text/css">
+        /* Second navbar custom style (matches required screenshot style) */
+        #navbar-second.cmgs-navbar {
+            background-color: #0a3326 !important;
+            background-image: none !important;
+            border-color: #0d3f2f !important;
+            min-height: 50px;
+        }
+
+        #navbar-second.cmgs-navbar .navbar-nav > li > a {
+            color: #ffffff !important;
+            font-weight: 600;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid transparent;
+            background: transparent !important;
+        }
+
+        #navbar-second.cmgs-navbar .navbar-nav > li > a i {
+            color: #ffffff !important;
+        }
+
+        #navbar-second.cmgs-navbar .navbar-nav > li:hover > a,
+        #navbar-second.cmgs-navbar .navbar-nav > li:focus > a,
+        #navbar-second.cmgs-navbar .navbar-nav > .open > a,
+        #navbar-second.cmgs-navbar .navbar-nav > .open > a:hover,
+        #navbar-second.cmgs-navbar .navbar-nav > .open > a:focus,
+        #navbar-second.cmgs-navbar .navbar-nav > .active > a,
+        #navbar-second.cmgs-navbar .navbar-nav > .active > a:hover,
+        #navbar-second.cmgs-navbar .navbar-nav > .active > a:focus {
+            background-color: #12523d !important;
+            color: #ffffff !important;
+            border-bottom-color: #7fd8c2 !important;
+        }
+
+        #navbar-second.cmgs-navbar .dropdown-menu {
+            background-color: #ffffff !important;
+            border: 1px solid #dbe6e1 !important;
+            border-top: 2px solid #0d3f2f !important;
+        }
+
+        #navbar-second.cmgs-navbar .dropdown-menu > li > a {
+            color: #2f3e39 !important;
+            font-weight: 500;
+        }
+
+        #navbar-second.cmgs-navbar .dropdown-menu > li > a:hover,
+        #navbar-second.cmgs-navbar .dropdown-menu > li > a:focus {
+            background-color: #f2f8f5 !important;
+            color: #0d3f2f !important;
+        }
+
+        #navbar-second.cmgs-navbar .navbar-nav.navbar-right > li > a {
+            color: #ffffff !important;
+        }
+    </style>
+  <%-------------------------------------------------%>
 
      <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 	<!-- Global stylesheets -->
@@ -557,7 +617,7 @@
 
 
 	<!-- Second navbar -->
-	<div class="navbar navbar-default" id="navbar-second">
+  <div class="navbar navbar-default cmgs-navbar" id="navbar-second">
 		<ul class="nav navbar-nav no-border visible-xs-block">
 			<li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
 		</ul>
@@ -566,7 +626,7 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a  href='#' runat="server" id="lnk_home" ><i class="icon-pie-chart position-left"></i><%=Resources.CTOS.Dashboard %> </a></li>
 
-                <li class="dropdown mega-menu mega-menu-wide open" style="display:none">
+                <%--<li class="dropdown mega-menu mega-menu-wide open" style="display:none">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon-puzzle4 position-left"></i> Components <span class="caret"></span></a>
 
 					<div class="dropdown-menu dropdown-content">
@@ -698,7 +758,7 @@
 							</div>
 						</div>
 					<div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="padding-top: 1.5px; padding-bottom: 1.5px; width: 3px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 0.5px; height: 0px; display: none; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 3px; z-index: 1000; top: -6px; left: 0px; position: absolute; cursor: default; display: none; opacity: 0;"><div style="position: absolute; top: 0px; height: 3px; width: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2001" class="nicescroll-rails nicescroll-rails-vr" style="padding-top: 1.5px; padding-bottom: 1.5px; width: 3px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 0.5px; height: 0px; display: none; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2001-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 3px; z-index: 1000; top: -6px; left: 0px; position: absolute; cursor: default; display: none; opacity: 0;"><div style="position: absolute; top: 0px; height: 3px; width: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2002" class="nicescroll-rails nicescroll-rails-vr" style="padding-top: 1.5px; padding-bottom: 1.5px; width: 3px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 0.5px; height: 0px; display: none; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2002-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 3px; z-index: 1000; top: -6px; left: 0px; position: absolute; cursor: default; display: none; opacity: 0;"><div style="position: absolute; top: 0px; height: 3px; width: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2003" class="nicescroll-rails nicescroll-rails-vr" style="padding-top: 1.5px; padding-bottom: 1.5px; width: 3px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 0.5px; height: 0px; display: none;"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2003-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 3px; z-index: 1000; top: -6px; left: 0px; position: absolute; cursor: default; display: none;"><div style="position: absolute; top: 0px; height: 3px; width: 0px; background-color: rgb(204, 204, 204); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div></div>
-				</li>
+				</li>--%>
 
 
 				   <%=strmenu %>

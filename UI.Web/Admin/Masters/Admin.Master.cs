@@ -905,7 +905,7 @@ namespace UI.Web.Admin.Masters
                             ">" + Resources.menu.Committees_Ministers + "</span></a></li>"));
                     }
 
-                   
+
                     if (ShowPage("lookups.aspx?tableName=Committees_ProceduresTypes"))
                     {
                         strmenu.Append(("\r\n" + "  <li><a href=\'/Modules/MasterData/lookups.aspx?tableName=Committees_ProceduresTypes'><i class=\'fa fa-angle-left\'></i><span class=\'submenu-title\'" +
@@ -948,7 +948,7 @@ namespace UI.Web.Admin.Masters
                 strmenu.Append("</li>");
             }
 
-          
+
 
 
 
@@ -1235,7 +1235,7 @@ namespace UI.Web.Admin.Masters
                 strmenu.Append("</li>");
             }
 
-       
+
 
             if (ShowSystem("1"))
             {
@@ -1282,6 +1282,7 @@ namespace UI.Web.Admin.Masters
             }
 
         }
+
         public string FIllPublicAnnouncements()
         {
             string _out = "";

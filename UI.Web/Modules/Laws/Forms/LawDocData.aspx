@@ -481,9 +481,6 @@
 
 
 
-
-
-
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">
                                         جزء من نص الوثيقة :
@@ -931,12 +928,12 @@
 
                                                                         </a>
                                                                      </div>--%>
-                                                                    <div style="margin-top: 5px; display: <%#viewlinkedfile(gets(Eval("relatedAgreement")))%>">
+                                                                   <%-- <div style="margin-top: 5px; display: <%#viewlinkedfile(gets(Eval("relatedAgreement")))%>">
                                                                         <a href="/modules/Agreements/forms/AgreementsDataLink.aspx?AgreementRefId=<%#Eval("relatedAgreement") %>" class="btn btn-warning btn-labeled btn-xs iframe">
                                                                             <b><i class="glyphicon glyphicon-link"></i></b>إتفاقية مرتبطة
 
                                                                         </a>
-                                                                    </div>
+                                                                    </div>--%>
 
                                                                 </ItemTemplate>
                                                             </asp:TemplateColumn>
@@ -1354,9 +1351,9 @@
 															 <a id="anchorAttachment" visible="false" runat="server" href='javascript:void(0)' class="btn btn-success btn-xs iframe">
                                                                  <i class="icon-attachment"></i>&nbsp; عرض ملف الوثيقة</a>
 
-                                                                <a href="#" class="btn btn-warning btn-labeled iframe linkedpopup" id="lnkAgreementLink" runat="server"><b><i class="glyphicon glyphicon-link"></i></b>إضافة إتفاقية مرتبطة</a>
+                                                             <%--   <a href="#" class="btn btn-warning btn-labeled iframe linkedpopup" id="lnkAgreementLink" runat="server"><b><i class="glyphicon glyphicon-link"></i></b>إضافة إتفاقية مرتبطة</a>
 
-                                                                <asp:LinkButton ID="btnUnlinkAgreement" Visible="false" runat="server" class="btn btn-warning btn-labeled " OnClick="btnUnlinkAgreement_Click" Style="background: red"><b><i class="icon-unlink2"></i></b>   فك ربط الاتفاقية </asp:LinkButton>
+                                                                <asp:LinkButton ID="btnUnlinkAgreement" Visible="false" runat="server" class="btn btn-warning btn-labeled " OnClick="btnUnlinkAgreement_Click" Style="background: red"><b><i class="icon-unlink2"></i></b>   فك ربط الاتفاقية </asp:LinkButton>--%>
 
 
                                                                 <asp:LinkButton ID="lnkCancelLawDoc" CssClass="btn btn-danger btn-labeled " runat="server" OnClientClick="return confirm('هل انت متأكد من الغاء التشريع  ؟  ');" OnClick="lnkCancelLawDoc_Click"><b><i class="fa fa-trash"></i></b>   الغاء التشريع  </asp:LinkButton>

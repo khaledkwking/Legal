@@ -24,6 +24,7 @@ namespace UI.Web.Modules.Laws.Forms
             public string Path { get; set; }
             public int? DocNum { get; set; }
             public int? DocYear { get; set; }
+            public string DocSerial { get; set; }
             public string DocSubject { get; set; }
             public string DocFilepath { get; set; }
             public string DocTypeName { get; set; }
@@ -36,6 +37,7 @@ namespace UI.Web.Modules.Laws.Forms
             public int Code { get; set; }
             public int? DocNum { get; set; }
             public int? DocYear { get; set; }
+            public string DocSerial { get; set; }
             public string DocSubject { get; set; }
             public string DocFilepath { get; set; }
             public string DocTypeName { get; set; }
@@ -256,6 +258,7 @@ namespace UI.Web.Modules.Laws.Forms
                     ChildDocId = extra.Code,
                     DocNum = extra.DocNum,
                     DocYear = extra.DocYear,
+                    DocSerial  = extra.DocSerial,
                     DocSubject = extra.DocSubject,
                     DocFilepath = extra.DocFilepath,
                     DocTypeName = extra.DocTypeName,
@@ -322,7 +325,7 @@ namespace UI.Web.Modules.Laws.Forms
         }
         private List<LawExtraDoc> LoadAllUnlinkedDocs()
         {
-            var query = @"SELECT d.Code, d.DocNum, d.DocYear, d.DocSubject, d.DocFilepath, t.NameAr AS DocTypeName
+            var query = @"SELECT d.Code, d.DocNum, d.DocYear,d.DocSerial, d.DocSubject, d.DocFilepath, t.NameAr AS DocTypeName
             FROM Law_DocData d
 
             LEFT JOIN View_LawsLinkedDocs l ON l.SouceDocID = d.Code OR l.DestDocId = d.Code

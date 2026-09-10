@@ -27,6 +27,62 @@
 	<link href="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/css/components.css" rel="stylesheet" type="text/css">
 	<link href="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/css/colors.css" rel="stylesheet" type="text/css">
 	<!-- /global stylesheets -->
+
+    <style type="text/css">
+        /* Second navbar custom style */
+        #navbar-second.cmgs-navbar {
+            background-color: #0d3f2f !important;
+            background-image: none !important;
+            border-color: #0d3f2f !important;
+            min-height: 50px;
+        }
+
+        #navbar-second.cmgs-navbar .navbar-nav > li > a {
+            color: #ffffff !important;
+            background: transparent !important;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+        }
+
+        #navbar-second.cmgs-navbar .navbar-nav > li > a i,
+        #navbar-second.cmgs-navbar .navbar-nav > li > a .caret {
+            color: #ffffff !important;
+        }
+
+        #navbar-second.cmgs-navbar .navbar-nav > li:hover > a,
+        #navbar-second.cmgs-navbar .navbar-nav > li:focus > a,
+        #navbar-second.cmgs-navbar .navbar-nav > .open > a,
+        #navbar-second.cmgs-navbar .navbar-nav > .open > a:hover,
+        #navbar-second.cmgs-navbar .navbar-nav > .open > a:focus,
+        #navbar-second.cmgs-navbar .navbar-nav > .active > a,
+        #navbar-second.cmgs-navbar .navbar-nav > .active > a:hover,
+        #navbar-second.cmgs-navbar .navbar-nav > .active > a:focus {
+            background-color: #12523d !important;
+            color: #ffffff !important;
+            border-bottom-color: #7fd8c2 !important;
+        }
+
+        #navbar-second.cmgs-navbar .dropdown-menu {
+            background-color: #ffffff !important;
+            border: 1px solid #dbe6e1 !important;
+            border-top: 2px solid #0d3f2f !important;
+        }
+
+        #navbar-second.cmgs-navbar .dropdown-menu > li > a {
+            color: #2f3e39 !important;
+            font-weight: 500;
+        }
+
+        #navbar-second.cmgs-navbar .dropdown-menu > li > a:hover,
+        #navbar-second.cmgs-navbar .dropdown-menu > li > a:focus {
+            background-color: #f2f8f5 !important;
+            color: #0d3f2f !important;
+        }
+
+        #navbar-second.cmgs-navbar .navbar-nav.navbar-right > li > a {
+            color: #ffffff !important;
+        }
+    </style>
     
 
 	<!-- Core JS files -->
@@ -234,7 +290,7 @@
 
 
 	<!-- Second navbar -->
-	<div class="navbar navbar-default" id="navbar-second">
+  <div class="navbar navbar-default cmgs-navbar" id="navbar-second">
 		<ul class="nav navbar-nav no-border visible-xs-block">
 			<li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
 		</ul>

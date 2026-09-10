@@ -399,7 +399,7 @@
 
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group" >
                                     <label class="col-lg-3 control-label">تاريخ  إصدار الوثيقة من :</label>
                                     <div class="col-lg-9">
                                         <div class="input-group">
@@ -414,7 +414,7 @@
                                 </div>
 
 
-   <div class="form-group">
+                                <div class="form-group" >
                                     <label class="col-lg-3 control-label">تاريخ  انتهاء الوثيقة من :</label>
                                     <div class="col-lg-9">
                                         <div class="input-group">
@@ -432,7 +432,7 @@
 
 
 
-                                 <div class="form-group">
+                                 <div class="form-group"  >
                                     <label class="col-lg-3 control-label">
                                         جزء من نص الوثيقة :
                                     </label>
@@ -443,13 +443,13 @@
 
                                 </div>
 
-                                 <div class="form-group">
+                                 <div class="form-group" >
                                     <label class="col-lg-3 control-label">
                                         العمل التحضيري :
                                     </label>
                                     <div class="col-lg-9 autoDrop">
 
-  <asp:DropDownList ID="lstFilterprocedureType" class="form-control  Select2Drop" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="lstFilterprocedureType" class="form-control  Select2Drop" runat="server"></asp:DropDownList>
                                     </div>
 
                                 </div>
@@ -464,7 +464,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group"  >
                                     <label class="col-lg-3 control-label">إلى  :</label>
                                     <div class="col-lg-9">
 
@@ -488,7 +488,7 @@
 
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group"  >
                                     <label class="col-md-3 control-label" for="">قيد الدراسة: </label>
 
                                     <div class="col-md-9">
@@ -515,7 +515,7 @@
                                 </div>--%>
 
 
-                                <div class="form-group">
+                                <div class="form-group" >
                                     <label class="col-lg-3 control-label">
                                         التصنيف :
                                     </label>
@@ -542,7 +542,7 @@
 
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group" >
                                     <label class="col-md-3 control-label" for="">نشر بالجريدة الرسمية :   : </label>
 
                                     <div class="col-md-9">
@@ -1009,7 +1009,7 @@
 
                                                                 </div>
 
-                                                                <div class="form-group">
+                                                                <div class="form-group" >
                                                                     <label class="col-md-3 control-label" for="">تاريخ إصدار الوثيقة   :  </label>
 
                                                                     <div class="col-md-9">

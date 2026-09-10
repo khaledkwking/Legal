@@ -54,6 +54,57 @@ namespace UI.Web.Agreements.Forms
         protected void Page_PreInit(object sender, EventArgs e)
         {
         }
+        public string checkExpiration(DateTime _JoinJoinExpireDate, DateTime _JoinExpireDate)
+        {
+            string _out = "";
+
+
+            double Percentage = 0;
+            string ExecutionColorHex = "#ccc";
+            if (_JoinExpireDate != null && NullDateifEmptyToText(_JoinExpireDate) != "")
+            {
+                Percentage = (_JoinExpireDate.Date - DateTime.Now.Date).TotalDays <= 0 ? 100 :
+                                Math.Floor((DateTime.Now.Date - _JoinJoinExpireDate.Date).TotalDays / (_JoinExpireDate.Date - _JoinJoinExpireDate.Date).TotalDays * 100);
+                if (Percentage == 0)
+                {
+                    Percentage = 1;
+
+                }
+
+                if (Percentage <= 50)
+                {
+                    ExecutionColorHex = "#08a711"; //greeen
+                    _out = "<div class='circle-bar position' style='margin-top:5px;' data-percent='" + Percentage + "' data-color='#ccc," + ExecutionColorHex + "'></div>";
+                }
+                else if (Percentage > 50 && Percentage <= 87.5)
+                {
+                    ExecutionColorHex = "#e3ad24";// yellow
+                    _out = "<div class='circle-bar position' style='margin-top:5px;' data-percent='" + Percentage + "' data-color='#ccc," + ExecutionColorHex + "'></div>";
+                }
+                else if (Percentage > 87.5 && Percentage <= 99.9)
+                {
+                    ExecutionColorHex = "#e32442";// Red
+                    _out = "<div class='circle-bar position' style='margin-top:5px;' data-percent='" + Percentage + "' data-color='#ccc," + ExecutionColorHex + "'></div>";
+                }
+                else
+                {
+                    _out = "<span class='label bg-danger-400'>انتهى </span>";
+                }
+
+
+
+            }
+            else
+            {
+                _out = "";
+
+            }
+
+
+
+            return _out;
+
+        }
         protected void Page_Load(object sender, System.EventArgs e)
         {
             
@@ -615,8 +666,9 @@ namespace UI.Web.Agreements.Forms
                 txtSerialNUm.Enabled = false;
 
                 FillAgreementProcedures(0, hdnIsInitial.Value);
-            }
+                SaveAgreementMaster();
 
+            }
             tblAdd.Visible = true;
 
 
@@ -1253,13 +1305,32 @@ namespace UI.Web.Agreements.Forms
           
 
 
+            // Ensure CurrentPageIndex is within valid range before binding to avoid HttpException
+            int totalItems = InitailAgreements != null ? InitailAgreements.Count : 0;
+            int pageSize = grdInboundItems.PageSize > 0 ? grdInboundItems.PageSize : 20;
+            int pageCount = (totalItems + pageSize - 1) / pageSize; // may be 0 if no items
+
+            if (pageCount == 0)
+            {
+                // no data, reset to first page
+                grdInboundItems.CurrentPageIndex = 0;
+            }
+            else
+            {
+                if (grdInboundItems.CurrentPageIndex < 0)
+                    grdInboundItems.CurrentPageIndex = 0;
+                else if (grdInboundItems.CurrentPageIndex >= pageCount)
+                    grdInboundItems.CurrentPageIndex = pageCount - 1;
+            }
+
             grdInboundItems.DataSource = InitailAgreements;
             grdInboundItems.DataBind();
 
             //grdAgreement2.DataSource = FinalAgreements;
             //grdAgreement2.DataBind();
 
-            pager1.ItemCount = InitailAgreements.Count ;
+            // Set pager item count to the actual number of items bound to the grid
+            pager1.ItemCount = totalItems;
            // pager3.ItemCount = FinalAgreements.Count  ;
 
 
@@ -1728,13 +1799,13 @@ namespace UI.Web.Agreements.Forms
                 //Control Lnk
                 if (objList.Law_DocDataRefId !=null && objList.Law_DocDataRefId != 0 && gets(objList.Law_DocDataRefId )!= "")
                 {
-                    lnklawDoc.InnerHtml = "<b><i class='glyphicon glyphicon-link'></i></b>عرض قانون مرتبط";
-                    lnklawDoc.HRef = "/modules/laws/forms/LawDocDatalnk.aspx?agreementid=" + gets(objList.Code) + "&lawDocRefId=" + objList.Law_DocDataRefId;
-                    lnklaeUnlink.Visible = true;
+                    //lnklawDoc.InnerHtml = "<b><i class='glyphicon glyphicon-link'></i></b>عرض تشريع مرتبط";
+                    //lnklawDoc.HRef = "/modules/laws/forms/LawDocDatalnk.aspx?agreementid=" + gets(objList.Code) + "&lawDocRefId=" + objList.Law_DocDataRefId;
+                    //lnklaeUnlink.Visible = true;
                 }
                 else
                 {
-                    lnklawDoc.InnerHtml = "<b><i class='glyphicon glyphicon-link'></i></b>إضافة قانون مرتبط";
+                    lnklawDoc.InnerHtml = "<b><i class='glyphicon glyphicon-link'></i></b>إضافة تشريع مرتبط";
                     lnklawDoc.HRef = "/modules/laws/forms/LawDocDatalnk.aspx?agreementid=" + gets(objList.Code) + "&lawDocRefId=0";
                     lnklaeUnlink.Visible = false;
 
@@ -1751,7 +1822,10 @@ namespace UI.Web.Agreements.Forms
                 }
 
             }
-
+            else
+            {
+                lnklawDoc.Visible = false;
+            }
             tblAdd.Visible = true;
            //blSubTitle.Text = this.GetTitle(false);
 

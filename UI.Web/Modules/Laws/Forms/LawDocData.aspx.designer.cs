@@ -681,24 +681,6 @@ namespace UI.Web.Modules.Laws.Forms
         protected global::System.Web.UI.HtmlControls.HtmlAnchor anchorAttachment;
 
         /// <summary>
-        /// lnkAgreementLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkAgreementLink;
-
-        /// <summary>
-        /// btnUnlinkAgreement control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnUnlinkAgreement;
-
-        /// <summary>
         /// lnkCancelLawDoc control.
         /// </summary>
         /// <remarks>

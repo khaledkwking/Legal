@@ -52,6 +52,87 @@
             }
             document.getElementById(parent).checked = check;
         }
+
+        var permissionHeaderToggleState = {
+            chkShow: false,
+            chkAdd: false,
+            chkModify: false,
+            chkDelete: false,
+            chkAudit: false
+        };
+
+        function togglePermissionColumn(checkBoxIdSuffix) {
+            var targetState = !permissionHeaderToggleState[checkBoxIdSuffix];
+            permissionHeaderToggleState[checkBoxIdSuffix] = targetState;
+
+            var selector = "#<%=grdResult.ClientID %> input[type='checkbox'][id$='" + checkBoxIdSuffix + "']";
+            var list = document.querySelectorAll(selector);
+
+            for (var i = 0; i < list.length; i++) {
+                if (!list[i].disabled) {
+                    list[i].checked = targetState;
+                }
+            }
+        }
+
+        function findHeaderRow(table) {
+            if (!table || !table.rows || table.rows.length === 0) return null;
+            return table.rows[0];
+        }
+
+        function bindHeaderCellClick(cell, suffix) {
+            if (!cell) return;
+            cell.style.cursor = "pointer";
+            cell.title = "اضغط للتحديد/إلغاء التحديد";
+            cell.onclick = function () {
+                togglePermissionColumn(suffix);
+                return false;
+            };
+        }
+
+        function normalizeArabicText(txt) {
+            if (!txt) return "";
+            return txt.replace(/\s+/g, " ").trim();
+        }
+
+        function findHeaderCellByCaption(headerRow, captions) {
+            if (!headerRow || !headerRow.cells) return null;
+
+            for (var i = 0; i < headerRow.cells.length; i++) {
+                var cellText = normalizeArabicText(headerRow.cells[i].innerText || headerRow.cells[i].textContent || "");
+                for (var j = 0; j < captions.length; j++) {
+                    if (cellText === captions[j]) {
+                        return headerRow.cells[i];
+                    }
+                }
+            }
+            return null;
+        }
+
+        function bindPermissionHeaderClicks() {
+            var grid = document.getElementById("<%=grdResult.ClientID %>");
+            if (!grid) return;
+
+            var headerRow = findHeaderRow(grid);
+            if (!headerRow || !headerRow.cells || headerRow.cells.length === 0) return;
+
+            // Bind by header caption (safer than fixed indexes when hidden columns exist)
+            bindHeaderCellClick(findHeaderCellByCaption(headerRow, ["عرض"]), "chkShow");
+            bindHeaderCellClick(findHeaderCellByCaption(headerRow, ["اضافة", "إضافة"]), "chkAdd");
+            bindHeaderCellClick(findHeaderCellByCaption(headerRow, ["تعديل"]), "chkModify");
+            bindHeaderCellClick(findHeaderCellByCaption(headerRow, ["حذف"]), "chkDelete");
+            bindHeaderCellClick(findHeaderCellByCaption(headerRow, ["تدقيق"]), "chkAudit");
+        }
+
+        if (typeof (Sys) !== "undefined" && Sys.Application) {
+            Sys.Application.add_load(function () {
+                bindPermissionHeaderClicks();
+            });
+        } else {
+            window.onload = function () {
+                bindPermissionHeaderClicks();
+            };
+        }
     </script>
 
 

@@ -854,10 +854,16 @@ namespace UI.Web.Modules.Laws.Forms
 
 
             FillDllwithoptional_ALL(objLookup.FillLaw_DocType(), ref lstDocType, "NameAr", "Code", "اختر");
-            FillDllwithoptional_ALL(objLookup.FillLaw_DocType(), ref lstFilterType, "NameAr", "Code", "الكل");
+            if (Request.QueryString["agreementid"] != null)
+            {
+                FillDllwithOutoptional_ALL(objLookup.FillLaw_DocType().Where(c => c.Code <= 3), ref lstFilterType, "NameAr", "Code");
+            }
+            else
+            {
+                FillDllwithoptional_ALL(objLookup.FillLaw_DocType(), ref lstFilterType, "NameAr", "Code", "الكل");
+            }
 
-
-            FillDllwithoptional_ALL(objLookup.FillLaw_DocCategory(), ref lstCategory, "NameAr", "Code", "اختر");
+                FillDllwithoptional_ALL(objLookup.FillLaw_DocCategory(), ref lstCategory, "NameAr", "Code", "اختر");
             FillDllwithoptional_ALL(objLookup.FillLaw_DocCategory(), ref lstFilterCategory, "NameAr", "Code", "الكل");
 
 
@@ -1628,7 +1634,7 @@ namespace UI.Web.Modules.Laws.Forms
 
                 objRepository.DeleteLaw((Law_DocData)objRepository.GetDetails(ZeroIntergerIFNull(e.Item.Cells[3].Text)));
             }
-            else if (e.CommandName == "link")
+            else if (e.CommandName == "LawDoclink")
             {
                 if (Request.QueryString["agreementid"] != null)
                 {
@@ -1652,11 +1658,7 @@ namespace UI.Web.Modules.Laws.Forms
                     }
 
                 }
-            }
-
-            else if (e.CommandName == "LawDoclink")
-            {
-                if (Request.QueryString["SouceID"] != null)
+                if  (Request.QueryString["SouceID"] != null)
                 {
                     //Update Agreemrnt] SouceID
                     Law_DocData_Linked objlink = new Law_DocData_Linked();
@@ -1725,7 +1727,7 @@ namespace UI.Web.Modules.Laws.Forms
 
 
                                     //Copy Attachemnts
-                                   
+
                                     if (item.Procedureattachments != null && gets(item.Procedureattachments) != "")
                                     {
                                         if (!CopyFile(gets(item.Procedureattachments), ScannerRepository + _TargetUploadPath + gets(Request.QueryString["projectId"]) + "/procedure/" + gets(item.Code) + "/", ScannerRepository + _TargetUploadPath + gets(DestDocId) + "/procedure/" + gets(obj.Code) + "/"))
@@ -1790,9 +1792,14 @@ namespace UI.Web.Modules.Laws.Forms
 
 
                 }
-
-
             }
+
+            //else if (e.CommandName == "LawDoclink")
+            //{
+                
+
+
+            //}
 
             FillLawDocs();
         }
