@@ -678,22 +678,22 @@
                                                                 <asp:BoundColumn DataField="ProcedureNotes"   HeaderText="ملاحظات  "></asp:BoundColumn>
 
 
-                                                                                     <asp:TemplateColumn HeaderText="مرفقات">
-                                                                                         <ItemStyle HorizontalAlign="Center" Width="5%" />
-                                                                                         <HeaderStyle HorizontalAlign="Center" />
-                                                                                         <ItemTemplate>
-                                                                                             <a class="label border-left-primary label-striped iframe" target="_blank" href="<%# ScannerRepositoryViewer + "?targetpath=" + _TargetUploadPath + "&vfileList=["  + gets(Eval("Procedureattachments")) +";]"%>" style="<%#showattachment(gets(Eval("Procedureattachments")))%>">
+                                                            <asp:TemplateColumn HeaderText="مرفقات">
+                                                                <ItemStyle HorizontalAlign="Center" Width="5%" />
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemTemplate>
+                                                                    <a class="label border-left-primary label-striped iframe" target="_blank" href="<%# ScannerRepositoryViewer + "?targetpath=" + _TargetUploadPath + "&vfileList=["  + gets(Eval("Procedureattachments")) +";]"%>" style="<%#showattachment(gets(Eval("Procedureattachments")))%>">
 
-                                                                                                 <i class="icon-attachment"></i>&nbsp;
-                                                                                              ملف الكتاب
-                                                                                             </a>
+                                                                        <i class="icon-attachment"></i>&nbsp;
+                                                                    ملف الكتاب
+                                                                    </a>
 
-                                                                                             <%--   <a href="AnwserAttachments.aspx?DocID=0&LawDocID=<%#Eval("LawDocID")%>&FileID=0" class="btn btn-default btn-xs iframe">
-                                                                                            <i class="icon-attachment"></i>&nbsp;
-                                                                                           مرفقات
-                                                                                        </a>--%>
-                                                                                         </ItemTemplate>
-                                                                                     </asp:TemplateColumn>
+                                                                    <%--   <a href="AnwserAttachments.aspx?DocID=0&LawDocID=<%#Eval("LawDocID")%>&FileID=0" class="btn btn-default btn-xs iframe">
+                                                                <i class="icon-attachment"></i>&nbsp;
+                                                                مرفقات
+                                                            </a>--%>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateColumn>
 
 
 
@@ -812,8 +812,6 @@
                                                                 <ItemStyle HorizontalAlign="right" Width="5%" />
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemTemplate>
-
-
                                                                     <asp:LinkButton runat="server" id="lnkLawDocLink" CommandName="LawDoclink" CssClass="btn btn-warning btn-labeled btn-sm">
                                                                        <b> <i class="glyphicon glyphicon-link"></i></b>
                                                                         ربط
@@ -821,9 +819,16 @@
                                                                     </asp:LinkButton>
 
                                                                 </ItemTemplate>
+                                                                 
                                                             </asp:TemplateColumn>
 
-
+                                                            <asp:TemplateColumn HeaderText="سبب الربط">
+                                                            <ItemStyle HorizontalAlign="Center" />
+                                                            <HeaderStyle Wrap="False" HorizontalAlign="Center" />
+                                                            <ItemTemplate>
+                                                                <asp:DropDownList ID="lstLinkedStatus" runat="server" AutoPostBack="true"  CssClass="Select2Drop" Width="100%"></asp:DropDownList>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateColumn>
 
 
 

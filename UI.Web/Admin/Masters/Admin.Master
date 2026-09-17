@@ -129,7 +129,7 @@
     <script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/pages/dashboard.js"></script>
 
 
-    <script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/pages/form_layouts.js"></script>
+   <%-- removed missing script: assets/js/pages/form_layouts.js --%>
 	<!-- /theme JS files -->
      <!--LOADING STYLESHEET FOR Dialog-->
 
@@ -143,8 +143,10 @@
 	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/forms/inputs/passy.js"></script>
 	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/forms/inputs/maxlength.min.js"></script>
 
-	<script type="text/javascript" src="assets/js/core/app.js"></script>
-	<script type="text/javascript" src="assets/js/pages/form_controls_extended.js"></script>
+    <%-- removed broken relative scripts:
+    <script type="text/javascript" src="assets/js/core/app.js"></script>
+    <script type="text/javascript" src="assets/js/pages/form_controls_extended.js"></script>
+    --%>
 	<!-- /theme JS files -->
 
  <%--   <script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/tables/datatables/datatables.min.js"></script>
@@ -174,7 +176,7 @@
         <script src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/plugins/datatables/dataTables.scroller.min.js"></script>
         <script src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/plugins/datatables/dataTables.colVis.js"></script>
         <script src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/plugins/datatables/dataTables.fixedColumns.min.js"></script>
-        <script src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
+        <%-- removed missing script: assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js --%>
 
 
 
@@ -209,7 +211,7 @@
 	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
 
 	<%--<script type="text/javascript" src="assets/js/core/app.js"></script>--%>
-	<script type="text/javascript" src="<%= GetGlobalResourceObject("Utilities", "resourcespath")%>assets/js/pages/form_multiselect.js"></script>
+   <%-- removed missing script: assets/js/pages/form_multiselect.js --%>
 	<!-- /theme JS files -->
 
 

@@ -465,6 +465,8 @@
     <Content Include="Layout\Assets\img\icon-maker.png" />
     <Content Include="Layout\Assets\img\no-access.png" />
     <Content Include="Layout\Assets\js\jquery-1.10.2.min.js" />
+    <Content Include="Layout\Assets\law\css\law-table.css" />
+    <Content Include="Layout\Assets\law\js\law-table.js" />
     <Content Include="Layout\Assets\map\js.js" />
     <Content Include="Layout\Assets\map\style.css" />
     <Content Include="Layout\Assets\Menu\menu-theme-final.css" />
@@ -1944,6 +1946,8 @@
     <Content Include="Modules\Laws\DessionData.aspx" />
     <Content Include="Modules\Laws\Forms\LawDessionData.aspx" />
     <Content Include="Modules\Laws\Forms\lawDocDataDetails.aspx" />
+    <Content Include="Modules\Laws\index.html" />
+    <Content Include="Modules\Laws\LawDetailsOld.aspx" />
     <Content Include="Modules\Laws\LawDetailsDocData.aspx" />
     <Content Include="Modules\Laws\Forms\LawDocSearch.aspx" />
     <Content Include="Modules\Laws\Forms\LawDocSearchDetails.aspx" />
@@ -2212,6 +2216,13 @@
     </Compile>
     <Compile Include="Modules\Agreements\Forms\AgreementsDataLink.aspx.designer.cs">
       <DependentUpon>AgreementsDataLink.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Laws\LawDetailsOld.aspx.cs">
+      <DependentUpon>LawDetailsOld.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Laws\LawDetailsOld.aspx.designer.cs">
+      <DependentUpon>LawDetailsOld.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\DeleteConfirm.ascx.cs">
       <DependentUpon>DeleteConfirm.ascx</DependentUpon>

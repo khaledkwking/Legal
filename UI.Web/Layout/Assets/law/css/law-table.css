@@ -1,0 +1,801 @@
+﻿:root {
+    --primary: #315f82;
+    --primary-dark: #294f6d;
+    --text: #3f4b56;
+    --muted: #747f87;
+    --master: #f3f7fa;
+    --master-hover: #edf4f8;
+    --border: #e3e8ec;
+    --border-light: #edf1f3;
+    --number: #f1f4f6;
+    --number-border: #dce3e8;
+    --warn-bg: #fff5f2;
+    --warn-border: #ffd5cd;
+    --warn: #df5a4d;
+    --dup-bg: #f3f5f7;
+    --dup-border: #e0e5e9;
+    --dup: #4e5962;
+    --court-bg: #faf8ff;
+    --court-border: #e3d9ff;
+    
+}
+
+* {
+    box-sizing: border-box
+}
+
+/*html, body {
+    min-height: 100%
+}
+
+body {
+    margin: 0;
+    background: #fff;
+    color: var(--text);
+    font-family: "Cairo",Tahoma,Arial,sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility
+}*/
+
+a, button {
+    font-family: inherit
+}
+
+a {
+    text-decoration: none !important
+}
+
+    button:focus, a:focus {
+        outline: 2px solid rgba(49,95,130,.2);
+        outline-offset: 2px
+    }
+
+.law-page, .law-table-shell, .law-table {
+    width: 100%;
+    direction: rtl
+}
+
+.law-page {
+    padding: 0
+}
+
+.law-table-shell {
+    background: #fff;
+    overflow: hidden
+}
+
+/* Hide empty span wrappers from DataList RepeatLayout="Flow" */
+.law-table > span:empty {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Hide br tags between items */
+.law-table > br {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.law-row {
+    display: grid;
+    grid-template-columns: minmax(275px,1fr) minmax(600px,1fr) 82px 170px;
+    align-items: start;
+    width: 100%;
+    min-height: auto;
+    padding: 13px 24px;
+    background: #fff;
+    border-bottom: 1px solid var(--border-light);
+    direction: rtl;
+    transition: background-color .18s ease;
+    overflow: visible;
+}
+
+    .law-row:hover {
+        background: #fbfcfd
+    }
+
+.law-master-item {
+    min-height: 88px;
+    background: var(--master);
+    border-top: 1px solid #dfe7ec;
+    border-bottom: 1px solid #dfe7ec;
+    cursor: pointer;
+    margin: 0 0 8px 0 !important;
+    padding: 13px 24px;
+}
+
+    .law-master-item:hover {
+        background: var(--master-hover)
+    }
+
+    .law-master-item.is-expanded {
+        border-bottom: 1px solid #dfe7ec;
+    }
+
+    .law-master-item .law-title {
+        font-size: 15.5px;
+        font-weight: 700;
+        color: #334a5b
+    }
+
+.law-law-cell {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding-left: 20px;
+    border-left: 1px solid var(--border)
+}
+
+.law-title-link {
+    min-width: 0;
+    display: block
+}
+
+.law-title {
+    display: block;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.8;
+    overflow-wrap: anywhere
+}
+
+.law-expand-btn {
+    flex: 0 0 29px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 29px;
+    height: 29px;
+    padding: 0;
+    border: 1px solid #d8e1e7;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--primary);
+    font-size: 11px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all .18s ease
+}
+
+    .law-expand-btn:hover, .law-master-item.is-expanded .law-expand-btn {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff
+    }
+
+.law-subject-cell {
+    min-width: 0;
+    display: block;
+    padding: 0 23px;
+    min-height: auto;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+.law-subject-link {
+    display: inline;
+    color: var(--text);
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.law-subject-link > span.law-description {
+    display: none;
+}
+
+.law-subject-link > span.law-subject {
+    display: inline;
+}
+
+/* Make all badges appear inline */
+.law-subject-cell > a[onclick] {
+    display: inline-flex !important;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0;
+}
+
+.law-subject-cell > a[onclick] > span.status {
+    display: inline-flex !important;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+/* Separator between badges */
+.law-subject-cell > a[onclick] + span {
+    display: inline !important;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin: 0 5px !important;
+    font-size: 12px;
+}
+
+.law-status {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: 7px;
+    margin-top: 0;
+    margin-left: 7px;
+    white-space: nowrap;
+}
+
+.law-subject-link {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    color: var(--text)
+}
+
+.law-subject {
+    display: block;
+    width: 100%;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.9;
+    text-align: right;
+    overflow-wrap: anywhere
+}
+
+.law-description {
+    display: block;
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 12.5px;
+    line-height: 1.7
+}
+
+.law-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 5px;
+    margin-top: 0;
+    margin-left: 7px;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 4px;
+}
+
+.law-status a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    text-decoration: none !important;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
+
+.law-status .law-warning-badge,
+.law-status .law-court-badge,
+.law-status .law-amend-badge,
+.law-status .law-repeal-badge {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin: 0 2px;
+}
+
+.status {
+    font-weight: bold;
+    padding: 3px 11px;
+    border-radius: 17px;
+    margin-right: 0;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-height: 27px;
+}
+
+.status-court,
+.status-amend,
+.status-alt-red,
+.status-alt-blue {
+    min-height: 27px;
+    padding: 3px 11px;
+    border-radius: 17px;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 10.5px;
+    font-weight: 600;
+}
+
+.status-court {
+    border: 1px solid var(--warn-border);
+    background: var(--warn-bg);
+    color: var(--warn);
+}
+
+.status-amend {
+    border: 1px solid var(--warn-border);
+    background: var(--warn-bg);
+    color: var(--warn);
+}
+
+.status-alt-red {
+    border: 1px solid #e8a8a0;
+    background: #fce8e5;
+    color: #d9534f;
+}
+
+.status-alt-blue {
+    border: 1px solid #a8c5e8;
+    background: #e5f1fc;
+    color: #3a6bb5;
+}
+
+.status-parliament {
+    border: 1px solid var(--court-border);
+    background: var(--court-bg);
+    color: var(--court);
+}
+
+.status-parliament::before {
+    content: "\270D "; /* ✍️ */
+    margin-left: 3px;
+}
+
+.status-court::before {
+    content: "\2696 "; /* ⚖️ */
+}
+
+.status-amend::before {
+    content: "\270F "; /* ✏️ */
+    margin-left: 6px;
+}
+
+.status-alt-red::before {
+    content: "\1F9E9 "; /* 🧩 */
+}
+
+.law-warning-badge, .law-court-badge, .law-duplicate-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.law-warning-badge {
+    min-height: 27px;
+    padding: 3px 11px;
+    border: 1px solid var(--warn-border);
+    border-radius: 17px;
+    background: var(--warn-bg);
+    color: var(--warn);
+    font-size: 10.5px;
+    font-weight: 600
+}
+
+.law-warning-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    margin-left: 6px;
+    border-radius: 50%;
+    background: var(--warn);
+    color: #fff;
+    font: 700 10px Arial
+}
+
+.law-court-badge {
+    min-height: 27px;
+    padding: 3px 11px;
+    border: 1px solid var(--court-border);
+    border-radius: 17px;
+    background: var(--court-bg);
+    color: var(--court);
+    font-size: 10.5px;
+    font-weight: 600
+}
+
+    .law-court-badge i {
+        margin-left: 6px;
+        font-size: 11px
+    }
+
+.law-parliament-badge {
+    min-height: 27px;
+    padding: 3px 11px;
+    border: 1px solid var(--court-border);
+    border-radius: 17px;
+    background: var(--court-bg);
+    color: var(--court);
+    font-size: 10.5px;
+    font-weight: 600
+}
+
+    .law-court-badge i {
+        margin-left: 6px;
+        font-size: 11px
+    }
+
+.law-duplicate-cell {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 7px;
+    border-left: 1px solid var(--border)
+}
+
+.law-duplicate-badge {
+    min-height: 27px;
+    padding: 3px 13px;
+    border: 1px solid var(--dup-border);
+    border-radius: 17px;
+    background: var(--dup-bg);
+    color: var(--dup);
+    font-size: 10.5px;
+    font-weight: 600
+}
+
+.law-document-cell {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-right: 20px;
+    border-right: 1px solid var(--border)
+}
+
+.law-document-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 128px;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid #d8e0e6;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--primary) !important;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    transition: all .18s ease
+}
+
+    .law-document-btn i {
+        font-size: 15px
+    }
+
+    .law-document-btn:hover {
+        background: #f5f8fa;
+        border-color: #c5d1d9;
+        color: var(--primary-dark) !important;
+        box-shadow: 0 2px 7px rgba(40,65,85,.08)
+    }
+
+.law-children {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    display: block;
+    border: none !important;
+}
+
+.law-children[hidden] {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Collapse children rows when parent is collapsed */
+.law-children[hidden] > .law-row {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Hide empty span wrappers that originally contained child rows */
+span > .law-row.law-child-item[style*="display: none"],
+.law-row.law-child-item[style*="display: none"] {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    border: none !important;
+}
+
+.law-child-item {
+    position: relative;
+    padding-right: 50px;
+    background: #fff;
+    margin: 0;
+}
+
+    .law-child-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 25px;
+        width: 1px;
+        background: #dce5ea;
+        pointer-events: none
+    }
+
+    .law-child-item:last-child {
+        border-bottom: 1px solid #dfe7ec;
+    }
+
+    .law-child-item:last-child::before {
+        bottom: 50%
+    }
+
+.law-tree-marker {
+    position: relative;
+    flex: 0 0 13px;
+    width: 13px;
+    height: 20px;
+    margin-right: -4px
+}
+
+    .law-tree-marker::before {
+        content: "";
+        position: absolute;
+        top: 9px;
+        right: 0;
+        width: 13px;
+        height: 1px;
+        background: #d1dde4
+    }
+
+.law-child-item .law-index-badge {
+    flex: 0 0 29px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 29px;
+    height: 29px;
+    border: 1px solid var(--number-border);
+    border-radius: 50%;
+    background: var(--number);
+    color: #63707a;
+    font-size: 11px;
+    font-weight: 600
+}
+
+.law-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 20px 12px 12px;
+    direction: rtl
+}
+
+.law-page-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 32px;
+    padding: 0 10px;
+    border: 1px solid #dfe4e8;
+    border-radius: 6px;
+    background: #fff;
+    color: #5c6872;
+    font-size: 11px;
+    cursor: pointer
+}
+
+    .law-page-btn:hover {
+        background: #f5f8fa;
+        color: var(--primary)
+    }
+
+    .law-page-btn.active {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff
+    }
+
+.law-modal {
+    direction: rtl;
+    font-family: "Cairo",Tahoma,Arial,sans-serif
+}
+
+    .law-modal .modal-dialog {
+        margin-top: 65px
+    }
+
+    .law-modal .modal-content {
+        border: 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 18px 50px rgba(30,50,70,.2)
+    }
+
+    .law-modal .modal-header {
+        padding: 16px 22px;
+        background: var(--primary);
+        color: #fff;
+        border: 0
+    }
+
+    .law-modal .modal-title {
+        font-size: 16px;
+        font-weight: 700
+    }
+
+    .law-modal .modal-header .close {
+        float: left;
+        color: #fff;
+        opacity: .9;
+        font-size: 25px
+    }
+
+    .law-modal .modal-body {
+        padding: 24px;
+        color: var(--text);
+        font-size: 13.5px;
+        line-height: 2;
+        text-align: right;
+        max-height: 65vh;
+        overflow-y: auto
+    }
+
+    .law-modal .modal-footer {
+        padding: 12px 20px;
+        background: #f7f9fb;
+        border-top: 1px solid var(--border)
+    }
+
+@media(min-width:1400px) {
+    .law-row {
+        grid-template-columns: minmax(310px,1fr) minmax(520px,3fr) 90px 180px;
+        padding-right: 30px;
+        padding-left: 30px
+    }
+
+    .law-title, .law-subject {
+        font-size: 15px
+    }
+}
+
+@media(max-width:1100px) {
+    .law-row {
+        grid-template-columns: minmax(235px,1fr) minmax(310px,2fr) 75px 145px;
+        padding-right: 15px;
+        padding-left: 15px
+    }
+
+    .law-law-cell {
+        padding-left: 13px
+    }
+
+    .law-subject-cell {
+        padding-right: 13px;
+        padding-left: 13px
+    }
+
+    .law-document-cell {
+        padding-right: 13px
+    }
+
+    .law-document-btn {
+        width: 116px
+    }
+
+    .law-child-item {
+        padding-right: 40px
+    }
+
+        .law-child-item::before {
+            right: 19px
+        }
+}
+
+@media(max-width:767px) {
+    .law-row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 11px;
+        min-height: 0;
+        padding: 14px 15px
+    }
+
+    .law-law-cell {
+        width: 100%;
+        padding: 0 0 10px;
+        border-left: 0;
+        border-bottom: 1px solid var(--border-light)
+    }
+
+    .law-subject-cell {
+        width: 100%;
+        padding: 0
+    }
+
+    .law-duplicate-cell {
+        width: 100%;
+        min-height: 0;
+        justify-content: flex-start;
+        padding: 0;
+        border-left: 0
+    }
+
+        .law-duplicate-cell:empty {
+            display: none
+        }
+
+    .law-document-cell {
+        width: 100%;
+        padding: 0;
+        border-right: 0
+    }
+
+    .law-document-btn {
+        width: 100%;
+        height: 38px
+    }
+
+    .law-child-item {
+        padding-right: 15px
+    }
+
+        .law-child-item::before, .law-tree-marker {
+            display: none
+        }
+
+    .law-title {
+        font-size: 13.5px
+    }
+
+    .law-subject {
+        font-size: 13px
+    }
+}
+
+@media(max-width:420px) {
+    .law-row {
+        padding-right: 12px;
+        padding-left: 12px
+    }
+
+    .law-status {
+        align-items: flex-start
+    }
+
+    .law-warning-badge, .law-court-badge, .law-duplicate-badge {
+        white-space: normal;
+        text-align: right
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    * {
+        transition: none !important
+    }
+}

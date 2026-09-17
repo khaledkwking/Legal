@@ -14,6 +14,7 @@ using Infrastructure.DAL.Model;
 using Infrastructure.DAL.Enum;
 using UI.Web.Admin.Controller;
 using Newtonsoft.Json;
+using Microsoft.Data.SqlClient;
 
 namespace UI.Web.Modules.Laws.Forms
 {
@@ -25,6 +26,16 @@ namespace UI.Web.Modules.Laws.Forms
         public MedalsRepository MedalobjRepository = IoC.Resolve<MedalsRepository>();
         public AgreementsRepository agreemtnyRepository = IoC.Resolve<AgreementsRepository>();
 
+        private class LinkedStatusLookup
+        {
+            public int Code { get; set; }
+            public string NameAr { get; set; }
+        }
+
+        private class LinkedStatusValue
+        {
+            public int? LinkedStatusID { get; set; }
+        }
 
         public string _PageTitle = "نظام التشريعات  ";
 
@@ -310,6 +321,39 @@ namespace UI.Web.Modules.Laws.Forms
 
 
             }
+
+
+            var ddl = e.Item.FindControl("lstLinkedStatus") as DropDownList;
+            if (ddl == null)
+            {
+                return;
+            }
+
+            var statuses = objLookup.DC.Database.SqlQuery<LinkedStatusLookup>(
+                "SELECT Code, NameAr FROM Law_DocData_Linked_Status ORDER BY NameAr").ToList();
+
+            ddl.DataSource = statuses;
+            ddl.DataTextField = "NameAr";
+            ddl.DataValueField = "Code";
+            ddl.DataBind();
+            ddl.Items.Insert(0, new ListItem("--- اختر ---", "0"));
+
+            var linkedId = ZeroIntergerIFNull(e.Item.Cells[0].Text);
+            ddl.Attributes["data-linked-id"] = linkedId.ToString();
+
+            //var statusValue = objRepository.DC.Database.SqlQuery<LinkedStatusValue>(
+            //    "SELECT LinkedStatusID FROM Law_DocData_Linked WHERE Code = @code",
+            //    new SqlParameter("@code", linkedId)).FirstOrDefault();
+
+            //var selectedId = statusValue != null && statusValue.LinkedStatusID.HasValue ? statusValue.LinkedStatusID.Value : 0;
+            //if (selectedId != 0)
+            //{
+            //    var selectedValue = selectedId.ToString();
+            //    if (ddl.Items.FindByValue(selectedValue) != null)
+            //    {
+            //        ddl.SelectedValue = selectedValue;
+            //    }
+            //}
         }
 
 
@@ -1638,6 +1682,9 @@ namespace UI.Web.Modules.Laws.Forms
             {
                 if (Request.QueryString["agreementid"] != null)
                 {
+                    
+                  
+
                     //Update Agreemrnt]
                     AgreementData objagreement = new AgreementData();
                     objagreement = agreemtnyRepository.GetDetails(ZeroIntergerIFNull(Request.QueryString["agreementid"].ToString()));
@@ -1668,13 +1715,34 @@ namespace UI.Web.Modules.Laws.Forms
                         objlink.DestDocId = ZeroIntergerIFNull(e.Item.Cells[3].Text);
                         objlink.TransDate = DateTime.Now;
                         objlink.aUser = ZeroIntergerIFNull(ReadSession("userid").ToString());
-                        objRepository.AddLnkedDoc(objlink);
 
-                        string script = FormatpopupErrorMSG("تم الربط بنجاح", "3");
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", script, true);
-                        //Colse Popup
+                        if ((e.Item.FindControl("lstLinkedStatus") != null))
+                        {
+                            DropDownList list = (DropDownList)e.Item.FindControl("lstLinkedStatus");
 
-                        litScript.Text = "parent.$.fn.colorbox.close();";
+                            if (list.SelectedValue != "0")
+                            {
+                                var statusId = ZeroIntergerIFNull(list.SelectedValue);
+                                objlink.LinkedStatusID = statusId;
+
+                            }
+                            else
+                            {
+                                string script1 = FormatpopupErrorMSG("عفوا يجب اختيار سبب الربط ", "1");
+                                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", script1, true);
+                                return;
+                            }
+
+                            objRepository.AddLnkedDoc(objlink);
+
+                            string script = FormatpopupErrorMSG("تم الربط بنجاح", "3");
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", script, true);
+                            //Colse Popup
+
+                            litScript.Text = "parent.$.fn.colorbox.close();";
+
+                        }
+                       
 
                     }
                     else

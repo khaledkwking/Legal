@@ -114,10 +114,7 @@ $(function () {
 
         },
         processing: true,
-        paging: true,
-        ],
-
-
+        paging: true
 
     });
 

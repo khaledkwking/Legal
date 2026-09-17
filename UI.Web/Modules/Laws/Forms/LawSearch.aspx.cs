@@ -30,7 +30,8 @@ namespace UI.Web.Modules.Laws.Forms
             public string DocTypeName { get; set; }
             public string DocDescriptionHTML { get; set; }
             public string DocProceduresTypesNameAr { get; set; }
-            
+            public int? LastProcedureID { get; set; }
+
         }
         private class LawExtraDoc
         {
@@ -92,6 +93,55 @@ namespace UI.Web.Modules.Laws.Forms
 
             return docData.DocDetails ?? string.Empty;
         }
+
+        public string GetProcedureBadges(object proceduresObj)
+        {
+            string proc = Convert.ToString(proceduresObj);
+            if (string.IsNullOrWhiteSpace(proc)) return string.Empty;
+
+            bool hasIstadraq = proc.IndexOf("استدراك", StringComparison.OrdinalIgnoreCase) >= 0;
+            bool hasCourt = proc.IndexOf("حكم محم", StringComparison.OrdinalIgnoreCase) >= 0 || proc.IndexOf("حكم محكمة", StringComparison.OrdinalIgnoreCase) >= 0;
+            bool hasAmend = proc.IndexOf("تعديل", StringComparison.OrdinalIgnoreCase) >= 0;
+            bool hasRepeal = proc.IndexOf("إلغاء", StringComparison.OrdinalIgnoreCase) >= 0 || proc.IndexOf("الغاء", StringComparison.OrdinalIgnoreCase) >= 0 || proc.IndexOf("إبطال", StringComparison.OrdinalIgnoreCase) >= 0;
+
+            bool hasIsMaraslat = proc.IndexOf("كتب ومراسلات", StringComparison.OrdinalIgnoreCase) >= 0;
+
+            string result = string.Empty;
+            if (hasIstadraq)
+            {
+                result += "<span class=\"law-warning-badge\" style=\"display:inline-block;\"><span class=\"law-warning-icon\">!</span>يحتوي على استدراك</span>";
+            }
+            if (hasCourt)
+            {
+                if (!string.IsNullOrEmpty(result)) result += " ";
+                result += "<span class=\"law-court-badge\" style=\"display:inline-block;\"><i class=\"fa fa-bookmark-o\"></i> يحتوي على حكم محكمة</span>";
+            }
+            if (hasAmend)
+            {
+                if (!string.IsNullOrEmpty(result)) result += " ";
+                result += "<span class=\"law-amend-badge\" style=\"display:inline-block;\"><i class=\"fa fa-pencil\"></i> يحتوي على تعديل قانون</span>";
+            }
+            if (hasRepeal)
+            {
+                if (!string.IsNullOrEmpty(result)) result += " ";
+                result += "<span class=\"law-repeal-badge\" style=\"display:inline-block;\"><i class=\"fa fa-ban\"></i> يحتوي على إلغاء قانون</span>";
+            }
+            if (hasIsMaraslat)
+            {
+                if (!string.IsNullOrEmpty(result)) result += " ";
+                result += "<span class=\"law-court-badge\" style=\"display:inline-block;\"><i class=\"fa fa-ban\"></i> يحتوي على كتب ومراسلات</span>";
+            }
+            
+
+            // if neither matched, fall back to displaying the original text
+            if (string.IsNullOrEmpty(result))
+            {
+                return "يحتوي على " + proc;
+            }
+
+            return result;
+        }
+
         private int CurrentPageIndex
         {
             get { return ViewState["LawSearchPageIndex"] != null ? (int)ViewState["LawSearchPageIndex"] : 0; }
@@ -288,35 +338,75 @@ namespace UI.Web.Modules.Laws.Forms
                     );
 
             // الترتيب
-            result = result
-                .Select(x => new
+            if (RButtonSortList.SelectedValue != null)
+            {
+                if (RButtonSortList.SelectedValue.ToString() == "1")
                 {
-                    Item = x,
-                    Root = GetRoot(x)
-                })
-               .OrderByDescending(x =>
-                    rootYearMap.ContainsKey(x.Root)
-                        ? rootYearMap[x.Root].DocYear
-                        : 0) // السنة أولاً
+                    result = result
+                        .Select(x => new
+                        {
+                            Item = x,
+                            Root = GetRoot(x)
+                        })
+                       .OrderByDescending(x =>
+                            rootYearMap.ContainsKey(x.Root)
+                                ? rootYearMap[x.Root].DocYear
+                                : 0) // السنة أولاً
 
-                .ThenByDescending(x =>
-                    rootYearMap.ContainsKey(x.Root)
-                        ? rootYearMap[x.Root].DocNum
-                        : 0) // ثم DocNum للـ parent نفسه
-                .ThenBy(x => x.Root) // grouping
-                .ThenBy(x => x.Item.ParentDocId == null ? 0 : 1) // root الأول
-                .ThenByDescending(x => x.Item.DocYear) // children بالأحدث
-        
-                .ThenByDescending(x => x.Item.DocNum)
+                        .ThenByDescending(x =>
+                            rootYearMap.ContainsKey(x.Root)
+                                ? rootYearMap[x.Root].DocNum
+                                : 0) // ثم DocNum للـ parent نفسه
+                        .ThenBy(x => x.Root) // grouping
+                        .ThenBy(x => x.Item.ParentDocId == null ? 0 : 1) // root الأول
+                        .ThenByDescending(x => x.Item.DocYear) // children بالأحدث
 
-                .Select(x => x.Item)
+                        .ThenByDescending(x => x.Item.DocNum)
 
-                .ToList();
+                        .Select(x => x.Item)
 
-            result = result
-           .GroupBy(x => new { x.ParentDocId, x.ChildDocId })
-           .Select(g => g.First())
-           .ToList();
+                        .ToList();
+
+                    result = result
+                   .GroupBy(x => new { x.ParentDocId, x.ChildDocId })
+                   .Select(g => g.First())
+                   .ToList();
+                }
+                else if(RButtonSortList.SelectedValue.ToString()=="2")
+                {
+                    result = result
+                        .Select(x => new
+                        {
+                            Item = x,
+                            Root = GetRoot(x)
+                        })
+                       .OrderByDescending(x =>
+                            rootYearMap.ContainsKey(x.Root)
+                                ? rootYearMap[x.Root].DocYear
+                                : 0) // السنة أولاً
+
+                        .ThenByDescending(x =>
+                            rootYearMap.ContainsKey(x.Root)
+                                ? rootYearMap[x.Root].DocNum
+                                : 0) // ثم DocNum للـ parent نفسه
+                        .ThenBy(x => x.Root) // grouping
+                        .ThenBy(x => x.Item.ParentDocId == null ? 0 : 1) // root الأول
+                        .ThenBy(x => x.Item.DocYear) // children بالأحدث
+
+                        .ThenBy(x => x.Item.DocNum)
+
+                        .Select(x => x.Item)
+
+                        .ToList();
+
+                    result = result
+                   .GroupBy(x => new { x.ParentDocId, x.ChildDocId })
+                   .Select(g => g.First())
+                   .ToList();
+
+                }
+            }
+
 
             Session["LawSearchResults"] = result;
             lblResultCount.Text = result.Count.ToString();
@@ -418,10 +508,15 @@ namespace UI.Web.Modules.Laws.Forms
                 return;
             }
 
+            var phMasterToggle = e.Item.FindControl("phMasterToggle") as PlaceHolder;
+            var phChildMarker = e.Item.FindControl("phChildMarker") as PlaceHolder;
+
             if (!dataItem.ParentDocId.HasValue)
             {
-
                 lblIndex.Text = "";
+                lblIndex.Visible = false;
+                if (phMasterToggle != null) phMasterToggle.Visible = true;
+                if (phChildMarker != null) phChildMarker.Visible = false;
                 _groupIndex = 0;
             }
             else
@@ -432,12 +527,31 @@ namespace UI.Web.Modules.Laws.Forms
                 currentIndex++;
                 _rootChildIndex[rootKey] = currentIndex;
                 lblIndex.Text = currentIndex.ToString();
-
+                lblIndex.Visible = true;
+                if (phMasterToggle != null) phMasterToggle.Visible = false;
+                if (phChildMarker != null) phChildMarker.Visible = true;
             }
+
             var rowContainer = e.Item.FindControl("rowContainer") as System.Web.UI.HtmlControls.HtmlGenericControl;
 
             if (rowContainer != null)
             {
+                var rootKey = dataItem.ParentDocId.HasValue ? GetRoot(dataItem) : gets(dataItem.ChildDocId);
+                rowContainer.Attributes["data-root-key"] = rootKey;
+
+                if (dataItem.ParentDocId == null)
+                {
+                    rowContainer.Attributes["class"] = "law-row law-master-item";
+                    rowContainer.Attributes["data-law-master"] = "true";
+                    rowContainer.Attributes["aria-expanded"] = "true";
+                    rowContainer.Attributes["tabindex"] = "0";
+                }
+                else
+                {
+                    rowContainer.Attributes["class"] = "law-row law-child-item";
+                    rowContainer.Attributes.Remove("data-law-master");
+                }
+
                 int level = 0;
 
                 if (dataItem.Level != null)
@@ -448,8 +562,8 @@ namespace UI.Web.Modules.Laws.Forms
                 {
                     rowContainer.Style["background-color"] = "#719cda40";
                     rowContainer.Style["border-radius"] = "25px";
-                    rowContainer.Style["padding-right"] = "2%";
-                    rowContainer.Style["padding-top"] = "15px";
+                    rowContainer.Style["padding-right"] = "1%";
+                    rowContainer.Style["padding-top"] = "5px";
                 }
 
                 // لو مطابق للفيلتر
@@ -463,7 +577,8 @@ namespace UI.Web.Modules.Laws.Forms
                     {
                         rowContainer.Style["background-color"] = "#fff3a0";
                         rowContainer.Style["border-radius"] = "25px";
-                        rowContainer.Style["padding-top"] = "15px";
+                        rowContainer.Style["padding-top"] = "5px";
+                        rowContainer.Style["padding-right"] = "1%";
                     }
                 }
             }
@@ -506,6 +621,12 @@ namespace UI.Web.Modules.Laws.Forms
         private object GetNullableString(string value)
         {
             return string.IsNullOrWhiteSpace(value) ? (object)DBNull.Value : value;
+        }
+
+        protected void RButtonSortList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CurrentPageIndex = 0;
+            FillSearchResults();
         }
     }
 }

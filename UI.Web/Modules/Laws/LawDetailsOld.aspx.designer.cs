@@ -7,12 +7,39 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UI.Web.Modules.Laws.Forms
+namespace UI.Web.Modules.Laws
 {
 
 
-    public partial class LawSearch
+    public partial class LawDetailsOld
     {
+
+        /// <summary>
+        /// hdnSectorId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnSectorId;
+
+        /// <summary>
+        /// hdnTypeId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnTypeId;
+
+        /// <summary>
+        /// lblTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTitle;
 
         /// <summary>
         /// lblerror control.
@@ -24,49 +51,85 @@ namespace UI.Web.Modules.Laws.Forms
         protected global::System.Web.UI.WebControls.Label lblerror;
 
         /// <summary>
-        /// txtFilterSerialNum control.
+        /// txtDocNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFilterSerialNum;
+        protected global::System.Web.UI.WebControls.TextBox txtDocNum;
 
         /// <summary>
-        /// txtFilterSerialYear control.
+        /// txtYearFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFilterSerialYear;
+        protected global::System.Web.UI.WebControls.TextBox txtYearFrom;
 
         /// <summary>
-        /// txtFilterDatefrom control.
+        /// txtYearTo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFilterDatefrom;
+        protected global::System.Web.UI.WebControls.TextBox txtYearTo;
 
         /// <summary>
-        /// txtFilterExpireFrom control.
+        /// ddlCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFilterExpireFrom;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
 
         /// <summary>
-        /// txtFilterDetails control.
+        /// txtDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFilterDetails;
+        protected global::System.Web.UI.WebControls.TextBox txtDetails;
+
+        /// <summary>
+        /// DocTypeDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DocTypeDiv;
+
+        /// <summary>
+        /// rblDocType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblDocType;
+
+        /// <summary>
+        /// txtDocSubject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDocSubject;
+
+        /// <summary>
+        /// RadioButtonRelatedList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonRelatedList;
 
         /// <summary>
         /// RButtonSortList control.
@@ -78,94 +141,13 @@ namespace UI.Web.Modules.Laws.Forms
         protected global::System.Web.UI.WebControls.RadioButtonList RButtonSortList;
 
         /// <summary>
-        /// lstFilterType control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lstFilterType;
-
-        /// <summary>
-        /// txtFilterDateTo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFilterDateTo;
-
-        /// <summary>
-        /// txtFilterExpireTo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFilterExpireTo;
-
-        /// <summary>
-        /// lstFilterIsUnderStudy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lstFilterIsUnderStudy;
-
-        /// <summary>
-        /// lblFilterCatTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFilterCatTitle;
-
-        /// <summary>
-        /// lstFilterCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lstFilterCategory;
-
-        /// <summary>
-        /// txtFilterSubject control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFilterSubject;
-
-        /// <summary>
-        /// lstFilterPublish control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lstFilterPublish;
-
-        /// <summary>
-        /// txtFilterNotes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFilterNotes;
-
-        /// <summary>
-        /// lnkSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkSearch;
+        protected global::System.Web.UI.WebControls.LinkButton btnSearch;
 
         /// <summary>
         /// divResult control.
@@ -186,13 +168,13 @@ namespace UI.Web.Modules.Laws.Forms
         protected global::System.Web.UI.WebControls.Label lblResultCount;
 
         /// <summary>
-        /// dlLawHierarchy control.
+        /// dlLawDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlLawHierarchy;
+        protected global::System.Web.UI.WebControls.DataList dlLawDetails;
 
         /// <summary>
         /// btnPrev control.
