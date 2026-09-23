@@ -1356,7 +1356,7 @@
                                                                 <asp:LinkButton ID="btnUnlinkAgreement" Visible="false" runat="server" class="btn btn-warning btn-labeled " OnClick="btnUnlinkAgreement_Click" Style="background: red"><b><i class="icon-unlink2"></i></b>   فك ربط الاتفاقية </asp:LinkButton>--%>
 
 
-                                                                <asp:LinkButton ID="lnkCancelLawDoc" CssClass="btn btn-danger btn-labeled " runat="server" OnClientClick="return confirm('هل انت متأكد من الغاء التشريع  ؟  ');" OnClick="lnkCancelLawDoc_Click"><b><i class="fa fa-trash"></i></b>   الغاء التشريع  </asp:LinkButton>
+                                                               <%-- <asp:LinkButton ID="lnkCancelLawDoc" CssClass="btn btn-danger btn-labeled " runat="server" OnClientClick="return confirm('هل انت متأكد من الغاء التشريع  ؟  ');" OnClick="lnkCancelLawDoc_Click"><b><i class="fa fa-trash"></i></b>   الغاء التشريع  </asp:LinkButton>--%>
                                                             </div>
                                                         </div>
                                                     </div>

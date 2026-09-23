@@ -31,6 +31,7 @@ namespace UI.Web.Modules.Laws.Forms
             public string DocDescriptionHTML { get; set; }
             public string DocProceduresTypesNameAr { get; set; }
             public int? LastProcedureID { get; set; }
+            public int? DocTypeID { get; set; }
 
         }
         private class LawExtraDoc
@@ -42,6 +43,7 @@ namespace UI.Web.Modules.Laws.Forms
             public string DocSubject { get; set; }
             public string DocFilepath { get; set; }
             public string DocTypeName { get; set; }
+            public int? DocTypeID { get; set; }
         }
         public string _TargetUrl = System.Configuration.ConfigurationManager.AppSettings["ScanningModuleURL"].ToString();
         public string _TargetUploadPath = System.Configuration.ConfigurationManager.AppSettings["legalRepository"].ToString() + "LawsAttachments/";
@@ -313,7 +315,8 @@ namespace UI.Web.Modules.Laws.Forms
                     DocFilepath = extra.DocFilepath,
                     DocTypeName = extra.DocTypeName,
                     DocDescriptionHTML = string.Empty,
-                    DocProceduresTypesNameAr = string.Empty
+                    DocProceduresTypesNameAr = string.Empty,
+                    DocTypeID= extra.DocTypeID
                 });
             }
 
@@ -415,7 +418,7 @@ namespace UI.Web.Modules.Laws.Forms
         }
         private List<LawExtraDoc> LoadAllUnlinkedDocs()
         {
-            var query = @"SELECT d.Code, d.DocNum, d.DocYear,d.DocSerial, d.DocSubject, d.DocFilepath, t.NameAr AS DocTypeName
+            var query = @"SELECT d.Code, d.DocNum, d.DocYear,d.DocSerial, d.DocSubject, d.DocFilepath, t.NameAr AS DocTypeName,d.DocTypeID
             FROM Law_DocData d
 
             LEFT JOIN View_LawsLinkedDocs l ON l.SouceDocID = d.Code OR l.DestDocId = d.Code

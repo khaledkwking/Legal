@@ -231,6 +231,15 @@ namespace UI.Web.Modules.Laws.Forms
         protected global::System.Web.UI.WebControls.DataGrid grdLawDocsList;
 
         /// <summary>
+        /// colLinkedStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TemplateColumn colLinkedStatus;
+
+        /// <summary>
         /// lblcount control.
         /// </summary>
         /// <remarks>

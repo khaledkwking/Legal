@@ -838,7 +838,7 @@ namespace UI.Web.Modules.Laws.Forms
             }
 
 
-            lnkCancelLawDoc.Visible = userAccess.Edit || userAccess.Add;
+            //lnkCancelLawDoc.Visible = userAccess.Edit || userAccess.Add;
             grdLawDocsList.Columns[19].Visible = userAccess.Delete;
 
             lnkDeleteProcedure.Visible = userAccess.Delete;
@@ -906,7 +906,7 @@ namespace UI.Web.Modules.Laws.Forms
                 isCancelled = getBool(objList.LawCancelled);
                 if (getBool(objList.LawCancelled))
                 {
-                    lnkCancelLawDoc.Visible = false;
+                    //lnkCancelLawDoc.Visible = false;
                 }
 
 

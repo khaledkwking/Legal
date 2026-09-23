@@ -826,7 +826,7 @@
                                         <div class="portlet-body">
                                                                                               <div class="datatable-scroll">
                                                      <asp:DataGrid ID="PersonsAll" runat="server" Visible="false"
-                         DataKeyField="code" AllowPaging="True" AutoGenerateColumns="False" PageSize="20" class="table datatable-basic dataTable no-footer" Width="100%">
+                         DataKeyField="code" AllowPaging="True" AutoGenerateColumns="False" PageSize="20" class="table datatable-basic dataTable no-footer" Width="100%" OnPageIndexChanged="PersonsAll_PageIndexChanged">
 
     <SelectedItemStyle ForeColor="White" />
  <ItemStyle CssClass="grdItem" />

@@ -891,7 +891,7 @@
 
                                                                           <a href="<%#ScannerRepositoryViewer + "?targetpath=" + _LawDocsTargetUploadPath + gets(Eval("Law_DocDataRefId"))+"/"+ "&vfileList=[" + gets(Eval("lawfile")) +";]"%>"  style="font-size: 12px; <%#showattachment(gets(Eval("Law_DocDataRefId")))%>" class="btn btn-warning btn-labeled btn-xs iframe">
                                                                             <b><i class="glyphicon glyphicon-link"></i> </b>
-                                                                       تشريع مرتبط
+                                                                       عرض التشريع مرتبط
                                                                         </a>
 
                                                                       <%-- <a href="LawDocView.aspx?LawDocRefID=<%#gets(Eval("Law_DocDataRefId"))%>&LawDocID=<%#gets(Eval("Law_DocDataRefId"))%>"  style="font-size: 12px; <%#showattachment(gets(Eval("Law_DocDataRefId")))%>" class="btn btn-warning btn-labeled btn-xs iframe">

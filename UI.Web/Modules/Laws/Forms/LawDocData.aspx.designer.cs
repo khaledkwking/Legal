@@ -681,15 +681,6 @@ namespace UI.Web.Modules.Laws.Forms
         protected global::System.Web.UI.HtmlControls.HtmlAnchor anchorAttachment;
 
         /// <summary>
-        /// lnkCancelLawDoc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCancelLawDoc;
-
-        /// <summary>
         /// DivAddProcedure control.
         /// </summary>
         /// <remarks>

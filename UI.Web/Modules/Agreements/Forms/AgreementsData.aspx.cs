@@ -1197,16 +1197,21 @@ namespace UI.Web.Agreements.Forms
             obj = objRepository.GetDetails(ZeroIntergerIFNull(ViewState["itemID"].ToString()));
             if (obj != null)
             {
-                obj.Law_DocDataRefId = 0;
-                objRepository.UpdateAgreement(obj);
+                
+                
+                    obj.Law_DocDataRefId = 0;
+                    objRepository.UpdateAgreement(obj);
 
-                string script = FormatpopupErrorMSG("تم فك الارتباط بنجاح", "3");
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", script, true);
-                //FillAgreementMasterInformation();
+                    string script = FormatpopupErrorMSG("تم فك الارتباط بنجاح", "3");
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Updatepanel1", script, true);
+                    //FillAgreementMasterInformation();
 
-                lnklawDoc.InnerHtml = "<b><i class='glyphicon glyphicon-link'></i></b>إضافة قانون مرتبط";
-                lnklawDoc.HRef = "/modules/laws/forms/LawDocDatalnk.aspx?agreementid=" + gets(obj.Code) + "&lawDocRefId=0";
-                lnklaeUnlink.Visible = false;
+                    lnklawDoc.InnerHtml = "<b><i class='glyphicon glyphicon-link'></i></b>إضافة تشريع مرتبطة";
+                    lnklawDoc.HRef = "/modules/laws/forms/LawDocDatalnk.aspx?agreementid=" + gets(obj.Code) + "&lawDocRefId=0";
+                    lnklaeUnlink.Visible = false;
+                    lnklawDoc.Visible = true;
+                    Response.Redirect("~/modules/Agreements/Forms/AgreementsData.aspx?id=" + gets(obj.Code) + "&editflag=1");
+                
 
             }
 
@@ -1801,7 +1806,8 @@ namespace UI.Web.Agreements.Forms
                 {
                     //lnklawDoc.InnerHtml = "<b><i class='glyphicon glyphicon-link'></i></b>عرض تشريع مرتبط";
                     //lnklawDoc.HRef = "/modules/laws/forms/LawDocDatalnk.aspx?agreementid=" + gets(objList.Code) + "&lawDocRefId=" + objList.Law_DocDataRefId;
-                    //lnklaeUnlink.Visible = true;
+                    lnklawDoc.Visible = false;
+                    lnklaeUnlink.Visible = true;
                 }
                 else
                 {

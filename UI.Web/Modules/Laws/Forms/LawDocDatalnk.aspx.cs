@@ -66,7 +66,7 @@ namespace UI.Web.Modules.Laws.Forms
             btnCancel.Attributes.Add("onclick", "Page_ValidationActive=false;");
             btnSave.Attributes.Add("onclick", "return chkImage();");
 
-
+            grdLawDocsList.Columns[16].Visible = Request.QueryString["agreementid"] == null;
 
             if (!IsPostBack)
             {

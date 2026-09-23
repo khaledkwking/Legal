@@ -817,16 +817,43 @@ namespace UI.Web.Modules.Laws
               AND (@docNum IS NULL OR d.DocNum = @docNum)
               AND (@docYear IS NULL OR d.DocYear = @docYear)";
 
-            return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
-                query,
-                new SqlParameter("@sectorId", sectorId),
-                new SqlParameter("@docTypeId", GetNullableInt(hdnTypeId.Value)),
-                new SqlParameter("@docCategoryId", GetNullableInt(ddlCategory.SelectedValue)),
-                new SqlParameter("@docNum", GetNullableInt(txtDocNum.Text)),
-                new SqlParameter("@docYear", docYearParam)).ToList();
+            if (hdnTypeId.Value.ToString() == "0")
+            {
+                query = @"SELECT d.Code, d.DocNum, d.DocYear, d.DocSubject,d.DocSerial, d.DocFilepath, t.NameAr AS DocTypeName
+                    FROM Law_DocData d
+                    INNER JOIN Law_DocSectors s ON s.Law_DocId = d.Code AND s.SectorId = @sectorId
+                    LEFT JOIN View_LawsLinkedDocs l ON l.SouceDocID = d.Code OR l.DestDocId = d.Code
+                    LEFT JOIN Law_DocType t ON d.DocTypeID = t.Code
+                    WHERE l.Code IS NULL
+                      AND (d.DocTypeID = @docTypeId1 or d.DocTypeID = @docTypeId2)
+                      AND (@docCategoryId IS NULL OR d.DocCategoryID = @docCategoryId)
+                      AND (@docNum IS NULL OR d.DocNum = @docNum)
+                      AND (@docYear IS NULL OR d.DocYear = @docYear)";
+                return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
+               query,
+               new SqlParameter("@sectorId", sectorId),
+               new SqlParameter("@docTypeId1", Constant.Law_DocTypeQanuan),
+               new SqlParameter("@docTypeId2", Constant.Law_DocTypeQanuanMarsum),
+               new SqlParameter("@docCategoryId", GetNullableInt(ddlCategory.SelectedValue)),
+               new SqlParameter("@docNum", GetNullableInt(txtDocNum.Text)),
+               new SqlParameter("@docYear", docYearParam)).ToList();
+            }
+            else
+            {
+
+                return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
+                    query,
+                    new SqlParameter("@sectorId", sectorId),
+                    new SqlParameter("@docTypeId", GetNullableInt(hdnTypeId.Value)),
+                    new SqlParameter("@docCategoryId", GetNullableInt(ddlCategory.SelectedValue)),
+                    new SqlParameter("@docNum", GetNullableInt(txtDocNum.Text)),
+                    new SqlParameter("@docYear", docYearParam)).ToList();
+            }
         }
         private List<LawExtraDoc> LoadAllUnlinkedDocs( object docYearParam)
         {
+
+
             var query = @"SELECT d.Code, d.DocNum, d.DocYear, d.DocSubject,d.DocSerial, d.DocFilepath, t.NameAr AS DocTypeName
             FROM Law_DocData d
 
@@ -838,12 +865,36 @@ namespace UI.Web.Modules.Laws
               AND (@docNum IS NULL OR d.DocNum = @docNum)
               AND (@docYear IS NULL OR d.DocYear = @docYear)";
 
-            return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
+            if (hdnTypeId.Value.ToString() == "0")
+            {
+                 query = @"SELECT d.Code, d.DocNum, d.DocYear, d.DocSubject,d.DocSerial, d.DocFilepath, t.NameAr AS DocTypeName
+                FROM Law_DocData d
+
+                LEFT JOIN View_LawsLinkedDocs l ON l.SouceDocID = d.Code OR l.DestDocId = d.Code
+                LEFT JOIN Law_DocType t ON d.DocTypeID = t.Code
+                WHERE l.Code IS NULL
+                  AND (d.DocTypeID = @docTypeId1 or d.DocTypeID = @docTypeId2)
+                  AND (@docCategoryId IS NULL OR d.DocCategoryID = @docCategoryId)
+                  AND (@docNum IS NULL OR d.DocNum = @docNum)
+                  AND (@docYear IS NULL OR d.DocYear = @docYear)";
+
+                return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
+                query,
+                    new SqlParameter("@docTypeId1", Constant.Law_DocTypeQanuan),
+                    new SqlParameter("@docTypeId2", Constant.Law_DocTypeQanuanMarsum),
+                new SqlParameter("@docCategoryId", GetNullableInt(ddlCategory.SelectedValue)),
+                new SqlParameter("@docNum", GetNullableInt(txtDocNum.Text)),
+                new SqlParameter("@docYear", docYearParam)).ToList();
+
+            }
+            {
+                return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
                 query,
                 new SqlParameter("@docTypeId", GetNullableInt(hdnTypeId.Value)),
                 new SqlParameter("@docCategoryId", GetNullableInt(ddlCategory.SelectedValue)),
                 new SqlParameter("@docNum", GetNullableInt(txtDocNum.Text)),
                 new SqlParameter("@docYear", docYearParam)).ToList();
+            }
         }
 
         private List<LawExtraDoc> LoadAllwitoutRelatedDocs(int sectorId, object docYearParam)
@@ -860,17 +911,45 @@ namespace UI.Web.Modules.Laws
               AND (@docSubject IS NULL OR d.docSubject = @docSubject)
               AND (@docYear IS NULL OR d.DocYear = @docYear)";
 
-                return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
-                    query,
-                    new SqlParameter("@sectorId", sectorId),
-                    new SqlParameter("@docTypeId", GetNullableInt(hdnTypeId.Value)),
-                    new SqlParameter("@docCategoryId", GetNullableInt(ddlCategory.SelectedValue)),
-                    new SqlParameter("@docNum", GetNullableInt(txtDocNum.Text)),
-                     new SqlParameter("@docSubject", GetNullableInt(txtDocSubject.Text)),
-                    new SqlParameter("@docYear", docYearParam)).ToList();
+                if (hdnTypeId.Value.ToString() == "0")
+                {
+                    query = @"SELECT d.Code, d.DocNum, d.DocYear,d.DocSerial, d.DocSubject,d.DocDetails, d.DocFilepath, t.NameAr AS DocTypeName
+                    FROM Law_DocData d
+                    INNER JOIN Law_DocSectors s ON s.Law_DocId = d.Code AND s.SectorId = @sectorId
+                    LEFT JOIN Law_DocType t ON d.DocTypeID = t.Code
+                    WHERE  (d.DocTypeID = @docTypeId1 or d.DocTypeID = @docTypeId2)
+                      AND (@docCategoryId IS NULL OR d.DocCategoryID = @docCategoryId)
+                      AND (@docNum IS NULL OR d.DocNum = @docNum)
+                      AND (@docSubject IS NULL OR d.docSubject = @docSubject)
+                      AND (@docYear IS NULL OR d.DocYear = @docYear)";
+
+                    return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
+                        query,
+                        new SqlParameter("@sectorId", sectorId),
+                        new SqlParameter("@docTypeId1", Constant.Law_DocTypeQanuan),
+                        new SqlParameter("@docTypeId2", Constant.Law_DocTypeQanuanMarsum),
+                        new SqlParameter("@docCategoryId", GetNullableInt(ddlCategory.SelectedValue)),
+                        new SqlParameter("@docNum", GetNullableInt(txtDocNum.Text)),
+                         new SqlParameter("@docSubject", GetNullableInt(txtDocSubject.Text)),
+                        new SqlParameter("@docYear", docYearParam)).ToList();
+                }
+                else
+                {
+
+                    return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
+                        query,
+                        new SqlParameter("@sectorId", sectorId),
+                        new SqlParameter("@docTypeId", GetNullableInt(hdnTypeId.Value)),
+                        new SqlParameter("@docCategoryId", GetNullableInt(ddlCategory.SelectedValue)),
+                        new SqlParameter("@docNum", GetNullableInt(txtDocNum.Text)),
+                         new SqlParameter("@docSubject", GetNullableInt(txtDocSubject.Text)),
+                        new SqlParameter("@docYear", docYearParam)).ToList();
+                }
             }
+            
             else
             {
+
                 var query = @"SELECT d.Code, d.DocNum, d.DocYear, d.DocSubject,d.DocDetails, d.DocFilepath, t.NameAr AS DocTypeName
                 FROM Law_DocData d
                 LEFT JOIN Law_DocType t ON d.DocTypeID = t.Code
@@ -879,8 +958,30 @@ namespace UI.Web.Modules.Laws
                   AND (@docNum IS NULL OR d.DocNum = @docNum)
                   AND (@docSubject IS NULL OR d.docSubject = @docSubject)
                   AND (@docYear IS NULL OR d.DocYear = @docYear)";
+                if (hdnTypeId.Value.ToString() == "0")
+                {
+                     query = @"SELECT d.Code, d.DocNum, d.DocYear, d.DocSubject,d.DocDetails, d.DocFilepath, t.NameAr AS DocTypeName
+                    FROM Law_DocData d
+                    LEFT JOIN Law_DocType t ON d.DocTypeID = t.Code
+                      WHERE  (d.DocTypeID = @docTypeId1 or d.DocTypeID = @docTypeId2)
+                      AND (@docCategoryId IS NULL OR d.DocCategoryID = @docCategoryId)
+                      AND (@docNum IS NULL OR d.DocNum = @docNum)
+                      AND (@docSubject IS NULL OR d.docSubject = @docSubject)
+                      AND (@docYear IS NULL OR d.DocYear = @docYear)";
 
-                return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
+                    return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
+                    query,
+                    new SqlParameter("@sectorId", sectorId),
+                    new SqlParameter("@docTypeId1", Constant.Law_DocTypeQanuan),
+                    new SqlParameter("@docTypeId2", Constant.Law_DocTypeQanuanMarsum),
+                    new SqlParameter("@docCategoryId", GetNullableInt(ddlCategory.SelectedValue)),
+                    new SqlParameter("@docNum", GetNullableInt(txtDocNum.Text)),
+                    new SqlParameter("@docSubject", GetNullableInt(txtDocSubject.Text)),
+                    new SqlParameter("@docYear", docYearParam)).ToList();
+                }
+                else
+                { 
+                    return objRepository.DC.Database.SqlQuery<LawExtraDoc>(
                     query,
                     new SqlParameter("@sectorId", sectorId),
                     new SqlParameter("@docTypeId", GetNullableInt(hdnTypeId.Value)),
@@ -889,8 +990,11 @@ namespace UI.Web.Modules.Laws
                     new SqlParameter("@docSubject", GetNullableInt(txtDocSubject.Text)),
                     new SqlParameter("@docYear", docYearParam)).ToList();
             }
-        }
-     
+
+        
+     }
+            }
+
         protected void rblDocType_SelectedIndexChanged(object sender, EventArgs e)
         {
             CurrentPageIndex = 0;

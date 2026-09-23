@@ -106,47 +106,60 @@ namespace Infrastructure.DAL
             int DocType, int DocCategory,
             int IsUnderStudy, string LawSubject, string LawNotes, string LawDetails, int isPublished, int lastProcedureId, DateTime ExpireDatefrom, DateTime ExpireDateTo, string SearchKyes)
         {
+            var minDate = new DateTime(1990, 01, 01);
 
+            IQueryable<View_LawsDocs> query = DC.View_LawsDocs;
 
-            var result =
-                (from obj in DC.View_LawsDocs
-                     //orderby obj.Q_Serial descending    chnaged by Nada Request ib 12052018
-                     //orderby obj.DocDate descending // obj.DocNum, obj.DocYear 
-                 orderby obj.DocYear descending, obj.DocNum descending
-                 where 1 == 1
-                 && (SerialNum != 0 ? obj.DocNum == SerialNum : 1 == 1)
-                 && (SerialYear != 0 ? obj.DocYear == SerialYear : 1 == 1)
+            if (SerialNum != 0)
+                query = query.Where(obj => obj.DocNum == SerialNum);
 
-                 && ((TransactionDatFrom != new DateTime(1990, 01, 01) ? obj.DocDate >= TransactionDatFrom : 1 == 1) || (TransactionDatFrom != new DateTime(1990, 01, 01) ? obj.DocDate >= TransactionDatFrom : 1 == 1))
-                 && ((TransactionDatTo != new DateTime(1990, 01, 01) ? obj.DocDate <= TransactionDatTo : 1 == 1) || (TransactionDatTo != new DateTime(1990, 01, 01) ? obj.DocDate <= TransactionDatTo : 1 == 1))
-                 
-                 && ((ExpireDatefrom != new DateTime(1990, 01, 01) ? obj.ExpireDate >= ExpireDatefrom : 1 == 1) || (ExpireDatefrom != new DateTime(1990, 01, 01) ? obj.ExpireDate >= ExpireDatefrom : 1 == 1))
-                 && ((ExpireDateTo != new DateTime(1990, 01, 01) ? obj.ExpireDate <= ExpireDateTo : 1 == 1) || (ExpireDateTo != new DateTime(1990, 01, 01) ? obj.ExpireDate <= ExpireDateTo : 1 == 1))
+            if (SerialYear != 0)
+                query = query.Where(obj => obj.DocYear == SerialYear);
 
+            if (TransactionDatFrom != minDate)
+                query = query.Where(obj => obj.DocDate >= TransactionDatFrom);
 
-                 && (DocType != 0 ? obj.DocTypeID == DocType : (obj.DocTypeID != (int)LawDoc_TypesEnum.Dession && obj.DocTypeID != (int)LawDoc_TypesEnum.PmDession && obj.DocTypeID != (int)LawDoc_TypesEnum.LawProject))
+            if (TransactionDatTo != minDate)
+                query = query.Where(obj => obj.DocDate <= TransactionDatTo);
 
-                 && (IsUnderStudy != 0 ? IsUnderStudy == 1 ? obj.UnderStudy == true : obj.UnderStudy == false : 1 == 1)
+            if (ExpireDatefrom != minDate)
+                query = query.Where(obj => obj.ExpireDate >= ExpireDatefrom);
 
-                 && (isPublished != 0 ? isPublished == 1 ? obj.isPublished == true : obj.isPublished == false : 1 == 1)
-                 && (DocCategory != 0 ? obj.DocCategoryID == DocCategory : 1 == 1)
-                 && (lastProcedureId != 0 ? obj.ProcedureTypeCode == lastProcedureId : 1 == 1)
+            if (ExpireDateTo != minDate)
+                query = query.Where(obj => obj.ExpireDate <= ExpireDateTo);
 
-                 //&& (assignedPerson != 0 ? obj.AssignedPersonID == assignedPerson : 1 == 1)
-                 //&& (StatusID != 0 ? obj.StatusID == StatusID : 1 == 1)
-                 //&& (RequestTo != 0 ? obj.Q_RequestTo == RequestTo : 1 == 1)
-                 //&& (selectedRequestedFrom.Count > 0 ? selectedRequestedFrom.Contains(obj.Q_RequestFrom.Value) : 1 == 1)
-                 && (LawSubject != "" ? obj.DocSubject.Contains(LawSubject) : 1 == 1)
-                 && (LawNotes != "" ? obj.DocSubject.Contains(LawNotes) : 1 == 1)
-                 && (LawDetails != "" ? obj.DocDetails.Contains(LawDetails) : 1 == 1)
-                 ////&& (RelatedOrgs.Count > 0 ? RelatedOrgs.Contains(obj.Q_RequestTo.Value) : 1 == 1)
-                 //&& (RelatedOrgs != 0 ? DC.Parliament_Requestedby
-                 //                         .Where(x => x.PersonID == RelatedOrgs)
-                 //                         .Select(x => x.LawID).Contains(obj.code)
-                 //                         : 1 == 1)
-                 select obj);
+            if (DocType != 0)
+                query = query.Where(obj => obj.DocTypeID == DocType);
+            else
+                query = query.Where(obj => obj.DocTypeID != (int)LawDoc_TypesEnum.Dession
+                    && obj.DocTypeID != (int)LawDoc_TypesEnum.PmDession
+                    && obj.DocTypeID != (int)LawDoc_TypesEnum.LawProject);
 
-            var _out = result.ToList<View_LawsDocs>();
+            if (IsUnderStudy != 0)
+                query = query.Where(obj => obj.UnderStudy == (IsUnderStudy == 1));
+
+            if (isPublished != 0)
+                query = query.Where(obj => obj.isPublished == (isPublished == 1));
+
+            if (DocCategory != 0)
+                query = query.Where(obj => obj.DocCategoryID == DocCategory);
+
+            if (lastProcedureId != 0)
+                query = query.Where(obj => obj.ProcedureTypeCode == lastProcedureId);
+
+            if (LawSubject != "")
+                query = query.Where(obj => obj.DocSubject.Contains(LawSubject));
+
+            if (LawNotes != "")
+                query = query.Where(obj => obj.DocSubject.Contains(LawNotes));
+
+            if (LawDetails != "")
+                query = query.Where(obj => obj.DocDetails.Contains(LawDetails));
+
+            query = query.OrderByDescending(obj => obj.DocYear).ThenByDescending(obj => obj.DocNum);
+
+            var _out = query.ToList<View_LawsDocs>();
+
             PostResultToAudit((int)SysModulesRef.Legislation, nameof(SysModulesRef.Legislation), "Search Result /GetList", SearchKyes, JsonConvert.SerializeObject(_out), _out.Count);
             return _out;
         }

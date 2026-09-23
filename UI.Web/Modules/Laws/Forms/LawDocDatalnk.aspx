@@ -821,16 +821,13 @@
                                                                 </ItemTemplate>
                                                                  
                                                             </asp:TemplateColumn>
-
                                                             <asp:TemplateColumn HeaderText="سبب الربط">
-                                                            <ItemStyle HorizontalAlign="Center" />
-                                                            <HeaderStyle Wrap="False" HorizontalAlign="Center" />
-                                                            <ItemTemplate>
-                                                                <asp:DropDownList ID="lstLinkedStatus" runat="server" AutoPostBack="true"  CssClass="Select2Drop" Width="100%"></asp:DropDownList>
-                                                            </ItemTemplate>
-                                                        </asp:TemplateColumn>
-
-
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                                <HeaderStyle Wrap="False" HorizontalAlign="Center" />
+                                                                <ItemTemplate>
+                                                                    <asp:DropDownList ID="lstLinkedStatus" runat="server" AutoPostBack="true" CssClass="Select2Drop" Width="100%"></asp:DropDownList>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateColumn>
 
 
 

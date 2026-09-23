@@ -41,15 +41,23 @@ namespace UI.Web.Modules.Laws
                 "SELECT Code, NameAr, imgPath FROM Sectors ORDER BY NameAr").ToList();
 
             var sectorCounts = objLookup.DC.Database.SqlQuery<SectorCountItem>(
-                    "SELECT s.SectorId, COUNT(DISTINCT s.Law_DocId) AS DocCount FROM Law_DocSectors s INNER JOIN Law_DocData d ON d.Code = s.Law_DocId WHERE (@p0 = 0 OR d.DocTypeID = @p0) GROUP BY s.SectorId",
+                    "SELECT s.SectorId, COUNT( s.Law_DocId) AS DocCount FROM Law_DocSectors s INNER JOIN Law_DocData d ON d.Code = s.Law_DocId WHERE (@p0 = 0 OR d.DocTypeID = @p0) GROUP BY s.SectorId",
                     typeId).ToList();
+
+            //var sectorCounts = objLookup.DC.Database.SqlQuery<SectorCountItem>(
+            //        "SELECT s.SectorId, COUNT(DISTINCT s.Law_DocId) AS DocCount FROM Law_DocSectors s INNER JOIN Law_DocData d ON d.Code = s.Law_DocId WHERE (@p0 = 0 OR d.DocTypeID = @p0) GROUP BY s.SectorId",
+            //        typeId).ToList();
 
             if (typeId==1)
             {
                  
                 var sectorCountsCode2 = objLookup.DC.Database.SqlQuery<SectorCountItem>(
-                    "SELECT s.SectorId, COUNT(DISTINCT s.Law_DocId) AS DocCount FROM Law_DocSectors s INNER JOIN Law_DocData d ON d.Code = s.Law_DocId WHERE (@p0 = 0 OR d.DocTypeID = @p0) GROUP BY s.SectorId",
+                    "SELECT s.SectorId, COUNT(s.Law_DocId) AS DocCount FROM Law_DocSectors s INNER JOIN Law_DocData d ON d.Code = s.Law_DocId WHERE (@p0 = 0 OR d.DocTypeID = @p0) GROUP BY s.SectorId",
                     Constant.Law_DocTypeQanuanMarsum).ToList();
+
+                //var sectorCountsCode2 = objLookup.DC.Database.SqlQuery<SectorCountItem>(
+                //    "SELECT s.SectorId, COUNT(DISTINCT s.Law_DocId) AS DocCount FROM Law_DocSectors s INNER JOIN Law_DocData d ON d.Code = s.Law_DocId WHERE (@p0 = 0 OR d.DocTypeID = @p0) GROUP BY s.SectorId",
+                //    Constant.Law_DocTypeQanuanMarsum).ToList();
 
                 sectorCounts.AddRange(sectorCountsCode2);
 

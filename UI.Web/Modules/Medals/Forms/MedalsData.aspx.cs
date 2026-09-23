@@ -1261,11 +1261,14 @@ namespace UI.Web.Medals.Forms
 
                 // Set CurrentPageIndex FIRST before setting DataSource
                 // This ensures the page index is set before DataBind processes it
+                int pageSize = grdPersons.PageSize > 0 ? grdPersons.PageSize : 20;
+                int pageCount = (dataSource.Count + pageSize - 1) / pageSize; // ceiling division
+
                 int currentPageIndex = grdPersons.CurrentPageIndex;
-                if (currentPageIndex >= dataSource.Count / grdPersons.PageSize)
-                {
-                    currentPageIndex = Math.Max(0, (dataSource.Count / grdPersons.PageSize) - 1);
-                }
+                if (currentPageIndex < 0)
+                    currentPageIndex = 0;
+                else if (currentPageIndex >= pageCount)
+                    currentPageIndex = Math.Max(0, pageCount - 1);
 
                 grdPersons.CurrentPageIndex = currentPageIndex;
                 grdPersons.DataSource = dataSource;
@@ -1508,6 +1511,24 @@ namespace UI.Web.Medals.Forms
                 PersonsAll.Visible = false;
                 grdInboundItems.Visible = true;
 
+                // Ensure CurrentPageIndex is within valid range before binding to avoid HttpException
+                int totalItems = duplicatedList != null ? duplicatedList.Count : 0;
+                int pageSize = grdInboundItems.PageSize > 0 ? grdInboundItems.PageSize : 20;
+                int pageCount = (totalItems + pageSize - 1) / pageSize; // may be 0 if no items
+
+                if (pageCount == 0)
+                {
+                    // no data, reset to first page
+                    grdInboundItems.CurrentPageIndex = 0;
+                }
+                else
+                {
+                    if (grdInboundItems.CurrentPageIndex < 0)
+                        grdInboundItems.CurrentPageIndex = 0;
+                    else if (grdInboundItems.CurrentPageIndex >= pageCount)
+                        grdInboundItems.CurrentPageIndex = pageCount - 1;
+                }
+
                 grdInboundItems.DataSource = duplicatedList;
                 grdInboundItems.DataBind();
                 pager1.ItemCount = duplicatedList.Count;
@@ -1651,11 +1672,6 @@ namespace UI.Web.Medals.Forms
             if ((currnetPageIndx <= 0))
             {
                 currnetPageIndx = 1;
-            }
-
-            if ((currnetPageIndx > grdInboundItems.PageCount))
-            {
-                currnetPageIndx = (grdInboundItems.PageCount - 1);
             }
 
             pager1.CurrentIndex = currnetPageIndx;
@@ -2222,6 +2238,31 @@ namespace UI.Web.Medals.Forms
         }
 
         /// <summary>
+        /// Handle paging for the PersonsAll DataGrid (search results grid)
+        /// </summary>
+        protected void PersonsAll_PageIndexChanged(object source, DataGridPageChangedEventArgs e)
+        {
+            PersonsAll.CurrentPageIndex = e.NewPageIndex;
+
+            var objpersonsList = objRepository.GetPersonList(NullDateifEmpty(txtFilterDatefrom.Text),
+                NullDateifEmpty(txtFilterDateTo.Text), ZeroIntergerIFNull(lstFilterType.SelectedValue),
+                0, ZeroIntergerIFNull(lstFilterOrg.SelectedValue),
+                ZeroIntergerIFNull(lstFilterProcedures.SelectedValue), txtFilterName.Text,
+                ZeroIntergerIFNull(lstFilterJobGrade.SelectedValue), getBool(ReadSession("ViewPrivate")), MapSearchKeys(), ZeroIntergerIFNull(lstFilterMedalCat.SelectedValue),
+                ZeroIntergerIFNull(txtFilterFileSerial.Text), ZeroIntergerIFNull(txtFilterFileYear.Text));
+
+            PersonsAll.DataSource = objpersonsList;
+            PersonsAll.DataBind();
+
+            personDiv.Visible = true;
+            PersonsAll.Visible = true;
+
+            tblshow.Visible = false;
+            pager1.Visible = false;
+            grdInboundItems.Visible = false;
+        }
+
+        /// <summary>
         /// Handle pager command for grdPersons pagination
         /// </summary>
         protected void pagerPersons_Command(object sender, CommandEventArgs e)
@@ -2230,11 +2271,6 @@ namespace UI.Web.Medals.Forms
             if ((currnetPageIndx <= 0))
             {
                 currnetPageIndx = 1;
-            }
-
-            if ((currnetPageIndx > grdPersons.PageCount))
-            {
-                currnetPageIndx = (grdPersons.PageCount - 1);
             }
 
             // Set both pager and grid indices BEFORE FillMedalPersons
