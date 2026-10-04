@@ -408,6 +408,7 @@ namespace UI.Web.Modules.Laws.Forms
                    .ToList();
 
                 }
+                result= result.Where(c=>(c.Level ==0 && c.Path!=null) || (c.Level =1)).t
             }
 
 
